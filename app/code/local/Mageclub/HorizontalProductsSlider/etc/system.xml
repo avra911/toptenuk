@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <mageclub translate="label" module="mageclub_horizontalproductsslider">
+            <label>Mageclub Extensions</label>
+            <sort_order>210</sort_order>
+        </mageclub>
+    </tabs>
+	<sections>
+        <mageclub_horizontalproductsslider>
+            <label>Horizontal Products Slider</label>
+            <tab>mageclub</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+            	<mageclub_horizontalproductsslider translate="label">
+                    <label>Horizontal Products Slider: Config General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>     
+                    	<show translate="label" module="core">
+							<label>Enabled</label>
+							<sort_order>10</sort_order>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show>	
+						
+						<title translate="label">
+                            <label>Module Title </label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>    	
+						<jquery translate="label" module="core">
+							<label>Jquery</label>
+							<sort_order>30</sort_order>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</jquery>
+						<width_slideshow translate="label">
+                            <label>Slideshow Width</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </width_slideshow> 
+						<height translate="label">
+                            <label>Height of Thumbnail </label>
+                            <frontend_type>text</frontend_type>
+							<backend_model>mageclub_horizontalproductsslider/system_config_backend_HorizontalProductsSlider_checkInputHeight</backend_model>
+                            <comment>Empty for auto resize.</comment>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </height>   
+						
+                        <width translate="label">
+                            <label>Width of Thumbnail </label>
+                            <frontend_type>text</frontend_type>
+							<backend_model>mageclub_horizontalproductsslider/system_config_backend_HorizontalProductsSlider_checkInputWidth</backend_model>
+                            <comment>Empty for auto resize.</comment>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </width>     
+						
+						<itemheight translate="label">
+                            <label>Height of Item </label>
+                            <frontend_type>text</frontend_type>
+							<backend_model>mageclub_horizontalproductsslider/system_config_backend_HorizontalProductsSlider_checkInputItemheight</backend_model>
+                            <comment>Empty for auto resize.</comment>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </itemheight>  
+						
+                        <itemwidth translate="label">
+                            <label>Width of Item </label>
+                            <frontend_type>text</frontend_type>
+							<backend_model>mageclub_horizontalproductsslider/system_config_backend_HorizontalProductsSlider_checkInputItemwidth</backend_model>
+                            <comment>Empty for auto resize.</comment>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </itemwidth>  
+						
+                        <mode translate="label">
+                            <label>Type of product display </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mageclub_horizontalproductsslider/system_config_source_listType</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mode>
+                        <catsid translate="label">
+                            <label>Categories ID: </label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>mageclub_horizontalproductsslider/system_config_backend_HorizontalProductsSlider_checkInputCategory</backend_model>
+                            <comment>Eg: 22,23. Empty for all categories.</comment>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </catsid>                             							
+                        <quanlity translate="label">
+							<label># Qty of Products</label>
+							<sort_order>110</sort_order>
+							<frontend_type>text</frontend_type>							
+                            <backend_model>mageclub_horizontalproductsslider/system_config_backend_HorizontalProductsSlider_checkInputQty</backend_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</quanlity>    
+						
+						
+						
+						<show_price translate="label">
+                            <label>Show Product Price? </label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_price>  
+						
+                        <show_cart translate="label">
+                            <label>Show Add to cart? </label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_cart>
+						
+						<pagination translate="label">
+                            <label>Pagination</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pagination>
+						
+						<scroll_last translate="label">
+                            <label>Scroll To Last</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </scroll_last>
+						
+						<loop_items translate="label">
+                            <label>Loop Items</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </loop_items>
+						
+						<autoplay translate="label">
+                            <label>Autoplay</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>170</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </autoplay>
+						
+						<scroll_bar translate="label">
+                            <label>Scroll Bar</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </scroll_bar>
+						
+						<no_items translate="label">
+                            <label>Number Of Items Per Move</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>190</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </no_items>
+
+                        <speed translate="label">
+                            <label>Speed</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </speed> 
+
+                        <delay translate="label">
+                            <label>Delay</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </delay>						
+                           
+            		</fields>
+            	</mageclub_horizontalproductsslider>
+            </groups>
+        </mageclub_horizontalproductsslider>
+    </sections>    
+</config>

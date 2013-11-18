@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <AdvLay_Nav>
+            <active>true</active>
+            <codePool>local</codePool>
+            <self_name>Advance Layed Navigation</self_name>
+            <priority>10120</priority>
+        </AdvLay_Nav>
+    </modules>
+</config>

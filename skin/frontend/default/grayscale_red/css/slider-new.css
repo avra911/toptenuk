@@ -1,0 +1,282 @@
+body {
+  overflow-x: hidden;
+  	position:relative;
+	height:100%
+}
+label, #active, img { -moz-user-select:none;-webkit-user-select:none; }
+.catch { display: block; height: 0; overflow: hidden; }
+#slider {
+	margin: 0 auto;
+}
+
+#respond input {
+display: none;
+	margin: 0 auto;
+	max-width: 370px;
+	height:100%
+}
+/* NEW EXPERIMENT */
+/* Slider Setup */
+
+article {
+
+}
+
+#slider input {
+	display: none;
+	height:100%
+}
+
+
+#slide1:checked ~ #slides .inner { margin-left:0; }
+#slide2:checked ~ #slides .inner { margin-left:-100%; }
+#slide3:checked ~ #slides .inner { margin-left:-200%; }
+
+
+#overflow {
+	width: 100%;
+	overflow: hidden;
+		position:relative;
+	height:100%
+}
+article img {
+width: 100%;
+height: 280px;
+	
+}
+
+#slides .inner {
+	width: 300%;
+	line-height: 0;
+      width: 100%\0/;
+
+	
+}
+
+*+html #slides .inner { 
+    width: 100%;
+}
+
+
+#slides article {
+	width: 33.33333%;
+	width: 100% \0/;
+	float: left;
+}
+
+/* Slider Styling */ width: 100%\9; /* IE 8 and below */
+/* Control Setup */
+
+#controls {
+width: 100%;
+height: 50px;
+z-index: 500;
+position: absolute;
+margin-top: 100px;
+}
+
+#controls label { 
+	display: none;
+	width: 50px;
+	height: 50px;
+
+}
+
+#active {
+	text-align: center;
+display:none;
+}
+
+#active label {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: #bbb;
+}
+
+#active label:hover {
+	background: #ccc;
+	border-color: #777 !important;
+}
+
+#controls label:hover {
+	opacity: 0.8;
+}
+
+#slide1:checked ~ #controls label:nth-child(2), 
+#slide2:checked ~ #controls label:nth-child(3), 
+#slide3:checked ~ #controls label:nth-child(1)  {
+	background: url(./images/para-images/arrows.png) -24px 10px no-repeat;
+	float: right;
+	margin: 0 -10px 0 0;
+	display: block;
+}
+
+
+#slide1:checked ~ #controls label:nth-child(3),
+#slide2:checked ~ #controls label:nth-child(1),
+#slide3:checked ~ #controls label:nth-child(2) {
+background: url(./images/para-images/arrows.png) 20px 10px no-repeat;
+	float: left;
+	margin: 40 0 0 -70px;
+	display: block;
+}
+
+#slide1:checked ~ #active label:nth-child(1),
+#slide2:checked ~ #active label:nth-child(2),
+#slide3:checked ~ #active label:nth-child(3) {
+	background: #333;
+	border-color: #333 !important;
+}
+
+/* Info Box */
+
+.info {
+	line-height: 20px;
+	margin: 0 0 -150%;
+	position: absolute;
+	padding: 30px 30px;
+	color: #fff;
+	text-align: left;
+	font-weight:bold;
+	font-family:'Droid Sans',sans-serif;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; 
+	box-sizing: border-box; 
+}
+
+.info .title {
+	color: #fff;
+	margin: 0 210px 0;
+	padding:15px 30px 0 20px;
+	font-size: 22px;
+	z-index:999;
+	width: 70%;
+	height: 42px;
+	background: url(./images/background_title.png) no-repeat;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; 
+	box-sizing: border-box; 
+}
+
+.info .undertitle {
+	color: #fff;
+margin: 0 145px;
+padding:15px 30px 0 20px;
+	font-size: 22px;
+	background: url(./images/background_text.png) no-repeat;
+	width: 80%;
+	height: 42px;
+	-moz-box-sizing: border-box;
+ -webkit-box-sizing: border-box;
+	box-sizing: border-box; 
+}
+.info .number {
+	color: #fff;
+margin: 0 280px 30px;
+	font-size: 22px;
+	padding:15px 30px 0 50px;
+	width: 37%;
+	height: 42px;
+	background: url(./images/background_number.png) no-repeat;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+box-sizing: border-box; 
+}
+
+#navlist
+{
+font-family:"Oswald",Helvetica,sans-serif;
+margin: 10px 170px;
+list-style: square;
+font-size:12px
+}
+
+#navlist li 
+{
+
+background-repeat: no-repeat;
+background-position: 0 .5em;
+}
+
+/* Slider Styling */
+
+#slides {
+	height: 280px;
+	margin-left: 4px;
+	margin-right: 7px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	box-shadow: 1px 1px 4px #666;
+}
+
+
+/* Animation */
+
+#slides .inner {
+	-webkit-transform: translateZ(0);
+	-webkit-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000); 
+	-moz-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000); 
+    -ms-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000); 
+     -o-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000); 
+        transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000); /* easeInOutQuart */
+
+	-webkit-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); 
+	-moz-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); 
+    -ms-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); 
+     -o-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); 
+        transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); /* easeInOutQuart */
+
+}
+
+#slider {
+	-webkit-transform: translateZ(0);
+	-webkit-transition: all 0.5s ease-out;
+	-moz-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
+}
+
+#controls label{
+	-webkit-transform: translateZ(0);
+	-webkit-transition: opacity 0.2s ease-out;
+	-moz-transition: opacity 0.2s ease-out;
+	-o-transition: opacity 0.2s ease-out;
+	transition: opacity 0.2s ease-out;
+}
+
+#slide1:checked ~ #slides article:nth-child(1) .info,
+#slide2:checked ~ #slides article:nth-child(2) .info,
+#slide3:checked ~ #slides article:nth-child(3) .info, {
+	opacity: 1;
+	-webkit-transition: all 1s ease-out 0.6s;
+	-moz-transition: all 1s ease-out 0.6s;
+	-o-transition: all 1s ease-out 0.6s;
+	transition: all 1s ease-out 0.6s;
+}
+
+.info, #controls, #slides, #active, #active label, .info h3, .desktop, .tablet, .mobile {
+	-webkit-transform: translateZ(0);
+	-webkit-transition: all 0.5s ease-out;
+	-moz-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
+
+}
+
+/* Respond Options */
+
+#desktop:checked ~ #slider {
+	
+}
+
+#tablet:checked ~ #slider {max-width: 850px;}
+
+#mobile:checked ~ #slider {max-width: 450px;}
+
+#desktop:checked ~ #slider .desktop,
+#tablet:checked ~ #slider .tablet,
+#mobile:checked ~ #slider .mobile {
+	color: #777;
+	opacity: 1;
+}

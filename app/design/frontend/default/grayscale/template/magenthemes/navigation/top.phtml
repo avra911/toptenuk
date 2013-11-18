@@ -1,0 +1,63 @@
+<!-- navigation BOF -->
+<?php 
+$megaeffect = Mage::getStoreConfig('mtcolinusadmin/navigation/menu_effect');
+$_menu = $this->renderCategoriesMenuHtml(0, 'level-top', 'sub-wrapper' );
+$routeName = Mage::app()->getRequest()->getRouteName();
+$identifier = Mage::getSingleton('cms/page')->getIdentifier(); 
+ 
+?>
+<?php if($_menu): ?>
+<div class="mt-navigation visible-desktop">
+	<div class="mt-main-menu">
+		<ul id="nav" class="megamenu"> 
+			<?php if(Mage::getStoreConfig('mtcolinusadmin/navigation/home')){?>
+			<li class="level0 home level-top<?php if($routeName == 'cms' && $identifier == 'home') {echo " active";}?>">
+				<a href="<?php echo $this->getBaseUrl(); ?>" class="level-top"><span><?php echo $this->__('Home'); ?></span></a>
+			</li> 
+			<?php }?>
+			<?php
+			echo $_menu;
+			if(Mage::getStoreConfig('mtcolinusadmin/custom_menu/enable_custom')){  
+				$getidentifier = Mage::getStoreConfig('mtcolinusadmin/custom_menu/static_identifier');
+				$arrayidentifier = explode("\r\n", $getidentifier); 
+				foreach($arrayidentifier as $mcustom){ 
+					$custom_menu = Mage::getModel('cms/block')->load($mcustom);
+					if($custom_menu->getIsActive()) {
+						echo '
+						<li class="level0 level-top parent custom-block">
+							<a href="#" class="level-top">
+								<span>'.$custom_menu->getTitle().'</span>
+							</a>
+							<div class="sub-wrapper">'.$this->getLayout()->createBlock('cms/block')->setBlockId($mcustom)->toHtml().'</div>
+						</li>';
+					}
+				} 
+				$pageid = Mage::getStoreConfig('mtcolinusadmin/custom_menu/page_id');
+				$arraypageid = explode("\r\n", $pageid);
+				foreach($arraypageid as $id){ 
+					$page = Mage::getModel('cms/page')->load($id);  
+					if($page->getIsActive()) {
+				?> 
+					<li class="level0 level-top parent custom-block <?php if($routeName == 'cms' && $identifier == $page->getIdentifier()) {echo " active";}?>">
+						<a href="<?php echo Mage::helper('cms/page')->getPageUrl($id);?>" class="level-top">
+							<span><?php echo $page->getTitle();?></span>
+						</a> 
+					</li> 
+				<?php 
+					}
+				}
+			}
+			?>
+		</ul>
+	</div>
+</div> 
+<script type="text/javascript"> 
+$mtkb(function(){ 
+	$mtkb(".megamenu").megamenu({
+		'animation':'<?php echo $megaeffect;?>', 
+		'mm_timeout': 150
+	}); 
+});  
+</script>
+<?php endif ?>
+<!-- navigation EOF -->

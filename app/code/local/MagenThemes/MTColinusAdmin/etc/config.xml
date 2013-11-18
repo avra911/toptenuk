@@ -1,0 +1,453 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MagenThemes_MTColinusAdmin>
+            <version>2.0.6</version>
+        </MagenThemes_MTColinusAdmin>
+    </modules>
+    <frontend>
+        <routers>
+            <mtcolinusadmin>
+                <use>standard</use>
+                <args>
+                    <module>MagenThemes_MTColinusAdmin</module>
+                    <frontName>mtcolinusadmin</frontName>
+                </args>
+            </mtcolinusadmin>
+        </routers>
+        <events>
+            <controller_action_postdispatch>
+                <observers>
+                    <magenthemes_mtcolinusadmin_prevnext_product_collection>
+                        <class>mtcolinusadmin/observer</class>
+                        <method>setPrevNextProductCollection</method>
+                    </magenthemes_mtcolinusadmin_prevnext_product_collection>
+                </observers>
+            </controller_action_postdispatch>
+        </events>
+        <layout>
+            <updates>
+                <mtcolinusadmin>
+                    <file>mtcolinusadmin.xml</file>
+                </mtcolinusadmin>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+	       <mtcolinusadmin>
+				<use>admin</use>
+				<args>
+				    <module>MagenThemes_MTColinusAdmin</module>
+				    <frontName>mtcolinusadmin</frontName>
+				</args>
+	       </mtcolinusadmin>
+        </routers>
+    </admin>
+    <adminhtml>
+		<layout>
+		    <updates>
+			<mtcolinusadmin>
+			    <file>mtcolinusadmin.xml</file>
+			</mtcolinusadmin>
+		    </updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <mtcolinusadmin>
+                <class>MagenThemes_MTColinusAdmin_Model</class>
+            </mtcolinusadmin>
+        </models>
+        <resources>
+            <mtcolinusadmin_setup>
+                <setup>
+                    <module>MagenThemes_MTColinusAdmin</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </mtcolinusadmin_setup>
+            <mtcolinusadmin_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </mtcolinusadmin_write>
+            <mtcolinusadmin_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </mtcolinusadmin_read>
+        </resources>
+        <blocks>
+            <mtcolinusadmin>
+                <class>MagenThemes_MTColinusAdmin_Block</class>
+            </mtcolinusadmin>
+        </blocks>
+        <helpers>
+            <mtcolinusadmin>
+                <class>MagenThemes_MTColinusAdmin_Helper</class>
+            </mtcolinusadmin>
+        </helpers>
+    </global>
+    <default>
+		<mtcolinusadmin>
+		    <mtcolinusadmin_appearance>			
+		    	<theme_styles>blue</theme_styles>
+		    	<theme_responsive>1</theme_responsive>
+				<bg_color>#FFFFFF</bg_color>
+				<text_color>#676767</text_color>
+				<link_color>#454545</link_color>
+				<link_hover_color>#89B9C5</link_hover_color>
+				<link_active_color>#89B9C5</link_active_color>
+				<pattern_body_select>none</pattern_body_select>
+				<pattern_header_select>none</pattern_header_select>   
+				<pattern_top_select>none</pattern_top_select>   
+				<pattern_copyright_select>none</pattern_copyright_select>   
+				<pattern_footer_select>none</pattern_footer_select> 
+				<header_bg_color>#FFFFFF</header_bg_color>
+				<header_text_color>#ADADAD</header_text_color>
+				<header_link_color>#676767</header_link_color>
+				<header_link_hover_color>#89B9C5</header_link_hover_color>
+				<header_link_active_color>#89B9C5</header_link_active_color>
+				<top_bg_color>#89B9C5</top_bg_color>
+				<top_bg_hover_color>#FFFFFF</top_bg_hover_color>
+				<top_text_color>#757575</top_text_color>
+				<top_link_color>#FFFFFF</top_link_color>
+				<top_link_hover_color>#89B9C5</top_link_hover_color>
+				<top_link_active_color>#89B9C5</top_link_active_color>
+				<icons_bg_color>#CFCFCF</icons_bg_color>
+				<icons_bg_hover_color>#89B9C5</icons_bg_hover_color>
+				<buttons_bg_color>#CFCFCF</buttons_bg_color>
+				<buttons_bg_hover_color>#89B9C5</buttons_bg_hover_color>
+				<buttons_text_color>#FFFFFF</buttons_text_color>
+				<buttons_text_hover_color>#FFFFFF</buttons_text_hover_color>
+				<addtocart_bg_color>#89B9C5</addtocart_bg_color>
+				<addtocart_bg_hover_color>#CFCFCF</addtocart_bg_hover_color>
+				<mainmenu_bg_color>#ECECEC</mainmenu_bg_color>
+				<mainmenu_dropdown_bg_color>#FFFFFF</mainmenu_dropdown_bg_color>
+				<mainmenu_bg_hover_color>#89B9C5</mainmenu_bg_hover_color>
+				<mainmenu_bg_active_color>#89B9C5</mainmenu_bg_active_color>
+				<mainmenu_text_color>#4a4a4a</mainmenu_text_color>
+				<mainmenu_link_color>#757575</mainmenu_link_color>
+				<mainmenu_link_hover_color>#FFFFFF</mainmenu_link_hover_color> 
+				<mainmenu_link_active_color>#FFFFFF</mainmenu_link_active_color>
+				<mainmenu_link_sub_hover_color>#89B9C5</mainmenu_link_sub_hover_color> 
+
+				<copyright_bg_color>#C1C1C1</copyright_bg_color>
+				<copyright_text_color>#676767</copyright_text_color>
+				<copyright_link_color>#676767</copyright_link_color>
+				<copyright_link_hover_color>#89B9C5</copyright_link_hover_color>
+				<copyright_link_active_color>#89B9C5</copyright_link_active_color>
+
+				<footer_static_bg_color>#ECECEC</footer_static_bg_color>
+				<footer_static_text_color>#676767</footer_static_text_color>
+				<footer_static_link_color>#838383</footer_static_link_color>
+				<footer_static_link_hover_color>#89B9C5</footer_static_link_hover_color>
+				<footer_static_link_active_color>#89B9C5</footer_static_link_active_color>
+				<b_font>Open Sans</b_font>
+				<header_font></header_font>
+				<maintop_font></maintop_font>
+				<m_font>Open Sans</m_font>
+				<footer_font></footer_font>
+				<copyright_font></copyright_font>
+				<color_panel>1</color_panel>
+				<back_top>1</back_top>
+				<favicon>favicon.ico</favicon>				
+		    </mtcolinusadmin_appearance>
+		    <navigation>
+		    	<menu_effect>slide</menu_effect>
+		    	<home>1</home>
+		    	<show_type>static</show_type>
+		    	<show_learn_more>1</show_learn_more>
+		    </navigation>
+		    <custom_menu>
+		    	<enable_custom>1</enable_custom>
+		    	<static_identifier>custom_menu</static_identifier>
+		    </custom_menu>
+		    <catalog> 
+		    	<catalog_grid_2col>3</catalog_grid_2col>
+		    	<catalog_grid_1col>4</catalog_grid_1col>
+		    </catalog>
+		    <product>
+                <product_bestseller>1</product_bestseller>
+                <product_bestseller_title>Best Seller</product_bestseller_title>
+                <product_bestseller_numb>3</product_bestseller_numb>
+		    	<product_show_newlabel>1</product_show_newlabel>
+		    	<product_newlabel_positions>top-right</product_newlabel_positions>
+		    	<product_show_salelabel>1</product_show_salelabel>
+		    	<product_salelabel_positions>top-left</product_salelabel_positions>
+		    	<product_img_width>282</product_img_width>
+		    	<product_img_height>320</product_img_height>
+		    	<desc_striptags>0</desc_striptags>
+		    </product>
+		    <thumbnailscroller> 
+				<direction>horizontal</direction>
+				<control>1</control>
+				<items>3</items>
+				<width>124</width>
+				<height>124</height>
+				<auto_scroll>4000</auto_scroll>
+				<speed>500</speed>
+				<enabled_scroller>1</enabled_scroller>
+				<enabled_zoom>1</enabled_zoom>
+				<enabled_lightbox>1</enabled_lightbox>
+				<width_z>300</width_z>
+				<height_z>300</height_z>
+				<width_lbox>500</width_lbox>
+				<height_lbox>650</height_lbox>
+			</thumbnailscroller>
+			<smartmenu>  
+				<enabled>1</enabled>
+				<title>Smart Menu</title>
+				<menustyle>Accordion</menustyle>
+				<event>click</event>
+		    </smartmenu>
+			<productslist>
+				<enabled>1</enabled>
+				<title>Products List</title>
+                <fillter_cat>1</fillter_cat>
+                <fillter_order>1</fillter_order>
+				<addtocart>1</addtocart>
+				<addtowishlist>1</addtowishlist>
+				<addtocompare>1</addtocompare>
+				<price>1</price>
+				<review>1</review>
+				<shortdescription>1</shortdescription> 
+				<qty>8</qty>
+				<items_width>282</items_width>
+				<width>282</width>
+				<height>320</height>
+				<detail>1</detail>
+				<desc_striptags>0</desc_striptags>
+		    </productslist>
+            <productsscroller>
+                <enabled>1</enabled>
+                <auto>5000</auto>
+                <mode>latest</mode>
+                <title>MT Products Scroller</title>
+                <price>1</price>
+                <qty>5</qty>
+                <items>4</items>
+                <items_scroll>1</items_scroll>
+                <addtocart>1</addtocart>
+                <detail>1</detail>
+                <review>1</review>
+                <catsid></catsid>
+                <main_width>1200</main_width>
+                <main_height>426</main_height>
+                <width_item>282</width_item>
+                <width>282</width>
+                <height>320</height>
+                <animation>1000</animation>
+                <review>1</review>
+                <hoverpause>1</hoverpause>
+                <desc_striptags>0</desc_striptags>
+            </productsscroller>
+            <logoscroller>
+                <enabled>1</enabled>
+                <main_width>1170</main_width>
+                <main_height>57</main_height>
+                <width_item>180</width_item>
+                <items_scroll>1</items_scroll>
+                <items_display>5</items_display>
+                <auto>5000</auto>
+                <animation>1000</animation>
+                <logo_path><![CDATA[<logo title="Magento Ecommerce" link="http://www.magentocommerce.com/">media/wysiwyg/logo/magento_logo.png</logo>
+<logo title="Magento Ecommerce" link="http://www.magentocommerce.com/">media/wysiwyg/logo/magento_logo.png</logo>
+<logo title="Magento Ecommerce" link="http://www.magentocommerce.com/">media/wysiwyg/logo/magento_logo.png</logo>
+<logo title="Magento Ecommerce" link="http://www.magentocommerce.com/">media/wysiwyg/logo/magento_logo.png</logo>
+<logo title="Magento Ecommerce" link="http://www.magentocommerce.com/">media/wysiwyg/logo/magento_logo.png</logo>
+<logo title="Magento Ecommerce" link="http://www.magentocommerce.com/">media/wysiwyg/logo/magento_logo.png</logo>
+<logo title="Magento Ecommerce" link="http://www.magentocommerce.com/">media/wysiwyg/logo/magento_logo.png</logo>]]></logo_path>
+            </logoscroller>
+			<static_config>		
+				<static_header_1><![CDATA[<div class="support header-static">	
+<p class="span2">
+	<span>Support</span>
+</p>
+<ul class="span10">
+	<li><?php echo $this->__('support:') ?> <small><?php echo $this->__('+49 89 8996160') ?></small></li>
+	<li><span><?php echo $this->__('Monday to Friday') ?>: 09:00am - 06:00pm </span></li>
+</ul>	
+</div>]]></static_header_1>
+				<static_header_2><![CDATA[<div class="email header-static">
+<p class="span2">
+	<span>Email</span>
+</p>
+<ul class="span10">
+	<li>email: <a href="mailto:d@support.com" title="d@support.com">d@support.com</a></li>
+	<li><span>everyday (24/7)</span></li>
+</ul>	
+</div>]]></static_header_2> 
+				<static_slideshow_1><![CDATA[<div class="men row-fluid show-grid">
+	<img src="{baseurl}media/wysiwyg/men.png" alt="Spring Collection" />
+</div>]]></static_slideshow_1> 
+				<static_slideshow_2><![CDATA[<div class="women row-fluid show-grid">
+	<img src="{baseurl}media/wysiwyg/women.png" alt="Glassy Collection" />
+</div>]]></static_slideshow_2>
+				<static_slideshow_1_cols>6</static_slideshow_1_cols>
+				<static_slideshow_2_cols>6</static_slideshow_2_cols>
+				<top_static_footer_1><![CDATA[<div class="block subscribe">
+<form id="newsletter-validate-detail"  class="clearfix" method="post" action="newsletter/subscriber/new/">
+	<div class="block-content">
+		<div class="row-fluid show-grid">
+			<div class="form-subscribe-header span6">
+				<label for="newsletter">Sign up for newsletter</label>
+			</div>
+			<div class="input-box span6">
+				<div class="mt-subscribe row-fluid show-grid">
+					<div class="span7">
+						<div class="input">
+							<input type="text" class="input-text required-entry validate-email pull-left" title="Newsletter" id="newsletter" name="email" />
+						</div>
+					</div>
+					<div class="span5">
+						<div class="clear-margin clearfix">
+							<button class="button pull-left" title="Subscribe" data-placement="top" rel="tooltip" data-original-title="Subscribe" type="submit">
+								<span>
+									<span>Subscribe</span>
+								</span>
+							</button>
+						</div>							
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+	//&lt;![CDATA[
+		var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+	//]]&gt;
+</script>
+</div>]]></top_static_footer_1> 
+				<top_static_footer_2><![CDATA[<div class="mt-social">
+<div class="mt-social-inner row-fluid show-grid">
+	<h3 class="span6 hidden-tablet"><span class="pull-right">Follow Us</span></h3>
+	<div class="span6">
+		<ul class="pull-right">
+			<li class="facebook item first pull-left"><a href="#" title="Join us on Facebook" data-placement="top" rel="tooltip" data-original-title="Join us on Facebook">Join us on Facebook</a></li>
+			<li class="twitter item pull-left"><a href="#" title="Follow us on Twitter" data-placement="top" rel="tooltip" data-original-title="Follow us on Twitter">Follow us on Twitter</a></li>
+			<li class="google item pull-left"><a href="#" title="Join us on Google Plus" data-placement="top" rel="tooltip" data-original-title="Join us on Google Plus">Join us on Google Plus</a></li>
+			<li class="youtube item pull-left"><a href="#" title="Watch us on YouTube" data-placement="top" rel="tooltip" data-original-title="Watch us on YouTube">Watch us on YouTube</a></li>
+			<li class="pinterest item pull-left"><a href="#" title="Pinterest" rel="tooltip" data-placement="top" data-original-title="Pinterest">Pinterest</a></li>
+			<li class="rss item last pull-left"><a href="#" title="Subscribe to RSS feed" data-placement="top" rel="tooltip" data-original-title="Subscribe to RSS feed">Subscribe to RSS feed</a></li>			
+		</ul>
+	</div>		
+</div>
+</div>]]></top_static_footer_2>
+				<top_static_footer_3></top_static_footer_3>
+				<top_static_footer_4></top_static_footer_4>
+				<bottom_static_footer_1><![CDATA[<div class="about-us">
+<div class="footer-static-title">
+	<h3>
+		<img src="{baseurl}media/wysiwyg/logo.png" alt="MT Colinus Fashion Store" />
+	</h3>
+</div>
+<div class="footer-static-content">
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+		Aenean ac lobortis lacus. Duis venenatis neque.
+		<br/>
+		Phasellus vulputate ante at massa abcd 
+		<br/>			
+		sagittis auctor.
+	</p>
+</div>
+</div>]]></bottom_static_footer_1>
+				<bottom_static_footer_2><![CDATA[<div class="block_support">
+<div class="footer-static-title">
+	<h3>Support</h3>
+	<div class="title-divider">
+		<span>&nbsp;</span>
+	</div>
+	<ul class="support_content clearfix">
+		<li class="item first"><a href="#" title="">Veritatis et quasi architecto</a></li>
+		<li class="item"><a href="#" title="">Beatae vitae dicta sunt explicabo</a></li>
+		<li class="item"><a href="#" title="">Nemo enim ipsam voluptatem</a></li>
+		<li class="item"><a href="#" title="">Voluptas sit aspernatur</a></li>
+		<li class="item last"><a href="#" title="">Aut odit aut , sed quia</a></li>
+	</ul>
+</div>
+<div class="footer-static-content">
+	<h3>We do accept</h3>
+	<div class="title-divider">
+		<span>&nbsp;</span>
+	</div>
+	<ul class="card_visit clearfix">
+		<li style="margin:0 8px 0 0;"><a href="#" title=""><img alt="" src="{baseurl}media/wysiwyg/accept-1.png" /></a></li>
+		<li style="margin:0 8px 0 0;"><a href="#" title=""><img alt="" src="{baseurl}media/wysiwyg/accept-2.png" /></a></li>
+		<li style="margin:0 8px 0 0;"><a href="#" title=""><img alt="" src="{baseurl}media/wysiwyg/accept-3.png" /></a></li>
+		<li style="margin:0 8px 0 0;"><a href="#" title=""><img alt="" src="{baseurl}media/wysiwyg/accept-4.png" /></a></li>
+		<li style="margin:0 8px 0 0;"><a href="#" title=""><img alt="" src="{baseurl}media/wysiwyg/accept-5.png" /></a></li>
+	</ul>
+</div>
+</div>]]></bottom_static_footer_2>  
+				<static_product_tab_desc><![CDATA[<p><strong>Lorem Ipsum</strong><span>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span></p>]]></static_product_tab_desc>	
+				<static_product_view_sidebar><![CDATA[<div class="product-static">
+<div class="product-static-inner"><a title="" href="#"><img src="{baseurl}media/wysiwyg/product-static1.png" alt="Product Static 1" /></a></div>
+<div class="product-static-inner"><a title="" href="#"><img src="{baseurl}media/wysiwyg/product-static2.png" alt="Product Static 2" /></a></div>
+<div class="addthis_toolbox addthis_default_style">
+	<a class="addthis_button_preferred_1"></a>
+	<a class="addthis_button_preferred_2"></a>
+	<a class="addthis_button_preferred_3"></a>
+	<a class="addthis_button_preferred_4"></a>
+	<a class="addthis_button_compact"></a>
+	<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f6710784ab2800b"></script>	
+</div>]]></static_product_view_sidebar>	 
+				<static_header_cols_1>4</static_header_cols_1>
+				<static_header_cols_2>4</static_header_cols_2>
+				<static_main_top1_cols>6</static_main_top1_cols>
+				<static_main_top2_cols>6</static_main_top2_cols>
+				<top_static_footer_1_cols>6</top_static_footer_1_cols>
+				<top_static_footer_2_cols>6</top_static_footer_2_cols>
+				<top_static_footer_3_cols></top_static_footer_3_cols>
+				<top_static_footer_4_cols></top_static_footer_4_cols>
+				<bottom_static_footer_1_cols>6</bottom_static_footer_1_cols>
+				<bottom_static_footer_2_cols>6</bottom_static_footer_2_cols>
+				<bottom_static_footer_3_cols></bottom_static_footer_3_cols>
+				<bottom_static_footer_4_cols></bottom_static_footer_4_cols> 
+				<static_product_tab_title>Custom Tab</static_product_tab_title>
+				<static_product_view_sidebar_cols>3</static_product_view_sidebar_cols>
+				
+				<enabled_static_header_1>1</enabled_static_header_1>
+				<enabled_static_header_2>1</enabled_static_header_2>
+				<enabled_static_slideshow_1>1</enabled_static_slideshow_1>
+				<enabled_static_slideshow_2>1</enabled_static_slideshow_2>
+				<enabled_top_static_footer_1>1</enabled_top_static_footer_1>
+				<enabled_top_static_footer_2>1</enabled_top_static_footer_2>
+				<enabled_top_static_footer_3>0</enabled_top_static_footer_3>
+				<enabled_top_static_footer_4>0</enabled_top_static_footer_4>
+				<enabled_bottom_static_footer_1>1</enabled_bottom_static_footer_1>
+				<enabled_bottom_static_footer_2>1</enabled_bottom_static_footer_2>
+			</static_config>
+			<social_config>
+				<static_title_twitter>Form twitter</static_title_twitter>
+				<static_title_fb>Facebook</static_title_fb>
+				<twitter_account>9magentothemes</twitter_account>
+				<twitter_numb>3</twitter_numb>
+				<facebook_page>http://www.facebook.com/magentothemes</facebook_page>
+			</social_config>
+			<otherconfig>	
+				<hover_product>show_images</hover_product>		
+		    	<enabled_ajax>1</enabled_ajax>
+		    	<enabled_priceslider>1</enabled_priceslider>
+		    	<enable_quicklook>1</enable_quicklook>
+		    	<enabled_compare>1</enabled_compare>
+		    	<enabled_wisthlist>1</enabled_wisthlist>
+		    	<enabled_social_link>1</enabled_social_link>
+		    	<enabled_social>0</enabled_social>
+		    	<social_position>right</social_position>
+		    	<fb_link>https://www.facebook.com/magentothemes</fb_link>
+		    	<twitter_link>https://twitter.com/9magentothemes</twitter_link>
+		    	<google_link>http://9magentothemes.com</google_link>
+		    	<rss_link>http://9magentothemes.com</rss_link>
+		    	<p_link>http://9magentothemes.com</p_link>
+		    	<y_link>http://9magentothemes.com</y_link>			
+		    </otherconfig>
+		</mtcolinusadmin>
+    </default>
+</config>

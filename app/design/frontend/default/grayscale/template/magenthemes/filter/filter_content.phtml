@@ -1,0 +1,365 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+$config = Mage::getStoreConfig('mtcolinusadmin/mtcolinusadmin_appearance');
+$otherconfig = Mage::getStoreConfig('mtcolinusadmin/otherconfig');
+$catalogconfig = Mage::getStoreConfig('mtcolinusadmin/catalog');
+$productconfig = Mage::getStoreConfig('mtcolinusadmin/product');
+$imgW = $productconfig['product_img_width'];
+$imgH = $productconfig['product_img_height'];
+?> 
+<?php
+    $_productCollection=$this->getLoadedProductCollection();
+    $_helper = $this->helper('catalog/output');
+?>
+<?php if(!$_productCollection->count()): ?>
+<div class="mt-empty">
+	<p class="note-msg">
+		<?php echo $this->__('There are no products matching the selection.') ?>
+	</p>
+	<div class="mt-product-empty">
+		<p>
+			<?php echo $this->__('* This is a text static displayed if category is empty.') ?>
+		</p>
+		<p>
+			<?php echo $this->__('You can put your own content here.') ?>
+		</p>
+		<p>
+	    	<a href="<?php echo $this->getBaseUrl(); ?>" class="backtohome">
+	    		<span><?php echo $this->__('Back to home'); ?></span>
+	    	</a>
+	    </p> 
+	</div>
+</div>
+<?php else: ?>
+<div class="category-products">
+    <?php echo $this->getToolbarHtml() ?>
+    <?php // List mode ?>
+    <?php if($this->getMode()!='grid'): ?>
+    <?php $_iterator = 0; ?>
+    <ol class="products-list" id="products-list">
+    <?php foreach ($_productCollection as $_product): ?>
+        <li class="item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
+            <div class="item-inner row-fluid show-grid content">			
+				<div class="span4">
+					<div class="products-list-image">
+					<!--Product image-->
+						<?php if($otherconfig['enable_quicklook']){?> 
+						<a href="javascript:void(0);" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" class="product-image visible-desktop" id="product_<?php echo $_product->getId() ?>">
+							<?php echo $this->helper('mtcolinusadmin')->getLabel($_product);  ?>
+							<?php if($otherconfig['hover_product']=='show_image'){?>
+							<img class="mt-hover" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+							<?php }?>
+							<img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" />
+							<div class="main-quicklook" style="display: none;">
+							<button type="button" title="<?php echo $this->__('Quickview') ?>" class="button btn-quicklook" onclick="quicklook('<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Quickview') ?></span></span></button>
+							</div>
+						</a>
+						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" class="product-image hidden-desktop" id="product_<?php echo $_product->getId() ?>">
+							<?php echo $this->helper('mtcolinusadmin')->getLabel($_product);  ?>
+							<?php if($otherconfig['hover_product']=='show_image'){?>
+							<img class="mt-hover" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+							<?php }?>
+							<img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" />
+						</a>
+						<?php }else{?>
+						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" class="product-image" id="product_<?php echo $_product->getId() ?>">
+							<?php echo $this->helper('mtcolinusadmin')->getLabel($_product);  ?>
+							<?php if($otherconfig['hover_product']=='show_image'){?>
+							<img class="mt-hover" src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" />
+							<?php }?>
+							<img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" />
+						</a> 
+						<?php }?>
+						<a class="funcybox_quicklook quickllook" href="<?php echo $this->getUrl('mtcolinusadmin/index/quickview/product_id/' . $_product->getId()); ?>" id='quicklook<?php echo $_product->getId()?>' style='display:none'>Quick look</a>
+					</div>
+				</div>
+                <?php // Product description ?>
+                <div class="product-shop span8">
+                    <div class="f-fix">
+						<?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>						
+                        <h3 class="product-name">
+							<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a>
+						</h3>						
+						
+                        <?php if($_product->getRatingSummary()): ?>
+                            <?php echo $this->getReviewsSummaryHtml($_product) ?>
+                        <?php endif; ?>						
+						<div class="title-divider"><span>&nbsp;</span></div>
+												
+                        <?php echo $this->getPriceHtml($_product, true) ?>
+						<div class="title-divider"><span>&nbsp;</span></div>
+												
+						<div class="desc std">
+							<h3>
+								<span><?php echo $this->__('quick look') ?></span>
+							</h3>
+                            <?php 
+                                if($productconfig['desc_striptags']){
+                                    $short_desc = strip_tags($_product->getShortDescription(), '<p>');
+                                }else{
+                                    $short_desc = $_product->getShortDescription();
+                                }
+                            ?>
+                            <?php echo $_helper->productAttribute($_product, $short_desc, 'short_description') ?> 
+                            <?php /* <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a> */ ?>
+                        </div>	
+						<div class="title-divider"><span>&nbsp;</span></div>
+						
+						<div class="products-list-inner clearfix">
+							<span class="ajax-loading-list"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'/skin/frontend/default/mt_colinus/images/loading.gif';?>"/></span>
+							
+							<div class="addtocart pull-left pad_right_1">
+								<?php if($otherconfig['enabled_ajax']){?>
+								<?php if($_product->isSaleable()): ?>
+									<?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) ) { ?>
+									<p class="add-to-cart clearfix"><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="ajaxaddcart('<?php echo $this->getAddToCartUrl($_product) ?>',<?php echo $_product->getId() ?>)"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
+									<?php } else { ?>
+									<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="showOptions('<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+									<a href='<?php echo $this->getUrl('mtcolinusadmin/index/options',array('product_id'=>$_product->getId()));?>' class='fancybox' id='fancybox<?php echo $_product->getId()?>' style='display:none'>Add</a>
+									<?php }?>
+								<?php else: ?>
+									<p class="availability out-of-stock"><span><?php echo $this->__('Availability: ') ?></span><span><?php echo $this->__('Out of stock') ?></span></p>
+								<?php endif; ?>
+								<?php }else{?>
+									<?php if($_product->isSaleable()): ?>
+										<p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
+									<?php else: ?>
+										<p class="availability out-of-stock"><span><?php echo $this->__('Availability: ') ?></span><span><?php echo $this->__('Out of stock') ?></span></p>
+									<?php endif; ?>
+								<?php }?>
+							</div>		
+
+							<div class="wishlist pull-left mt-actions pad_right_1">
+								<?php if ($this->helper('wishlist')->isAllow()) : ?>
+									<p>
+										<a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" data-id="<?php echo $_product->getId()?>" class="link-wishlist" title="<?php echo $this->__('Add to Wishlist') ?>"><?php echo $this->__('Add to Wishlist') ?></a>
+									</p>
+								<?php endif; ?>
+							</div>	
+
+							<div class="compare pull-left mt-actions pad_right_1">
+								<?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+									<p>										
+										<a href="<?php echo $_compareUrl ?>" data-id="<?php echo $_product->getId()?>" class="link-compare" title="<?php echo $this->__('Add to Compare') ?>"><?php echo $this->__('Add to Compare') ?></a>
+									</p>
+								<?php endif; ?>
+							</div>			
+							
+							<div class="detail-button pull-left">
+								<button type="button" title="<?php echo $this->__('Detail') ?>" class="button btn-detail" onclick="setLocation('<?php echo $_product->getProductUrl() ?>')">
+									<span>
+										<span><?php echo $this->__('Detail') ?></span>
+									</span>
+								</button>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    <?php endforeach; ?>
+    </ol>
+    <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+    <?php else: ?>
+    <?php // Grid Mode ?>
+    <?php $_collectionSize = $_productCollection->count() ?>
+    <?php
+    $_columnCount = $catalogconfig['catalog_grid_2col']; 
+    $span = 12/$_columnCount;
+    ?>
+    <?php $i=0; foreach ($_productCollection as $_product): ?>
+        <?php if ($i++%$_columnCount==0): ?>
+        <div class="products-grid row-fluid show-grid">
+        <?php endif ?>
+            <div class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?> span<?php echo $span;?>">
+				<div class="item-inner content">
+					<div class="product-image">
+						<div class="product-thumb">
+							<?php if($otherconfig['enable_quicklook']){?> 
+							<a href="javascript:void(0);" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" class="product-image visible-desktop" id="product_<?php echo $_product->getId() ?>">
+								<?php echo $this->helper('mtcolinusadmin')->getLabel($_product);  ?> 
+								<?php if($otherconfig['hover_product']=='show_image'){?>
+									<img class="mt-hover" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+								<?php }?>
+								<img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" />
+								<div class="main-quicklook" style="display: none;">
+									<button type="button" title="<?php echo $this->__('Quicklook') ?>" class="button btn-quicklook" onclick="quicklook('<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Quickview') ?></span></span></button>
+								</div>
+							</a>									
+							<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" class="product-image hidden-desktop" id="product_<?php echo $_product->getId() ?>">
+								<?php echo $this->helper('mtcolinusadmin')->getLabel($_product);  ?>
+								<?php if($otherconfig['hover_product']=='show_image'){?>
+									<img class="mt-hover" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+								<?php }?>
+								<img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" />
+							</a>
+							<?php }else{?>
+							<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" class="product-image" id="product_<?php echo $_product->getId() ?>">
+								<?php echo $this->helper('mtcolinusadmin')->getLabel($_product);  ?>
+								<?php if($otherconfig['hover_product']=='show_image'){?>
+									<img class="mt-hover" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+								<?php }?>
+								<img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" />
+							</a> 
+							<?php }?> 
+							<a class="funcybox_quicklook quickllook" href="<?php echo $this->getUrl('mtcolinusadmin/index/quickview/product_id/' . $_product->getId()); ?>" id='quicklook<?php echo $_product->getId()?>' style='display:none'>Quick look</a>
+						</div>
+						<div class="mask" onclick="setLocation('<?php echo $_product->getProductUrl() ?>')">
+							<h3 class="product-name">
+								<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a>
+							</h3>
+							<!--Short Description-->
+							<?php if ($_product->getShortDescription()):?>
+								<div class="short-description hidden-tablet">								
+									<?php 
+                                    if($productconfig['desc_striptags']){
+                                        $short_desc = strip_tags($_product->getShortDescription(), '<p>');
+                                    }else{
+                                        $short_desc = $_product->getShortDescription();
+                                    }
+                                    ?>
+                                    <?php echo $_helper->productAttribute($_product, $short_desc, 'short_description') ?> 
+								</div>
+							<?php endif;?>
+							<!--Review-->
+							<?php if($_product->getRatingSummary()): ?>
+								<?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+							<?php endif; ?>
+						</div>												
+					</div>
+					
+					<div class="top-actions-inner">	
+						<span class="ajax-loading"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'/skin/frontend/default/mt_colinus/images/loading.gif';?>"/></span>
+						<?php echo $this->getPriceHtml($_product, true) ?>					
+						<div class="mt-actions clearfix">  
+							<!--Add to cart-->
+							<div class="addtocart pull-left br">
+								<?php if($otherconfig['enabled_ajax']){?>
+								<?php if($_product->isSaleable()): ?>
+									<?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) ) { ?>
+									<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="ajaxaddcart('<?php echo $this->getAddToCartUrl($_product) ?>',<?php echo $_product->getId() ?>)"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+									<?php } else { ?>
+									<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="showOptions('<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+									<a href='<?php echo $this->getUrl('mtcolinusadmin/index/options',array('product_id'=>$_product->getId()));?>' class='fancybox' id='fancybox<?php echo $_product->getId()?>' style='display:none'>Add</a>
+									<?php }?> 
+								<?php else: ?>
+									<p class="availability out-of-stock pull-left">
+										<?php /* <span><?php echo $this->__('Availability: ') ?></span> */ ?>
+										<span class="out"><?php echo $this->__('Out of stock') ?></span>
+									</p>
+								<?php endif; ?>
+								<?php }else{?>
+									<?php if($_product->isSaleable()): ?>
+										<p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
+									<?php else: ?>
+										<p class="availability out-of-stock pull-left">
+											<?php /* <span><?php echo $this->__('Availability: ') ?></span> */ ?>
+											<span class="out"><?php echo $this->__('Out of stock') ?></span>
+										</p>
+									<?php endif; ?>
+								<?php }?>
+							</div>							
+							
+							<div class="wishlist pull-left br">
+								<p><?php if ($this->helper('wishlist')->isAllow()) : ?>
+									<a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" data-id="<?php echo $_product->getId()?>" class="link-wishlist" title="<?php echo $this->__('Add to Wishlist') ?>"><?php echo $this->__('Add to Wishlist') ?></a>
+								<?php endif; ?></p>
+							</div>
+							<div class="compare pull-left br">
+								<p><?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+									<?php /* <span class="separator">|</span> */ ?>
+									<a href="<?php echo $_compareUrl ?>" data-id="<?php echo $_product->getId()?>" class="link-compare" title="<?php echo $this->__('Add to Compare') ?>"><?php echo $this->__('Add to Compare') ?></a>
+								<?php endif; ?></p>
+							</div>							
+							
+							<div class="detail pull-left">
+								<button type="button" title="<?php echo $this->__('Detail') ?>" class="button btn-detail" onclick="setLocation('<?php echo $_product->getProductUrl() ?>')">
+									<span>
+										<span><?php echo $this->__('Detail') ?></span>
+									</span>
+								</button>
+							</div>
+						</div>					
+					</div>					
+                </div>
+            </div>
+        <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+        </div>
+        <?php endif ?>
+        <?php endforeach ?>
+        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+    <?php endif; ?>
+
+    <div class="toolbar-bottom">
+        <?php echo $this->getToolbarHtml() ?>
+    </div>
+</div>
+<script type="text/javascript"> 
+	$mtkb(document).ready(function(){
+		$mtkb(".funcybox_quicklook").fancybox({ 
+			'autoScale'			: true, 
+			'transitionIn'		: 'none',
+			'transitionOut'		: 'none',
+			'scrolling'			: 'no',
+			'autoDimensions'	: true,
+			'hideOnContentClick': true,
+			'type'				: 'iframe',
+			'onComplete': function(){
+				$mtkb('#fancybox-frame').load(function() {   
+					$mtkb('#fancybox-content').height($mtkb(this).contents().find('body').outerHeight()+0);
+					$mtkb('#fancybox-content').width($mtkb(this).contents().find('body').outerWidth()+0); 
+					$mtkb('#fancybox-wrap').css({'width':'auto'});
+					$mtkb.fancybox.center();
+					$mtkb.fancybox.resize(); 
+			    }); 
+			} 
+		}); 
+		
+	});
+	<?php if($otherconfig['hover_product']=='show_image'){?>
+	var productHover = {
+        over: function(){
+            $mtkb('.mt-hover', this).animate({opacity:1}, 200); 
+        },
+        timeout: 100,
+        out: function(){
+            $mtkb('.mt-hover', this).animate({opacity:0}, 200);
+        }
+    };
+    $mtkb('.products-grid .product-image, .products-list .product-image').hoverIntent( productHover );
+    <?php }?>
+	/*var tooltip = $mtkb('a.link-wishlist,a.link-compare,button.btn-detail,button.btn-cart');
+	$mtkb(tooltip).tooltip(true);*/
+
+</script>
+<?php endif; ?>

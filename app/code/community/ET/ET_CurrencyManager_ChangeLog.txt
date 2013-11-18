@@ -1,0 +1,93 @@
+=====================================
+This file describes changes between versions of module ET_CurrencyManager for Magento.
+
+Legend:
+* bug fix
++ added functionality
+- removed functionality
+
+=====================================
+TODO:
++ Добавить возможность менять/Add the ability to change:
+  group symbol (разделитель тысяч/thousands separator)
+  decimal separator (, or .)
+  Так как в ядре Магенто это не реализовано, то придётся писать на прямую в файлы /lib/Zend/Locale/Data/
+  Since it is not implemented in the Magento core, it will have to write directly to files in /lib/Zend/Locale/Data/
+* Reallocate js files (from skin to js folder)
+=====================================
+
+ver. 1.0.2 (28/09/2012)
+* Fixed problem with entering configuration in Magento 1.4.0.0
+* Fixed problem in JS for configurable products (in some cases price was XX.0000001 or xx.9999999)
+* Fixed JS for error with disabled Module output
+* Fixed JS Stackoverflow in IE
+
+ver. 1.0.1 (13/09/2012)
+* BOM in helper removed
+
+ver. 1.0.0 (31/08/2012)
++ Changed license type from AFL to ETWS Free License v1
++ Refactored code for Magento standards
++ Added link to extension settings in Currency Options Section
++ Added additional information about extension support in settings section
++ Added default values for specific currency section
+* Some errors fixed
+
+ver. 0.3.0 (19/08/2012)
++ Added custom events for currency conversion
++ Added phpUnit tests (beta version)
+* Fixed problem with -0
+* Fixed problem displaying 0 with positive precisions (some times displayed 0 instead of 0.00 for precision 2)
+
+ver. 0.2.9 (17/04/2012)
+* fixed rounding for JS with negative precision
+
+ver. 0.2.8 (23/02/2012)
+* fixed rounding for JS (bug was when rounding 9.9999999 or 9.00000001)
+
+ver. 0.2.7 (06/02/2012)
+* fixed param initialisations for JS (bug was for multicurrency stores)
+
+ver. 0.2.6 (23/01/2012)
+* fixed bug in function, which replaces zero decimals with custom suffix (for currency without currency symbol)
+
+ver. 0.2.5 (20/01/2012)
+* fixed bug in function, which replaces zero decimals with custom suffix (it was only in locales, where group separator is unbreakable whitespace - chr160)
+
+ver. 0.2.4 (28/11/2011)
+* fixed bug for displaying price instead zero text in configurable products when total price is zero
+
+ver. 0.2.3 (29/09/2011)
+* fixed bug for displaying 2 different currencies in checkout
+* fixed bug for displaying negative precision using javascript
+* added type="text/javascript" for scrypt tag (w3c validation is ok now)
+
+ver. 0.2.2 (17/08/2011)
++ Replace zero decimals with suffix. Example: display 49,- instead of 49.00 or 49, but 49.99 remains unchanged.
++ Enable/Disable price rounding (precision parameter) on product input\edit page
+* small bug fixes
+
+ver. 0.2.1 (22/07/2011)
+* Fixed skipping currency formatting for admin dashboard
+
+ver. 0.2.0
++ restyled configuration
++ added ability to set currency specific options (all, not only symbol replace/ Actual for multi currency stores without store views).
++ added ability to disable precision change for checkout process (exclude checkout)
++ added ability to replace zero prices with any string. Example: instead 0.00 display FREE
+* changed Cut Zero Decimal algorithm (now it's work fine with any currency precision, not only precision=2)
+
+ver. 0.1.5
++ Added ability to cut zero decimals if it = 0. (price == floor(price))
+
+ver. 0.1.4
+* Added support for dynamic prices (Bundled, Configurable, Simple with custom options).
+
+ver. 0.1.2
+* Added separate configurations for enable/disable module for frontend and admin.
+
+ver. 0.1.1
+* repacking for Magento Connect
+
+ver. 0.1.0
++ stable release

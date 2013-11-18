@@ -1,0 +1,96 @@
+<?php
+/******************************************************
+ * @package MT Slideshow module for Magento 1.4.x.x, Magento 1.5.x.x and Magento 1.6.x.x
+ * @version 2.0.0
+ * @author http://www.magentheme.com
+ * @copyright (C) 2011- MagenTheme.Com
+ * @license PHP files are GNU/GPL
+*******************************************************/
+?>
+<?php
+    $slide = $this->getDataSlide();
+    $path = Mage::getBaseUrl('media');
+    $w = $slide->getWidth();
+    $h = $slide->getHeight();    
+?>
+<?php if(Mage::helper('mtslideshow')->isActive()): ?>
+    <?php if($slide && $slide->getId()): ?>  
+	    <div class="container">
+			<div class="slider-wrapper theme-default <?php if(Mage::helper('mtslideshow')->isControlNavThumbsDefault() == 1) {echo 'thumbnav';}?>">
+				<div id="slider<?php echo $slide->getId(); ?>" class="nivoSlider loading">
+				<?php $i = 0; ?>
+				<?php foreach ( $slide->getImageList() as $s ) : ?>
+					<?php $i++; ?>
+					<?php if($s['disabled'] == MagenThemes_Mtslideshow_Model_Disabled::STATUS_ENABLED): ?>
+						<?php if(Mage::helper('mtslideshow')->isControlNavThumbsDefault() && Mage::helper('mtslideshow')->isControlNavThumbsFromRelDefault()): ?>
+							<?php if($s['link']) : ?>
+								<a href="<?php echo $s['link']; ?>"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'js/magenthemes/mtslideshow/timthumb/timthumb.php?src='.$this->helper('mtslideshow/image')->init($s['file']).'&amp;h='.$h.'&amp;w='.$w ?>" title="#htmlcaption<?php echo $s['image_id']; ?>" alt="<?php echo $s['title']; ?>|<?php echo $s['description']; ?>" rel="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'js/magenthemes/mtslideshow/timthumb/timthumb.php?src='.$this->helper('mtslideshow/image')->init($s['file']).'&amp;h='.Mage::helper('mtslideshow')->getHeightThumbnail().'&amp;w='.Mage::helper('mtslideshow')->getWidthThumbnail() ?>" /></a>
+							<?php else: ?>			    
+								<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'js/magenthemes/mtslideshow/timthumb/timthumb.php?src='.$this->helper('mtslideshow/image')->init($s['file']).'&amp;h='.$h.'&amp;w='.$w ?>" title="#htmlcaption<?php echo $s['image_id']; ?>" alt="<?php echo $s['title']; ?>|<?php echo $s['description']; ?>" rel="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'js/magenthemes/mtslideshow/timthumb/timthumb.php?src='.$this->helper('mtslideshow/image')->init($s['file']).'&amp;h='.Mage::helper('mtslideshow')->getHeightThumbnail().'&amp;w='.Mage::helper('mtslideshow')->getWidthThumbnail() ?>" />
+							<?php endif; ?>
+						<?php else: ?>
+							<?php if($s['link']) : ?>
+								<a href="<?php echo $s['link']; ?>"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'js/magenthemes/mtslideshow/timthumb/timthumb.php?src='.$this->helper('mtslideshow/image')->init($s['file']).'&amp;h='.$h.'&amp;w='.$w ?>" title="#htmlcaption<?php echo $s['image_id']; ?>" alt="<?php echo $s['title']; ?>" /></a>
+							<?php else: ?>			    
+								<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'js/magenthemes/mtslideshow/timthumb/timthumb.php?src='.$this->helper('mtslideshow/image')->init($s['file']).'&amp;h='.$h.'&amp;w='.$w ?>" title="#htmlcaption<?php echo $s['image_id']; ?>" alt="<?php echo $s['title']; ?>" />
+							<?php endif; ?>
+						<?php endif; ?>
+					<?php endif; ?>
+				<?php endforeach; ?>                    
+				</div> 
+				<?php $j = 0; ?>
+				<?php foreach ( $slide->getImageList() as $s ) : ?>
+				<?php $j++; ?>
+				<?php if($s['disabled'] == MagenThemes_Mtslideshow_Model_Disabled::STATUS_ENABLED): ?>                        
+					<div id="htmlcaption<?php echo $s['image_id']; ?>" class="nivo-html-caption hidden-phone">
+					<h2><?php echo $s['title']; ?></h2>
+					<p><?php echo $s['description']; ?></p>
+					</div>                        
+				<?php endif; ?>
+				<?php endforeach; ?>
+				<div id="directnav<?php echo $slide->getId(); ?>" class="nivo-directionNav hidden-phone">
+					<a class="nivo-prevNav  hidden-phone"><?php echo $this->__('Prev');?></a>
+					<a class="nivo-nextNav  hidden-phone"><?php echo $this->__('Next');?></a>
+				</div>
+				<div id="pagenav<?php echo $slide->getId(); ?>" class="nivo-controlNav Navleft hidden-phone" style="width: <?php echo Mage::helper('mtslideshow')->isControlNavWidthDefault();?>px;"></div>
+			</div>
+			<script type="text/javascript">
+				$jq.fn._reverse = []._reverse; 
+				$jq(window).load(function() {	
+					$jq('#slider<?php echo $slide->getId(); ?>').nivoSlider({
+						effect: '<?php echo Mage::helper('mtslideshow')->getEffectDefault() ?>',
+						slices: <?php echo Mage::helper('mtslideshow')->getSlicesDefault() ?>, // For slice animations
+						boxCols: <?php echo Mage::helper('mtslideshow')->getBoxColsDefault() ?>, // For box animations
+						boxRows: <?php echo Mage::helper('mtslideshow')->getBoxRowsDefault() ?>, // For box animations
+						animSpeed: <?php echo Mage::helper('mtslideshow')->getAnimSpeedDefault() ?>, // Slide transition speed
+						pauseTime: <?php echo Mage::helper('mtslideshow')->getPauseTimeDefault() ?>, // How long each slide will show
+						startSlide: <?php echo Mage::helper('mtslideshow')->getStartSlideDefault() ?>, // Set starting Slide (0 index)
+						directionNav: <?php if(Mage::helper('mtslideshow')->isDirectionNavDefault() == 1) {echo 'true';} else {echo 'false';} ?>, //Next & Prev
+						directionNavHide: <?php if(Mage::helper('mtslideshow')->isDirectionNavHideDefault() == 1) {echo 'true';} else {echo 'false';} ?>, //Only show on hover
+						controlNav: <?php if(Mage::helper('mtslideshow')->isControlNavDefault() == 1) {echo 'true';} else {echo 'false';} ?>, // 1,2,3... navigation
+						controlNavThumbs: <?php if(Mage::helper('mtslideshow')->isControlNavThumbsDefault() == 1) {echo 'true';} else {echo 'false';} ?>, // Use thumbnails for Control Nav
+						controlNavThumbsFromRel: <?php if(Mage::helper('mtslideshow')->isControlNavThumbsFromRelDefault() == 1) {echo 'true';} else {echo 'false';} ?>, // Use image rel for thumbs			    
+						controlNavThumbsSearch: '.jpg', // Replace this with...
+						controlNavThumbsReplace: '_thumb.jpg', // ...this in thumb Image src
+						keyboardNav: <?php if(Mage::helper('mtslideshow')->isKeyboardNavDefault() == 1) {echo 'true';} else {echo 'false';} ?>, //Use left & right arrows
+						pauseOnHover: <?php if(Mage::helper('mtslideshow')->isPauseOnHoverDefault() == 1) {echo 'true';} else {echo 'false';} ?>, //Stop animation while hovering
+						manualAdvance: <?php if(Mage::helper('mtslideshow')->isManualAdvanceDefault() == 1) {echo 'true';} else {echo 'false';} ?>, //Force manual transitions
+						captionOpacity: <?php echo Mage::helper('mtslideshow')->getCaptionOpacityDefault() ?>, //Universal caption opacity
+						prevText: '<?php echo Mage::helper('mtslideshow')->getPrevTextDefault() ?>', // Prev directionNav text
+						nextText: '<?php echo Mage::helper('mtslideshow')->getNextTextDefault() ?>', // Next directionNav text
+						randomStart: <?php if(Mage::helper('mtslideshow')->isRandomStartDefault() == 1) {echo 'true';} else {echo 'false';} ?>, //Random start
+						autoplay: <?php if(Mage::helper('mtslideshow')->isAutoplayDefault() == 1) {echo 'true';} else {echo 'false';} ?>, //Random start
+						beforeChange: function(){}, // Triggers before a slide transition
+						afterChange: function(){}, // Triggers after a slide transition
+						slideshowEnd: function(){}, // Triggers after all slides have been shown
+						lastSlide: function(){}, // Triggers when last slide is shown
+						afterLoad: function(){}, // Triggers when slider has loaded 
+						itemNavdisplay: <?php echo Mage::helper('mtslideshow')->isControlItemNavDisplayDefault() ?>,
+						slideId: <?php echo $slide->getId(); ?>,
+						itemNavheight: <?php echo Mage::helper('mtslideshow')->isControlItemNavHeightDefault() ?>
+					});
+				});
+			</script>
+	    </div>
+	<?php endif; ?> 
+<?php endif; ?>

@@ -1,0 +1,38 @@
+<?php 
+/*------------------------------------------------------------------------
+# APL Solutions and Vision Co., LTD
+# ------------------------------------------------------------------------
+# Copyright (C) 2008-2010 APL Solutions and Vision Co., LTD. All Rights Reserved.
+# @license - Copyrighted Commercial Software
+# Author: APL Solutions and Vision Co., LTD
+# Websites: http://www.joomlavision.com/ - http://www.magentheme.com/
+-------------------------------------------------------------------------*/ 
+$config = Mage::getStoreConfig('mtcolinusadmin/mtcolinusadmin_appearance'); 
+if($config['theme_responsive']){	
+?>
+<?php 
+	$title=Mage::getStoreConfig('mtcolinusadmin/smartmenu/title');
+	$style=Mage::getStoreConfig('mtcolinusadmin/smartmenu/menustyle');
+	$event=Mage::getStoreConfig('mtcolinusadmin/smartmenu/event');  
+?>
+<div class="mt-drillmenu hidden-desktop">
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="mt-nav-container">
+				<div class="block-title clearfix">
+					<a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<span class="brand"><?php echo $this->__('Navigation');?></span>
+				</div>				
+				<div class="nav-collapse collapse"> 
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div> 
+<?php }?>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?> 
+<config>
+	<acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <mageclub_horizontalproductsslider>
+                                            <title>Horizontal Products List</title>
+                                        </mageclub_horizontalproductsslider>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <translate>
+			<modules>
+				<Mageclub_HorizontalProductsSlider>
+					<files>
+						<default>Mageclub_HorizontalProductsSlider.csv</default>
+					</files>
+				</Mageclub_HorizontalProductsSlider>
+			</modules>
+		</translate>
+</config>

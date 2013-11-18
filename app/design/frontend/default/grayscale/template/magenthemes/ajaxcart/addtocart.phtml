@@ -1,0 +1,33 @@
+<?php $_product = $this->getProduct(); ?>
+<?php $buttonTitle = $this->__('Add to Cart'); ?>
+<?php if($_product->isSaleable()): ?>
+    <div class="add-to-cart row-fluid show-grid">        
+		<div class="addcart span6">
+			<button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span></span></button>
+		</div>
+			
+		<div class="qty-container span6">
+			<?php if(!$_product->isGrouped()): ?>
+			<div class="quantity-label pull-left hidden-tablet">
+				<label for="qty"><?php echo $this->__('Quantity:') ?></label>
+			</div>			
+			<div class="quantity-input pull-right">
+				<input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty validate-number
+
+" />						
+				<div class="custom">
+					<input type="button" class="increase items" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;">				
+					<input type="button" class="reduced items" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) && qty > 0 ) result.value--;return false;" />	
+				</div>				
+			</div>
+			<?php endif; ?>
+			<span class="textrepuired pull-right" style="line-height:normal"></span>
+		</div>
+		<?php echo $this->getChildHtml('', true, true) ?>
+        <span class="cart-loading"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'/skin/frontend/default/mt_colinus/images/loading.gif';?>"/></span>
+    </div>
+	<div class="title-divider">
+		<span>&nbsp;</span>
+	</div>	
+<?php endif; ?>
+

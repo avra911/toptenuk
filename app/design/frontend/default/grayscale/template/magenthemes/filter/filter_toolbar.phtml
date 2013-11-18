@@ -1,0 +1,154 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>  
+<?php if($this->getCollection()->getSize()): ?>
+<div class="toolbar">
+	<div class="pager row-fluid show-grid">		
+		<div class="sort-by span4">
+			<div class="mt-sort-by clearfix">		
+				<p class="pull-left mt-toolbar-label hidden-tablet"><label><?php echo $this->__('Sort By') ?></label></p>
+				<select onchange="sortSystem(this.value)" id="mt_sort_by" class="mt-sort">
+				<?php foreach($this->getAvailableOrders() as $_key=>$_order): ?>
+					<option value="<?php echo $this->getOrderUrl($_key, 'asc') ?>"<?php if($this->isOrderCurrent($_key)): ?> selected="selected"<?php endif; ?>>
+						<?php echo $this->__($_order) ?>
+					</option>
+				<?php endforeach; ?>
+				</select>
+				<p class="mt-sort-arrows pull-left">
+					<?php if($this->getCurrentDirection() == 'desc'): ?>
+						<a onclick="sortOrder('<?php echo $this->getOrderUrl(null, 'asc') ?>')" title="<?php echo $this->__('Set Ascending Direction') ?>"><img src="<?php echo $this->getSkinUrl('images/i_desc_arrow.gif') ?>" alt="<?php echo $this->__('Set Ascending Direction') ?>" class="v-middle" /></a>
+					<?php else: ?>
+						<a onclick="sortOrder('<?php echo $this->getOrderUrl(null, 'desc') ?>')" title="<?php echo $this->__('Set Descending Direction') ?>"><img src="<?php echo $this->getSkinUrl('images/i_asc_arrow.gif') ?>" alt="<?php echo $this->__('Set Descending Direction') ?>" class="v-middle" /></a>
+					<?php endif; ?>
+				</p>				
+			</div>
+		</div> 
+		<div class="limiter span4">
+			<div class="mt-limiter">
+				<p class="pull-left mt-toolbar-label mt-slabel-1 hidden-tablet"><label><?php echo $this->__('Show') ?></label></p>
+				<select onchange="showPerPage(this.value)" id="mt_limiter" class="mt-limit">
+				<?php foreach ($this->getAvailableLimit() as  $_key=>$_limit): ?>
+					<option value="<?php echo $this->getLimitUrl($_key) ?>"<?php if($this->isLimitCurrent($_key)): ?> selected="selected"<?php endif ?>>
+						<?php echo $_limit ?>
+					</option>
+				<?php endforeach; ?>
+				</select> 
+				<p class="pull-left mt-toolbar-label mt-slabel-2 hidden-tablet"><?php echo $this->__('per page') ?></p>
+			</div>
+		</div>
+		<div class="row-pager clearfix" style="display:none;">
+			<div class="mt-row-page">
+				<?php echo $this->getPagerHtml() ?>
+			</div>
+		</div>
+		<?php if( $this->isEnabledViewSwitcher() ): ?>
+		<div class="view-mode span4">
+			<div class="mt-view pull-right clearfix">	 
+				<?php $_modes = $this->getModes(); ?>
+	            <?php if($_modes && count($_modes)>1): ?>
+	            <p class="pull-left mt-toolbar-label hidden-tablet"><label><?php echo $this->__('View as') ?>:</label></p>
+
+	            <?php foreach ($this->getModes() as $_code=>$_label): ?> 
+	                <?php if($this->isModeActive($_code)): ?>
+                        <span class="<?php echo strtolower($_code); ?>" title="<?php echo $_label ?>">
+                          <strong>
+                          		<?php //echo $_label ?> 
+                          </strong>
+                        </span>
+	                <?php else: ?>
+	                    <span class="<?php echo strtolower($_code); ?>" title="<?php echo $_label ?>">
+	                    	<a style="cursor:pointer" onClick="modeSystem('<?php echo $_code; ?>')" >
+	                    		<?php //echo $_label ?> 
+	                    	</a>
+	                    </span>
+	                <?php endif; ?>
+	            <?php endforeach; ?>
+	            <?php endif; ?>
+			</div>			
+		</div>
+		<?php endif; ?>		
+	</div>
+</div>
+<script type="text/javascript">
+	function reload(url) {
+	    $mtkb.blockUI({ message:null, overlayCSS: {opacity:0.16, zIndex:99999} });
+	    $mtkb('.col-main').first().load(url, function(){
+	        $mtkb.unblockUI(); 
+	    });
+	}
+	function modeSystem(mode)
+	{		 
+		var slidervalue = $mtkb("#slider").slider('values');
+		var ids = $mtkb("#category").val(); 
+		var baseurl= $mtkb('#filter_url').val();
+		var remainurl='mtcolinusadmin/filter/view?min='+ slidervalue[0] +'&max='+ slidervalue[1] +'&id='+ids + '&mode=' + mode;
+		var correctbaseurl=baseurl + remainurl; 
+		if ( Magen_filterslider.params != '' ) {
+            correctbaseurl += '&' + Magen_filterslider.params;
+        }
+		reload(correctbaseurl); 
+		return false;
+	}
+	function sortSystem(value)
+	{
+		reload(value);  
+		return false;
+	}
+	function showPerPage(value)
+	{
+		reload(value);  
+		return false;
+	}
+	function direction(value)
+	{
+		reload(value);  
+		return false;
+	} 
+	function pager(value){
+		reload(value);  
+		return false;
+	}
+	function sortOrder(value){
+        reload(value);
+        return false;
+    }
+
+    $mtkb("#mt_sort_by").selectbox();
+   	$mtkb("#mt_limiter").selectbox();
+   	$mtkb(".sbHolder").addClass('pull-left');  
+   	$mtkb(".toolbar-bottom .toolbar select.mt-sort").attr('id', 'mt_toolbar_bottom_sort');
+   	$mtkb(".toolbar-bottom .toolbar select.mt-limit").attr('id', 'mt_toolbar_bottom_limit');
+   	$mtkb('.toolbar.row-pager, .toolbar-bottom .sort-by, .toolbar-bottom .limiter, .toolbar-bottom .view-mode').hide();
+	$mtkb('.toolbar-bottom .toolbar .row-pager').show();
+   	var selectToolBottom = $mtkb("#mt_toolbar_bottom_sort,#mt_toolbar_bottom_limit");
+   	$mtkb(selectToolBottom).selectbox(); 
+
+   	/*var tooltip = $mtkb('.row-pager a.next, .row-pager a.previous');
+	$mtkb(tooltip).tooltip(true);*/
+		
+</script>
+<?php endif ?>
+

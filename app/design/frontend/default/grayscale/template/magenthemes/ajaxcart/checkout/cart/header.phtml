@@ -1,0 +1,48 @@
+<?php if ($this->getIsNeedToDisplaySideBar()):?>
+<?php $_cartQty = $this->getSummaryCount() ?>
+<span class="cart-loading">Loading...</span>
+<div class="cart">
+	<a href="<?php echo $this->getUrl('checkout/cart') ?>" class="mt-icon-ajaxcart"> 
+		<?php /*(<?php print (!empty($_cartQty)) ? $_cartQty : '0' ;?>)*/ ?> 
+		<?php /* <span><?php echo $this->__('<!-- Cart Subtotal-->Shopping Cart:') ?></span> */ ?>		
+		<?php /* <?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?> */ ?> 
+	</a>
+	<span class="mt-cart-label">
+		<?php echo $this->__('Bag:') ?>
+		(<?php print (!empty($_cartQty)) ? $_cartQty : '0' ;?>)
+	</span> 
+	<div class="mtajaxcart">
+		<div class="search-form-border"></div>
+		<div class="ajax-container">
+	        <?php
+				$_items = $this->getRecentItems($_cartQty);
+				if(count($_items)):
+			?>
+				<ul class="clearfix">
+	                <?php foreach($_items as $_item): ?>
+	                    <?php echo $this->getItemHtml($_item) ?>
+	                <?php endforeach; ?>
+				</ul>
+				<p class="subtotal">
+					<?php if ($this->canApplyMsrp()): ?>
+						<span class="map-cart-sidebar-total"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER'); ?></span>
+					<?php else: ?>
+						<span class="label"><?php echo $this->__('Total:') ?></span> <?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?>
+						<?php if ($_subtotalInclTax = $this->getSubtotalInclTax()): ?>
+							<br />(<?php echo Mage::helper('checkout')->formatPrice($_subtotalInclTax) ?> <?php echo Mage::helper('tax')->getIncExcText(true) ?>)
+						<?php endif; ?>
+					<?php endif; ?>
+				</p>
+				<div class="ajax-checkout">
+					<a href="<?php echo $this->getUrl('checkout/cart') ?>" class="view-cart">
+						<span><?php echo $this->__('View cart') ?></span>
+					</a>
+					<a href="<?php echo $this->getCheckoutUrl() ?>"><span><?php echo $this->__('Checkout') ?></span></a>
+				</div>
+	         <?php else: ?>
+	         	<p class="no-items-in-cart"><?php echo $this->__('You have no items in your shopping cart.') ?></p>
+	         <?php endif ?>
+		</div>
+	</div>
+</div>
+<?php endif ?>

@@ -1,0 +1,115 @@
+<?php 
+$config = Mage::getStoreConfig('mtcolinusadmin/otherconfig');
+if($config['enabled_priceslider']){
+	$params = $this->getRequest()->getParams();
+	$category_id = $params['id'];
+	$max = Mage::getModel('catalog/layer_filter_price');
+	$filter_max = $maxPrice = $max->getMaxPriceInt()+1;
+	$filter_min = 0;
+	if ( isset($_COOKIE['filterslider_min_'.$category_id]) && $_COOKIE['filterslider_min_'.$category_id] > $filter_min ) {
+		$filter_min = $_COOKIE['filterslider_min_'.$category_id];
+	}
+	if ( isset($_COOKIE['filterslider_max_'.$category_id]) && $_COOKIE['filterslider_max_'.$category_id] > $filter_min && $_COOKIE['filterslider_max_'.$category_id] < $filter_max ) {
+		$filter_max = $_COOKIE['filterslider_max_'.$category_id];
+	}
+?> 
+	<?php if($this->canShowBlock()): ?>
+	<div class="block block-layered-nav">
+	    <div class="block-title">
+	        <strong><span><?php echo $this->__('Price') ?></span></strong>
+	    </div>  
+	    <div class="title-divider"><span>&nbsp;</span></div>
+	    <div class="block-content"> 
+	        <?php if($this->canShowOptions()): ?>
+	            <p class="block-subtitle"><?php echo $this->__('Shopping Options') ?></p>
+	            <dl id="narrow-by-list">  
+					<dd id="slider" style="height:11px; margin: 20px 0 20px 0;"></dd>
+					<dd> 
+					<span id="filter_min" class="filter_min"><?php $curr=Mage::helper('core')->currency('');$curr1=str_replace('.','',$curr); echo strip_tags(str_replace('0','',$curr1));?><?php echo $filter_min;?></span> 
+					<span id="filter_max" class="filter_max"><?php $curr=Mage::helper('core')->currency('');$curr1=str_replace('.','',$curr); echo strip_tags(str_replace('0','',$curr1));?><?php echo $filter_max;?></span>
+					</dd> 
+				</dl>
+	            <script type="text/javascript">decorateDataList('narrow-by-list')</script>
+	        <?php endif; ?>
+	    </div>
+	    <script type="text/javascript">
+			var Magen_filterslider = {
+			    params : '<?php unset($params['id']); echo http_build_query($params); ?>',
+			    currency : '<?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol(); ?>',
+			    category_id: <?php echo $category_id; ?>,
+			    filter_min: <?php echo $filter_min; ?>,
+			    filter_max: <?php echo $filter_max; ?>
+			}
+		</script>
+	</div>
+	<?php 	
+		$max=Mage::getModel('catalog/layer_filter_price');
+		$maxPrice=$max->getMaxPriceInt();
+		$maxPrice++;
+	?> 
+	<input id="max-price" type="hidden" name="max-price" value="<?php echo $maxPrice; ?>">
+	<?php $url=Mage::getBaseUrl(); $pos=strpos($url,'index.php');  ?>
+	<input id="filter_url" type="hidden" name="filter_url" value="<?php echo $url;?>">  
+	<input id="category" type="hidden"  value="<?php echo $category_id; ?>">
+	<?php endif; ?>
+	<?php if($this->canShowBlock()): ?>
+	<div class="block block-layered-nav">
+	    <div class="block-title">
+	        <strong><span><?php echo $this->__('Shop By') ?></span></strong>
+	    </div>
+		<div class="title-divider">
+			<span>&nbsp;</span>
+		</div>
+	    <div class="block-content">
+	        <?php echo $this->getStateHtml() ?>
+	        <?php if ($this->getLayer()->getState()->getFilters()): ?>
+	            <div class="actions"><a href="<?php echo $this->getClearUrl() ?>"><?php echo $this->__('Clear All') ?></a></div>
+	        <?php endif; ?>
+	        <?php if($this->canShowOptions()): ?>
+	            <p class="block-subtitle"><?php echo $this->__('Shopping Options') ?></p>
+	            <dl id="narrow-by-list">
+	                <?php $_filters = $this->getFilters() ?>
+	                <?php foreach ($_filters as $_filter): ?>
+	                <?php if ( $_filter->getType() == 'catalog/layer_filter_price' ) continue;?>
+	                <?php if($_filter->getItemsCount()): ?>
+	                    <dt><?php echo $this->__($_filter->getName()) ?></dt>
+	                    <dd><?php echo $_filter->getHtml() ?></dd>
+	                <?php endif; ?>
+	                <?php endforeach; ?>
+	            </dl>
+	            <script type="text/javascript">decorateDataList('narrow-by-list')</script>
+	        <?php endif; ?>
+	    </div>
+	</div>
+	<?php endif; ?>
+<?php }else{?>
+	<?php if($this->canShowBlock()): ?>
+	<div class="block block-layered-nav">
+	    <div class="block-title">
+	        <strong><span><?php echo $this->__('Shop By') ?></span></strong>
+	    </div>
+		<div class="title-divider">
+			<span>&nbsp;</span>
+		</div>
+	    <div class="block-content">
+	        <?php echo $this->getStateHtml() ?>
+	        <?php if ($this->getLayer()->getState()->getFilters()): ?>
+	            <div class="actions"><a href="<?php echo $this->getClearUrl() ?>"><?php echo $this->__('Clear All') ?></a></div>
+	        <?php endif; ?>
+	        <?php if($this->canShowOptions()): ?>
+	            <p class="block-subtitle"><?php echo $this->__('Shopping Options') ?></p>
+	            <dl id="narrow-by-list">
+	                <?php $_filters = $this->getFilters() ?>
+	                <?php foreach ($_filters as $_filter): ?> 
+	                <?php if($_filter->getItemsCount()): ?>
+	                    <dt><?php echo $this->__($_filter->getName()) ?></dt>
+	                    <dd><?php echo $_filter->getHtml() ?></dd>
+	                <?php endif; ?>
+	                <?php endforeach; ?>
+	            </dl>
+	            <script type="text/javascript">decorateDataList('narrow-by-list')</script>
+	        <?php endif; ?>
+	    </div>
+	</div>
+	<?php endif; ?> 
+<?php }?>

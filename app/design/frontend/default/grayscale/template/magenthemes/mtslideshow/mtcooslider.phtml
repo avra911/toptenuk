@@ -1,0 +1,137 @@
+<?php
+/******************************************************
+ * @package MT SlideShow module for Magento 1.4.x.x and Magento 1.5.x.x
+ * @version 1.5.1.1
+ * @author http://www.magentheme.com
+ * @copyright (C) 2011- MagenTheme.Com
+ * @license PHP files are GNU/GPL
+*******************************************************/
+?>
+<?php if(Mage::helper('mtslideshow')->isActive()) : ?>
+	<?php
+		$slide = $this->getDataSlide();
+		$path = Mage::getBaseUrl('media');
+		$w = $slide->getWidth();
+		$h = $slide->getHeight(); 
+		$mdw = $slide->getSlide_width();
+		$mdh = $slide->getSlide_height();
+		$bgmode = $slide->getBgmode(); 
+		$auto = Mage::helper('mtslideshow')->isAutoCooSlider();
+		$direction = Mage::helper('mtslideshow')->isDirectionCooSlider();
+		$pagenav = Mage::helper('mtslideshow')->isPagenaveCooSlider();
+		$displaytitle = Mage::helper('mtslideshow')->isTitleCooSlider();
+		$displaydesc = Mage::helper('mtslideshow')->isDescCooSlider();
+		$displaymore = Mage::helper('mtslideshow')->isMoreCooSlider();
+        $interval = Mage::helper('mtslideshow')->isIntervalCooSlider();
+        $delay = Mage::helper('mtslideshow')->isDelayCooSlider();
+        $speed = Mage::helper('mtslideshow')->isAnimSpeedCooSlider();
+        $pausehover = Mage::helper('mtslideshow')->isPauseHoverCooSlider();
+        $touch = Mage::helper('mtslideshow')->isTouchCooSlider();
+        $mousewheel = Mage::helper('mtslideshow')->isMouseWheelCooSlider();
+        $responsive = Mage::helper('mtslideshow')->isResponsiveCooSlider();
+        $keyboard   = Mage::helper('mtslideshow')->isKeyBoardCooSlider();
+        $sameeffect = Mage::helper('mtslideshow')->isSameEffectCooSlider();
+        if($pausehover>0) $setpausehover = 'true';
+        else $setpausehover = 'false';
+        if($touch>0) $settouch = 'true';
+        else $settouch = 'false';
+        if($mousewheel>0) $setmousewheel = 'true';
+        else $setmousewheel = 'false';
+        if($responsive>0) $setresponsive = 'true';
+        else $setresponsive = 'false';
+        if($keyboard>0) $setkeyboard = 'true';
+        else $setkeyboard = 'false';
+		if($auto>0) $setauto = 'true';
+		else $setauto = 'false';
+		if($direction>0) $setdirection = 'true';
+		else $setdirection = 'false';
+		if($pagenav>0) $setpage = 'true';
+		else $setpage = 'false';
+        if($sameeffect>0) $setsameeffect = 'true';
+        else $setsameeffect = 'false';
+
+		if($bgmode=='bgimages'){
+			$pathimg = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'skin/frontend/default/default/magenthemes/css/mtslideshow/bgslide';
+			$bgimage = $this->getBackgroundImages(); 
+			$numbg = count($bgimage);
+			$bg = rand(0, $numbg); 
+			echo $style = '
+			<style>
+				.mtcooslider{
+					background: #EFEFEF url('.$pathimg.'/'.$bgimage[$bg].') repeat;
+				}
+				.cooslider {
+				    max-width: '.$mdw.'px;
+				    max-height: '.$mdh.'px;
+				}
+			</style>	
+			';
+		}else{
+			echo $style = '
+			<style>
+				.mtcooslider{
+					background: '.$slide->getBg_color().';
+				}
+				.cooslider {
+				    max-width: '.$mdw.'px;
+				    max-height: '.$mdh.'px;
+				}
+			</style>
+			';
+		}
+	?>  
+	<div class="cooslider">
+        <div id="cooslider<?php echo $slide->getId(); ?>" class="mtcooslider">
+            <?php
+            foreach($slide->getImageList() as $s):
+            ?>
+            <div class="slide_item">
+                <div class="image-slider" data-effect="<?php echo $s['file_animate'];?>">
+                    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'js/magenthemes/mtslideshow/timthumb/timthumb.php?src='.$this->helper('mtslideshow/image')->init($s['file']).'&amp;h='.$h.'&amp;w='.$w ?>" />
+                </div>
+				<div class="content">	
+					<?php if($displaytitle && $s['title']!=''){?>
+					<div class="slider-title">
+						<h2 data-effect="<?php echo $s['title_animate'];?>"><?php echo $s['title'];?></h2>
+					</div>	
+					<?php }?>
+					<?php if($displaydesc && $s['description']!=''){?>
+					<div class="slider-desc">
+					<p class="description"data-effect="<?php echo $s['desc_animate'];?>"><?php echo $s['description'];?></p>
+					</div>
+					<?php }?>
+					<?php if($displaymore && $s['link']!=''){?>
+					<div class="slider-readmore">
+						<p class="readmore" data-effect="<?php echo $s['link_animate'];?>">
+							<a href="<?php echo $s['link'];?>"><?php echo $this->__("Read More");?></a>
+						</p>
+					</div>	
+					<?php }?>
+				</div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+	<?php if(count($slide->getImageList()) > 1) :?>
+		<script type="text/javascript">
+		$jq(document).ready(function() {
+            var slider = new Coo.Slider('#cooslider<?php echo $slide->getId(); ?>', {
+                autoPlay: <?php echo $setauto;?>,
+                animationSpeed: <?php echo $speed;?>,
+                effect: 'auto',
+                interval: <?php echo $interval;?>,
+                delay: <?php echo $delay;?>,
+                pagination: <?php echo $setpage;?>,
+                controls: <?php echo $setdirection;?>,
+                pauseOnHover: <?php echo $setpausehover;?>,
+                touch: <?php echo $settouch;?>,                    // {Boolean} Support touch devices
+                keyboard: <?php echo $setkeyboard;?>,                 // {Boolean} Use the shortcut keys (<-/->) to go to the previous/next slide
+                mouseWheel: <?php echo $setmousewheel;?>,              // {Boolean} Use mouse wheel to navigate the slider
+                sameRandomEffectForText: <?php echo $setsameeffect;?>,
+                responsive: <?php echo $setresponsive;?>,               // {Boolean} Support responsive or not
+                minWidth: 480
+            });
+		});
+		</script>
+	<?php endif; ?>   
+	</div>
+<?php endif; ?>

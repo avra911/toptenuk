@@ -1,0 +1,15 @@
+<?php
+$config = Mage::getStoreConfig('mtcolinusadmin/static_config');
+$url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+?>
+<?php if ($config['bottom_static_footer_1']!=="" && $config['enabled_bottom_static_footer_1']>0) : ?>
+<div class="span<?php echo $config['bottom_static_footer_1_cols'];?>">
+<?php echo str_replace('{baseurl}', $url, $config['bottom_static_footer_1']); ?>
+</div>
+<?php endif; ?>
+
+<?php if ($config['bottom_static_footer_2']!=="" && $config['enabled_bottom_static_footer_2']>0) : ?>
+<div class="span<?php echo $config['bottom_static_footer_2_cols'];?>"> 
+<?php echo str_replace('{baseurl}', $url, $config['bottom_static_footer_2']); ?>
+</div>
+<?php endif; ?> 

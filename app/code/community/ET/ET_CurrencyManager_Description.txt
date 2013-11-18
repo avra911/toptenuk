@@ -1,0 +1,88 @@
+==== Description / Для чего этот модуль? ====
+
+EN:
+
+ET Currency Manager lets shop owner manage display of prices on website in simple and convenient way.
+With this extension you can:
+* Specify number of decimal digits. For price rounding Magento internal algorithm is used. Example: instead of 49.99 you can display 50 or 49.9900.
+* Display prices without zero decimals. Example: display 49 instead of 49.00, but 49.99 remains unchanged.
+* Replace zero decimals with suffix. Example: display 49,- instead of 49.00 or 49, but 49.99 remains unchanged.
+* Specify position of currency symbol: before the price or after. Example: $ 49.99 or 49.99 $
+* Specify what to use as currency symbol. Example: nothing, use currency code (EUR, USD), use currency symbol (€, $), use currency name (Euro, US Dollar)
+* Change currency symbol to your own (text only). Example: display Money instead of $
+* Change zero price to your own text. Example: FREE instead of 0.00
+* Use separate settings for every store view
+* Use separate settings for every currency
+* Enable and disable extension for frontend and admin panel separately
+* Disable price rounding on checkout page
+* Enable price rounding on product input page
+
+Important note: this extension changes only currency display, not the price itself. Example: Product's price is 49.99, you can show it's price as 50, but during the payment client will be charged 49.99, because it is the real price.
+
+Additional note: You can change currency display even without this extension. For this you must change relevant localization files in Zend Framework (/lib/Zend/Locale/Data/*.xml). But in this case you can lose all of your changes while updating Magento.
+
+
+
+RU:
+Модуль ET Currency Manager позволяет владельцу магазина просто и удобно управлять отображением цены на своём сайте.
+
+
+С помощью модуля вы можете:
+
+* Указать количество знаков после запятой для отображения цен на сайте (для округления используется встроенный алгоритм Магенто). Пример: вместо 49.99 показывать или 50 или 49.9900
+* Отображать цены без "копеек". Пример: Вместо 49.00 показывать 49, но цену 49.99 не изменять.
+* Показывать суффикс для цены без "копеек". Вместо 49.00 или 49 показывать 49,- , но цену 49.99 не изменять.
+* Указать позицию символа валюты: перед ценой или после. Пример: $ 49.99 или 49.99 $
+* Указать, что использовать в качестве символа валюты. Пример: (не использовать; использовать код - EUR, USD; использовать символ - €, $; использовать название - Евро, Американский доллар)
+* Заменять символ валюты на свой (только текстовый). Пример: Вместо $ выводить Money.
+* Заменять нулевую цену на свой текст. Например: вместо 0.00 выводить БЕСПЛАТНО
+* Использовать различные настройки для каждого представления магазина.
+* Использовать различные настройки для каждой валюты отдельно.
+* Включать и отключать модуль для пользовательской части и панели администрирования независимо друг от друга.
+* Отключать округление цены на странице заказа.
+* Включать округление цены на странице ввода товара.
+
+Важно: модуль меняет исключительно отображение валюты, а не саму цену. (Пример: Товар стоит 49.99; Можно показывать цену клиентам как 50; Но при оплате с клиента будет удержано 49.99, так как это реальная стоимость товара).
+
+Дополнительно: Без этого модуля у вас есть возможность влиять на отображение валюты только редактируя значения в файлах локализации Zend Framework (/lib/Zend/Locale/Data/*.xml). Но при обновлении версии Магенто изменения могут быть утеряны (так как может обновиться Zend Framework).
+
+
+====Features / Особенности модуля====
+
+* Open source code (no encryption and obfuscation)
+* Code follows Magento development standards
+* Extension is available on 2 languages (ru_RU, en_US) and you can easy add your own
+* All extension settings are available on admin panel
+
+* Открытый исходный код
+* Код написан придерживаясь принятых стандартов в разработке для Магенто
+* Доступен на 2-ух языках (ru_RU, en_US) и легко добавляются новые переводы
+* Все настройки модуля доступны в панели администрирования
+
+====Version Compatibility / Совместимость версий====
+1.3.х (tested in 1.3.2.4.)
+1.4.x (tested in 1.4.1.1.)
+1.5.x (tested in 1.5.0.1. 1.5.1.0)
+
+====Module tags====
+price precision, round price, hide decimal, currency symbol, zero price replace, price format
+
+символ валюты, настройка отображения валюты, валюта, цена, количество знаков после запятой
+
+====Установка/Installation====
+
+* Disable Compiler, if it is enabled (System -> Tools -> Compilation)
+* Disable cache, if it is enabled (System -> Cache Management)
+* Install the extension (just unpack archive to magento root folder)
+* Log off admin panel (Log Out)
+* Log into admin panel (enter your login and password)
+* Set filter display parameters (System -> Configuration -> Currency Manager)
+* Run compilation process and enable cache if needed
+
+* Отключите компиляцию, если включена (Система -> Инструменты -> Компиляция)
+* Отключите кэш, если включён (Система -> Управление кэшем)
+* Установите модуль (распакуйте архив в корневую папку с Магенто)
+* Выйдите из панели администрирования (Выйти)
+* Войдите в панель администрирования (введите логин/пароль)
+* Настройте параметры отображения фильтра (Система -> Конфигурация -> Currency Manager)
+* Если необходимо запустите процесс компиляции и включите кэш

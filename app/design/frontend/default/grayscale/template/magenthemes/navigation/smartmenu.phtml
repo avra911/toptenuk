@@ -1,0 +1,72 @@
+<?php 
+/*------------------------------------------------------------------------
+# APL Solutions and Vision Co., LTD
+# ------------------------------------------------------------------------
+# Copyright (C) 2008-2010 APL Solutions and Vision Co., LTD. All Rights Reserved.
+# @license - Copyrighted Commercial Software
+# Author: APL Solutions and Vision Co., LTD
+# Websites: http://www.joomlavision.com/ - http://www.magentheme.com/
+-------------------------------------------------------------------------*/ 	
+$enabled = Mage::getStoreConfig('mtcolinusadmin/smartmenu/enabled');
+if($enabled) {
+?>
+<?php 
+	$title=Mage::getStoreConfig('mtcolinusadmin/smartmenu/title');
+	$style=Mage::getStoreConfig('mtcolinusadmin/smartmenu/menustyle');
+	$event=Mage::getStoreConfig('mtcolinusadmin/smartmenu/event');  
+?> 
+	<div class="block mt-smartmenu">
+		<div class="block-title">
+			<strong><span><?php echo $title;?></span></strong>
+		</div>
+		<div class="title-divider">
+			<span>&nbsp;</span>
+		</div>
+		<div class="block-content">
+			<?php if($style=='Dropdown'){?>
+		        <ul id="mt-dropdown" class="clearfix mt-dropdown">
+		        <?php foreach ($this->getStoreCategories() as $_category): ?>
+		            <?php echo $this->mtdrawItem($_category) ?>
+		        <?php endforeach ?>
+		        </ul>
+		        <script type="text/javascript">
+		        	$mtkb(document).ready(function() {
+		        		$mtkb('#mt-dropdown li:first').addClass('first');
+		        		$mtkb('#mt-dropdown li:last').addClass('last');
+		        	});
+		        </script>
+			<?php } //end dropdown menu?>
+			<?php if ($style=='Accordion'){?>
+				<script type="text/javascript" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'js/magenthemes/mt_colinus/js/smartmenu/mt.accordion.js';?>"></script>
+				<script type="text/javascript">
+					$mtkb(document).ready(function(){	
+						// applying the settings
+						$mtkb("#mt-accordion li.active span.head").addClass("selected");
+						$mtkb('#mt-accordion').Accordion({
+							active: 'span.selected',
+							header: 'span.head',
+							alwaysOpen: false,
+							animated: true,
+							showSpeed: 400,
+							hideSpeed: 800,
+							event: '<?php echo $event ?>'
+						});
+					});	
+				</script>
+				<ul id="mt-accordion" class="clearfix">
+					<?php foreach ($this->getStoreCategories() as $_category): ?>
+					    <?php echo $this->drawItem($_category) ?>
+					<?php endforeach ?>
+				</ul>
+			<?php } //end Accordion menu?>
+			
+			<?php if ($style=='Tree'){?>
+		        <ul id="mt-tree">
+		        <?php foreach ($this->getStoreCategories() as $_category): ?>
+		            <?php echo $this->drawItem($_category) ?>
+		        <?php endforeach ?>
+		        </ul>
+			<?php } //end tree menu?>
+		</div> <!-- end class=block-content -->
+	</div> <!-- end class=mt-smartmenu --> 
+<?php }?>

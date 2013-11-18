@@ -1,0 +1,14 @@
+<?php $_prev = $this->getPreviousProduct(); ?>
+<?php $_next = $this->getNextProduct(); ?>
+
+<?php if($_prev || $_next): ?>
+<div class="block pager hidden-phone">
+    <?php if($_prev): ?>
+    <a rel="prev" class="product-prev left" title="<?php echo $this->escapeHtml($_prev->getName()); ?>" href="<?php echo $_prev->getProductUrl(); ?>">&laquo; <?php echo Mage::helper('mtcolinusadmin')->__('Previous') ?></a>
+    <?php endif; ?>
+
+    <?php if($_next): ?>
+    <a rel="next" class="product-next right" title="<?php echo $this->escapeHtml($_next->getName()); ?>" href="<?php echo $_next->getProductUrl(); ?>"><?php echo Mage::helper('mtcolinusadmin')->__('Next') ?> &raquo;</a>
+    <?php endif; ?>
+</div>
+<?php endif; ?>

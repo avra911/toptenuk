@@ -1,0 +1,67 @@
+<?php
+/******************************************************
+ * @package MT SlideShow module for Magento 1.4.x.x and Magento 1.5.x.x
+ * @version 1.5.1.1
+ * @author http://www.magentheme.com
+ * @copyright (C) 2011- MagenTheme.Com
+ * @license PHP files are GNU/GPL
+*******************************************************/
+?>
+<?php if(Mage::helper('mtslideshow')->isActive()) : ?>
+    <div class="mt-slideshow-container-style4">
+	<div class="mt-slideshow-style4">
+	    <?php
+		$slide = $this->getDataSlide();
+		$path = Mage::getBaseUrl('media');
+		$w = $slide->getWidth();
+		$h = $slide->getHeight(); 
+	    ?>
+	    <div class="mt-slider" id="mt-slider-<?php echo $slide->getName() ?>">	
+		<div class="mt-container mt-container-<?php echo $slide->getName() ?> loading" style="width: <?php echo $w;?>px; height: <?php echo $h;?>px;">
+		    <div class="mt-slides mt-slides-<?php echo $slide->getName() ?>">
+			<?php $i=1; foreach($slide->getImageList() as $s): ?>
+			<?php $imag = $s['file']; ?>
+			    <?php if($s['disabled'] == MagenThemes_Mtslideshow_Model_Disabled::STATUS_ENABLED): ?>
+				<?php if($s['link']): ?>
+				    <div>
+					<a href="<?php echo $s['link']?>" title="">
+					    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'js/magenthemes/mtslideshow/timthumb/timthumb.php?src='.$this->helper('mtslideshow/image')->init($s['file']).'&amp;h='.$h.'&amp;w='.$w ?>" alt="" />
+					</a>
+				    </div>
+				<?php else: ?>
+				    <div>
+					<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'js/magenthemes/mtslideshow/timthumb/timthumb.php?src='.$this->helper('mtslideshow/image')->init($s['file']).'&amp;h='.$h.'&amp;w='.$w ?>" alt="" />
+				    </div>
+				<?php endif; ?>
+			    <?php endif; ?>
+			<?php $i++; endforeach; ?>
+		    </div>
+		</div>
+		<a href="#" class="previous">&nbsp;</a>
+		<a href="#" class="next">&nbsp;</a>
+		<ul class="mt-pagination mt-pagination-<?php echo $slide->getName() ?>">
+		    <?php for( $j = 1; $j <= count($slide->getImageList()); $j++ ): ?>
+			<li rel="<?php echo $j;?>"><a href="#" rel="<?php echo $j;?>"><?php echo $j; ?></a></li>
+		    <?php endfor; ?>
+		</ul>	
+	    </div>
+	    <?php if(count($slide->getImageList()) > 1) :?>
+		<script type="text/javascript">
+		$jq(window).load(function() {	
+		    $jq(function(){
+			$jq(".mt-container-<?php echo $slide->getName() ?>, #mt-slider-<?php echo $slide->getName() ?>, .mt-slides-<?php echo $slide->getName() ?> div").css("width","<?php echo $w;?>px");
+			$jq(".mt-container-<?php echo $slide->getName() ?>").css("height","<?php echo $h;?>px");
+			$jq('#mt-slider-<?php echo $slide->getName() ?>').loopedSlider({
+			    container: '.mt-container-<?php echo $slide->getName() ?>',
+			    slides: '.mt-slides-<?php echo $slide->getName() ?>',
+			    pagination: '.mt-pagination-<?php echo $slide->getName() ?>',
+			    slidespeed: <?php echo Mage::helper('mtslideshow')->getAnimSpeedMTscroll() ?>,
+			    autoStart: <?php echo Mage::helper('mtslideshow')->getPauseTimeMTscroll() ?>
+			});
+		    });
+		});
+		</script>
+	    <?php endif; ?>
+	</div>
+    </div>
+<?php endif; ?>

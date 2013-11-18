@@ -1,0 +1,54 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product description template
+ *
+ * @see Mage_Catalog_Block_Product_View_Description
+ 
+ <?php echo $this->__('Type') ?>
+ 
+       <?php echo $_product->getResource()->getAttribute('capacity')->getStoreLabel(); ?>  </label> </div> 
+	  <?php echo $_product->getResource()->getAttribute('generation')->getFrontend()->getValue($_product) ?>
+ */
+?>
+<?php $_description = $this->getProduct()->getDescription(); 
+$_product = $this->getProduct()?>
+
+
+<?php if ($_description): ?>
+   
+	<h2><?php echo $this->__('Details') ?></h2>
+    <div class="std">
+	<ul><li>- <?php echo $_product->getResource()->getAttribute('model_type')->getStoreLabel(); ?>       : <?php echo $this->getProduct()->getmodel_type()?></li>
+	<li>- <?php echo $_product->getResource()->getAttribute('generation')->getStoreLabel(); ?>        : <?php echo $this->getProduct()->getgeneration()?></li>
+	<li>- <?php echo $_product->getResource()->getAttribute('interface')->getStoreLabel(); ?>        : <?php echo $this->getProduct()->getinterface()?></li>
+	<li>- <?php echo $_product->getResource()->getAttribute('bandformat')->getStoreLabel(); ?>           : <?php echo $this->getProduct()->getbandformat()?></li>
+	<li>- <?php echo $_product->getResource()->getAttribute('capacity')->getStoreLabel(); ?>           : <?php echo $this->getProduct()->getcapacity()?></li>
+	<li>- <?php echo $_product->getResource()->getAttribute('warranty')->getStoreLabel(); ?>           : <?php echo $_product->getAttributeText('warranty') ?></li></ul>
+	
+	</div>
+<?php endif; ?>

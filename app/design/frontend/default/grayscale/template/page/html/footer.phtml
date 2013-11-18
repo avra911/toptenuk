@@ -1,0 +1,213 @@
+<?php
+$logo_alt = Mage::getStoreConfig('design/header/logo_alt');
+$logo_src = Mage::getStoreConfig('design/header/logo_src');
+$home_url = Mage::getBaseUrl();
+
+
+?>
+
+<div class="mt-footer-static-container">
+            <div class="mt-footer-static-container-bottom">
+                <div class="mt-footer-static container">
+                    <div class="mt-footer-container">
+                        <div class="row-fluid show-grid">
+    						<div class="span6">
+    							<div class="row-fluid show-grid">
+    								<div class="span6">
+<div class="about-us">
+<div class="footer-static-title">
+	    <h3>
+       <img src="<?php echo  $this->getSkinUrl($logo_src); ?>" alt="<?php echo $logo_alt ?>" />
+      </h3>
+	
+</div>
+<div class="footer-static-content">
+	<p>
+		Top Ten provides depot repair and third party maintenance on all your data center hardware needs.
+		<br>			
+		
+	</p>
+</div>
+</div></div>
+
+<div class="span6"> 
+<div class="block_support">
+<div class="footer-static-title">
+	<h3>About Us</h3>
+	<div class="title-divider">
+		<span>&nbsp;</span>
+	</div>
+	<ul class="support_content clearfix">
+		<li class="item first"><a href="<?php echo $home_url.'company'.'-'.'overview'.'.'.'html'?>" title=""><?php echo $this->__('Company Overview') ?></a></li>
+		<li class="item"><a href="<?php echo $home_url.'repair.html' ?>" title=""><?php echo $this->__('Repairs') ?></a></li>
+		<li class="item"><a href="<?php echo $home_url.'service'.'-'.'support.html' ?>" title=""><?php echo $this->__('Service and Support') ?></a></li>
+		<li class="item"><a href="<?php echo $home_url.'contact'.'-'.'us.html' ?>" title=""><?php echo $this->__('Contact Us') ?></a></li>
+	</ul>
+</div>
+<div class="footer-static-content">
+	<h3>We do accept</h3>
+	<div class="title-divider">
+		<span>&nbsp;</span>
+	</div>
+	<ul class="card_visit clearfix">
+		<li style="margin:0 8px 0 0;"><img alt="" src="<?php echo $home_url.('media/wysiwyg/accept-1.png') ?>"></li>
+		<li style="margin:0 8px 0 0;"><img alt="" src="<?php echo $home_url.('media/wysiwyg/accept-2.png') ?>"></li>
+		<li style="margin:0 8px 0 0;"><img alt="" src="<?php echo $home_url.('media/wysiwyg/accept-3.png') ?>"></li>
+		<li style="margin:0 8px 0 0;"><img alt="" src="<?php echo $home_url.('media/wysiwyg/accept-4.png') ?>"></li>
+		<li style="margin:0 8px 0 0;"><img alt="" src="<?php echo $home_url.('media/wysiwyg/accept-5.png') ?>"></li>
+	</ul>
+</div>
+</div></div>
+     							</div>
+    						</div> 	
+    						<div class="span6"> 
+                        		 <div class="row-fluid show-grid"> 
+                        		 	<div class="span6"> 
+	<div class="facebook">
+	<div class="footer-static-title">
+			<h3>Tape Drives</h3>
+	<div class="title-divider">
+		<span>&nbsp;</span>
+	</div>
+	<ul class="support_content clearfix">
+		<li class="item first"><a href="<?php echo Mage::getModel("catalog/category")->load(29)->getUrl() ?>" title="">LTO</a></li>
+		<li class="item"><a href="<?php echo Mage::getModel("catalog/category")->load(25)->getUrl() ?>" title="">DAT</a></li>
+		<li class="item"><a href="<?php echo Mage::getModel("catalog/category")->load(26)->getUrl() ?>" title="">DLT</a></li>
+		<li class="item"><a href="<?php echo Mage::getModel("catalog/category")->load(27)->getUrl() ?>" title="">SDLT</a></li>
+		<li class="item"><a href="<?php echo Mage::getModel("catalog/category")->load(23)->getUrl() ?>" title="">AIT</a></li>
+		<li class="item"><a href="<?php echo Mage::getModel("catalog/category")->load(33)->getUrl() ?>" title="">SAIT</a></li>
+		<li class="item"><a href="<?php echo Mage::getModel("catalog/category")->load(31)->getUrl() ?>" title="">VXA</a></li>
+		<li class="item"><a href="<?php echo Mage::getModel("catalog/category")->load(24)->getUrl() ?>" title="">SLR</a></li>
+	</ul>
+	</div>
+
+	</div>
+</div>
+<div class="span6">
+	<div class="twitter">
+	<div class="footer-static-title">
+	<h3>Manufacturers</h3>
+	<div class="title-divider">
+		<span>&nbsp;</span>
+	</div>
+	<ul class="support_content clearfix">
+		<li class="item first"><a href="<?php echo $home_url.('catalogsearch/result/?q=IBM') ?>" title=""><?php echo $this->__('IBM') ?></a></li>
+		<li class="item"><a href="<?php echo $home_url.('catalogsearch/result/?q=HP') ?>" title=""><?php echo $this->__('HP') ?></a></li>
+		<li class="item"><a href="<?php echo $home_url.('catalogsearch/result/?q=Quantum') ?>" title=""><?php echo $this->__('Quantum') ?></a></li>
+		<li class="item"><a href="<?php echo $home_url.('catalogsearch/result/?q=StorageTek') ?>" title=""><?php echo $this->__('StorageTek') ?></a></li>
+		<li class="item"><a href="<?php echo $home_url.('catalogsearch/result/?q=Dell') ?>" title=""><?php echo $this->__('Dell') ?></a></li>
+		<li class="item"><a href="<?php echo $home_url.('catalogsearch/result/?q=Sony') ?>" title=""><?php echo $this->__('Sony') ?></a></li>
+		<li class="item"><a href="<?php echo $home_url.('catalogsearch/result/?q=Fuijitsu') ?>" title=""><?php echo $this->__('Fuijitsu') ?></a></li>
+		<li class="item"><a href="<?php echo $home_url.('catalogsearch/result/?q=Adic') ?>" title=""><?php echo $this->__('Adic') ?></a></li>
+	</ul>
+	</div>
+
+	</div>
+		</div>
+</div>                        		 </div>
+                        	</div>						
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="footer-container mt-copyright">
+    <div class="container">
+        <div class="footer row-fluid show-grid">
+            <address class="address">© 2010 Top Ten GmbH</address>
+                                </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+
+	/*var tooltip = $mtkb('.mt-social ul li a,a.link-wishlist,a.link-compare, button.btn-detail, .mt-actions button.btn-cart, #mtcontainer button.button, #mtcontainer .add-to-links li a,#mtcontainer .out-of-stock .out,.mt-subscribe button,#mt_productscroller button.button, #options .order-fillter ul li a,#mt_productscroller .mt-actions .add-to-links li a, .products-grid .mt-actions button.button, .products-grid .mt-actions .add-to-links li a, .toolbar .pager .pages li a, .toolbar .pager .view-mode span strong, .toolbar .pager .view-mode span a, .toolbar .pages a, .pager .view-mode span a, .pager .view-mode span strong, ul.product-list button.btn-cart,table td a.btn-edit,table th a.btn-edit,table td a.btn-remove,table th a.btn-remove,.btn-remove2');
+	$mtkb(tooltip).tooltip(true);*/
+
+	$mtkb(".block-layered-nav .block-content p.block-subtitle,.addtolink .ratings, .addtolink .no-rating").hide();
+	$mtkb("#product-options-wrapper p.required").hide();	
+	$mtkb('.toolbar.row-pager, .toolbar-bottom .sort-by, .toolbar-bottom .limiter, .toolbar-bottom .view-mode').hide();
+	$mtkb('.toolbar-bottom .toolbar .row-pager').show();
+	$mtkb('table#my-orders-table thead').addClass('hidden-phone');	
+	
+	$mtkb("table").removeClass('data-table');
+	$mtkb("table").addClass('table table-bordered');	
+	$mtkb("table#shopping-cart-totals-table").removeClass('table table-bordered');	
+	$mtkb('#sitemap_top_links').addClass('row-fluid show-grid');
+	$mtkb('#sitemap_top_links .links, .page-sitemap ul.links').addClass('clearfix');
+	
+	$mtkb("#review-form .form-list input.input-text,#review-form .form-list textarea").addClass('span4');
+	$mtkb("#shipping-zip-form .form-list select, #billing-new-address-form select.validate-select, ul li.fields .input-box select.validate-select, ul li.fields div.field .input-box input.input-text, #wishlist-table textarea").addClass('span12');
+	$mtkb(".buttons-set p.required").css("width","100%");
+	$mtkb(".buttons-set p.back-link").addClass("pull-left");
+	$mtkb(".buttons-set button.button").addClass("pull-right");
+	$mtkb(".checkout-cart-index .col-main .cart-empty li.error-msg").addClass('span4 offset4');
+	$mtkb("#multiship-addresses-table select").addClass('span4');	
+	$mtkb("#multiship-addresses-table .qty").addClass('span2');	
+	var msize = false;
+	var checksize = function(){
+        w = $mtkb(".container").width();  
+        msize = (w > 730) ? false : true; 
+    }   
+    
+    $mtkb('.mtajaxcart').hide(); 
+	$mtkb(".top-cart").hover(function() {
+		if(!msize) {
+			$mtkb(this).addClass('hover');
+			$mtkb(".top-cart .mtajaxcart").stop(true, true).delay(300).slideDown(500, "easeOutCubic");
+		}
+	}, function() {
+		$mtkb(".top-cart .mtajaxcart").stop(true, true).delay(100).slideUp(200, "easeInCubic");
+	});  
+	$mtkb('.mt-search-form').hide(); 
+	$mtkb(".top-search").hover(function() {
+		if(!msize) {
+			$mtkb(this).addClass('hover');
+			$mtkb(".top-search .mt-search-form").stop(true, true).delay(500).slideDown(500, "easeOutCubic");
+		}
+	}, function() {
+		if(!msize) {
+		$mtkb(".top-search .mt-search-form").stop(true, true).delay(100).slideUp(200, "easeInCubic");
+		}
+	}); 
+	$mtkb('.block-top-compare').hide(); 
+	$mtkb(".top-compare").hover(function() {
+		if(!msize) {
+			$mtkb(this).addClass('hover');
+			$mtkb(".top-compare .block-top-compare").stop(true, true).delay(500).slideDown(500, "easeOutCubic");
+		}
+	}, function() {
+		if(!msize) {
+		$mtkb(".top-compare .block-top-compare").stop(true, true).delay(100).slideUp(200, "easeInCubic");
+		}
+	}); 
+    $mtkb(document).ready(function(){
+        checksize();
+	}); 
+    $mtkb(window).resize(function(){
+        checksize();
+    });	
+	
+	$mtkb("#back-top").hide();  
+
+ 
+
+ // Add a script element as a child of the body
+ function downloadJSAtOnload() {
+ var element = document.createElement("script");
+ element.src = "/js/magenthemes/mt_colinus/js/jquery-1.8.2.min.js";
+ document.body.appendChild(element);
+ }
+
+ // Check for browser support of event handling capability
+ if (window.addEventListener)
+ window.addEventListener("load", downloadJSAtOnload, false);
+ else if (window.attachEvent)
+ window.attachEvent("onload", downloadJSAtOnload);
+ else window.onload = downloadJSAtOnload;
+
+</script>   
+  
+
+

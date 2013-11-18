@@ -1,0 +1,46 @@
+
+.header-grid {
+width: 30%;
+position: relative;
+display: block;
+float: left;
+height: 40px;
+margin-left: 200px;
+margin-top: 10px;
+margin-bottom: 0;
+}
+/*end header  structure*/
+
+/******************* CALLOOUTs SPAIN ***********************/
+
+.callouts-press-es {
+height:440px; background:#364551 0px 0px repeat;
+-moz-box-shadow: -1px 1px 10px #000; -webkit-box-shadow: -1px 1px 10px #000; box-shadow: -1px 1px 10px #000;
+/* For IE 8 */ -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+/* For IE 5.5 - 7 */ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+
+.callouts-press-es, .callouts-press a { color:#FFF; }
+.callouts-press-es > div > div { padding:15px 15px 25px 15px; }
+.callouts-press-es h3 { font-size:22px; font-weight:300 !important; color:#ccc; line-height:25px; }
+.callouts-press-es h3 a { font-size:12px; color:#FFF; }
+.callouts-press-es p { line-height:20px; }
+
+.callouts-press-es .press-video {
+width: 455px;
+border-right: 2px solid #e5e5e5;
+}
+.callouts-press-es .press-video .video { margin-top:20px; }
+.callouts-press-es .press-video .video > div {
+float: left;
+margin-right: 10px;
+}
+.callouts-press-es .press-video .video div.video-actions { width:244px; height:113px; background:transparent url('../../_images/bgpressvideoright.png') 0px 0px no-repeat; text-align:center; }
+.callouts-press-es .press-video .video div.video-actions a { display:block; margin-top:15px; }
+.callouts-press-es.press-divider { margin-top:15px; }
+.callouts-press-es .press-latest { width:443px; }
+.callouts-press-es .press-latest > b { line-height:20px; }
+.callouts-press-es .press-latest .tn { padding:0px 19px 19px 0px; }
+.callouts-press-es .press-latest img.divider { padding:10px 19px 10px 0px; }
+
+/*******************  ***********************/

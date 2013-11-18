@@ -1,0 +1,29 @@
+<?php $_helper = Mage::helper('catalog/category') ?><br />
+<?php $_categories = $_helper->getStoreCategories() ?><br />
+<?php $currentCategory = Mage::registry('current_category') ?><br />
+<?php if (count($_categories) > 0): ?></p>
+<ul>
+        <?php foreach($_categories as $_category): ?></p>
+<li>
+                <a href="<?php echo $_helper->getCategoryUrl($_category) ?>"><br />
+                    <?php echo $_category->getName() ?><br />
+                </a><br />
+                <?php if ($currentCategory &amp;&amp; $currentCategory->getId() == $_category->getId()): ?><br />
+                    <?php $_category = Mage::getModel('catalog/category')->load($_category->getId()) ?><br />
+                    <?php $_subcategories = $_category->getChildrenCategories() ?><br />
+                    <?php if (count($_subcategories) > 0): ?></p>
+<ul>
+                            <?php foreach($_subcategories as $_subcategory): ?></p>
+<li>
+                                    <a href="<?php echo $_helper->getCategoryUrl($_subcategory) ?>"><br />
+                                        <?php echo $_subcategory->getName() ?><br />
+                                    </a>
+                                </li>
+<p>                           <?php endforeach ?>
+                        </ul>
+<p>                   <?php endif ?><br />
+                <?php endif ?>
+            </li>
+<p>       <?php endforeach ?>
+    </ul>
+<p><?php endif ?>

@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   Codnitive
+ * @package    Codnitive_Sidenav
+ * @author     Hassan Barza <support@codnitive.com>
+ * @copyright  Copyright (c) 2011 CODNITIVE Co. (http://www.codnitive.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+	<modules>
+		<Codnitive_Sidenav>
+			<version>1.7.21</version>
+			<title>Sidebar Navigation Menu Professional</title>
+			<link><![CDATA[http://www.codnitive.com/]]></link>
+		</Codnitive_Sidenav>
+	</modules>
+	<global>
+		<models>
+			<sidenav>
+				<class>Codnitive_Sidenav_Model</class>
+			</sidenav>
+			<sidenavconfig>
+				<class>Codnitive_Sidenav_Model_Config</class>
+			</sidenavconfig>
+		</models>
+		<helpers>
+			<sidenav>
+				<class>Codnitive_Sidenav_Helper</class>
+			</sidenav>
+		</helpers>
+		<resources>
+			<sidenav_setup>
+				<setup>
+					<module>Codnitive_Sidenav</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</sidenav_setup>
+			<sidenav_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</sidenav_write>
+			<sidenav_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</sidenav_read>
+		</resources>
+		<blocks>
+			<sidenav>
+				<class>Codnitive_Sidenav_Block</class>
+			</sidenav>
+		</blocks>
+	</global>
+
+	<adminhtml>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<codnitivecatalog>
+											<title>CODNITIVE Catalog</title>
+										</codnitivecatalog>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		
+		<translate>
+			<modules>
+				<Codnitive_Sidenav>
+					<files>
+						<default>Codnitive_Sidenav.csv</default>
+					</files>
+				</Codnitive_Sidenav>
+			</modules>
+		</translate>
+	</adminhtml>
+
+	<frontend>
+		<translate>
+			<modules>
+				<Codnitive_Sidenav>
+					<files>
+						<default>Codnitive_Sidenav.csv</default>
+					</files>
+				</Codnitive_Sidenav>
+			</modules>
+		</translate>
+
+		<layout>
+			<updates>
+				<sidenav>
+					<file>sidenav.xml</file>
+				</sidenav>
+			</updates>
+		</layout>
+	</frontend>
+
+	<default>
+		<codnitivecatalog>
+			<sidenav>
+				<active>1</active>
+				<title>Categories</title>
+				<remove_top_nav>0</remove_top_nav>
+				<remove_layered_nav>1</remove_layered_nav>
+				<column>left_col</column>
+				<parent>root</parent>
+				<max_depth>1</max_depth>
+				<collapsible>1</collapsible>
+				<product_count>0</product_count>
+				<remove_zero_count>0</remove_zero_count>
+				<thumbnail>0</thumbnail>
+				<thumb_size>0</thumb_size>
+				<thumb_width>14</thumb_width>
+				<thumb_height>14</thumb_height>
+			</sidenav>
+		</codnitivecatalog>
+	</default>
+</config>

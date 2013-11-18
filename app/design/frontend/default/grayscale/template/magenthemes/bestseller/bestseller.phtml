@@ -1,0 +1,44 @@
+<?php
+/*------------------------------------------------------------------------
+# APL Solutions and Vision Co., LTD
+# ------------------------------------------------------------------------
+# Copyright (C) 2008-2010 APL Solutions and Vision Co., LTD. All Rights Reserved.
+# @license - Copyrighted Commercial Software
+# Author: APL Solutions and Vision Co., LTD
+# Websites: http://www.joomlavision.com/ - http://www.magentheme.com/
+-------------------------------------------------------------------------*/
+?>
+<?php
+$config = Mage::getStoreConfig('mtcolinusadmin/product');
+if($config['product_bestseller']){
+$_productCollection=$this->getProductCollection();
+?>
+<div class="block block-bestseller" id="block-bestseller">
+    <div class="block-title">
+        <strong><span><?php echo $this->__("Best Seller"); ?></span></strong>
+    </div>
+    <div class="title-divider">
+        <span>&nbsp;</span>
+    </div>
+    <div class="block-content">
+        <ol class="mini-products-list" id="bestseller-sidebar">
+            <?php foreach ($_productCollection as $_product): ?>
+			<li class="item row-fluid show-grid">
+				<div class="span3">
+					<a href="<?php echo $this->getProductUrl($_product) ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>" class="product-image">
+						<img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize(100); ?>" width="100" height="100" alt="<?php echo $this->escapeHtml($_product->getName()) ?>" />
+					</a>
+				</div>
+				<div class="product-details span9">
+                    <p class="product-name">
+						<a href="<?php echo $this->getProductUrl($_product) ?>"><?php echo $this->escapeHtml($_product->getName()) ?></a>
+					</p>
+                    <?php echo $this->getPriceHtml($_product, false, '-bestseller') ?>
+                </div>
+            </li>
+            <?php endforeach; ?>
+        </ol>
+		<script type="text/javascript">decorateGeneric($$('ol#bestseller-sidebar li'), ['odd','even','first','last'])</script>
+    </div>
+</div>
+<?php }?>

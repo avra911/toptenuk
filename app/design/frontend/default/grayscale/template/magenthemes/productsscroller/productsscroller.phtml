@@ -1,0 +1,206 @@
+<?php
+/*------------------------------------------------------------------------
+# APL Solutions and Vision Co., LTD
+# ------------------------------------------------------------------------
+# Copyright (C) 2008-2011 APL Solutions and Vision Co., LTD. All Rights Reserved.
+# @license - Copyrighted Commercial Software
+# Author: APL Solutions and Vision Co., LTD
+# Websites: http://www.joomlavision.com/ - http://www.9magentothemes.com/
+-------------------------------------------------------------------------*/
+$config = Mage::getStoreConfig('mtcolinusadmin/mtcolinusadmin_appearance');
+$otherconfig = Mage::getStoreConfig('mtcolinusadmin/otherconfig'); 
+$actionhover = $this->getConfig('hoverpause');
+if($actionhover>0) $hoverpause = 'true'; else $hoverpause = 'false';
+if($config['theme_responsive']){ $itemWidth = $this->getConfig('width_item').'px'; }else{ $itemWidth = '238px';} 
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php if($this->getConfig('enabled')): ?> <!-- start enable module -->
+<?php
+//width, height of slider
+    $item = $this->getConfig('items');
+// width, height of thumbnail
+    $w = $this->getConfig('width');
+    $h = $this->getConfig('height');
+    $mainWidth = $this->getConfig('main_width');
+    $mainHeight = $this->getConfig('main_height');
+    $pagenavWidth = $item*$this->getConfig('width_item');
+    $wslider = $w * $item;
+    $hslider = $h;
+    $this->getListProducts();
+    $_productCollection=$this->getProductCollection();
+    if(count($_productCollection)>0){
+        ?>
+    <div class="mt_productscroller container">
+        <?php if($this->getConfig('title')){?>
+        <div class="block-title">
+            <div class="row-fluid show-grid">
+				<h3 class="pull-left">
+					<span>
+						<?php echo $this->getConfig('title')?>
+					</span>
+				</h3>
+				<div class="pagenave pull-right clearfix" style="width:auto !important;">
+					<button id="pscroll-prev" class="prev" title="<?php echo $this->__('Previous') ?>"></button>
+					<button id="pscroll-next" class="next" title="<?php echo $this->__('Next') ?>"></button>
+				</div>
+            </div>
+        </div>
+        <?php }?>
+        <div id="mt_productscroller" class="scroller-slider" style="width: <?php echo $mainWidth;?>px; height: <?php echo $mainHeight;?>;">
+            <ul style="margin: 0pt; padding: 0pt; position: relative; list-style-type: none; z-index: 1;">
+                <?php $i = 0; foreach ($_productCollection as $_product): ?>
+                <li class="items-slider loading" style="overflow: hidden; float: left; width: <?php echo $itemWidth;?>; height: <?php echo $mainHeight;?>px;">
+                <div class="catpanel ">
+                        <div class="content products-list">
+                            <div class="product-image">
+                                <div class="product-thumb">
+                                    <a href="<?php echo $_product->getProductUrl() ?>" class="product-image" style="position: relative; display: block;">
+                                        <?php echo $this->helper('mtcolinusadmin')->getLabel($_product);  ?> 
+                                        <?php if($otherconfig['hover_product']=='show_image'){?>
+										<img class="mt-hover" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'js/magenthemes/mt_colinus/js/productsscroller/timthumb/timthumb.php?src='.$this->helper('catalog/image')->init($_product, 'small_image').'&amp;h='.$h.' &amp;w='.$w; ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+										<?php }?>
+                                        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'js/magenthemes/mt_colinus/js/productsscroller/timthumb/timthumb.php?src='.$this->helper('catalog/image')->init($_product, 'thumbnail').'&amp;h='.$h.' &amp;w='.$w; ?>" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'thumbnail')) ?>" />
+                                    </a>
+                                </div>
+                                <div class="mask" onclick="setLocation('<?php echo $_product->getProductUrl() ?>')">
+                                    <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a></h3>
+                                    <?php if ($_product->getShortDescription()):?>
+                                    <div class="short-description">
+                                        <?php 
+                                        if($this->getConfig('desc_striptags')){
+                                            $short_desc = strip_tags($_product->getShortDescription(), '<p>');
+                                        }else{
+                                            $short_desc = $_product->getShortDescription();
+                                        }?>
+                                        <?php echo $_helper->productAttribute($_product, $short_desc, 'short_description') ?>
+                                    </div>
+                                    <?php endif;?>
+                                    <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                                </div>
+                            </div>
+                            <div class="top-actions-inner">
+                                <span class="ajax-loading"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'/skin/frontend/default/mt_colinus/images/loading.gif';?>"/></span>
+                                <!--price-->
+                                <?php if($this->getConfig('price')): ?>
+                                <?php echo $this->getPriceHtml($_product, true) ?>
+                                <?php endif; ?>
+                                <!--Other-->
+                                <div class="mt-actions clearfix">
+                                <div class="addtocart pull-left br">
+                                    <?php if($otherconfig['enabled_ajax']){?>
+                                    <?php if($_product->isSaleable()): ?>
+                                        <?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) ) { ?>
+                                            <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="ajaxaddcart('<?php echo $this->getAddToCartUrl($_product) ?>',<?php echo $_product->getId() ?>)">
+                                                    <span>
+                                                        <span><?php echo $this->__('Add to Cart') ?></span>
+                                                    </span>
+                                            </button>
+                                            <?php } else { ?>
+                                            <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart shell" onclick="showOptions('<?php echo $_product->getId()?>')">
+                                                <span>
+                                                    <span><?php echo $this->__('Add to Cart') ?></span>
+                                                </span>
+                                            </button>
+                                            <a href='<?php echo $this->getUrl('mtcolinusadmin/index/options',array('product_id'=>$_product->getId()));?>' class='fancybox' id='fancybox<?php echo $_product->getId()?>' style='display:none'>
+                                                Add
+                                            </a>
+                                            <?php }?>
+                                        <?php else: ?>
+                                        <p class="availability out-of-stock pull-left" title="<?php echo $this->__('Out of stock') ?>">
+                                            <span class="out"><?php echo $this->__('Out of stock') ?></span>
+                                        </p>
+                                        <?php endif; ?>
+                                    <?php }else{?>
+                                    <?php if($_product->isSaleable()): ?>
+                                        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">
+                                                <span>
+                                                    <span><?php echo $this->__('Add to Cart') ?></span>
+                                                </span>
+                                        </button>
+                                        <?php else: ?>
+                                        <p class="availability out-of-stock pull-left" title="<?php echo $this->__('Out of stock') ?>">
+                                            <span class="out"><?php echo $this->__('Out of stock') ?></span>
+                                        </p>
+                                        <?php endif; ?>
+                                    <?php }?>
+                                </div> 
+								<?php if( $this->getConfig('addtowishlist') ){?>
+                                <div class="wishlist pull-left br">
+                                    <p> 
+                                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                        <a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" data-id="<?php echo $_product->getId(); ?>" class="link-wishlist" title="<?php echo $this->__('Add to Wishlist') ?>">
+                                            <?php echo $this->__('Add to Wishlist') ?>
+                                        </a>
+                                        <?php endif; ?>
+                                    </p>
+                                </div>
+                                <?php } ?>
+                                <?php if( $this->getConfig('addtocompare') ){?>
+                                <div class="compare pull-left br">
+                                    <p>
+                                        <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                                        <a href="<?php echo $_compareUrl ?>" data-id="<?php echo $_product->getId(); ?>" class="link-compare" title="<?php echo $this->__('Add to Compare') ?>">
+                                            <?php echo $this->__('Add to Compare') ?>
+                                        </a>
+                                        <?php endif; ?> 
+                                    </p>
+                                </div>
+                                <?php }?> 
+                                <?php if ($this->getConfig('detail') ):?>
+                                <div class="detail pull-left">
+                                    <button type="button" title="<?php echo $this->__('Detail') ?>" class="button btn-detail" onclick="setLocation('<?php echo $_product->getProductUrl() ?>')">
+                                    <span>
+                                        <span><?php echo $this->__('Detail') ?></span>
+                                    </span>
+                                    </button>
+                                </div>
+                                <?php endif;?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </li>
+                <?php $i++;endforeach ?>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $mtkb(document).ready(function(){
+            var w = $mtkb(".container").width();
+            var mainw = $mtkb(".scroller-slider").width(); 
+            $mtkb(function() {
+                $mtkb("#mt_productscroller").jCarouselLite({
+                    btnNext: "#pscroll-next",
+                    btnPrev: "#pscroll-prev", 
+                    visible: <?php echo $item;?>,  
+                    auto: <?php echo $this->getConfig('auto') ?>,
+                    scroll: <?php echo $this->getConfig('items_scroll') ?>,
+                    easing: "swing",
+                    speed: <?php echo $this->getConfig('animation') ?>,
+                    caption_color	: 'black',
+                    caption_bgcolor	: '#D6DEE2',
+                    overlay_bgcolor 	: '',
+                    hoverPause: <?php echo $hoverpause;?>,
+                    border		: '',
+                    showcaption	: false,
+                    countItem: <?php echo count($_productCollection);?>
+                });
+            });
+            var navresize = function(){
+                w = $mtkb(".container").width();  
+                if(w <= mainw){
+                    $mtkb(".scroller-slider").css("width", w);
+                }else{ 
+                    $mtkb(".scroller-slider").css("width", mainw); 
+                }
+            }
+            $mtkb(window).load(function(){
+            	navresize();
+            }); 
+            $mtkb(window).resize(function(){
+                navresize();
+            });
+        }); 
+    </script>
+    <?php }?>
+<?php endif; ?> 

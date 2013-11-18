@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <api>
+    <resources>
+      <c2q_quotation translate="title" module="qquoteadv">
+        <title>Quotation API</title>
+        <model>qquoteadv/qquoteadv_api</model>
+        <methods>
+          <list translate="title" module="qquoteadv">
+            <title>Retrieve list of quotations using filters</title>
+            <method>items</method>
+          </list>
+          <set_imported translate="title" module="qquoteadv">
+            <title>Set quotation as exported</title>
+            <method>setimported</method>
+          </set_imported>
+          <info translate="title" module="qquoteadv">
+            <title>Retrieve an quotation's information</title>
+            <method>info</method>
+          </info>
+          <status_list translate="title" module="qquoteadv">
+            <title>Retrieve list of quotation's states</title>
+            <method>status_list</method>
+          </status_list>
+          <add_qtybyitem translate="title" module="qquoteadv">
+            <title>Add qty by requested item</title>
+            <method>add_qtybyitem</method>
+          </add_qtybyitem>
+          <send_proposal  translate="title" module="qquoteadv">
+            <title>Send proposal</title>
+            <method>send_proposal</method>
+          </send_proposal>
+          <set_shipping translate="title" module="qquoteadv">
+            <title>Set shipping type</title>
+            <method>set_shipping</method>
+          </set_shipping>
+          <set_proposal_comment translate="title" module="qquoteadv">
+            <title>Send comment for proposal</title>
+            <method>set_proposal_comment</method>
+          </set_proposal_comment>
+          <set_item_comment translate="title" module="qquoteadv">
+            <title>Send comment by item</title>
+            <method>set_item_comment</method>
+          </set_item_comment>
+          <delete_requested_qty translate="title" module="qquoteadv">
+            <title>Delete requested item's qty</title>
+            <method>delete_requested_qty</method>
+          </delete_requested_qty> 
+          <delete_requested_item translate="title" module="qquoteadv">
+            <title>Delete requested item</title>
+            <method>delete_requested_item</method>
+          </delete_requested_item>
+          <modify_requested_qty translate="title" module="qquoteadv">
+            <title>Modify requested item's qty</title>
+            <method>modify_requested_qty</method>
+          </modify_requested_qty> 
+          <add_products_to_quote translate="title" module="qquoteadv">
+            <title>Add products to quote</title>
+            <method>add_products_to_quote</method>
+          </add_products_to_quote> 
+          <update_quote_status translate="title" module="qquoteadv">
+            <title>Update Quote Status</title>
+            <method>update_quote_status</method>
+          </update_quote_status> 
+        </methods>
+        <faults module="qquoteadv">
+          <data_invalid>
+            <code>100</code>
+            <message>Invalid data.</message>
+          </data_invalid>
+          <not_exists>
+            <code>101</code>
+            <message>Data not exists.</message>
+          </not_exists>
+          <quote_not_exists>
+            <code>102</code>
+            <message>Quotation not exists.</message>
+          </quote_not_exists>
+          <filters_invalid>
+            <code>103</code>
+            <message>Invalid filters specified. Details in error message.</message>
+          </filters_invalid>
+          <dublicate_data>
+            <code>104</code>
+            <message>Duplicate value entered.</message>
+          </dublicate_data>
+          <save_error>
+            <code>105</code>
+            <message>Error while saving.</message>
+          </save_error>
+          <delete_error>
+            <code>106</code>
+            <message>Error while deleting.</message>
+          </delete_error>
+        </faults>
+      </c2q_quotation>
+    </resources>
+    <v2>
+      <resources_function_prefix>
+        <c2q_quotation>c2q</c2q_quotation>
+      </resources_function_prefix>
+    </v2> 
+  </api>
+</config>

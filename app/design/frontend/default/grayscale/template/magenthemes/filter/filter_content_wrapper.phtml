@@ -1,0 +1,19 @@
+<?php 
+$_helper= Mage::helper('catalog/output'); 
+$_category  = $this->getCurrentCategory(); 
+?>
+<!--
+<div class="col-main-inner"> 
+<div class="page-title category-title hidden-phone">
+    <?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
+        <a href="<?php echo $this->getRssLink() ?>" class="link-rss"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
+    <?php endif; ?>
+    <h2><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h2>
+</div> 
+</div>
+-->
+<?php 
+	$this->getLayout()->createBlock('catalog/category/view');
+	echo $this->getMessagesBlock()->getGroupedHtml(); 
+?>
+<?php echo $this->getChildHtml('content');  ?>

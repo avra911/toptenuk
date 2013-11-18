@@ -1,0 +1,29 @@
+   <div class="vertical-nav-container box base-mini">
+    <div class="vertical-nav">
+     
+    <!--<div class="head">-->
+     
+    <!--<h4>-->
+    <div class="block block-cart">
+        <div class="block-title">
+            <strong><span><?php echo $this->__('Categories') ?></span></strong>
+    </div><!--End block block-cart-->
+     
+     
+    <div class="block-content">
+     
+    <!--</h4>-->
+    <!--</div>--><!--End Of head-->
+     
+    <h4 class="no-display">
+    <?php echo $this->__('Category Navigation:') ?></h4>
+    <ul id="nav_vert">
+    <?php foreach ($this->getStoreCategories() as $_category): ?>
+    <?php echo $this->drawItem($_category) ?>
+    <?php endforeach ?> </ul>
+    </div>
+    </div><!--End Of vertical-nav-->
+     
+    <?php echo $this->getChildHtml('topLeftLinks') ?>
+     
+    </div></div><!--End Of vertical-nav-container box base-mini-->
