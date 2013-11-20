@@ -43,7 +43,7 @@
                     <host><![CDATA[localhost]]></host>
                     <username><![CDATA[toptenuk_magento]]></username>
                     <password><![CDATA[Qi5cEVKzl+&2]]></password>
-                    <dbname><![CDATA[toptenuk_magento]]></dbname>
+                    <dbname><![CDATA[toptenuk_magento_staging]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
                     <type><![CDATA[pdo_mysql]]></type>
