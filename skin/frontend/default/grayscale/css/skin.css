@@ -77,7 +77,6 @@ ul,ol         { list-style:none; }
 .wrapper {
 	min-width: 990px;
 }
-.page {}
 .page-print { background:#ffffff; padding:25px 30px; text-align:left; }
 .page-empty { background:#ffffff; padding:20px; text-align:left; }
 .page-popup { background:#ffffff; padding:20px; text-align:left; }
@@ -116,9 +115,8 @@ ul,ol         { list-style:none; }
 
 .col2-left-layout .col-left {
 	float: left;
-	padding: 0 0 1px;
-width:14%;
-margin-left:4px;
+	width:14%;
+	margin-left:4px;
 }
 /* 2 Columns Layout right */
 .col2-right-layout .col-main { float:left; }
@@ -131,8 +129,6 @@ margin-left:4px;
 .col3-layout .col-wrapper .col-main { float:right; width:78%; }
 
 /* Content Columns */
-
-
 .col2-set .col-2 .registered-users{ float:right; width: 48.5%; margin-right:10px; }
 .col2-set .col-narrow { width:32%; }
 .col2-set .col-wide { width:65%; }
@@ -267,16 +263,10 @@ p.control input.radio { margin-right:6px; }
 /* Form Validation */
 .validation-advice { clear:both; min-height:13px; margin:3px 0 0;line-height:13px; }
 .validation-failed { border:0 ; background:#faebe7 ; }
-.validation-passed {}
 p.required {text-align:right;}
 /* Expiration date and CVV number validation fix */
 .v-fix { float:left; }
 .v-fix .validation-advice { display:block; width:12em; margin-right:-12em; position:relative; }
-
-/* Global Messages  */
-.success {   }
-.error { }
-.notice {  }
 
 .messages,
 .messages ul { list-style:none ; margin:0 ; padding:0 ; }
@@ -312,19 +302,15 @@ p.required {text-align:right;}
 /* Generic Info Box */
 .info-box { padding:12px 15px; 
 margin:0 0 15px; }
-.info-box h2 {   }
 
 .info-table th {  padding:2px 15px 2px 0; }
 .info-table td { padding:2px 0; }
 
 /* Shopping cart total summary row expandable to details */
 tr.summary-total { cursor:pointer; }
-tr.summary-total td {}
 tr.summary-total .summary-collapse { float:right; text-align:right; padding-left:20px; 
 background:url(./images/bkg_collapse.gif) 0 5px no-repeat; cursor:pointer; }
 tr.show-details .summary-collapse { background-position:0 -52px; }
-tr.show-details td {}
-
 tr.summary-details-excluded { font-style:italic; }
 
 /* Shopping cart tax info */
@@ -341,7 +327,6 @@ cursor:pointer; }
 .std .subtitle { padding:0; }
 .std ol.ol { list-style:decimal outside; padding-left:1.5em; }
 .std ul.disc { list-style:disc outside; padding-left:18px; margin:0 0 10px; }
-.std dl dt {  }
 .std dl dd { margin:0 0 10px; }
 
 /* Misc */
@@ -388,9 +373,7 @@ text-indent:-999em; overflow:hidden; }
 
 .header .links { float:right;  }
 .header .links li { float:right; }
-.header .links a {  }
 .header-container .top-container { clear:both; padding:0 10px 0 12px; text-align:right; }
-.header-container .top-container a { }
 
 /*header*/
 
