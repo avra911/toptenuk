@@ -266,9 +266,6 @@ margin: 0;
 padding: 0 4px;
 }
 
-.sbOptions li a.eng {
-background: url(http://localhost.magento-store.com/skin/frontend/default/mod/images/flag/en.png) 5px 50% no-repeat;
-}
 
 /**STYLE SELECT BOX**/
 .sbHolder {
@@ -1067,7 +1064,7 @@ a:hover,
 	color:#ff4f4f !important;
 }
 h1, h2, h3, h4, h5, h6{
-    font-family: Open Sans,;    
+    font-family: Open Sans;    
 }
 #nav > li > a.hover,
 .navbar .btn-navbar,
@@ -1142,16 +1139,6 @@ a.backtohome:hover,
 	color: #757575;
 }
 
-.header{
-	  	background-color: #ffffff;
-	 
-    color: #adadad;   
-    font-family: Open Sans,Arial,Helvetica,sans-serif;   
-}
-.header h1,.header h2,.header h3,.header h4,.header h5,.header h6,.header p,.header-static ul li{
-    color: #adadad;    
-    font-family: Open Sans,Arial,Helvetica,sans-serif; 
-}
 .top-search label.label{ color: #454545; }
 .product-view .product-shop a.link-wishlist:hover span.label,
 .product-view .product-shop a.link-compare:hover span.label,
@@ -1435,11 +1422,10 @@ box-sizing: border-box;
 .footer-static-title h6
 {
 	color: 	#676767;
-    font-family: Open Sans,Arial,Helvetica,sans-serif;
 }
 
 .mt-footer-static-container {
-	  	background-image: none; 	
+	  background-image: none; 	
   	background-color: #ececec;
 	    font-family: Open Sans,Arial,Helvetica,sans-serif;
 }
@@ -1673,89 +1659,7 @@ table thead
 #nav .sub-wrapper{
 	background-color: #ffffff;
 }
-.top-cart a.cart-link span.icon, 
-.toolbar .pager .view-mode span a, 
-.toolbar .pager .view-mode span strong, 
-.product-view .product-shop .add-to-links span.icon, 
-.product-view .product-shop .add-to-cart input.items, 
-.ajax-container .product-details .btn-edit span.icon, 
-.ajax-container .product-details .btn-remove span.icon, 
-.main-inner .col-main .block.pager a, 
-table td a.btn-edit, 
-table th a.btn-edit, 
-table td a.btn-remove, 
-table th a.btn-remove, 
-.crosssell button.button span, 
-.cart .cart-collaterals .crosssell .add-to-links li a, 
-a.backtohome, 
-.btn-remove span.icon, 
-.btn-edit span.icon, 
-.block-related .product-title .pagenav span,  
-.block-compare .btn-remove, 
-.box-collateral .pagenav span, 
-.cms-no-route div.std ul.disc li a,
-.page-sitemap .pager .pages li.current, 
-.header-static p,
-#back-top span,
-#multiship-addresses-table td .btn-remove2,
-.ajax-container .access a span.icon,
-.block-compare li a.btn-remove,
-.my-wishlist a.btn-edit,
-.my-wishlist a.btn-remove,
-.search-icon:hover,
-.mt-icon-ajaxcart:hover,
-ul#sort-direction li a,
-.box-collateral .pagenav span,
-.mt-icon-compareajax:hover,
-.compare-items .actions a,
-.block-layered-nav .currently .btn-remove
-{	
-	background-color: #cfcfcf;	
-}
-#back-top span:hover, 
-.toolbar .pager .view-mode span strong,
-.toolbar .pager .view-mode span a:hover,
-.toolbar .pager .pages .current,
-.toolbar .sbHolder a.sbToggle,
-.toolbar .sbHolder a.sbToggle:hover,
-.toolbar .pager .view-mode span:hover strong,
-.toolbar .pager .pages li a:hover,
-.product-view .product-shop .add-to-box .add-to-links .mt-actions a:hover span.icon,
-.product-view .product-shop .add-to-links span.icon:hover,
-.product-view .product-shop .add-to-cart input.items:hover,
-.ajax-container .product-details .btn-edit span.icon:hover,
-.ajax-container .product-details .btn-remove span.icon:hover,
-.btn-remove span.icon:hover,
-.btn-edit span.icon:hover,
-.block-related .product-title .pagenav span:hover,  
-.block-compare .btn-remove:hover span.icon,
-.mt-more-images span:hover,
-.ajax-container .access a:hover span.icon,
-a.btn-edit:hover span,a.btn-remove:hover span,
-button.btn-edit:hover,button.btn-remove:hover,
-.block-compare li:hover a.btn-remove,
-.block-compare .block-content .actions a:hover span.btn-remove,
-.my-wishlist a.btn-edit:hover,
-.my-wishlist a.btn-remove:hover,
-table td a.btn-edit:hover,
-table th a.btn-edit:hover,
-table td a.btn-remove:hover,
-table th a.btn-remove:hover,
-ul#sort-direction li a:hover,
-.search-form-border,
-.compare-items .actions a:hover,
-.top-compare a.btn-remove,
-.block-layered-nav .currently .btn-remove:hover
-{
-	background-color: #eeeeee;
-}
-.product-view .product-shop .add-to-cart .addcart button span,
-.product-view .product-shop .add-to-cart button.btn-cart span,
-button.btn-checkout span,
-.my-wishlist button.btn-cart span
-{
 
-}
 .product-view .product-shop .add-to-cart .addcart button:hover span,
 .product-view .product-shop .add-to-cart button.btn-cart:hover span,
 button.btn-checkout:hover span,
