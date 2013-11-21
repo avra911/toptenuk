@@ -536,10 +536,8 @@ margin-right:10px;
 /* Block: Account */
 .block-account {  }
 .block-account .block-title { border:0; padding:3px 10px; }
-.block-account .block-title strong {  }
 .block-account .block-content {  padding:7px 10px 7px; }
 .block-account .block-content li a { display:block; padding:3px 0;  }
-.block-account .block-content li a:hover {  }
 .block-account .block-content li.last a { border-bottom:0; }
 .block-account .block-content li.current { padding:3px 0; }
 .block-account .block-content li.current.last { border-bottom:0; }
@@ -547,33 +545,24 @@ margin-right:10px;
 /* Block: Currency Switcher */
 .block-currency { border:0;  padding: 0px; height:auto; }
 .block-currency .block-title { background:none; border:0; padding:0; margin:0 0 0px; }
-.block-currency .block-title strong {  }
 .block-currency .block-content { background:none; padding:6px 0px 6px 0px; }
 .block-currency .block-content select { width: auto; padding:0; display: block; margin:0; }
 
 /* Block: Layered Navigation */
 .block-layered-nav { border:0; }
 .block-layered-nav dt {  padding:7px 0px 0 0px; }
-.block-layered-nav dd {   }
 .block-layered-nav dd.last { background:none; }
 .block-layered-nav .currently li {  padding:4px 0px 4px 0px; }
-.block-layered-nav .currently .label {  }
 .block-layered-nav .currently .btn-remove { margin:3px 0 0; }
 .block-layered-nav .actions {padding:4px 9px; text-align:right; }
 .block-layered-nav .actions a { float:none; }
 
 /* Block: Cart */
-.block-cart .block-title {  }
-.block-cart .block-title strong {  }
 .block-cart .summary { padding:2px 8px 8px; margin:-1px 0 0; position:relative; z-index:1; }
 .block-cart .amount { margin:0; }
-.block-cart .amount a {  }
 .block-cart .subtotal { margin:5px 0 0; padding:2px 0; text-align:center; }
-.block-cart .subtotal .price {  }
-.block-cart .actions {  }
 
 /* Block: Wishlist */
-.block-wishlist .block-title strong { }
 .block-wishlist .actions { text-align:right; }
 .block-wishlist .actions a { float:none; }
 
@@ -583,8 +572,6 @@ margin-right:10px;
 .block-related .product { margin-left:20px; }
 
 /* Block: Compare Products */
-.block-compare .block-title strong {  }
-.block-compare button.button span {  }
 .page-popup .link-print { background:url(./images/print.gif)  0 2px no-repeat; padding:2px 0 2px 25px;  }
 .compare-table { border:0; }
 .compare-table thead tr.first th,
@@ -604,43 +591,26 @@ margin-right:10px;
 .compare-table tr.first td p,
 .compare-table tr.add-to-row td p { margin:0; }
 
-/* Block: Recently Viewed */
-.block-viewed .block-title strong {  }
-
-/* Block: Recently Compared */
-.block-compared .block-title strong {  }
-
 /* Block: Poll */
-.block-poll .block-title strong {  }
-.block-poll .block-subtitle {  }
-.block-poll label {   }
 .block-poll input.radio { float:left; margin:1px -18px 0 0; }
 .block-poll .label { display:block; margin-left:18px; }
 .block-poll li { padding:3px 9px; }
 .block-poll .actions { margin:5px 0 0; }
-.block-poll button.button span {  }
-.block-poll .answer {  }
 .block-poll .votes { float:right; margin-left:10px; }
 
 /* Block: Tags */
-.block-tags .block-title strong { }
 .block-tags .block-content ul {  padding:0px 5px 0px 5px; }
 .block-tags .block-content li { display:inline; padding-right:4px; }
-.block-tags .block-content a { }
 .block-tags .actions { text-align:right; }
 .block-tags .actions a { float:none; }
 
 /* Block: Subscribe */
 .block-subscribe .block-content { padding:5px 10px; }
-.block-subscribe .block-title strong {  }
-.block-subscribe label {   }
 .block-subscribe input.input-text { display:block; width:167px; margin:3px 0; }
 .block-subscribe .actions { background:none; padding:0; margin:3px 0 0; text-align:left; }
 .block-subscribe .actions button.button { float:none; }
-.block-subscribe .actions button.button span { }
 
 /* Block: Reorder */
-.block-reorder .block-title strong {  }
 .block-reorder input.checkbox { float:left; margin:2px -20px 0 0; }
 .block-reorder .product-name { margin-left:20px; }
 .block-reorder .validation-advice { margin:3px 9px 7px; }
@@ -650,9 +620,7 @@ margin-right:10px;
 .block-banner .block-content { padding:0; text-align:center; }
 
 /* Block: Login */
-.block-login .block-title strong {  }
 .block-login .block-content { padding:5px 10px; }
-.block-login label {   }
 .block-login input.input-text { display:block; width:167px; margin:3px 0; }
 .block-login .actions { background:none; padding:0; margin:3px 0 0; }
 .block-login .actions button.button span {  }
@@ -740,10 +708,7 @@ background:url(./images/grid-item-shadow.png) right bottom no-repeat;
 .ratings strong { float:left; margin:1px 3px 0 0; }
 .ratings .rating-links { margin:0; }
 .ratings .rating-links .separator { margin:0 2px; }
-.ratings dt {}
-.ratings dd {}
 .ratings .rating-box { float:left; margin-right:3px; }
-.ratings .amount {}
 
 .ratings-table th,
 .ratings-table td {line-height:1.15; padding:3px 0; }
@@ -751,9 +716,6 @@ background:url(./images/grid-item-shadow.png) right bottom no-repeat;
 
 /* Availability */
 .availability { margin:0; }
-.availability span {  }
-.availability.in-stock span {}
-.availability.out-of-stock span { }
 
 .availability-only { margin:10px 0 7px; line-height:16px; }
 .availability-only span,
@@ -765,7 +727,6 @@ background:url(./images/grid-item-shadow.png) right bottom no-repeat;
 .availability-only-details { margin:0 0 7px; }
 .availability-only-details th {  font-size:10px; padding:0 8px; }
 .availability-only-details td { border-bottom:1px solid;padding:2px 8px 1px; }
-.availability-only-details tr.odd td.last {   }
 
 .product-view .product-shop .availability {}
 .product-view .product-shop .availability span { color: #4f9923;
@@ -784,13 +745,6 @@ outline: none; }
 .price { white-space:nowrap ; }
 
 .price-box { margin:5px 0; }
-.price-box .price {   }
-
-/* Regular price */
-.regular-price {  }
-.regular-price .price {   }
-.block .regular-price,
-.block .regular-price .price {  }
 
 /* Old price */
 .old-price { margin:0; }
@@ -800,7 +754,6 @@ outline: none; }
 /* Special price */
 .special-price { margin:0; padding:3px 0; }
 .special-price .price-label {   white-space:nowrap;  }
-.special-price .price {  }
 
 /* Minimal price (as low as) */
 .minimal-price { margin:0; }
@@ -818,11 +771,9 @@ outline: none; }
 /* Including tax */
 .price-including-tax { display:block;  }
 .price-including-tax .label { white-space:nowrap; }
-.price-including-tax .price {  }
 
 /* FPT */
 .weee { display:block; }
-.weee .price {}
 
 /* Excl tax (for order tables) */
 .price-excl-tax  { display:block; }
@@ -843,7 +794,6 @@ outline: none; }
 
 /* Price notice next to the options */
 .price-notice { padding-left:10px; }
-.price-notice .price {  }
 
 /* Price as configured */
 .price-as-configured { margin:0; }
@@ -858,10 +808,8 @@ outline: none; }
 .tier-prices { margin:10px 0; padding:10px; border:1px solid; }
 .tier-prices li { line-height:1.4;  padding:2px 0 2px 0px; }
 .tier-prices .benefit { font-style:italic; }
-.tier-prices .price {  }
 
 .tier-prices-grouped li { padding:2px 0; }
-.tier-prices-grouped li .price {  }
 
 /* Add to Links */
 .add-to-links {margin:5px 0 0; }
@@ -875,7 +823,6 @@ outline: none; }
 .add-to-cart .paypal-logo { clear:left; margin:0; padding:10px 0 0; text-align:right; }
 
 /* Add to Links + Add to Cart */
-.add-to-box .add-to-cart {}
 .add-to-box .or { float:left;  margin:0 7px; }
 .add-to-box .add-to-links { float:left; margin:0;  line-height:1.25; text-align:left; }
 .add-to-box .add-to-links li { display:block; }
