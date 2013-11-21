@@ -6,7 +6,7 @@ img           { border:0; vertical-align:top; }
 
 a             { outline: none;}
 a:hover       { outline: none;}
-:focus        { outline:0; }
+:focus        { outline:0;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60); }
 a:active {
 outline: none;
 }
@@ -1487,7 +1487,6 @@ input.input-text:focus { outline: 0 none; }
 .opc .checkout-agreements .agree { padding-left:6px; }
 
 /* Centinel */
-.centinel {}
 .centinel .authentication { border:1px solid;}
 .centinel .authentication iframe { width:99%; height:400px; background:transparent ; margin:0 ; padding:0 ; border:0 ; }
 
@@ -1497,10 +1496,8 @@ input.input-text:focus { outline: 0 none; }
 .info-set { border:1px solid; margin:0 0 25px; padding:20px; }
 .info-set h2 {   margin:0 0 10px; }
 .info-set h3,
-.info-set h4 {  }
 .info-set h2 a,
 .info-set h3 a,
-.info-set h4 a {  }
 .info-set h2.legend { margin:-20px -20px 15px; padding:5px 10px; border-bottom:1px solid; position:relative; }
 .info-set h3.legend { margin:0 0 10px;  }
 .info-set .divider { margin:0 -20px; padding:25px 0; position:relative; }
@@ -1520,12 +1517,8 @@ input.input-text:focus { outline: 0 none; }
 
 .multiple-checkout h2 {   margin:0 0 10px; }
 .multiple-checkout h3,
-.multiple-checkout h4 { }
 .multiple-checkout h2 a,
 .multiple-checkout h3 a,
-.multiple-checkout h4 a {  }
-.multiple-checkout .data-table .product-name {  }
-.multiple-checkout .data-table .product-name a { }
 .multiple-checkout .data-table .item-options { margin:5px 0 0; }
 
 .multiple-checkout .gift-messages { margin:15px 0 0; }
@@ -1570,7 +1563,6 @@ input.input-text:focus { outline: 0 none; }
 .checkout-multishipping-billing .multiple-checkout { position:relative; }
 /* ======================================================================================= */
 
-
 /* Account Login/Create Pages ============================================================ */
 .account-login .content { min-height:240px; padding:14px 21px; border:1px solid; border-bottom:0; }
 .account-login .content h2 {   margin:0 0 14px; padding:0 0 5px 0px; border-bottom:1px solid; 
@@ -1579,7 +1571,6 @@ background-position:0 1px; background-repeat:no-repeat;   }
 .account-login .registered-users h2 { }
 .account-login .buttons-set { border:1px solid; border-top:0; margin:0; padding:8px 13px;}
 
-.account-create {}
 /* Account Login/Create Pages ============================================================ */
 
 
@@ -1600,15 +1591,7 @@ background-position:0 1px; background-repeat:no-repeat;   }
 .dashboard .box .box-title h3,
 .dashboard .box .box-title h4 { float:left;   margin:0; }
 
-/* Block: Recent Orders */
-.dashboard .box-recent .box-head h2 {  }
-
-/* Block: Account Information */
-.dashboard .box-info .box-head h2 {  }
-.dashboard .box-info h4 { }
-
 /* Block: Reviews */
-.dashboard .box-reviews .box-head h2 {  }
 .dashboard .box-reviews .number { float:left; font-size:10px;  line-height:1; color:#fff; margin:3px -20px 0 0; padding:2px 3px; }
 .dashboard .box-reviews .details { margin-left:20px; }
 .dashboard .box-reviews li.item { margin:0 0 7px; }
@@ -1616,7 +1599,6 @@ background-position:0 1px; background-repeat:no-repeat;   }
 .dashboard .box-reviews .ratings { margin:7px 0 0; }
 
 /* Block: Tags */
-.dashboard .box-tags .box-head h2 {  }
 .dashboard .box-tags .number { float:left; font-size:10px;  line-height:1; color:#fff; margin:3px -20px 0 0; padding:2px 3px; }
 .dashboard .box-tags .details { margin-left:20px; }
 .dashboard .box-tags li.item { margin:0 0 7px; }
@@ -1627,11 +1609,9 @@ background-position:0 1px; background-repeat:no-repeat;   }
 /********** Dashboard > */
 
 /* Address Book */
-.addresses-list h2 {  }
-.addresses-list h3 {   }
+
 .addresses-list address { margin:0 0 3px; }
 .addresses-list p { margin:0; }
-.addresses-list a {  }
 .addresses-list .link-remove {  }
 .addresses-list .separator { margin:0 3px; }
 .addresses-list li.item { border:1px solid; padding:10px 13px; margin:0 0 10px; }
@@ -1792,32 +1772,6 @@ background-position:0 1px; background-repeat:no-repeat;   }
 .send-friend .form-list li p:after { display:block; content:"."; clear:both; font-size:0; line-height:0; height:0; overflow:hidden; }
 /* ======================================================================================= */
 
-/**
- * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    design
- * @package     base_default
- * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-
-/* Widgets =============================================================================== */
 .widget { display:inline; }
 .widget .widget-title { clear:both; padding:15px 0 0; margin:0 0 7px; }
 .widget .widget-title h2 { font-size:15px; font-weight:bold; color:#e25203; }
@@ -1851,7 +1805,6 @@ background-position:0 1px; background-repeat:no-repeat;   }
 
 
 /* Widget: CMS Static Block */
-.widget-static-block {}
 .sidebar .widget-static-block { display:block; margin:0 0 15px; }
 
 /* Widgets: Links Common Styles */
@@ -1942,10 +1895,10 @@ background-position:0 1px; background-repeat:no-repeat;   }
 	font-weight:bold;
 	padding-bottom: 10px;
 }
-.tags UL{
+.tags ul{
 	display:inline;
 }
-.tags UL LI{
+.tags ul li{
 font-weight:normal;
 	display:inline;
 	padding-right:6px;
@@ -1962,22 +1915,6 @@ font-weight:bold;
 }
 .menu-tags h5, .menu-categories h5, .menu-recent h5{font-size:11px;}
 
-.block-blog .menu-tags UL LI{
-	display:inline;
-	padding:2px;
-	margin-left:10px;
-}
-.block-blog .menu-categories UL LI{
-	margin-left:10px;
-}
-.block-blog .menu-recent UL LI{
-	margin-left:10px;
-}
-.block-blog .menu-recent UL LI a,.block-blog .menu-categories UL LI a,.block-blog .menu-tags UL LI a{font-size:11px;}
-
-.tagcloud{
-	/* text-align:center; */ 
-}
 .tag-count-1{
 	font-size:1em;
 }
@@ -2196,16 +2133,7 @@ a.close{width: 15px; height: 15px;text-indent: -999em;display: inline-block ; fl
 #product_tabs_related_tabbed_contents li	{ float:left; margin-right: 10px;}
 #product_tabs_related_tabbed_contents ol	{ clear: both;}
 .product-collateral:after { content:"."; display:block; clear:both; font-size:0; line-height:0; height:0; overflow:hidden;}
-/*to remove numbers delete  / * * / below */
-/*
-.stripNav {
-    display: none;
-}*/
 
-/*to remove arrows delete / * * / below */
-/*.stripNavL, .stripNavR {
-    display: none;
-}*/
 .clear {
 	height: 0;
 }
@@ -2317,7 +2245,7 @@ img {
 	border: 1px solid #999;
 	border-radius: 8px;
 	opacity: 0.5;
-     filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
 	float: left;
 	margin-right: 2px;
 }
