@@ -4808,17 +4808,6 @@ button.btn-checkout span span .img-checkout {
 /* Button - cart
 -------------------------------------------------------------- */
 
-.add-to-cart button.button span span, button.btn-checkout span span {
-    padding: 3px 25px 0px 0px;
-    height: 27px;
-    background: url(./images/cart_btn.gif) no-repeat 100% -30px ;
-    border: 0 ;
-    color: #fff;
-    text-transform: none;
-    border-radius: 0px 5px 5px 0px;
-    font: normal 20px "Ubuntu Condensed", sans-serif ;
-}
-
 .product-view .product-shop .add-to-links a:link, .product-view .product-shop .add-to-links a:visited {
     font-weight:normal ;
 }
