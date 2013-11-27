@@ -6,7 +6,6 @@ app/design/adminhtml/default/default/
 app/design/adminhtml/default/find/
 app/design/frontend/base/
 app/design/frontend/default/blank/
-app/design/frontend/default/default/
 app/design/frontend/default/iphone/
 app/design/frontend/default/modern/
 app/design/frontend/enterprise/default
@@ -58,7 +57,6 @@ js/jscolor/
 js/lib/
 js/mage/
 js/prototype/
-js/scriptaculous/
 js/spacer.gif
 js/tiny_mce/
 js/varien/
@@ -98,7 +96,6 @@ skin/adminhtml/default/enterprise
 skin/frontend/base/
 skin/frontend/default/blank/
 skin/frontend/default/blue/
-skin/frontend/default/default/
 skin/frontend/default/french/
 skin/frontend/default/german/
 skin/frontend/default/iphone/
