@@ -5,6 +5,7 @@ app/code/core/
 app/design/adminhtml/default/default/
 app/design/adminhtml/default/find/
 app/design/frontend/base/
+app/design/frontend/default/default
 app/design/frontend/default/blank/
 app/design/frontend/default/iphone/
 app/design/frontend/default/modern/
