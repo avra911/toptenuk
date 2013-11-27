@@ -49,26 +49,25 @@ Default layout, loads most of the pages
                 <action method="addJs"><script>mage/cookies.js</script></action>
                 <block type="page/js_cookie" name="js_cookies" template="page/js/cookie.phtml"/>
 
-		<action method="addCss"><stylesheet>css/slider-new.css</stylesheet></action>
-		<action method="addCss"><stylesheet>css/language.css</stylesheet></action>
+        		<action method="addCss"><stylesheet>css/slider-new.css</stylesheet></action>
+        		<action method="addCss"><stylesheet>css/language.css</stylesheet></action>
                 <action method="addCss"><stylesheet>css/styles.css</stylesheet></action>
                 <action method="addItem"><type>skin_css</type><name>css/styles-ie.css</name><params/><if>lt IE 8</if></action>
                 <action method="addCss"><stylesheet>css/widgets.css</stylesheet></action>
                 <action method="addCss"><stylesheet>css/print.css</stylesheet><params>media="print"</params></action>
                 <action method="addCss"><stylesheet>css/contact.css</stylesheet></action>
-		<action method="addCss"><stylesheet>css/new.css</stylesheet></action>
-        <action method="addCss"><stylesheet>css/custom-bootstrap.css</stylesheet></action>
-        <action method="addCss"><stylesheet>css/bootstrap.min.css</stylesheet></action>
-        <action method="addCss"><stylesheet>css/bootstrap-responsive.min.css</stylesheet></action>
+        		<action method="addCss"><stylesheet>css/new.css</stylesheet></action>
+                <action method="addCss"><stylesheet>css/custom-bootstrap.css</stylesheet></action>
+                <action method="addCss"><stylesheet>css/bootstrap.min.css</stylesheet></action>
+                <action method="addCss"><stylesheet>css/bootstrap-responsive.min.css</stylesheet></action>
 
-<action method="addJs"><script>magenthemes/mt_colinus/js/jquery-1.8.2.min.js</script></action>  
-<action method="addJs"><script>magenthemes/mt_colinus/js/bootstrap/bootstrap.min.js</script></action>
-<action method="addJs"><script>magenthemes/mt_colinus/js/bootstrap/bootstrap-tooltip.js</script></action>
-<action method="addJs"><script>magenthemes/mt_colinus/js/jquery.mtlib.js</script></action> 
-<action method="addJs"><script>magenthemes/mt_colinus/js/jquery.selectbox-0.2.js</script></action>  
-<action method="addJs" ifconfig="mtcolinusadmin/otherconfig/enabled_priceslider"><script>magenthemes/mt_colinus/js/jquery-ui-1.8.23.custom.min.js</script></action>  
-<action method="addJs" ifconfig="mtcolinusadmin/otherconfig/enabled_priceslider"><script>magenthemes/mt_colinus/js/jquery.filter.js</script></action> 
-<action method="addJs" ifconfig="mtcolinusadmin/otherconfig/enabled_priceslider"><script>magenthemes/mt_colinus/js/jquery.blockUI.js</script></action>
+
+              <!--  <action method="addJs"><script>magenthemes/mt_colinus/js/bootstrap/bootstrap.min.js</script></action>
+-->
+            <!--    <action method="addJs"><script>magenthemes/mt_colinus/js/bootstrap/bootstrap-tooltip.js</script></action>-->
+                <action method="addJs" ifconfig="mtcolinusadmin/otherconfig/enabled_priceslider"><script>magenthemes/mt_colinus/js/jquery-ui-1.8.23.custom.min.js</script></action>  
+                <action method="addJs" ifconfig="mtcolinusadmin/otherconfig/enabled_priceslider"><script>magenthemes/mt_colinus/js/jquery.filter.js</script></action> 
+                <action method="addJs" ifconfig="mtcolinusadmin/otherconfig/enabled_priceslider"><script>magenthemes/mt_colinus/js/jquery.blockUI.js</script></action>
 
                 <action method="addItem"><type>js</type><name>lib/ds-sleight.js</name><params/><if>lt IE 7</if></action>
                 <action method="addItem"><type>skin_js</type><name>js/ie6.js</name><params/><if>lt IE 7</if></action>

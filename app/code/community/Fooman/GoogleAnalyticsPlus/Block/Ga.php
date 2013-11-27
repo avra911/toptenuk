@@ -82,7 +82,7 @@ class  Fooman_GoogleAnalyticsPlus_Block_Ga extends Mage_GoogleAnalytics_Block_Ga
 
         $html = '
 <!-- BEGIN GOOGLE ANALYTICS CODE -->
-<script type="text/javascript">
+<script type="text/javascript"[]>
 //<![CDATA[
             (function() {
                 var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;';
@@ -144,7 +144,7 @@ class  Fooman_GoogleAnalyticsPlus_Block_Ga extends Mage_GoogleAnalytics_Block_Ga
 
         $address = $order->getBillingAddress();
 
-        $html = '<script type="text/javascript">' . "\n";
+        $html = '<script type="text/javascript"[]>' . "\n";
         $html .= "//<![CDATA[\n";
         $html .= '_gaq.push(["_addTrans",';
         $html .= '"' . $order->getIncrementId() . '",';
@@ -259,7 +259,7 @@ class  Fooman_GoogleAnalyticsPlus_Block_Ga extends Mage_GoogleAnalytics_Block_Ga
     {
         //set customer variable for the current visitor c=1
         return '
-<script type="text/javascript">
+<script type="text/javascript"[]>
 //<![CDATA[
     _gaq.push(["_setCustomVar", 5, "c", "1", 1]);
     '.($accountId2?'
