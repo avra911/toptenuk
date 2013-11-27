@@ -1,0 +1,388 @@
+<?php 
+
+$divid = 'jm-contain-'.rand().rand().time();
+$classid = 'jm-products-slider-content'.rand().rand().time();
+$_collectionSize = 0;
+if($listall) $_collectionSize = $listall->count() ;
+
+?>
+ <?php if($configs['show']==1){ ?>
+
+   	 <link rel="stylesheet"  href="<?php echo $this->getSkinUrl('mageclub/horizontalproductsslider/css/touchcarousel.css') ?>" />
+   
+	<!-- Skin stylesheets, include to your site only that what you need -->
+	
+	<link rel="stylesheet"  href="<?php echo $this->getSkinUrl('mageclub/horizontalproductsslider/css/grey-blue-skin.css') ?>" />
+
+	<script type="text/javascript" src="<?php echo $this->getSkinUrl('mageclub/horizontalproductsslider/js/jquery.touchcarousel-1.1.min.js') ?>"></script>
+
+
+<style>
+		
+		/**
+		* Carousel with image and text, custom skinned scrollbar
+		**/
+		#carousel-image-and-text {
+			width: <?php echo $configs['width_slideshow']; ?>px;
+			height: auto;
+			margin: 0 auto;	
+		}	
+		#carousel-image-and-text .arrow-holder {
+			height: <?php echo $configs['itemheight']; ?>px;
+		}		
+		#carousel-image-and-text .touchcarousel-item {
+			margin-right: 1px;	
+			width: <?php echo $configs['itemwidth']; ?>px;
+			height: <?php echo $configs['itemheight']; ?>px;		
+		}
+		#carousel-image-and-text .item-block {
+			width: <?php echo $configs['width']; ?>px;
+			height: <?php echo $configs['height']; ?>px;
+			display: block;
+		}
+		#carousel-image-and-text .item-block img,
+		#carousel-image-and-text .item-block h4, 
+		#carousel-image-and-text .item-block p {
+			float: left;
+			position: relative;
+			display: block;
+			margin: 0;			
+		}
+		#carousel-image-and-text .item-block img {
+			width: <?php echo $configs['width']; ?>px;
+			height: <?php echo $configs['height']; ?>px;		
+			border: 0;
+			padding: 0;		
+		}
+		#carousel-image-and-text .item-block {			
+			text-decoration: none;
+			color: inherit;			
+		}					
+		
+		#carousel-image-and-text .scrollbar-holder {
+			background: #CED7DB;
+			bottom: 0;
+			height: 1px;
+			left: 0;
+			right: 0;
+		}
+		#carousel-image-and-text .scrollbar {
+			background-color: #FBFBFB !important;
+			bottom: 0;
+		}
+		
+		
+		
+		
+		
+	</style>
+<div id="carousel-image-and-text" class="touchcarousel grey-blue">  
+
+	<?php if($_collectionSize){?>
+	
+			  	    		    	
+		    	
+		      	<ul class="touchcarousel-container">
+		      					
+						<?php foreach ($listall->getItems() as $_product){ ?>
+		        			<li class="touchcarousel-item">
+							<div style="text-align:center;width:<?php echo $configs['itemwidth']; ?>px;">
+		        				<a  href="<?php echo $_product->getProductUrl() ?>">
+		        					<img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->keepAspectRatio(TRUE)->resize($configs['width'], $configs['height'])->setWatermarkSize('30x10'); ?>" alt="<?php echo $this->htmlEscape($_product->getName()) ?>"/> 
+		        				</a>
+								</div>
+								<div style="text-align:center;width:<?php echo $configs['itemwidth']; ?>px;">
+		        				<a class="product-title" title="<?php echo $this->htmlEscape($_product->getName()) ?>" href="<?php echo $_product->getProductUrl() ?>">
+		        					<?php echo $_product->getName() ?>
+		        				</a>
+								</div>
+	        					<?php if ($configs['show_price']) : ?>
+								
+	        					<div style="text-align:center;width:<?php echo $configs['itemwidth']; ?>px;">
+	        					<?php echo $this->getPriceHtml($_product,true, '_jmslider') ?>
+								</div>
+	        					<?php endif; ?>
+	        					<?php if($configs['show_cart']){ ?>
+		        				<?php if($_product->isSaleable()){ ?>
+									<div style="text-align:center;width:<?php echo $configs['itemwidth']; ?>px;">
+										<button class="button" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">
+											<span><?php echo $this->helper("catalog")->__('Add to Cart') ?></span>
+										</button>
+										<?php } else { ?>
+											<div class="out-of-stock"><?php echo $this->helper("catalog")->__('Out of stock') ?></div>
+											<?php } ?>
+											</div>
+										<?php } ?>
+										
+		        			</li> 
+							
+					<?php } ?> 
+		      </ul>
+		   
+	<?php } ?>
+</div>
+<script type="text/javascript">
+	jQuery.noConflict();
+		jQuery(function(jQuery) {
+		
+			
+			jQuery("#carousel-image-and-text").touchCarousel({	
+                <?php if($configs['pagination']==1){ ?>			
+				pagingNav: true,
+				<?php } else { ?>
+				pagingNav: false,
+				<?php } ?>
+				snapToItems: true,
+				itemsPerMove: <?php echo $configs['no_items']; ?>,
+                <?php if($configs['scroll_last']==1){ ?>					
+				scrollToLast: true,
+				<?php } else { ?>
+                scrollToLast: false,
+                <?php } if($configs['loop_items']==1){ ?>				
+				loopItems: true,
+				<?php } else { ?>
+				loopItems: false,
+				<?php } if($configs['autoplay']==1){ ?>
+				autoplay: true,
+				<?php } else { ?>
+				autoplay: false,
+				<?php } ?>
+				autoplayDelay: <?php echo $configs['delay']; ?>,
+				transitionSpeed: <?php echo $configs['speed']; ?>,
+				<?php  if($configs['scroll_bar']==1){ ?>
+				scrollbar: true
+				<?php } else { ?>
+				scrollbar: false
+				<?php } ?>
+		    });
+			
+			
+		});
+    </script>
+<?php } ?>
+<div class="clear" style="
+    height: 40PX;
+"></div>
+<div class="ui_full callouts-press">
+	<div class="ui_centered">
+		<div>
+			<div class="press-video pull-left">
+				<h3>Top Ten - Your Repair Partner</h3>
+<p>We have been one of the leaders of tape drive repair for over 10 years, we are able to repair tape drives, autoloaders and libraries in all formats and from every manufacturer. What sets us apart from other repair companies is that we constantly striving for quality through our technical standards and our after-sales technical support.</p>
+				<div class="video">
+					<div class="video-thumbnail"><img src="http://localhost.magento-store.com/media/nodes_home.png" alt=""></div> Since its foundation, Top Ten has focused on peripheral storage devices. Today, we are the leading manufacturer-independent supplier of repairs for nearly all tape drives/Libraries/Autoloaders in Europe and in the USA. 
+<p></p>
+We are proud to have many renowned IT maintenance companies, system houses, resellers and distributors in Germany and worldwide.
+
+				</div>
+			</div>
+			
+			<div class="press-latest pull-right">
+
+
+				<h3>Why Buy Refurbished Tape Storage?<br></br></h3>
+
+<ul id="listhome">
+	<li> <img class ="recycle"align="left"  src="http://localhost.magento-store.com/media/img_trans.gif" width="1" height="1" />
+	Be green – extending the lifespan of storage hardware is socially and environmentally responsible<br></br></li>
+	<li><img class ="saving"align="left"  src="http://localhost.magento-store.com/media/img_trans.gif" width="1" height="1" />
+	Significant savings compared to list price. Often a good way to balance technical needs with financial resources<br></br></li>
+	<li><img class ="find" align="left"  src="http://localhost.magento-store.com/media/img_trans.gif" width="1" height="1" />
+	Hard-to-find and out of stock items are normally available from the second-user marketplace – often with shorter lead times 	than going to the manufacturer<br></br></li>
+	<li><img class ="idea" align="left"  src="http://localhost.magento-store.com/media/img_trans.gif" width="1" height="1" />
+	Ideal solution for clients who are adding to an existing infrastructure where the machine type or model has been discontinued
+	<br></br></li>
+	<ul>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<div id="carousel-image-and-text" class="touchcarousel grey-blue" style="overflow: visible;">  
+
+		
+			  	    		    	
+		    	
+		      	<div class="touchcarousel-wrapper grab-cursor"><ul class="touchcarousel-container" style="width: 1025px; left: 0px;">
+		      					
+								        			<li class="touchcarousel-item">
+							<div style="text-align:center;width:145px;">
+		        				<a href="http://localhost.magento-store.com/sale-of-dell-lto-2-hp-loader-drive.html">
+		        					<img src="http://localhost.magento-store.com/media/catalog/product/cache/1/thumbnail/100x100/49636a99cd58a1cf0707c511d0ed7d6d/images/catalog/product/placeholder/thumbnail.jpg" alt="Sale of DELL LTO-2 HP, Loader Drive"> 
+		        				</a>
+								</div>
+								<div style="text-align:center;width:145px;">
+		        				<a class="product-title" title="Sale of DELL LTO-2 HP, Loader Drive" href="http://localhost.magento-store.com/sale-of-dell-lto-2-hp-loader-drive.html">
+		        					Sale of DELL LTO-2 HP, Loader Drive		        				</a>
+								</div>
+	        													
+	        					<div style="text-align:center;width:145px;">
+	        					
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-913_jmslider">
+                                            <span class="price">€0</span>                                    </span>
+                        
+        </div>
+
+								</div>
+	        						        															
+		        			</li> 
+							
+							        			<li class="touchcarousel-item">
+							<div style="text-align:center;width:145px;">
+		        				<a href="http://localhost.magento-store.com/sale-of-adic-lto-4-loader-drive-with-caddy.html">
+		        					<img src="http://localhost.magento-store.com/media/catalog/product/cache/1/thumbnail/100x100/49636a99cd58a1cf0707c511d0ed7d6d/images/catalog/product/placeholder/thumbnail.jpg" alt="Sale of ADIC LTO-4 Loader Drive with Caddy"> 
+		        				</a>
+								</div>
+								<div style="text-align:center;width:145px;">
+		        				<a class="product-title" title="Sale of ADIC LTO-4 Loader Drive with Caddy" href="http://localhost.magento-store.com/sale-of-adic-lto-4-loader-drive-with-caddy.html">
+		        					Sale of ADIC LTO-4 Loader Drive with Caddy		        				</a>
+								</div>
+	        													
+	        					<div style="text-align:center;width:145px;">
+	        					
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-301_jmslider">
+                                            <span class="price">€0</span>                                    </span>
+                        
+        </div>
+
+								</div>
+	        						        															
+		        			</li> 
+							
+							        			<li class="touchcarousel-item">
+							<div style="text-align:center;width:145px;">
+		        				<a href="http://localhost.magento-store.com/sale-of-hp-hewlett-packard-bl535a.html">
+		        					<img src="http://localhost.magento-store.com/media/catalog/product/cache/1/thumbnail/100x100/49636a99cd58a1cf0707c511d0ed7d6d/b/l/bl535a_1.jpg" alt="Sale of HP Hewlett Packard BL535A"> 
+		        				</a>
+								</div>
+								<div style="text-align:center;width:145px;">
+		        				<a class="product-title" title="Sale of HP Hewlett Packard BL535A" href="http://localhost.magento-store.com/sale-of-hp-hewlett-packard-bl535a.html">
+		        					Sale of HP Hewlett Packard BL535A		        				</a>
+								</div>
+	        													
+	        					<div style="text-align:center;width:145px;">
+	        					
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-2049_jmslider">
+                                            <span class="price">€2,645</span>                                    </span>
+                        
+        </div>
+
+								</div>
+	        						        															
+		        			</li> 
+							
+							        			<li class="touchcarousel-item">
+							<div style="text-align:center;width:145px;">
+		        				<a href="http://localhost.magento-store.com/sale-of-sun-314828301.html">
+		        					<img src="http://localhost.magento-store.com/media/catalog/product/cache/1/thumbnail/100x100/49636a99cd58a1cf0707c511d0ed7d6d/3/1/314828301.jpg" alt="Sale of SUN 314828301"> 
+		        				</a>
+								</div>
+								<div style="text-align:center;width:145px;">
+		        				<a class="product-title" title="Sale of SUN 314828301" href="http://localhost.magento-store.com/sale-of-sun-314828301.html">
+		        					Sale of SUN 314828301		        				</a>
+								</div>
+	        													
+	        					<div style="text-align:center;width:145px;">
+	        					
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-5594_jmslider">
+                                            <span class="price">€1,295</span>                                    </span>
+                        
+        </div>
+
+								</div>
+	        						        															
+		        			</li> 
+							
+							        			<li class="touchcarousel-item">
+							<div style="text-align:center;width:145px;">
+		        				<a href="http://localhost.magento-store.com/sale-of-ibm-45e0347.html">
+		        					<img src="http://localhost.magento-store.com/media/catalog/product/cache/1/thumbnail/100x100/49636a99cd58a1cf0707c511d0ed7d6d/4/5/45E0347.jpg" alt="Sale of IBM 45E0347"> 
+		        				</a>
+								</div>
+								<div style="text-align:center;width:145px;">
+		        				<a class="product-title" title="Sale of IBM 45E0347" href="http://localhost.magento-store.com/sale-of-ibm-45e0347.html">
+		        					Sale of IBM 45E0347		        				</a>
+								</div>
+	        													
+	        					<div style="text-align:center;width:145px;">
+	        					
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-3490_jmslider">
+                                            <span class="price">€1,695</span>                                    </span>
+                        
+        </div>
+
+								</div>
+	        						        															
+		        			</li> 
+							
+							        			<li class="touchcarousel-item">
+							<div style="text-align:center;width:145px;">
+		        				<a href="http://localhost.magento-store.com/sale-of-hp-hewlett-packard-603881-001.html">
+		        					<img src="http://localhost.magento-store.com/media/catalog/product/cache/1/thumbnail/100x100/49636a99cd58a1cf0707c511d0ed7d6d/6/0/603881-001.jpg" alt="Sale of HP Hewlett Packard 603881-001"> 
+		        				</a>
+								</div>
+								<div style="text-align:center;width:145px;">
+		        				<a class="product-title" title="Sale of HP Hewlett Packard 603881-001" href="http://localhost.magento-store.com/sale-of-hp-hewlett-packard-603881-001.html">
+		        					Sale of HP Hewlett Packard 603881-001		        				</a>
+								</div>
+	        													
+	        					<div style="text-align:center;width:145px;">
+	        					
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-1876_jmslider">
+                                            <span class="price">€2,195</span>                                    </span>
+                        
+        </div>
+
+								</div>
+	        						        															
+		        			</li> 
+							
+							        			<li class="touchcarousel-item last">
+							<div style="text-align:center;width:145px;">
+		        				<a href="http://localhost.magento-store.com/sale-of-adic-8-00486-01.html">
+		        					<img src="http://localhost.magento-store.com/media/catalog/product/cache/1/thumbnail/100x100/49636a99cd58a1cf0707c511d0ed7d6d/8/-/8-00486-01.jpg" alt="Sale of ADIC 8-00486-01"> 
+		        				</a>
+								</div>
+								<div style="text-align:center;width:145px;">
+		        				<a class="product-title" title="Sale of ADIC 8-00486-01" href="http://localhost.magento-store.com/sale-of-adic-8-00486-01.html">
+		        					Sale of ADIC 8-00486-01		        				</a>
+								</div>
+	        													
+	        					<div style="text-align:center;width:145px;">
+	        					
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-195_jmslider">
+                                            <span class="price">€1,895</span>                                    </span>
+                        
+        </div>
+
+								</div>
+	        						        															
+		        			</li> 
+							
+					 
+		      </ul></div><a href="#" class="arrow-holder left"><span class="arrow-icon left"></span></a> <a href="#" class="arrow-holder right"><span class="arrow-icon right"></span></a><div class="tc-paging-container"><div class="tc-paging-centerer"><div class="tc-paging-centerer-inside"><a class="tc-paging-item current" href="#">1</a></div></div></div>
+		   
+	<div class="scrollbar-holder"><div class="scrollbar dark" style="width: 976px; left: 0px;"></div></div></div>
+
+<div class="clear"></div>
