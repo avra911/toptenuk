@@ -36,11 +36,9 @@ Default layout, loads most of the pages
 
             <block type="page/html_head" name="head" as="head">
               
-                <action method="addJs"><script>lib/ccard.js</script></action>
                 <action method="addJs"><script>prototype/validation.js</script></action>
                 <action method="addJs"><script>scriptaculous/builder.js</script></action>
                 <action method="addJs"><script>scriptaculous/effects.js</script></action>
-                <action method="addJs"><script>scriptaculous/dragdrop.js</script></action>
                 <action method="addJs"><script>scriptaculous/controls.js</script></action>
                 <action method="addJs"><script>varien/js.js</script></action>
                 <action method="addJs"><script>varien/form.js</script></action>
@@ -61,12 +59,10 @@ Default layout, loads most of the pages
                 <action method="addCss"><stylesheet>css/bootstrap.min.css</stylesheet></action>
                 <action method="addCss"><stylesheet>css/bootstrap-responsive.min.css</stylesheet></action>
 
-
               <!--  <action method="addJs"><script>magenthemes/mt_colinus/js/bootstrap/bootstrap.min.js</script></action>
 -->
             <!--    <action method="addJs"><script>magenthemes/mt_colinus/js/bootstrap/bootstrap-tooltip.js</script></action>-->
                 <action method="addJs" ifconfig="mtcolinusadmin/otherconfig/enabled_priceslider"><script>magenthemes/mt_colinus/js/jquery-ui-1.8.23.custom.min.js</script></action>  
-                <action method="addJs" ifconfig="mtcolinusadmin/otherconfig/enabled_priceslider"><script>magenthemes/mt_colinus/js/jquery.filter.js</script></action> 
                 <action method="addJs" ifconfig="mtcolinusadmin/otherconfig/enabled_priceslider"><script>magenthemes/mt_colinus/js/jquery.blockUI.js</script></action>
 
                 <action method="addItem"><type>js</type><name>lib/ds-sleight.js</name><params/><if>lt IE 7</if></action>
