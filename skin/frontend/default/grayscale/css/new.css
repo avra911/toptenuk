@@ -1375,11 +1375,11 @@ box-sizing: border-box;
 }
 .footer-container a:hover
 {
-	color: #ff4f4f;
+	color: #EC1313;
 }
 .footer-container a:active
 {
-	color: #ff4f4f;
+	color: #EC1313;
 }
 .footer-container,.footer-container p,.footer-container h1,.footer-container h2,.footer-container h3,.footer-container h4,.footer-container h5,.footer-container h6, .footer-container div, .footer-container span
 {

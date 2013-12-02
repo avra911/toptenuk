@@ -3963,11 +3963,10 @@ padding: 0px;
     font-weight: bold;
 }
 .footer address {
-    margin-bottom: 0;
-    color: rgb(219, 217, 217);
+    color:  #DBD9D9;
 }
 .footer a {
-    color: #697073;
+    color: #DBD9D9;
 }
 .footer .footer_block {
     margin-left: 0px;
