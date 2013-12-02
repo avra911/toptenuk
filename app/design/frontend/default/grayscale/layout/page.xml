@@ -151,18 +151,6 @@ Default layout, loads most of the pages
         </block>
     </print>
 
- <!-- Adding privacy policy link to TOP LINKS -->
-<default>
-
-
-<reference name="top.links">
-    
-
-            <action method="addLink" translate="label title" module="customer"><label>Privacy Policy</label><url>privacy-policy-cookie-restriction-mode</url><title>Privacy Policy</title><prepare>true</prepare><urlParams/><position>26</position></action>
-
-    </reference>
-</default>
-
 
      <!-- Custom page layout handles -->
     <page_empty translate="label">
