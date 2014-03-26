@@ -2,10 +2,5 @@
 <layout version="0.1.0">
     <default>
         <block type="custommenu/toggle"></block>
-
-<reference name="head">
-<action method="addCss"><stylesheet>css/webandpeople/custommenu/custommenu.css</stylesheet></action>
-</reference> 
-
     </default>
 </layout>
