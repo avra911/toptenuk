@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package>
+  <name>wp_theme_grayscale</name>
+  <version>1.4.1</version>
+  <stability>stable</stability>
+  <license uri="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</license>
+  <channel>community</channel>
+  <extends/>
+  <summary>Magento Theme - Grayscale (Web-Experiment.Info)</summary>
+  <description>Magento Theme - Grayscale (Web-Experiment.Info)</description>
+  <notes>+ colors/styles: red, green, blue, orange</notes>
+  <authors>
+    <author>
+      <name>WebAndPeople</name>
+      <user>WebAndPeople</user>
+      <email>design@webandpeople.com</email>
+    </author>
+    <author>
+      <name>Yura Gerassimenko</name>
+      <user>ygerassimenko</user>
+      <email>y.gerassimenko@webandpeople.com</email>
+    </author>
+  </authors>
+  <date>2013-06-04</date>
+  <time>22:28:26</time>
+  <contents>
+    <target name="mageweb">
+      <dir name="app">
+        <dir name="code">
+          <dir name="local">
+            <dir name="Mage">
+              <dir name="Catalog">
+                <dir name="Block">
+                  <dir name="Product">
+                    <file name="Manufacturer.php" hash="6867232df0df4ed8ddda210dccb5285b"/>
+                    <file name="Popular.php" hash="bbcc64bb9a42b93eb139efc99732a2e1"/>
+                  </dir>
+                </dir>
+              </dir>
+            </dir>
+            <dir name="WP">
+              <dir name="ThemeGrayscale">
+                <dir name="Block">
+                  <file name="About.php" hash="dfa439630b27572a3f11824de0b78be0"/>
+                </dir>
+                <dir name="Helper">
+                  <file name="Data.php" hash="3431523b382a35178256404f4ccfef57"/>
+                </dir>
+                <dir name="etc">
+                  <file name="config.xml" hash="aa7c4e08034a9624abafd0fec584773c"/>
+                  <file name="system.xml" hash="49347420e46332e367dff84b1a542e4c"/>
+                </dir>
+              </dir>
+            </dir>
+          </dir>
+        </dir>
+        <dir name="design">
+          <dir name="frontend">
+            <dir name="default">
+              <dir name="grayscale">
+                <dir name="etc">
+                  <file name="widget.xml" hash="3b4e988a2ba19946240c8bfad68e30ed"/>
+                </dir>
+                <dir name="layout">
+                  <file name="local.xml" hash="6a284314f9eb1ca70ac104f63886f973"/>
+                </dir>
+                <dir name="locale">
+                  <dir name="da_DK">
+                    <file name="translate.csv" hash="e8077d2fc03d4301680c3e00bfc18296"/>
+                  </dir>
+                  <dir name="en_US">
+                    <file name="translate.csv" hash="dc981687ca3925fd9b1ba06e98cc80a0"/>
+                  </dir>
+                  <dir name="ru_RU">
+                    <file name="translate.csv" hash="bdcf53d8641826099ee8e8757755a8c0"/>
+                  </dir>
+                </dir>
+                <dir name="template">
+                  <dir name="catalog">
+                    <dir name="navigation">
+                      <file name="top.phtml" hash="8b7c9ddde380558c73c2af990bf313a9"/>
+                    </dir>
+                    <dir name="product">
+                      <dir name="compare">
+                        <file name="sidebar.phtml" hash="7bcfeb324b4fc2c831ebafcd10ab4327"/>
+                      </dir>
+                      <file name="home.phtml" hash="58ddcc2822b74986b6e0690d52687960"/>
+                      <file name="list.phtml" hash="5b540f75f1dbaff268c9392dff5b52ed"/>
+                      <file name="popular.phtml" hash="aef796f913ad19cb4006fb6b2b47d89f"/>
+                      <file name="slider.phtml" hash="99e265b727ece8e19d45c5ec620799fa"/>
+                      <file name="view.phtml" hash="18ea7257d24516e7980801289620613c"/>
+                    </dir>
+                  </dir>
+                  <dir name="page">
+                    <dir name="html">
+                      <file name="footer.phtml" hash="0aea53485bbd4a81632f7a876f092533"/>
+                      <file name="head.phtml" hash="647261dcd1d279bd5b2e09ef560b577c"/>
+                      <file name="header.phtml" hash="4e77c0dde820093a0affbb3405bdac0a"/>
+                    </dir>
+                  </dir>
+                </dir>
+              </dir>
+            </dir>
+          </dir>
+        </dir>
+        <dir name="etc">
+          <dir name="modules">
+            <file name="WP_ThemeGrayscale.xml" hash="0d2b8880d2c14ad21b718ed991d7fad9"/>
+          </dir>
+        </dir>
+      </dir>
+      <dir name="media">
+        <dir name="grayscale">
+          <file name="chat_offline.gif" hash="00cebb25de3587b38ffb4fef4d88fbc1"/>
+          <file name="chat_online.gif" hash="77716c5b033ff23e4d4539d48b016bad"/>
+        </dir>
+        <file name="home_banner.jpg" hash="ad550f45ae824a399e95ace094fe6937"/>
+        <file name="home_banner_2.jpg" hash="d418c64942c72a7d76205e034253988c"/>
+        <file name="home_banner_3.jpg" hash="d291a5e98dd324f8b38e64b6d860906d"/>
+      </dir>
+      <dir name="skin">
+        <dir name="frontend">
+          <dir name="default">
+            <dir name="grayscale">
+              <dir name="banners">
+                <file name="payment1.jpg" hash="8a5a40e0ae3939511320d0e98bf6fab0"/>
+                <file name="payment2.jpg" hash="6a939b53d54917a5a66e5b1244185218"/>
+                <file name="payment3.jpg" hash="66d43f4ee5dec85fc22eeecc5c3a0ff8"/>
+                <file name="payment4.jpg" hash="7d75dc7537985dba486b0da1aab95798"/>
+                <file name="payment5.jpg" hash="002a2114017907de566a6c9410f21905"/>
+                <file name="promotion.jpg" hash="49100ec4f19c06952c8bf88b09293d7b"/>
+              </dir>
+              <dir name="css">
+                <file name="print.css" hash="1fcdb0360aa63b5629d1bb26f19040e4"/>
+                <file name="skin.css" hash="cd86bee613f2171044265c83912f4620"/>
+                <file name="slider.css" hash="518051040a9ec3fc95134880817a61e5"/>
+                <file name="styles-ie.css" hash="1d4113ff332f59bb4d035a59c6e9093f"/>
+                <file name="styles.css" hash="b32cdc9a890f765d9343977c02c99ae5"/>
+              </dir>
+              <file name="favicon.ico" hash="6e3f6e97b96ea2e33b3f76e40ad34a28"/>
+              <dir name="images">
+                <file name="active_store_link_bg.gif" hash="840771a10dd42c0482b00ad9c55d9b0b"/>
+                <file name="active_store_link_hover_bg.gif" hash="b92d7a27b62c5d9489734176c7093535"/>
+                <file name="bg_collapse.gif" hash="0e5d3b9c6cecd20df8bba6af82be1335"/>
+                <file name="bkg_block-actions.gif" hash="da2970eac0a22c850b19ee3680475d51"/>
+                <file name="bkg_body.gif" hash="82bfc5bfe346c8e974cd33b1314b0acf"/>
+                <file name="bkg_buttons-set1.gif" hash="2c641e927bc83156b7004ea37920513c"/>
+                <file name="bkg_checkout.gif" hash="11258fe49feff5513c9608f2ea486776"/>
+                <file name="bkg_collapse-gm.gif" hash="172ca866a6fff7e415e27a36bab35165"/>
+                <file name="bkg_collapse.gif" hash="441ad354849c96302631b4235417479f"/>
+                <file name="bkg_divider1.gif" hash="69c082c0b655e26dbec0c34de7e35e8c"/>
+                <file name="bkg_login-box.gif" hash="5538675d7f1c35d96a2b8013948f42a6"/>
+                <file name="bkg_main1.gif" hash="a8f5717873dc6cf8f6bd22924b5838fe"/>
+                <file name="bkg_main2.gif" hash="cf18ba9f7c7e6b058b439cde1a897e9c"/>
+                <file name="bkg_nav0.jpg" hash="f9ac3f31e293cf075471d2d3fe07353a"/>
+                <file name="bkg_nav2.gif" hash="1d7b571813e4c0984cebb0080a5b5bd1"/>
+                <file name="bkg_opc-title-off.gif" hash="f69b40b5331ab3760f54d038daf287eb"/>
+                <file name="bkg_pipe1.gif" hash="7852290f6a443000ead96b8cec5cd7c7"/>
+                <file name="bkg_pipe2.gif" hash="7da64eefaf4da3855ab6ee76dbced0c2"/>
+                <file name="bkg_pipe3.gif" hash="11bfac1e590f0c77fb12f37d7f05cd3c"/>
+                <file name="bkg_product-view.gif" hash="7078a7f2827156d5ae0a1cb59da3c418"/>
+                <file name="bkg_product_collateral.gif" hash="1d4d6b22e5108aefae52709d3934f397"/>
+                <file name="bkg_rating.gif" hash="c770df42e265ee022b907391b2074660"/>
+                <file name="bkg_tfoot.gif" hash="da2970eac0a22c850b19ee3680475d51"/>
+                <file name="bkg_toolbar.gif" hash="fb7ed019476eaa1643af922b59ede4fb"/>
+                <file name="block_bg.gif" hash="53a8c3def242eeb55ce0c5879a8f1084"/>
+                <file name="block_head.gif" hash="af6cd723eafe45d41f0cd912b3fab796"/>
+                <file name="block_head_cart.gif" hash="3d2d2598cb5b2ad7f452461c73e8235f"/>
+                <file name="block_head_layered-nav.gif" hash="3da8c6ccccbfdfdc5eb553a56e9227df"/>
+                <file name="block_head_line.gif" hash="2c4e0cfacaa997321aecc537756c09ff"/>
+                <file name="block_head_service.gif" hash="058b755c38bc6198fbe419e2a37ee5a8"/>
+                <file name="block_head_signup.gif" hash="d7c6d3fd462b8c93f11cb11273be1adc"/>
+                <file name="block_line.gif" hash="170ead978c4c7c76a381128e1e7620de"/>
+                <file name="body_bg.jpg" hash="42b3dc25205f6859faaf43a1c0f7bee1"/>
+                <file name="breadcrumbs_sp.gif" hash="eab75603b59c0baf71450736bf9ed7b9"/>
+                <file name="btn_gm-close.gif" hash="6a72efca1d9d206114a0285c8c4c9d68"/>
+                <file name="btn_remove.gif" hash="0087f98cb116b153fa29353daa22b648"/>
+                <file name="btn_remove2.gif" hash="93d4c331e0eb981787564bda86db6a45"/>
+                <file name="btn_search.gif" hash="2d93b43c0a1c1182358677661e26a978"/>
+                <file name="btn_trash.gif" hash="c1c7833bc1ff6cc5bc0d9e3a38b5237e"/>
+                <file name="btn_window_close.gif" hash="0dae76c9c078d058704c1c4475e19eb4"/>
+                <file name="chart_remove.gif" hash="93d4c331e0eb981787564bda86db6a45"/>
+                <file name="customer_icon.png" hash="d5d04d87cf2169a68b516275500e44f3"/>
+                <file name="cvv.gif" hash="ed0f392004a405466291071a760b285d"/>
+                <file name="download.jpg" hash="4217b81235bb6ac80cc6ad504ade7477"/>
+                <file name="fam_book_open.png" hash="0ba89b9fbe7e88d4c6896ed0a1f495aa"/>
+                <file name="forum.png" hash="e46a3a720d8d1718ec8319d69b6c39f5"/>
+                <file name="gift-message-collapse.gif" hash="1007e43eb38b6fcd73cf347cc72ca7d1"/>
+                <file name="gift-message-expand.gif" hash="b816bc0ecbbc33851068617e699997a8"/>
+                <file name="header_bg.gif" hash="553b7d6d406737f5929518d21d933d26"/>
+                <file name="header_links_sp.gif" hash="166099988797e1c4d57653453104f8ff"/>
+                <file name="i_arrow-top.gif" hash="3dbb0584e8eb1d96cc3d3c40c17d7aaf"/>
+                <file name="i_asc_arrow.gif" hash="7224c93c32675269641dd59799ddd016"/>
+                <file name="i_block-cart.gif" hash="cc19e21f9c89b70cc10354ff588ca8ab"/>
+                <file name="i_block-poll.gif" hash="52d778dddbf48b8d04226bee9370a7ef"/>
+                <file name="i_block-subscribe.gif" hash="9e5fee06a543742045118a95f2debcb8"/>
+                <file name="i_desc_arrow.gif" hash="c1426f8786243171ffc396976ed5b3fd"/>
+                <file name="i_msg-error.gif" hash="e4f28607f075a105e53fa3113d84bd26"/>
+                <file name="i_msg-note.gif" hash="e774ee481a2820789c1a77112377c4e0"/>
+                <file name="i_msg-success.gif" hash="834dfafd5f8b44c4b24a4c00add56fcf"/>
+                <file name="i_notice.gif" hash="ebd56dc80b8346e10e93628bc0e6c372"/>
+                <file name="i_page1.gif" hash="704f7d4eccbdf9cabbad7770f18856ff"/>
+                <file name="i_page2.gif" hash="57a04ca584e05e28dc94c7e68f0af62e"/>
+                <file name="i_pager-next.gif" hash="07a552fa829f26ca3bbe2511554653d1"/>
+                <file name="i_pager-prev.gif" hash="7feb36cae141a21755224f4ad5240f66"/>
+                <file name="i_print.gif" hash="3c6278e63177c4fb9b67a5c1cf1197ea"/>
+                <file name="i_rss-big.png" hash="6cf70e7c52a3f3d7b833ccadb041a555"/>
+                <file name="i_rss.gif" hash="e5bbc388d818c142868b4a1df0b48793"/>
+                <file name="icon_asterick.gif" hash="afcd53f976026816d64610686d93d929"/>
+                <file name="icon_big_rss.png" hash="6cf70e7c52a3f3d7b833ccadb041a555"/>
+                <file name="icon_feed.png" hash="8537f6f88fcff4aac793247143d14e42"/>
+                <file name="icon_opc_back.gif" hash="acbc551f94a58e0b6a6e6f23e9e5698d"/>
+                <file name="icon_rss.gif" hash="e5bbc388d818c142868b4a1df0b48793"/>
+                <file name="light_btn_split.gif" hash="522102725b647356aa1d6c114d2e07ca"/>
+                <file name="light_e_btn_split.gif" hash="f11437d362c7fae34c9862173a39c8c8"/>
+                <file name="list_remove_btn.gif" hash="93b199a40c9296f16ea21ff90dc98eb6"/>
+                <file name="logo.gif" hash="9e96974c2cd01c71523c6d563217d754"/>
+                <file name="logo_email.gif" hash="a18f167fe99914d443f97245b7844223"/>
+                <file name="logo_print.gif" hash="a18f167fe99914d443f97245b7844223"/>
+                <file name="magnifier_handle.gif" hash="57e81833be17e72f080513a066fd73f2"/>
+                <file name="menu_bg.gif" hash="9ad0349c560f89710994088c5b3fbfc0"/>
+                <file name="more.png" hash="7093fdf9e94f23e1990c061a62ecd663"/>
+                <file name="nav_arrow.gif" hash="e5c61c3a6cc91881ecc89ac6faf41f60"/>
+                <file name="pager_arrow_left.gif" hash="1ae922d072d5dcc09bc4df9047a62772"/>
+                <file name="pager_arrow_right.gif" hash="a51e524ebf977979d573cb096c3fe6a9"/>
+                <file name="right_col_main.gif" hash="fd28b5fe8b7056c3bb0dc41a21dfd3fe"/>
+                <file name="search_btn.gif" hash="479e603a641ef206b0dfabc503f4096c"/>
+                <file name="search_input.gif" hash="ef750fe86a388aca644b5388ea5a4205"/>
+                <dir name="slider">
+                  <file name="arr_left.png" hash="3adbd99f02ab702fb33ede1421f1ff94"/>
+                  <file name="arr_right.png" hash="216f632af22d4988735884d4d79318df"/>
+                </dir>
+                <file name="slider.jpg" hash="7e9a767f0d4590195caeea58ea935a85"/>
+                <file name="slider_bg.gif" hash="87bc1b46d87de4f6252c7216216627c3"/>
+                <file name="slider_btn_zoom_in.gif" hash="7008498c3f30bc6ba09deebb23c14ee5"/>
+                <file name="slider_btn_zoom_out.gif" hash="e9592ddd14c86cbf47beba003c748570"/>
+                <file name="sort_asc_arrow.gif" hash="146d28ba0becce356c3e1ede269f71b3"/>
+                <file name="sort_desc_arrow.gif" hash="a202c44fc5256ac58e62f89cbb105af5"/>
+                <file name="subscribe_btn.gif" hash="09ab9bb66dfc9170f8471871e14cc06e"/>
+                <file name="subscribe_input.gif" hash="8b3bc7560364f79ae54d842ebd9c89c4"/>
+                <file name="tab.gif" hash="dab9a5a00b272c4c42bec8e5efb6631a"/>
+                <file name="tab_active.gif" hash="823cdc0345bd1555e652dc134abb17f0"/>
+                <file name="tab_bg.png" hash="7e5e48a75aea03209b3ce77c013056da"/>
+                <file name="top_static_links_sp.gif" hash="cedebb6ddac7fd5cfe32a94d496adbae"/>
+                <file name="validation_advice_bg.gif" hash="b85432906de8985a8b14eeb2dc652d3c"/>
+              </dir>
+              <dir name="js">
+                <file name="cycle-fade-effect.js" hash="a7da33450c8cceefd378ccb64eed739b"/>
+                <file name="jquery-1.5.2.min.js" hash="e85aed5c30d734f1e30646e030d7a817"/>
+                <file name="slider.js" hash="0ae35aa21fd1553c1e13969e6684c093"/>
+              </dir>
+            </dir>
+            <dir name="grayscale_blue">
+              <dir name="banners">
+                <file name="payment1.jpg" hash="8a5a40e0ae3939511320d0e98bf6fab0"/>
+                <file name="payment2.jpg" hash="6a939b53d54917a5a66e5b1244185218"/>
+                <file name="payment3.jpg" hash="66d43f4ee5dec85fc22eeecc5c3a0ff8"/>
+                <file name="payment4.jpg" hash="7d75dc7537985dba486b0da1aab95798"/>
+                <file name="payment5.jpg" hash="002a2114017907de566a6c9410f21905"/>
+                <file name="promotion.jpg" hash="49100ec4f19c06952c8bf88b09293d7b"/>
+              </dir>
+              <dir name="css">
+                <file name="print.css" hash="1fcdb0360aa63b5629d1bb26f19040e4"/>
+                <file name="skin.css" hash="5d674944652a74ebb508dbb68084e5ea"/>
+                <file name="slider.css" hash="518051040a9ec3fc95134880817a61e5"/>
+                <file name="styles-ie.css" hash="1d4113ff332f59bb4d035a59c6e9093f"/>
+                <file name="styles.css" hash="b32cdc9a890f765d9343977c02c99ae5"/>
+              </dir>
+              <file name="favicon.ico" hash="6e3f6e97b96ea2e33b3f76e40ad34a28"/>
+              <dir name="images">
+                <file name="bg_collapse.gif" hash="0e5d3b9c6cecd20df8bba6af82be1335"/>
+                <file name="bkg_collapse-gm.gif" hash="172ca866a6fff7e415e27a36bab35165"/>
+                <file name="bkg_collapse.gif" hash="441ad354849c96302631b4235417479f"/>
+                <file name="bkg_divider1.gif" hash="69c082c0b655e26dbec0c34de7e35e8c"/>
+                <file name="bkg_nav2.gif" hash="239a6744d951dc268d3c7b342c2cd7a0"/>
+                <file name="bkg_rating.gif" hash="c770df42e265ee022b907391b2074660"/>
+                <file name="block_head_cart.gif" hash="3d2d2598cb5b2ad7f452461c73e8235f"/>
+                <file name="block_head_layered-nav.gif" hash="3da8c6ccccbfdfdc5eb553a56e9227df"/>
+                <file name="block_head_line.gif" hash="2c4e0cfacaa997321aecc537756c09ff"/>
+                <file name="block_head_service.gif" hash="058b755c38bc6198fbe419e2a37ee5a8"/>
+                <file name="block_head_signup.gif" hash="d7c6d3fd462b8c93f11cb11273be1adc"/>
+                <file name="body_bg.jpg" hash="a77a87c901d4423c26e75a96334396ab"/>
+                <file name="breadcrumbs_sp.gif" hash="eab75603b59c0baf71450736bf9ed7b9"/>
+                <file name="btn_gm-close.gif" hash="6a72efca1d9d206114a0285c8c4c9d68"/>
+                <file name="btn_remove.gif" hash="0087f98cb116b153fa29353daa22b648"/>
+                <file name="btn_remove2.gif" hash="93d4c331e0eb981787564bda86db6a45"/>
+                <file name="btn_trash.gif" hash="c1c7833bc1ff6cc5bc0d9e3a38b5237e"/>
+                <file name="btn_window_close.gif" hash="0dae76c9c078d058704c1c4475e19eb4"/>
+                <file name="chart_remove.gif" hash="93d4c331e0eb981787564bda86db6a45"/>
+                <file name="customer_icon.png" hash="d5d04d87cf2169a68b516275500e44f3"/>
+                <file name="cvv.gif" hash="ed0f392004a405466291071a760b285d"/>
+                <file name="download.jpg" hash="4217b81235bb6ac80cc6ad504ade7477"/>
+                <file name="fam_book_open.png" hash="0ba89b9fbe7e88d4c6896ed0a1f495aa"/>
+                <file name="forum.png" hash="e46a3a720d8d1718ec8319d69b6c39f5"/>
+                <file name="gift-message-collapse.gif" hash="1007e43eb38b6fcd73cf347cc72ca7d1"/>
+                <file name="gift-message-expand.gif" hash="b816bc0ecbbc33851068617e699997a8"/>
+                <file name="header_links_sp.gif" hash="166099988797e1c4d57653453104f8ff"/>
+                <file name="i_asc_arrow.gif" hash="7224c93c32675269641dd59799ddd016"/>
+                <file name="i_desc_arrow.gif" hash="c1426f8786243171ffc396976ed5b3fd"/>
+                <file name="i_pager-next.gif" hash="07a552fa829f26ca3bbe2511554653d1"/>
+                <file name="i_pager-prev.gif" hash="7feb36cae141a21755224f4ad5240f66"/>
+                <file name="i_print.gif" hash="3c6278e63177c4fb9b67a5c1cf1197ea"/>
+                <file name="i_rss-big.png" hash="6cf70e7c52a3f3d7b833ccadb041a555"/>
+                <file name="i_rss.gif" hash="e5bbc388d818c142868b4a1df0b48793"/>
+                <file name="icon_big_rss.png" hash="6cf70e7c52a3f3d7b833ccadb041a555"/>
+                <file name="icon_feed.png" hash="8537f6f88fcff4aac793247143d14e42"/>
+                <file name="icon_opc_back.gif" hash="acbc551f94a58e0b6a6e6f23e9e5698d"/>
+                <file name="icon_rss.gif" hash="e5bbc388d818c142868b4a1df0b48793"/>
+                <file name="light_btn_split.gif" hash="306a690aeacf74426783698851d4ecb0"/>
+                <file name="light_e_btn_split.gif" hash="cf0fc23a0a74bfcb8afc470a482d0e1a"/>
+                <file name="list_remove_btn.gif" hash="93b199a40c9296f16ea21ff90dc98eb6"/>
+                <file name="logo.gif" hash="0b586c2f391ad00cc804874c566f8458"/>
+                <file name="magnifier_handle.gif" hash="57e81833be17e72f080513a066fd73f2"/>
+                <file name="menu_bg.gif" hash="6c0f0bd3a49779f61092e582052f73c3"/>
+                <file name="more.png" hash="7093fdf9e94f23e1990c061a62ecd663"/>
+                <file name="nav_arrow.gif" hash="e5c61c3a6cc91881ecc89ac6faf41f60"/>
+                <file name="pager_arrow_left.gif" hash="1ae922d072d5dcc09bc4df9047a62772"/>
+                <file name="pager_arrow_right.gif" hash="a51e524ebf977979d573cb096c3fe6a9"/>
+                <file name="search_btn.gif" hash="479e603a641ef206b0dfabc503f4096c"/>
+                <file name="search_input.gif" hash="ef750fe86a388aca644b5388ea5a4205"/>
+                <file name="slider_btn_zoom_in.gif" hash="7008498c3f30bc6ba09deebb23c14ee5"/>
+                <file name="slider_btn_zoom_out.gif" hash="e9592ddd14c86cbf47beba003c748570"/>
+                <file name="sort_asc_arrow.gif" hash="146d28ba0becce356c3e1ede269f71b3"/>
+                <file name="sort_desc_arrow.gif" hash="a202c44fc5256ac58e62f89cbb105af5"/>
+                <file name="subscribe_input.gif" hash="8b3bc7560364f79ae54d842ebd9c89c4"/>
+                <file name="tab.gif" hash="dab9a5a00b272c4c42bec8e5efb6631a"/>
+                <file name="tab_active.gif" hash="823cdc0345bd1555e652dc134abb17f0"/>
+                <file name="validation_advice_bg.gif" hash="b85432906de8985a8b14eeb2dc652d3c"/>
+              </dir>
+              <dir name="js">
+                <file name="cycle-fade-effect.js" hash="a7da33450c8cceefd378ccb64eed739b"/>
+                <file name="jquery-1.5.2.min.js" hash="e85aed5c30d734f1e30646e030d7a817"/>
+                <file name="slider.js" hash="0ae35aa21fd1553c1e13969e6684c093"/>
+              </dir>
+            </dir>
+            <dir name="grayscale_green">
+              <dir name="banners">
+                <file name="payment1.jpg" hash="8a5a40e0ae3939511320d0e98bf6fab0"/>
+                <file name="payment2.jpg" hash="6a939b53d54917a5a66e5b1244185218"/>
+                <file name="payment3.jpg" hash="66d43f4ee5dec85fc22eeecc5c3a0ff8"/>
+                <file name="payment4.jpg" hash="7d75dc7537985dba486b0da1aab95798"/>
+                <file name="payment5.jpg" hash="002a2114017907de566a6c9410f21905"/>
+                <file name="promotion.jpg" hash="49100ec4f19c06952c8bf88b09293d7b"/>
+              </dir>
+              <dir name="css">
+                <file name="print.css" hash="1fcdb0360aa63b5629d1bb26f19040e4"/>
+                <file name="skin.css" hash="a9cda7be50284872deb5d95a04a3426b"/>
+                <file name="slider.css" hash="518051040a9ec3fc95134880817a61e5"/>
+                <file name="styles-ie.css" hash="1d4113ff332f59bb4d035a59c6e9093f"/>
+                <file name="styles.css" hash="b32cdc9a890f765d9343977c02c99ae5"/>
+              </dir>
+              <file name="favicon.ico" hash="6e3f6e97b96ea2e33b3f76e40ad34a28"/>
+              <dir name="images">
+                <file name="bg_collapse.gif" hash="0e5d3b9c6cecd20df8bba6af82be1335"/>
+                <file name="bkg_collapse-gm.gif" hash="172ca866a6fff7e415e27a36bab35165"/>
+                <file name="bkg_collapse.gif" hash="441ad354849c96302631b4235417479f"/>
+                <file name="bkg_divider1.gif" hash="69c082c0b655e26dbec0c34de7e35e8c"/>
+                <file name="bkg_nav2.gif" hash="239a6744d951dc268d3c7b342c2cd7a0"/>
+                <file name="bkg_rating.gif" hash="c770df42e265ee022b907391b2074660"/>
+                <file name="block_head_cart.gif" hash="3d2d2598cb5b2ad7f452461c73e8235f"/>
+                <file name="block_head_layered-nav.gif" hash="3da8c6ccccbfdfdc5eb553a56e9227df"/>
+                <file name="block_head_line.gif" hash="2c4e0cfacaa997321aecc537756c09ff"/>
+                <file name="block_head_service.gif" hash="058b755c38bc6198fbe419e2a37ee5a8"/>
+                <file name="block_head_signup.gif" hash="d7c6d3fd462b8c93f11cb11273be1adc"/>
+                <file name="body_bg.jpg" hash="a77a87c901d4423c26e75a96334396ab"/>
+                <file name="breadcrumbs_sp.gif" hash="eab75603b59c0baf71450736bf9ed7b9"/>
+                <file name="btn_gm-close.gif" hash="6a72efca1d9d206114a0285c8c4c9d68"/>
+                <file name="btn_remove.gif" hash="0087f98cb116b153fa29353daa22b648"/>
+                <file name="btn_remove2.gif" hash="93d4c331e0eb981787564bda86db6a45"/>
+                <file name="btn_trash.gif" hash="c1c7833bc1ff6cc5bc0d9e3a38b5237e"/>
+                <file name="btn_window_close.gif" hash="0dae76c9c078d058704c1c4475e19eb4"/>
+                <file name="chart_remove.gif" hash="93d4c331e0eb981787564bda86db6a45"/>
+                <file name="customer_icon.png" hash="d5d04d87cf2169a68b516275500e44f3"/>
+                <file name="cvv.gif" hash="ed0f392004a405466291071a760b285d"/>
+                <file name="download.jpg" hash="4217b81235bb6ac80cc6ad504ade7477"/>
+                <file name="fam_book_open.png" hash="0ba89b9fbe7e88d4c6896ed0a1f495aa"/>
+                <file name="forum.png" hash="e46a3a720d8d1718ec8319d69b6c39f5"/>
+                <file name="gift-message-collapse.gif" hash="1007e43eb38b6fcd73cf347cc72ca7d1"/>
+                <file name="gift-message-expand.gif" hash="b816bc0ecbbc33851068617e699997a8"/>
+                <file name="header_links_sp.gif" hash="166099988797e1c4d57653453104f8ff"/>
+                <file name="i_asc_arrow.gif" hash="7224c93c32675269641dd59799ddd016"/>
+                <file name="i_desc_arrow.gif" hash="c1426f8786243171ffc396976ed5b3fd"/>
+                <file name="i_pager-next.gif" hash="07a552fa829f26ca3bbe2511554653d1"/>
+                <file name="i_pager-prev.gif" hash="7feb36cae141a21755224f4ad5240f66"/>
+                <file name="i_print.gif" hash="3c6278e63177c4fb9b67a5c1cf1197ea"/>
+                <file name="i_rss-big.png" hash="6cf70e7c52a3f3d7b833ccadb041a555"/>
+                <file name="i_rss.gif" hash="e5bbc388d818c142868b4a1df0b48793"/>
+                <file name="icon_big_rss.png" hash="6cf70e7c52a3f3d7b833ccadb041a555"/>
+                <file name="icon_feed.png" hash="8537f6f88fcff4aac793247143d14e42"/>
+                <file name="icon_opc_back.gif" hash="acbc551f94a58e0b6a6e6f23e9e5698d"/>
+                <file name="icon_rss.gif" hash="e5bbc388d818c142868b4a1df0b48793"/>
+                <file name="light_btn_split.gif" hash="d7293df986ea4935e3c69ae834643969"/>
+                <file name="light_e_btn_split.gif" hash="169b970fb025d291210e90440ee50cbe"/>
+                <file name="list_remove_btn.gif" hash="93b199a40c9296f16ea21ff90dc98eb6"/>
+                <file name="logo.gif" hash="ad4d68645ff90bc96c6cd4f1b22d9ff6"/>
+                <file name="magnifier_handle.gif" hash="57e81833be17e72f080513a066fd73f2"/>
+                <file name="menu_bg.gif" hash="e288af488aeacbe61cfdf3945021ef3e"/>
+                <file name="more.png" hash="7093fdf9e94f23e1990c061a62ecd663"/>
+                <file name="nav_arrow.gif" hash="e5c61c3a6cc91881ecc89ac6faf41f60"/>
+                <file name="pager_arrow_left.gif" hash="1ae922d072d5dcc09bc4df9047a62772"/>
+                <file name="pager_arrow_right.gif" hash="a51e524ebf977979d573cb096c3fe6a9"/>
+                <file name="search_btn.gif" hash="479e603a641ef206b0dfabc503f4096c"/>
+                <file name="search_input.gif" hash="ef750fe86a388aca644b5388ea5a4205"/>
+                <file name="slider_btn_zoom_in.gif" hash="7008498c3f30bc6ba09deebb23c14ee5"/>
+                <file name="slider_btn_zoom_out.gif" hash="e9592ddd14c86cbf47beba003c748570"/>
+                <file name="sort_asc_arrow.gif" hash="146d28ba0becce356c3e1ede269f71b3"/>
+                <file name="sort_desc_arrow.gif" hash="a202c44fc5256ac58e62f89cbb105af5"/>
+                <file name="subscribe_input.gif" hash="8b3bc7560364f79ae54d842ebd9c89c4"/>
+                <file name="tab.gif" hash="dab9a5a00b272c4c42bec8e5efb6631a"/>
+                <file name="tab_active.gif" hash="823cdc0345bd1555e652dc134abb17f0"/>
+                <file name="validation_advice_bg.gif" hash="b85432906de8985a8b14eeb2dc652d3c"/>
+              </dir>
+              <dir name="js">
+                <file name="cycle-fade-effect.js" hash="a7da33450c8cceefd378ccb64eed739b"/>
+                <file name="jquery-1.5.2.min.js" hash="e85aed5c30d734f1e30646e030d7a817"/>
+                <file name="slider.js" hash="0ae35aa21fd1553c1e13969e6684c093"/>
+              </dir>
+            </dir>
+            <dir name="grayscale_orange">
+              <dir name="banners">
+                <file name="payment1.jpg" hash="8a5a40e0ae3939511320d0e98bf6fab0"/>
+                <file name="payment2.jpg" hash="6a939b53d54917a5a66e5b1244185218"/>
+                <file name="payment3.jpg" hash="66d43f4ee5dec85fc22eeecc5c3a0ff8"/>
+                <file name="payment4.jpg" hash="7d75dc7537985dba486b0da1aab95798"/>
+                <file name="payment5.jpg" hash="002a2114017907de566a6c9410f21905"/>
+                <file name="promotion.jpg" hash="49100ec4f19c06952c8bf88b09293d7b"/>
+              </dir>
+              <dir name="css">
+                <file name="print.css" hash="1fcdb0360aa63b5629d1bb26f19040e4"/>
+                <file name="skin.css" hash="6e665592d155832e1a01375336707025"/>
+                <file name="slider.css" hash="518051040a9ec3fc95134880817a61e5"/>
+                <file name="styles-ie.css" hash="1d4113ff332f59bb4d035a59c6e9093f"/>
+                <file name="styles.css" hash="b32cdc9a890f765d9343977c02c99ae5"/>
+              </dir>
+              <file name="favicon.ico" hash="6e3f6e97b96ea2e33b3f76e40ad34a28"/>
+              <dir name="images">
+                <file name="bg_collapse.gif" hash="0e5d3b9c6cecd20df8bba6af82be1335"/>
+                <file name="bkg_collapse-gm.gif" hash="172ca866a6fff7e415e27a36bab35165"/>
+                <file name="bkg_collapse.gif" hash="441ad354849c96302631b4235417479f"/>
+                <file name="bkg_divider1.gif" hash="69c082c0b655e26dbec0c34de7e35e8c"/>
+                <file name="bkg_nav2.gif" hash="e2228f41e361cffe5a91d7333a4673eb"/>
+                <file name="bkg_rating.gif" hash="c770df42e265ee022b907391b2074660"/>
+                <file name="block_head_cart.gif" hash="3d2d2598cb5b2ad7f452461c73e8235f"/>
+                <file name="block_head_layered-nav.gif" hash="3da8c6ccccbfdfdc5eb553a56e9227df"/>
+                <file name="block_head_line.gif" hash="2c4e0cfacaa997321aecc537756c09ff"/>
+                <file name="block_head_service.gif" hash="058b755c38bc6198fbe419e2a37ee5a8"/>
+                <file name="block_head_signup.gif" hash="d7c6d3fd462b8c93f11cb11273be1adc"/>
+                <file name="body_bg.jpg" hash="a77a87c901d4423c26e75a96334396ab"/>
+                <file name="breadcrumbs_sp.gif" hash="eab75603b59c0baf71450736bf9ed7b9"/>
+                <file name="btn_gm-close.gif" hash="6a72efca1d9d206114a0285c8c4c9d68"/>
+                <file name="btn_remove.gif" hash="0087f98cb116b153fa29353daa22b648"/>
+                <file name="btn_remove2.gif" hash="93d4c331e0eb981787564bda86db6a45"/>
+                <file name="btn_trash.gif" hash="c1c7833bc1ff6cc5bc0d9e3a38b5237e"/>
+                <file name="btn_window_close.gif" hash="0dae76c9c078d058704c1c4475e19eb4"/>
+                <file name="chart_remove.gif" hash="93d4c331e0eb981787564bda86db6a45"/>
+                <file name="customer_icon.png" hash="d5d04d87cf2169a68b516275500e44f3"/>
+                <file name="cvv.gif" hash="ed0f392004a405466291071a760b285d"/>
+                <file name="download.jpg" hash="4217b81235bb6ac80cc6ad504ade7477"/>
+                <file name="fam_book_open.png" hash="0ba89b9fbe7e88d4c6896ed0a1f495aa"/>
+                <file name="forum.png" hash="e46a3a720d8d1718ec8319d69b6c39f5"/>
+                <file name="gift-message-collapse.gif" hash="1007e43eb38b6fcd73cf347cc72ca7d1"/>
+                <file name="gift-message-expand.gif" hash="b816bc0ecbbc33851068617e699997a8"/>
+                <file name="header_links_sp.gif" hash="166099988797e1c4d57653453104f8ff"/>
+                <file name="i_asc_arrow.gif" hash="7224c93c32675269641dd59799ddd016"/>
+                <file name="i_desc_arrow.gif" hash="c1426f8786243171ffc396976ed5b3fd"/>
+                <file name="i_pager-next.gif" hash="07a552fa829f26ca3bbe2511554653d1"/>
+                <file name="i_pager-prev.gif" hash="7feb36cae141a21755224f4ad5240f66"/>
+                <file name="i_print.gif" hash="3c6278e63177c4fb9b67a5c1cf1197ea"/>
+                <file name="i_rss-big.png" hash="6cf70e7c52a3f3d7b833ccadb041a555"/>
+                <file name="i_rss.gif" hash="e5bbc388d818c142868b4a1df0b48793"/>
+                <file name="icon_big_rss.png" hash="6cf70e7c52a3f3d7b833ccadb041a555"/>
+                <file name="icon_feed.png" hash="8537f6f88fcff4aac793247143d14e42"/>
+                <file name="icon_opc_back.gif" hash="acbc551f94a58e0b6a6e6f23e9e5698d"/>
+                <file name="icon_rss.gif" hash="e5bbc388d818c142868b4a1df0b48793"/>
+                <file name="light_btn_split.gif" hash="1df6c968183aed56484f8006bd1cb8e2"/>
+                <file name="light_e_btn_split.gif" hash="0518081427a76299cb7fc9267ee3969c"/>
+                <file name="list_remove_btn.gif" hash="93b199a40c9296f16ea21ff90dc98eb6"/>
+                <file name="logo.gif" hash="d883d0bc9791027e6a71cc6ea36fff39"/>
+                <file name="magnifier_handle.gif" hash="57e81833be17e72f080513a066fd73f2"/>
+                <file name="menu_bg.gif" hash="aea636afce2c6eef090ab6ba795bfa54"/>
+                <file name="more.png" hash="7093fdf9e94f23e1990c061a62ecd663"/>
+                <file name="nav_arrow.gif" hash="e5c61c3a6cc91881ecc89ac6faf41f60"/>
+                <file name="pager_arrow_left.gif" hash="1ae922d072d5dcc09bc4df9047a62772"/>
+                <file name="pager_arrow_right.gif" hash="a51e524ebf977979d573cb096c3fe6a9"/>
+                <file name="search_btn.gif" hash="479e603a641ef206b0dfabc503f4096c"/>
+                <file name="search_input.gif" hash="ef750fe86a388aca644b5388ea5a4205"/>
+                <file name="slider_btn_zoom_in.gif" hash="7008498c3f30bc6ba09deebb23c14ee5"/>
+                <file name="slider_btn_zoom_out.gif" hash="e9592ddd14c86cbf47beba003c748570"/>
+                <file name="sort_asc_arrow.gif" hash="146d28ba0becce356c3e1ede269f71b3"/>
+                <file name="sort_desc_arrow.gif" hash="a202c44fc5256ac58e62f89cbb105af5"/>
+                <file name="subscribe_input.gif" hash="8b3bc7560364f79ae54d842ebd9c89c4"/>
+                <file name="tab.gif" hash="dab9a5a00b272c4c42bec8e5efb6631a"/>
+                <file name="tab_active.gif" hash="823cdc0345bd1555e652dc134abb17f0"/>
+                <file name="validation_advice_bg.gif" hash="b85432906de8985a8b14eeb2dc652d3c"/>
+              </dir>
+              <dir name="js">
+                <file name="cycle-fade-effect.js" hash="a7da33450c8cceefd378ccb64eed739b"/>
+                <file name="jquery-1.5.2.min.js" hash="e85aed5c30d734f1e30646e030d7a817"/>
+                <file name="slider.js" hash="0ae35aa21fd1553c1e13969e6684c093"/>
+              </dir>
+            </dir>
+            <dir name="grayscale_red">
+              <dir name="banners">
+                <file name="payment1.jpg" hash="8a5a40e0ae3939511320d0e98bf6fab0"/>
+                <file name="payment2.jpg" hash="6a939b53d54917a5a66e5b1244185218"/>
+                <file name="payment3.jpg" hash="66d43f4ee5dec85fc22eeecc5c3a0ff8"/>
+                <file name="payment4.jpg" hash="7d75dc7537985dba486b0da1aab95798"/>
+                <file name="payment5.jpg" hash="002a2114017907de566a6c9410f21905"/>
+                <file name="promotion.jpg" hash="49100ec4f19c06952c8bf88b09293d7b"/>
+              </dir>
+              <dir name="css">
+                <file name="print.css" hash="1fcdb0360aa63b5629d1bb26f19040e4"/>
+                <file name="skin.css" hash="d23c6221bfe117b23857a464e92c6730"/>
+                <file name="slider.css" hash="518051040a9ec3fc95134880817a61e5"/>
+                <file name="styles-ie.css" hash="1d4113ff332f59bb4d035a59c6e9093f"/>
+                <file name="styles.css" hash="b32cdc9a890f765d9343977c02c99ae5"/>
+              </dir>
+              <file name="favicon.ico" hash="6e3f6e97b96ea2e33b3f76e40ad34a28"/>
+              <dir name="images">
+                <file name="bg_collapse.gif" hash="0e5d3b9c6cecd20df8bba6af82be1335"/>
+                <file name="bkg_collapse-gm.gif" hash="172ca866a6fff7e415e27a36bab35165"/>
+                <file name="bkg_collapse.gif" hash="441ad354849c96302631b4235417479f"/>
+                <file name="bkg_divider1.gif" hash="69c082c0b655e26dbec0c34de7e35e8c"/>
+                <file name="bkg_nav2.gif" hash="239a6744d951dc268d3c7b342c2cd7a0"/>
+                <file name="bkg_rating.gif" hash="c770df42e265ee022b907391b2074660"/>
+                <file name="block_head_cart.gif" hash="3d2d2598cb5b2ad7f452461c73e8235f"/>
+                <file name="block_head_layered-nav.gif" hash="3da8c6ccccbfdfdc5eb553a56e9227df"/>
+                <file name="block_head_line.gif" hash="2c4e0cfacaa997321aecc537756c09ff"/>
+                <file name="block_head_service.gif" hash="058b755c38bc6198fbe419e2a37ee5a8"/>
+                <file name="block_head_signup.gif" hash="d7c6d3fd462b8c93f11cb11273be1adc"/>
+                <file name="body_bg.jpg" hash="a77a87c901d4423c26e75a96334396ab"/>
+                <file name="breadcrumbs_sp.gif" hash="eab75603b59c0baf71450736bf9ed7b9"/>
+                <file name="btn_gm-close.gif" hash="6a72efca1d9d206114a0285c8c4c9d68"/>
+                <file name="btn_remove.gif" hash="0087f98cb116b153fa29353daa22b648"/>
+                <file name="btn_remove2.gif" hash="93d4c331e0eb981787564bda86db6a45"/>
+                <file name="btn_trash.gif" hash="c1c7833bc1ff6cc5bc0d9e3a38b5237e"/>
+                <file name="btn_window_close.gif" hash="0dae76c9c078d058704c1c4475e19eb4"/>
+                <file name="chart_remove.gif" hash="93d4c331e0eb981787564bda86db6a45"/>
+                <file name="customer_icon.png" hash="d5d04d87cf2169a68b516275500e44f3"/>
+                <file name="cvv.gif" hash="ed0f392004a405466291071a760b285d"/>
+                <file name="download.jpg" hash="4217b81235bb6ac80cc6ad504ade7477"/>
+                <file name="fam_book_open.png" hash="0ba89b9fbe7e88d4c6896ed0a1f495aa"/>
+                <file name="forum.png" hash="e46a3a720d8d1718ec8319d69b6c39f5"/>
+                <file name="gift-message-collapse.gif" hash="1007e43eb38b6fcd73cf347cc72ca7d1"/>
+                <file name="gift-message-expand.gif" hash="b816bc0ecbbc33851068617e699997a8"/>
+                <file name="header_links_sp.gif" hash="166099988797e1c4d57653453104f8ff"/>
+                <file name="i_asc_arrow.gif" hash="7224c93c32675269641dd59799ddd016"/>
+                <file name="i_desc_arrow.gif" hash="c1426f8786243171ffc396976ed5b3fd"/>
+                <file name="i_pager-next.gif" hash="07a552fa829f26ca3bbe2511554653d1"/>
+                <file name="i_pager-prev.gif" hash="7feb36cae141a21755224f4ad5240f66"/>
+                <file name="i_print.gif" hash="3c6278e63177c4fb9b67a5c1cf1197ea"/>
+                <file name="i_rss-big.png" hash="6cf70e7c52a3f3d7b833ccadb041a555"/>
+                <file name="i_rss.gif" hash="e5bbc388d818c142868b4a1df0b48793"/>
+                <file name="icon_big_rss.png" hash="6cf70e7c52a3f3d7b833ccadb041a555"/>
+                <file name="icon_feed.png" hash="8537f6f88fcff4aac793247143d14e42"/>
+                <file name="icon_opc_back.gif" hash="acbc551f94a58e0b6a6e6f23e9e5698d"/>
+                <file name="icon_rss.gif" hash="e5bbc388d818c142868b4a1df0b48793"/>
+                <file name="light_btn_split.gif" hash="3baeaf078e1588cd09d2087d7f6318c1"/>
+                <file name="light_e_btn_split.gif" hash="8249dd2064f09e1df3054db80e2ef7ea"/>
+                <file name="list_remove_btn.gif" hash="93b199a40c9296f16ea21ff90dc98eb6"/>
+                <file name="logo.gif" hash="b6ef774fb5da650293ebd4ca7a2c1131"/>
+                <file name="magnifier_handle.gif" hash="57e81833be17e72f080513a066fd73f2"/>
+                <file name="menu_bg.gif" hash="388aa3be0683776868471927369ea78f"/>
+                <file name="more.png" hash="7093fdf9e94f23e1990c061a62ecd663"/>
+                <file name="nav_arrow.gif" hash="e5c61c3a6cc91881ecc89ac6faf41f60"/>
+                <file name="pager_arrow_left.gif" hash="1ae922d072d5dcc09bc4df9047a62772"/>
+                <file name="pager_arrow_right.gif" hash="a51e524ebf977979d573cb096c3fe6a9"/>
+                <file name="search_btn.gif" hash="479e603a641ef206b0dfabc503f4096c"/>
+                <file name="search_input.gif" hash="ef750fe86a388aca644b5388ea5a4205"/>
+                <file name="slider_btn_zoom_in.gif" hash="7008498c3f30bc6ba09deebb23c14ee5"/>
+                <file name="slider_btn_zoom_out.gif" hash="e9592ddd14c86cbf47beba003c748570"/>
+                <file name="sort_asc_arrow.gif" hash="146d28ba0becce356c3e1ede269f71b3"/>
+                <file name="sort_desc_arrow.gif" hash="a202c44fc5256ac58e62f89cbb105af5"/>
+                <file name="subscribe_input.gif" hash="8b3bc7560364f79ae54d842ebd9c89c4"/>
+                <file name="tab.gif" hash="dab9a5a00b272c4c42bec8e5efb6631a"/>
+                <file name="tab_active.gif" hash="823cdc0345bd1555e652dc134abb17f0"/>
+                <file name="validation_advice_bg.gif" hash="b85432906de8985a8b14eeb2dc652d3c"/>
+              </dir>
+              <dir name="js">
+                <file name="cycle-fade-effect.js" hash="a7da33450c8cceefd378ccb64eed739b"/>
+                <file name="jquery-1.5.2.min.js" hash="e85aed5c30d734f1e30646e030d7a817"/>
+                <file name="slider.js" hash="0ae35aa21fd1553c1e13969e6684c093"/>
+              </dir>
+            </dir>
+          </dir>
+        </dir>
+      </dir>
+    </target>
+  </contents>
+  <compatible/>
+  <dependencies>
+    <required>
+      <php>
+        <min>5.2.0</min>
+        <max>6.0.0</max>
+      </php>
+    </required>
+  </dependencies>
+</package>

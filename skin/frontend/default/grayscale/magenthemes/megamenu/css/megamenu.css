@@ -1,0 +1,41 @@
+/******************************************************
+ * @package Megamenu module for Magento 1.4.x.x and Magento 1.5.x.x
+ * @version 1.5.0.4
+ * @author http://www.9magentothemes.com
+ * @copyright (C) 2011- 9MagentoThemes.Com
+ * @license PHP files are GNU/GPL
+*******************************************************/
+.megamenu-container { height: auto !important; min-height: 50px; height: 50px; margin:0 10px; }
+#megamenu { margin:0 auto; padding:0; position: relative; z-index: 99; }
+#megamenu ul { padding: 0; margin: 0; }
+#megamenu ul li { position:relative; float:left; border-right: 1px solid #dedede; padding:0; height: auto; }
+#megamenu ul li.root { z-index:11; }
+#megamenu ul li.last {  }
+#megamenu ul li.root a { }
+#megamenu ul li a { text-decoration:none; font-weight:normal; display:block; cursor:pointer; padding:15px 20px; text-shadow: none; font-size:130%; text-transform:uppercase; }
+#megamenu ul li a span { }
+#megamenu ul li.over > a { text-shadow:none; color:#ffffff; }
+#megamenu ul li.current > a { text-shadow:none; color:#ffffff; }
+#megamenu li.background { z-index: 8; position: absolute; }
+#megamenu li.background .left { height: auto !important; min-height: 50px; float:none !important; }
+#megamenu li.root > div.childcontent{ position:absolute; top:50px; left:-999em; z-index:7; text-align: left; padding:20px 20px 15px; background:#fff; border-left:0px; border-right:0px; border-bottom:0px; box-shadow: 0 8px 6px -6px black; -webkit-box-shadow: 0 8px 6px -6px black; -moz-box-shadow: 0 8px 6px -6px black; -ms-box-shadow: 0 8px 6px -6px black; -o-box-shadow: 0 8px 6px -6px black; border-top-style: solid; border-top-width: 3px; }
+#megamenu .megamenu-title > img { float:left; }
+#megamenu .root > .megamenu-title > img { padding:16px 2px 0 0 !important; }
+#megamenu .megamenu-title > img.icon-megamenu { padding:10px 2px 0 10px; }
+#megamenu .megamenu-title > img.no-icon-megamenu { padding:7px 0 0 0; }
+#megamenu div.categorycontent { background:#FFFFFF; }
+.childcontent{ padding-left: 5px; }
+#megamenu .childcontent ul li a { line-height: 20px; }
+#megamenu li.over div.childcontent { left:0; }
+#megamenu div.childcontent ul { top:0; float:left; width: 100%; margin:0 0 5px; }
+#megamenu div.childcontent ul li { float:left; background:none; width:100%; height:auto; border:0; }
+#megamenu div.childcontent ul li a { text-transform:none; padding:0; display:block; margin: 0 3px; background:url(../images/bkg-list-style-footer.png) 0 50% no-repeat; padding:0 0 0 7px; font-size: 100%; line-height: 22px; outline: none; }
+#megamenu div.childcontent ul li a:hover { outline: none; }
+#megamenu div.childcontent ul li.group > a { text-transform:uppercase; background:none; padding:0; margin:0 0 10px; font-size:15px; font-weight:bold; }
+#megamenu div.childcontent ul ul li.group > a { border: 0; }
+#megamenu div.childcontent ul li a span { }
+#megamenu .sub-megamenu { position:absolute; top:0; left:-10000px; z-index:999; padding:10px; background:#fff; width:210px }
+#megamenu .sub-megamenu > ul {}
+
+
+

@@ -1,0 +1,50 @@
+.box, .entry-edit fieldset, .entry-edit .fieldset {
+	background: #fff;
+}
+#config_edit_form fieldset input, 
+#config_edit_form fieldset textarea, 
+#config_edit_form fieldset select, 
+#config_edit_form fieldset button { 
+	margin: 1px 5px 5px 0;
+	padding: 4px;
+	font-size:12px;
+	color:#555;
+	-webkit-border-radius: 3px;
+	border-radius: 3px; 
+}
+.font_preview {
+	font-size: 16px;
+	padding: 3px 0 10px;
+}
+#mtdendadmin_mtdendadmin_appearance table tr {
+	display: block;  
+}
+#row_mtdendadmin_mtdendadmin_appearance_main_options, 
+#row_mtdendadmin_mtdendadmin_appearance_header_options,
+#row_mtdendadmin_mtdendadmin_appearance_mainmenu_options,
+#row_mtdendadmin_mtdendadmin_appearance_footer_options {
+	border-bottom: #999 solid 1px;
+	margin-bottom: 10px;
+}
+#row_mtdendadmin_mtdendadmin_appearance_main_options .label label,
+#row_mtdendadmin_mtdendadmin_appearance_header_options .label label,
+#row_mtdendadmin_mtdendadmin_appearance_mainmenu_options .label label,
+#row_mtdendadmin_mtdendadmin_appearance_footer_options .label label {
+	font-size: 16px;
+	color: #444;
+}
+#mtdendadmin_mtdendadmin_appearance_main_options,
+#mtdendadmin_mtdendadmin_appearance_header_options,
+#mtdendadmin_mtdendadmin_appearance_mainmenu_options,
+#mtdendadmin_mtdendadmin_appearance_footer_options {
+	display: none;
+}
+#mColorPickerImg {
+	background: url(../images/picker.png) no-repeat left top !important;
+}
+#mColorPickerFooter {
+	background: url(../images/grid.gif) repeat left top !important;
+}
+.mt-listimages select.file-animate, .mt-listimages select.link-animate, .mt-listimages select.title-animate, .mt-listimages select.desc-animate {
+    display: none;
+}

@@ -1,0 +1,24 @@
+.wrapper { margin: 0 auto; -webkit-user-select: none; width: 100%; position: relative; }
+.mtonebyone { position: absolute; }
+.oneByOne1 { position: relative; overflow: hidden; margin: 0 auto; }
+.mtonebyone .loading { width: 100%; height: 50px; background: #fff url(images/loading.gif) no-repeat 50% 50%; z-index: 99; }
+.mtonebyone .oneByOne_item { position: absolute; overflow: hidden; display: none; cursor:move; }
+#exampleline { position: relative; margin: 5% 0 0 0; }
+.mtonebyone .oneByOne_item {  }
+.mtonebyone .oneByOne_item a { text-decoration: none; }
+.mtonebyone .oneByOne_item .slide2Txt1 { color: #FFFFFF; font-size: 555%; line-height: normal; position: relative; }
+.mtonebyone .oneByOne_item .slide2Txt2 { color: #FFFFFF; font-size: 180%; line-height: normal; position: relative; }
+.mtonebyone .oneByOne_item .slide2Txt3 { line-height: normal; position: relative; }
+.mtonebyone .oneByOne_item .slide2Txt1, .mtonebyone .oneByOne_item .slide2Txt2, .mtonebyone .oneByOne_item .slide2Txt3 { padding: 0; margin: 2% auto; }
+.mtonebyone .oneByOne_item .slide2Txt1{ margin-top:4% }
+.mtonebyone .oneByOne_item .slide2Txt1 .mt-slide-item, .mtonebyone .oneByOne_item .slide2Txt2 .mt-slide-item, .mtonebyone .oneByOne_item .slide2Txt3 .mt-slide-item { margin: 0; padding: 0 3%; }
+.mtonebyone .oneByOne_item img.bigImage { position: absolute; top: 0; left: 0; width: 100%; }
+.mtonebyone .oneByOne_item .slide5Txt1 { position: relative; float: left; margin: 0; font-size: 24px; background: #FFFFFF; padding: 8px; }
+.mtonebyone .oneByOne_item .slide5Txt2 { position: relative; clear: left; float: left; margin: 0; font-size: 12px; background: #FFFFFF; padding: 8px; }
+.oneByOne1 .mt-slide { vertical-align: middle; }
+.mtslide .block-title { width: 60%; float: right; text-align: right; line-height:1.1em; }
+.mtslide .block-desc { float: right; text-align: right; width: 45%; margin:0; padding:0; font-size: 95%; font-weight: normal; font-family: 'Lato',sans-serif; }
+.mtslide .block-detail { float:right; }
+.mtslide .block-detail a { text-decoration:none; background-color: #FFFFFF; outline:none; padding:10px 23px; float:left; margin:0; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -o-border-radius: 3px; -ms-border-radius: 3px; }
+.slide2Txt1 h2 { font-size: 75%; line-height: normal; margin: 0; font-family: 'Cabin',sans-serif; }
+.slide2Txt1 h2 samp{ font-family: 'Cabin',sans-serif; font-weight:normal } 
