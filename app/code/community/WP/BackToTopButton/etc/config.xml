@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <WP_BackToTopButton>
+            <version>1.3.2</version>
+        </WP_BackToTopButton>
+    </modules>
+
+    <frontend>
+        <layout>
+            <updates>
+                <backtotopbutton>
+                    <file>webandpeople/backtotopbutton.xml</file>
+                </backtotopbutton>
+            </updates>
+        </layout>
+    </frontend>
+
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <backtotopbutton translate="title" module="backtotopbutton">
+                                            <title><![CDATA[Web & People: Back to Top Button]]></title>
+                                            <sort_order>2000</sort_order>
+                                        </backtotopbutton>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+    <global>
+        <blocks>
+            <backtotopbutton>
+                <class>WP_BackToTopButton_Block</class>
+            </backtotopbutton>
+        </blocks>
+        <helpers>
+            <backtotopbutton>
+                <class>WP_BackToTopButton_Helper</class>
+            </backtotopbutton>
+        </helpers>
+    </global>
+
+    <default>
+        <backtotopbutton>
+            <general>
+                <enabled>1</enabled>
+                <include_jquery>1</include_jquery>
+                <include_waypoints>1</include_waypoints>
+                <version>1.3.2</version>
+            </general>
+        </backtotopbutton>
+    </default>
+</config>
