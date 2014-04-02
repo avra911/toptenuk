@@ -87,7 +87,7 @@ Default layout, loads most of the pages
                     <action method="setElementClass"><value>top-container</value></action>
                 </block>
             </block>
-
+			<block type="page/html" template="page/submenu.phtml" name="submenu" as="submenu" />
             <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
 
             <block type="core/text_list" name="left" as="left" translate="label">
@@ -100,6 +100,7 @@ Default layout, loads most of the pages
             <block type="core/text_list" name="content" as="content" translate="label">
                 <label>Main Content Area</label>
             </block>
+
 
             <block type="core/text_list" name="right" as="right" translate="label">
                 <label>Right Column</label>

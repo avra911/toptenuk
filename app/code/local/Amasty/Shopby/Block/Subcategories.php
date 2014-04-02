@@ -18,14 +18,16 @@ class Amasty_Shopby_Block_Subcategories extends Mage_Core_Block_Template
         
         /* @var $category Mage_Catalog_Model_Category */
         $category = $layer->getCurrentCategory();
-        
+
+       
         $collection = $category->getCollection();
         $collection->addAttributeToSelect('url_key')
             ->addAttributeToSelect('name')
             ->addAttributeToSelect('thumbnail')
             ->addAttributeToSelect('image')
-            ->addAttributeToFilter('is_active', 1)
-            ->addIdFilter($category->getChildren())
+          //  ->addAttributeToFilter('is_active', 1)
+            //->addIdFilter($category->getChildren())
+			->addAttributeToFilter('level',2)
             ->setOrder($order, Varien_Db_Select::SQL_ASC);
         /* @var $collection Mage_Catalog_Model_Resource_Category_Collection */
         if ($collection instanceof Mage_Catalog_Model_Resource_Category_Collection) {
