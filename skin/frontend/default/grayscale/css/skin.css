@@ -6027,4 +6027,51 @@ ol#compare-items li {
 
 .mt-nav { position: relative; }
 
+/* SUBMENU */
+ul.flex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+	display: -ms-flexbox;
+	width: 90%;
+	margin: 10px auto 4px auto;
+	position: relative;
+}
+
+
+
+ul.flex li{
+    display: block;
+    flex-grow: 1;
+	-ms-flex: 1;	
+	padding: 5px 5px;
+	color: #000;
+	background: #f4f4f4;
+	text-align: center;
+	line-height: 1.5;
+	border-bottom: 3px solid #bd1e15;
+	height: 100%;
+	white-space: nowrap;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+ul.flex li:hover,ul.flex a:hover, ul li li a:hover {
+background: #049af4;
+color: #fff;
+}
+
+ul.dividers li a{
+    position: relative;
+}
+ul.dividers li a:after{
+    content: '|';
+    position: absolute;
+    left: -50px;
+    z-index:2;
+}
+ul.dividers li:first-child a:after, ul.dividers ul li a:after{
+    content: '';
+}
+
 
