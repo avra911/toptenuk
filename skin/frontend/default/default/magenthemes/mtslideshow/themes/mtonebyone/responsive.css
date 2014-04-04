@@ -1,0 +1,111 @@
+ 
+.wrapper{         
+	margin: 0 auto;
+	-webkit-user-select: none;	  
+ 	width: 100%;
+ 	position: relative;			
+}
+
+.mtonebyone{
+	position: absolute;
+}
+
+.oneByOne1{  
+	position: relative;
+	overflow: hidden; 
+    width:100% !important; 	
+}   
+.mtonebyone .loading {width: 100%; height: 50px;background: #fff url(images/loading.gif) no-repeat 50% 50%; z-index: 99; }
+.mtonebyone .oneByOne_item{
+	position: relative; 
+	overflow: hidden;  
+	display: none;
+}         
+
+#exampleline{
+	position: relative;
+	margin: 5% 0 0 0;
+}
+                      
+.mtonebyone .oneByOne_item span{
+	font-family: "Lucida Grande", "Lucida Sans Unicode", helvetica, verdana, arial, sans-serif;
+}                                                                                              
+
+.mtonebyone .oneByOne_item a{
+	text-decoration: none;
+	color: #FFF;
+}
+              
+.mtonebyone .oneByOne_item span.slide2Txt1{ 
+  	position: absolute;
+	float: left;
+	margin: 0;
+	color: #fff;	
+	font-size: 200%;  
+	background: url(images/transparent_bg.png) repeat 50% 50%;
+	padding: 8px;   
+    bottom:150px;	
+	left:5%;
+	text-transform:uppercase;
+	width:60%;
+	line-height:20px;
+}
+ 
+.mtonebyone .oneByOne_item span.slide2Txt2{ 
+  	
+	clear: left;
+	float: left;
+	margin:0;
+	color: #FFF;
+	font-size: 125%;
+	background: url(images/transparent_bg.png) repeat 50% 50%;
+	padding: 8px;   
+    bottom:105px;
+	left:5%;
+	position: absolute;
+	text-transform:uppercase;
+	width:60%;
+}   
+
+.mtonebyone .oneByOne_item span.slide2Txt3{ 
+  	position: relative;
+	clear: left;
+	float: left;
+	margin: 0;
+	color: #666666;	
+	font-size: 12px;  
+	background: url(images/transparent_bg.png) repeat 50% 50%;
+	padding: 8px;   
+    bottom:65px;
+	left:5%;
+	position: absolute;	
+}     
+                    
+  
+
+.mtonebyone .oneByOne_item img.bigImage{ 
+	position: absolute;
+	top: 0; 
+	left: 0;  
+}
+
+.mtonebyone .oneByOne_item span.slide5Txt1{ 
+  	position: relative;
+	float: left;
+	margin: 10% 0 0 40%;
+	color: #9ACD32;	
+	font-size: 24px;  
+	background: #FFFFFF;
+	padding: 8px;             
+}
+ 
+.mtonebyone .oneByOne_item span.slide5Txt2{ 
+  	position: relative;
+	clear: left;
+	float: left;
+	margin: 12px 0 0 40%;
+	color: #666666;	
+	font-size: 12px;  
+	background: #FFFFFF;
+	padding: 8px;             
+}  

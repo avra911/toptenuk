@@ -23,41 +23,80 @@
  * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
-
- ?>
+?>
 <?php if($this->getItems()->getSize()): ?>
-
-
- <?php $_product = $this->getProduct(); ?>
-
-<div class="block block-related">
-    <div class="block-title">
-        <strong><span><?php echo $this->__('Related Products') ?></span></strong>
-    </div>
+    <div class="block block-related">
+        <div class="block-title">
+            <strong><span><?php echo $this->__('Related Products') ?></span></strong>
+        </div>
     <div class="block-content">
-        <ol class="mini-products-list" id="block-related">
-        <?php foreach($this->getItems() as $_item): ?>
-            <li class="item">
-             
-                <div class="product">
-                    <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(50) ?>" width="50" height="50" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
-                    <div class="product-details">
-                        <p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></p>
-                        <?php if($_item->getPrice() != 0 ): ?>
-						<?php echo $this->getPriceHtml($_item, true, '-related') ?>
-						<?php endif; ?>
-                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
-                            <a href="<?php echo $this->getAddToWishlistUrl($_item) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </li>
-        <?php endforeach ?>
-        </ol>
+        <div class="block-content-inner">
+            <p class="block-subtitle"><?php echo $this->__('Check items to add to the cart or') ?>
+                &nbsp;<a href="#" onclick="selectAllRelated(this); return false;"><?php echo $this->__('select all') ?></a>
+            </p>
+            <div class="mini-products-list row-fluid show-grid" id="block-related">
+                <ul class="clearfix related-product-grid">
+                <?php foreach($this->getItems() as $_item): ?>
+                    <li style="width: 25%; height: auto;">
+                        <div class="item">
+                            <div class="item-inner">
+                                <div class="product">
+                                    <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image">
+                                        <img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(282,320) ?>" width="282" height="320" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" />
+                                    </a>
+                                    <p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><span><span><?php echo $this->htmlEscape($_item->getName()) ?></span></span></a></p>
+                                    <div class="mt-package clearfix row-fluid">
+                                        <div class="span6">
+                                            <div class="related-price">
+                                                <?php echo $this->getPriceHtml($_item, true, '-related') ?>
+                                                <?php if(!$_item->isComposite() && $_item->isSaleable()): ?>
+                                                    <?php if (!$_item->getRequiredOptions()): ?>
+                                                        <input type="checkbox" class="checkbox related-checkbox" id="related-checkbox<?php echo $_item->getId() ?>" name="related_products[]" value="<?php echo $_item->getId() ?>" />
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                        <div class="button-container span6">
+                                            <?php if($_item->isSaleable()): ?>
+                                            <p>
+                                                <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart grid" onclick="setLocation('<?php echo $this->getAddToCartUrl($_item) ?>')">
+                                                <span><span><?php echo $this->__('Add to Cart') ?></span></span>
+                                                </button>
+                                            </p>
+                                            <?php else: ?>
+                                                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                <?php endforeach ?>
+                </ul>
+            </div>
+        </div>
+        <div class="pagenav clearfix">
+            <span class="rprev">Prev</span>
+            <span class="rnext">Next</span>
+        </div>
         <script type="text/javascript">decorateList('block-related', 'none-recursive')</script>
     </div>
     <script type="text/javascript">
     //<![CDATA[
+    $mtkb(function() {
+            $mtkb(".mini-products-list").jCarouselLite({
+            btnPrev: ".rprev",
+            btnNext: ".rnext",
+            vertical: false,
+            hoverPause:true,
+            visible: 4,
+            auto: 4000,
+            speed: 1000,
+            countItem: <?php echo count($this->getItems());?>
+        });
+    });
+    
     $$('.related-checkbox').each(function(elem){
         Event.observe(elem, 'click', addRelatedToProduct)
     });
@@ -72,14 +111,13 @@
             txt.innerHTML="<?php echo $this->__('unselect all') ?>";
         } else {
             $$('.related-checkbox').each(function(elem){
-                elem.checked = false;
+            elem.checked = false;
             });
             relatedProductsCheckFlag = false;
             txt.innerHTML="<?php echo $this->__('select all') ?>";
         }
         addRelatedToProduct();
     }
-
     function addRelatedToProduct(){
         var checkboxes = $$('.related-checkbox');
         var values = [];
@@ -92,5 +130,5 @@
     }
     //]]>
     </script>
-</div>
+  </div>
 <?php endif ?>

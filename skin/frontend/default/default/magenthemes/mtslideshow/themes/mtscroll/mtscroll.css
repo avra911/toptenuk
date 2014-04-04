@@ -1,0 +1,17 @@
+.mt-container { overflow:hidden; position:relative; cursor:pointer; margin: 0 auto;}
+.mt-slides { position:absolute; top:0; left:0; }
+.mt-slides div { position:absolute; top:0;  display:none; padding:0; margin:0; }
+.mt-slider { margin:0 auto; position:relative; clear:both; background:#fff;}
+.mt-pagination { list-style:none; padding:0; margin:0; position:absolute; z-index:999; bottom:15px; right:15px;}
+.mt-pagination li  { float:left; }
+.mt-pagination li a { padding:2px 6px; text-decoration:none; background:#cdcdcd; color:#313131; margin-right:3px; }
+.mt-pagination li a:hover { color:#000;}
+.mt-pagination li.active a { background:#666; color:#fff;}
+.mt-slider .previous, .mt-slider .next {text-decoration:none; z-index:999; position:absolute; top:15%; height:200px; width:67px; display:block; }
+.mt-slider .previous { left:-67px; background:url(../mtscroll/images/arrows.png) no-repeat 100% 0; }
+.mt-slider .next { right:-67px; background:url(../mtscroll/images/arrows.png) no-repeat 0 0; }
+.mt-slider .previous:hover{ background-position:100% 100%; }
+.mt-slider .next:hover { background-position:0 100%; }
+.mt-slider .loading {
+	background: url(../mtscroll/images/loading.gif) no-repeat center;
+}

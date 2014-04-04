@@ -20,37 +20,17 @@
  *
  * @category    design
  * @package     base_default
- * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
  
- /*
-<div class="nav-container">
-    <ul id="nav">
-        <li><a href="<?php echo $this->getUrl('') ?>"><?php echo $this->__('Home'); ?></a></li>
-        <?php echo $_menu; ?>
-    </ul>
-</div>
-
-*/
-?>
-<?php
 /**
- * Top menu for store
- *
- * @see Mage_Catalog_Block_Navigation
+ * @deprecated  after 1.4.0.0-alpha3
  */
 ?>
-<?php $_menu = ''?>
-<?php foreach ($this->getStoreCategories() as $_category): ?>
-    <?php $_menu .= $this->drawItem($_category) ?>
-<?php endforeach ?>
-<?php if ($_menu): ?>
-<div class="nav-container">
-    <ul id="nav">
-        <li><a href="/">Home</a><li>
-        
-    </ul>
+<div class="page-title">
+    <h1><?php echo $this->getTitle() ?></h1>
 </div>
-<?php endif; ?>
-
+<div>
+    <?php echo $this->getContent() ?>
+</div>
