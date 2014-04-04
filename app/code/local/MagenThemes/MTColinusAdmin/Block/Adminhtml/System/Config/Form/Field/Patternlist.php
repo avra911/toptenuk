@@ -26,13 +26,13 @@ class MagenThemes_MTColinusAdmin_Block_Adminhtml_System_Config_Form_Field_Patter
 		$html .='<div class="listpattern '.$element->getHtmlId().'_pattern">';
 			$html .='<span class="item">
 						<span class="ptnone">None</span>
-						<input type="radio" name="pattern_body" value="none" style="margin-top: 7px;" class="valpt"/>
+						<input type="radio" name="'.$element->getHtmlId().'_pattern" value="none" style="margin-top: 7px;" class="valpt"/>
 					 </span>';
 			if($images){
 				foreach ($images as $img){
 			$html .='<span class="item">
 						<img src="'.$urlparth.'/media/magenthemes/pattern_body/'.$img.'" />
-						<input type="radio" name="pattern_body" value="'.$img.'" class="valpt"/>
+						<input type="radio" name="'.$element->getHtmlId().'_pattern" value="'.$img.'" class="valpt"/>
 					 </span>';
 				}
 			}

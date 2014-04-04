@@ -13,8 +13,14 @@
                             <sort_order>1</sort_order>
                             <action>adminhtml/system_config/edit/section/mtcolinusadmin</action>
                         </configuration>
+						<support translate="title" module="mtcolinusadmin">
+							<title><![CDATA[Help & Support]]></title>
+							<sort_order>2</sort_order>
+							<action>mtcolinusadmin/support</action>
+						</support>
                         </children>
                     </mtcolinusadmin>
+
             </children>
         </magenthemes>
     </menu>

@@ -1,11 +1,11 @@
 <?php
 /*------------------------------------------------------------------------
-# APL Solutions and Vision Co., LTD
+# ArexMage
 # ------------------------------------------------------------------------
-# Copyright (C) 2008-2012 APL Solutions and Vision Co., LTD. All Rights Reserved.
+# Copyright (C) 2008-2012 ArexMage. All Rights Reserved.
 # @license - Copyrighted Commercial Software
-# Author: APL Solutions and Vision Co., LTD
-# Websites: http://www.joomlavision.com/ - http://www.magentheme.com/
+# Author: ArexMage
+# Websites: http://www.arexmage.com
 -------------------------------------------------------------------------*/
 class MagenThemes_MTColinusAdmin_Block_ProductsList extends Mage_Catalog_Block_Product_Abstract
 {
@@ -21,6 +21,14 @@ class MagenThemes_MTColinusAdmin_Block_ProductsList extends Mage_Catalog_Block_P
         }
         return $this->getData('mtproductslist');
 
+    }
+    public function getActiveCategory()
+    {
+        $cateids = $this->getConfig('catsid');
+        $arrCat = explode(',', $cateids);
+        if (count($arrCat)){
+            return Mage::helper('mtcolinusadmin')->getProducstListContentHtml( $arrCat[0] );
+        }
     }
     public function getListCategory(){
         $storeId    = Mage::app()->getStore()->getId();
@@ -56,14 +64,28 @@ class MagenThemes_MTColinusAdmin_Block_ProductsList extends Mage_Catalog_Block_P
         }
         $category = Mage::getModel('catalog/category')->load($catsid);
         $category->setIsAnchor(1);
-        $products = Mage::getResourceModel ( 'catalog/product_collection')
-            ->addCategoryFilter($category)
-            ->addAttributeToSelect('*')
-            ->setStoreId($storeId)
-            ->addStoreFilter($storeId);
         if($mode=="mostviewed"){
-            $products->addViewsCount();
+        	$products = Mage::getResourceModel('reports/product_collection')
+        				->addOrderedQty()
+        				->addAttributeToSelect('*') 
+        				->setStoreId($storeId)
+        				->addMinimalPrice()
+        				->addStoreFilter($storeId)
+        				->addCategoryFilter($category)
+        				->addViewsCount();
+        }else{
+        	$products = Mage::getResourceModel ( 'catalog/product_collection')
+            			->addCategoryFilter($category)
+            			->addAttributeToSelect('*')
+            			->addMinimalPrice()
+            			->setStoreId($storeId)
+            			->addStoreFilter($storeId);
         }
+        $products->getSelect()->joinLeft(
+            array('_inventory_table' => $products->getTable('cataloginventory/stock_item')),
+            '_inventory_table.product_id = e.entity_id',
+            array('enable_qty_increments', 'qty_increments', 'qty', 'is_in_stock')
+        );
         if($mode=="featured"){
             $products->addAttributeToFilter("featured", 1);
         }

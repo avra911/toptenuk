@@ -10,7 +10,7 @@ class MagenThemes_MTColinusAdmin_Block_Adminhtml_System_Config_Information exten
     }   
     protected function _getFieldHtml($fieldset)
     {
-	$content = 'MT Colinus Theme version : 2.0.6<br/>Author : <a href="http://www.9magentothemes.com" title="Magento Themes">9MagentoThemes.Com</a><br />Copyright &copy; 2011- 9MagentoThemes.Com';
+	$content = 'MT Colinus Theme version : 2.1.6<br/>Author : <a href="http://www.arexmage.com" title="Magento Themes">ArexMage.com</a><br />Copyright &copy; 2013- ArexMage.com<br/><strong>Support URL: </strong><a href="http://arex.ticksy.com/" target="_blank">http://arex.ticksy.com/</a>';
 	return $content;
     }
 }

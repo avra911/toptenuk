@@ -130,7 +130,7 @@
 					</icons_bg_color>
 
 					<icons_bg_hover_color translate="label comment">
-						<label>Icons Background Hover: </label>
+						<label>Background Hover Icons: </label>
 						<comment>This color will be used for icons hover</comment>
 						<frontend_type>text</frontend_type>
 						<frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_color</frontend_model>
@@ -207,7 +207,7 @@
 					</addtocart_bg_hover_color>
 					
 					<pattern_body_select translate="label comment">
-	                    <label>Pattern body: </label>
+	                    <label>Body Pattern: </label>
 	                    <comment>This color will be used for font</comment>
 						<frontend_type>text</frontend_type>
 	                    <frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_patternlist</frontend_model>
@@ -280,7 +280,7 @@
 					</header_font> 
 					
 					<header_bg_color translate="label comment">
-						<label>Background Header Color: </label>
+						<label>Header Background Color: </label>
 						<comment>This color will be used for background header</comment>
 						<frontend_type>text</frontend_type>
 						<frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_color</frontend_model>
@@ -366,7 +366,7 @@
 					</footer_font>
 					
 					<footer_static_bg_color translate="label comment">
-						<label>Background Footer Color: </label>
+						<label>Footer Background Color: </label>
 						<comment>This color will be used for background footer</comment>
 						<frontend_type>text</frontend_type>
 						<frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_color</frontend_model>
@@ -421,7 +421,7 @@
 	                </footer_static_link_active_color>
 					
 					<pattern_footer_select translate="label comment">
-	                    <label>Footer background pattern: </label> 
+	                    <label>Background Footer pattern: </label> 
 						<frontend_type>text</frontend_type>
 	                    <frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_patternlist</frontend_model>
 	                    <sort_order>37</sort_order>
@@ -779,14 +779,23 @@
 						<show_in_store>1</show_in_store>
 					</show_learn_more>
 					<nav_urlkey translate="label comment">
-						<label>URL Key Category Show Dropdown Menu: </label>
-						<comment>Which url key you want they show dropdrow (Once per line)</comment>
+						<label>URL Key Category Show as Dropdown Menu: </label>
+						<comment>Which url key you want they show dropdrow (Seperate by comma)</comment>
 						<frontend_type>textarea</frontend_type> 
 						<sort_order>5</sort_order>
 						<show_in_default>1</show_in_default>
 						<show_in_website>1</show_in_website>
 						<show_in_store>1</show_in_store>
 					</nav_urlkey>
+                    <group_urlkey translate="label comment">
+                        <label>URL Key Category Show as Group Menu: </label>
+                        <comment>Which url key you want they show group (Seperate by comma)</comment>
+                        <frontend_type>textarea</frontend_type>
+                        <sort_order>5</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                    </group_urlkey>
 				</fields>
 			</navigation>
 			<custom_menu>
@@ -807,7 +816,7 @@
 	                    <show_in_store>1</show_in_store>
 	                </enable_custom>
 	                <static_identifier translate="label comment">
-						<label>Static block identifiers: </label>
+						<label>Static block identifier: </label>
 						<comment>Which static block you want they show on menu (Once per line)</comment>
 						<frontend_type>textarea</frontend_type> 
 						<sort_order>2</sort_order>
@@ -816,7 +825,7 @@
 						<show_in_store>1</show_in_store>
 					</static_identifier>
 					<page_id translate="label comment">
-						<label>CMS Page id: </label>
+						<label>CMS Page ID: </label>
 						<comment>Which cms page you want they show on menu (Once per line)</comment>
 						<frontend_type>textarea</frontend_type> 
 						<sort_order>3</sort_order>
@@ -866,7 +875,7 @@
 				<show_in_store>1</show_in_store>
 				<fields>
                     <product_bestseller translate="label">
-                        <label>Show Best Seller Slidebar:</label>
+                        <label>Best Seller Title:</label>
                         <frontend_type>select</frontend_type>
                         <source_model>adminhtml/system_config_source_yesno</source_model>
                         <sort_order>1</sort_order>
@@ -883,7 +892,7 @@
                         <show_in_store>1</show_in_store>
                     </product_bestseller_title>
                     <product_bestseller_numb translate="label">
-                        <label>Display number product best seller: </label>
+                        <label>Display the number of best seller product : </label>
                         <frontend_type>text</frontend_type>
                         <sort_order>3</sort_order>
                         <show_in_default>1</show_in_default>
@@ -949,7 +958,7 @@
 						<show_in_store>1</show_in_store>
 				   </product_img_height>
 				   <desc_striptags translate="label">
-						<label>Strip tags html:</label>
+						<label>Strip html tags:</label>
 						<comment>
                             <![CDATA[Strip tags html for product short description]]>
                         </comment>
@@ -960,6 +969,15 @@
 						<show_in_store>1</show_in_store>
 						<show_in_website>1</show_in_website>
 					</desc_striptags>
+					<product_prev_next translate="label">
+						<label>Show Prev/Next in product:</label>
+						<frontend_type>select</frontend_type>
+						<source_model>adminhtml/system_config_source_yesno</source_model>
+						<sort_order>11</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_store>1</show_in_store>
+						<show_in_website>1</show_in_website>
+					</product_prev_next>
 				</fields>
 			</product>
 			<thumbnailscroller translate="label">
@@ -971,7 +989,7 @@
 				<show_in_store>1</show_in_store>
 				<fields> 
 					<direction translate="label">
-						<label>Direction thumbnail scroller: </label>
+						<label>Direct thumbnail scroller: </label>
 						<frontend_type>select</frontend_type>
 						<source_model>mtcolinusadmin/config_ThumbDirection</source_model>
 						<sort_order>3</sort_order>
@@ -998,7 +1016,7 @@
 						<show_in_website>1</show_in_website>
 					</control>
 					<items translate="label">
-						<label>Number of thumbnail show: </label>
+						<label>Show Number of thumbnail: </label>
 						<frontend_type>text</frontend_type>
 						<sort_order>6</sort_order>
 						<show_in_default>1</show_in_default>
@@ -1098,7 +1116,7 @@
 				<show_in_store>1</show_in_store>
 				<fields>  	
 					<enabled translate="label comment">
-                        <label>Enabled SmartMenu</label>
+                        <label>Enable SmartMenu</label>
                         <frontend_type>select</frontend_type>
                         <source_model>adminhtml/system_config_source_yesno</source_model>
                         <sort_order>0</sort_order>
@@ -1143,7 +1161,7 @@
 				<show_in_store>1</show_in_store>
 				<fields>
 					<enabled translate="label comment">
-						<label>Enabled</label>
+						<label>Enable</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>10</sort_order>
@@ -1180,7 +1198,7 @@
                          <show_in_store>1</show_in_store>
                      </catsid>  
                      <fillter_cat translate="label">
-						<label>Display fillter category:</label>
+						<label>Display Category Fillter:</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>41</sort_order>
@@ -1189,7 +1207,7 @@
 						<show_in_website>1</show_in_website>
 					</fillter_cat>
                      <fillter_order translate="label">
-						<label>Display fillter order:</label>
+						<label>Display Order Fillter :</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>42</sort_order>
@@ -1197,6 +1215,15 @@
 						<show_in_store>1</show_in_store>
 						<show_in_website>1</show_in_website>
 					</fillter_order>
+					<us_layout translate="label">
+                        <label>Layout:</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>mtcolinusadmin/productslist_config_layout</source_model>
+                        <sort_order>41</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_store>1</show_in_store>
+                        <show_in_website>1</show_in_website>
+                    </us_layout>
                      <addtocart translate="label">
 						<label>Add to Cart</label>
 						<frontend_type>select</frontend_type>
@@ -1228,7 +1255,7 @@
 						<default>3</default>
 					</addtocompare>
 					<price translate="label">
-						<label>Show price</label>
+						<label>Show Price</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>75</sort_order>
@@ -1238,7 +1265,7 @@
 						<default>3</default>
 					</price>
 					<review translate="label">
-						<label>Show review rating</label>
+						<label>Show Review Rating</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>80</sort_order>
@@ -1258,7 +1285,7 @@
 						<default>3</default>
 					</shortdescription>
 					<detail translate="label">
-						<label>Show button detail</label>
+						<label>Show Detail Button</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>92</sort_order>
@@ -1267,14 +1294,24 @@
 						<show_in_store>1</show_in_store>
 						<default>3</default>
 					</detail> 
+					<hover_product translate="label">
+                        <label>Products list hover image effect</label>
+                        <comment>For homepage products list</comment>
+                        <frontend_type>select</frontend_type>
+                        <source_model>mtcolinusadmin/config_confighover</source_model>
+                        <sort_order>93</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                    </hover_product>
 					<desc_striptags translate="label">
-						<label>Strip tags html:</label>
+						<label>Strip HTML Tags :</label>
 						<comment>
                             <![CDATA[Strip tags html for product short description]]>
                         </comment>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
-						<sort_order>96</sort_order>
+						<sort_order>94</sort_order>
 						<show_in_default>1</show_in_default>
 						<show_in_store>1</show_in_store>
 						<show_in_website>1</show_in_website>
@@ -1290,7 +1327,7 @@
                          <show_in_store>1</show_in_store>
                      </qty>   
                      <items_width translate="label">
-						<label>Items Width:</label>
+						<label>Width Of Item:</label>
 						<frontend_type>text</frontend_type>
 						<sort_order>114></sort_order>
 						<show_in_default>1</show_in_default>
@@ -1382,7 +1419,7 @@
 					    <show_in_store>1</show_in_store>
 					</addtocart>
 					<addtowishlist translate="label">
-					    <label>Show add Wishlist</label>
+					    <label>Show add to Wishlist</label>
 					    <frontend_type>select</frontend_type>
 					    <source_model>adminhtml/system_config_source_yesno</source_model>
 					    <sort_order>70</sort_order>
@@ -1391,7 +1428,7 @@
 					    <show_in_store>1</show_in_store>
 					</addtowishlist>
 					<addtocompare translate="label">
-					    <label>Show add Compare</label>
+					    <label>Show add to Compare</label>
 					    <frontend_type>select</frontend_type>
 					    <source_model>adminhtml/system_config_source_yesno</source_model>
 					    <sort_order>80</sort_order>
@@ -1418,7 +1455,7 @@
                         <validate>required-entry validate-greater-than-zero</validate>
                     </qty>
                     <items>
-                        <label>Number of product show</label>
+                        <label>Show Number of product </label>
                         <frontend_type>text</frontend_type>
                         <sort_order>95</sort_order>
                         <show_in_default>1</show_in_default>
@@ -1427,7 +1464,7 @@
                         <validate>required-entry validate-greater-than-zero</validate>
                     </items>
                     <items_scroll translate="label">
-                        <label>Number of product scroll</label>
+                        <label>Number of product scroller</label>
                         <frontend_type>text</frontend_type>
                         <sort_order>100</sort_order>
                         <show_in_default>1</show_in_default>
@@ -1436,7 +1473,7 @@
                         <validate>required-entry validate-greater-than-zero</validate>
                     </items_scroll>
                     <auto translate="label comment">
-                        <label>Auto scroll</label>
+                        <label>AutoScroll</label>
                         <frontend_type>text</frontend_type>
                         <sort_order>104</sort_order>
                         <show_in_default>1</show_in_default>
@@ -1453,7 +1490,7 @@
                         <show_in_store>1</show_in_store>
                     </hoverpause>
                     <animation>
-                        <label>Animation time</label>
+                        <label>Animation Time</label>
                         <frontend_type>text</frontend_type>
                         <sort_order>107</sort_order>
                         <show_in_default>1</show_in_default>
@@ -1489,7 +1526,7 @@
                         <validate>required-entry validate-greater-than-zero</validate>
                     </main_height>
                     <width translate="label">
-                        <label>Width of Image</label>
+                        <label>Image Width</label>
                         <frontend_type>text</frontend_type>
                         <sort_order>120</sort_order>
                         <show_in_default>1</show_in_default>
@@ -1507,7 +1544,7 @@
                         <validate>required-entry validate-greater-than-zero</validate>
                     </height>
                     <desc_striptags translate="label">
-						<label>Strip tags html:</label>
+						<label>Strip HTML tags:</label>
 						<comment>
                             <![CDATA[Strip tags html for product short description]]>
                         </comment>
@@ -1518,6 +1555,16 @@
 						<show_in_store>1</show_in_store>
 						<show_in_website>1</show_in_website>
 					</desc_striptags>
+					<hover_product translate="label">
+                        <label>Products scroller hover image effect</label>
+                        <comment>For homepage products scroller</comment>
+                        <frontend_type>select</frontend_type>
+                        <source_model>mtcolinusadmin/config_confighover</source_model>
+                        <sort_order>141</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                    </hover_product>
                 </fields>
             </productsscroller>
             <logoscroller translate="label">
@@ -1537,10 +1584,19 @@
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
                     </enabled>
+					<title translate="label">
+                        <label>Title</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>2</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <validate>required-entry</validate>
+                    </title>
                     <main_width translate="label">
                         <label>Main Width</label>
                         <frontend_type>text</frontend_type>
-                        <sort_order>2</sort_order>
+                        <sort_order>3</sort_order>
                         <show_in_default>1</show_in_default>
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
@@ -1549,7 +1605,7 @@
                     <main_height translate="label">
                         <label>Main Height</label>
                         <frontend_type>text</frontend_type>
-                        <sort_order>2</sort_order>
+                        <sort_order>4</sort_order>
                         <show_in_default>1</show_in_default>
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
@@ -1558,7 +1614,7 @@
                     <items_scroll translate="label">
                         <label>Number item logo scroll</label>
                         <frontend_type>text</frontend_type>
-                        <sort_order>3</sort_order>
+                        <sort_order>5</sort_order>
                         <show_in_default>1</show_in_default>
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
@@ -1567,7 +1623,7 @@
                     <items_display translate="label">
                         <label>Number display of logo scroll</label>
                         <frontend_type>text</frontend_type>
-                        <sort_order>4</sort_order>
+                        <sort_order>6</sort_order>
                         <show_in_default>1</show_in_default>
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
@@ -1576,7 +1632,7 @@
                     <auto translate="label comment">
                         <label>Auto scroll</label>
                         <frontend_type>text</frontend_type>
-                        <sort_order>5</sort_order>
+                        <sort_order>7</sort_order>
                         <show_in_default>1</show_in_default>
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
@@ -1584,7 +1640,7 @@
                     <animation>
                         <label>Animation time</label>
                         <frontend_type>text</frontend_type>
-                        <sort_order>6</sort_order>
+                        <sort_order>8</sort_order>
                         <show_in_default>1</show_in_default>
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
@@ -1593,17 +1649,17 @@
                     <width_item translate="label">
                         <label>Width of Item</label>
                         <frontend_type>text</frontend_type>
-                        <sort_order>7</sort_order>
+                        <sort_order>9</sort_order>
                         <show_in_default>1</show_in_default>
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
                         <validate>required-entry validate-greater-than-zero</validate>
                     </width_item>
                     <logo_path translate="label comment">
-                        <label>URL Path Logo: </label>
+                        <label>Logo URL Path:</label>
                         <comment>Which URL Path Logo key you want they show scroll (Once per line)</comment>
                         <frontend_type>textarea</frontend_type>
-                        <sort_order>8</sort_order>
+                        <sort_order>10</sort_order>
                         <show_in_default>1</show_in_default>
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
@@ -1619,7 +1675,7 @@
 				<show_in_store>1</show_in_store>
 				<fields>	
 					<enabled_static_header_1 translate="label comment">
-						<label>Enabled Static header 1</label>
+						<label>Enable Static header 1</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>0</sort_order>
@@ -1629,13 +1685,14 @@
 					</enabled_static_header_1>							
 					<static_header_1 translate="label comment">
 						<label>Header Static 1: </label>
-						<comment></comment>
-						<frontend_type>textarea</frontend_type> 
+						<comment></comment> 
+						<frontend_type>textarea</frontend_type>
+						<frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_Static</frontend_model>
 						<sort_order>1</sort_order>
 						<show_in_default>1</show_in_default>
 						<show_in_website>1</show_in_website>
 						<show_in_store>1</show_in_store>
-					</static_header_1> 					
+					</static_header_1>				
 					<static_header_cols_1 translate="label">
 						<label>Header Static 1 Cols: </label>
 						<comment>Total of this number and 3 other cols of Static Main Bottom must be equal 12</comment>
@@ -1646,7 +1703,7 @@
 						<show_in_store>1</show_in_store>
                     </static_header_cols_1>
 					<enabled_static_header_2 translate="label comment">
-						<label>Enabled Static header 2</label>
+						<label>Enable Static header 2</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>3</sort_order>
@@ -1658,6 +1715,7 @@
 						<label>Header Static 2: </label>
 						<comment></comment>
 						<frontend_type>textarea</frontend_type> 
+						<frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_Static</frontend_model>
 						<sort_order>4</sort_order>
 						<show_in_default>1</show_in_default>
 						<show_in_website>1</show_in_website>
@@ -1673,7 +1731,7 @@
                          <show_in_store>1</show_in_store>
                     </static_header_cols_2>
 					<enabled_static_slideshow_1 translate="label comment">
-						<label>Enabled Static SlideShow 1</label>
+						<label>Enable Static SlideShow 1</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>6</sort_order>
@@ -1685,6 +1743,7 @@
 						<label>SlideShow Static 1: </label>
 						<comment></comment>
 						<frontend_type>textarea</frontend_type> 
+						<frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_Static</frontend_model>
 						<sort_order>7</sort_order>
 						<show_in_default>1</show_in_default>
 						<show_in_website>1</show_in_website>
@@ -1700,7 +1759,7 @@
 						<show_in_store>1</show_in_store>
                     </static_slideshow_1_cols>
 					<enabled_static_slideshow_2 translate="label comment">
-						<label>Enabled Static SlideShow 2</label>
+						<label>Enable Static SlideShow 2</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>9</sort_order>
@@ -1712,6 +1771,7 @@
 						<label>Slide Show Static 2: </label>
 						<comment></comment>
 						<frontend_type>textarea</frontend_type> 
+						<frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_Static</frontend_model>
 						<sort_order>10</sort_order>
 						<show_in_default>1</show_in_default>
 						<show_in_website>1</show_in_website>
@@ -1728,7 +1788,7 @@
                     </static_slideshow_2_cols>
                      
 					<enabled_top_static_footer_1 translate="label comment">
-						<label>Enabled Top Footer Static 1</label>
+						<label>Enable Top Footer Static 1</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>13</sort_order>
@@ -1740,6 +1800,7 @@
 						<label>Top Footer Static 1: </label>
 						<comment></comment>
 						<frontend_type>textarea</frontend_type> 
+						<frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_Static</frontend_model>
 						<sort_order>14</sort_order>
 						<show_in_default>1</show_in_default>
 						<show_in_website>1</show_in_website>
@@ -1755,7 +1816,7 @@
                          <show_in_store>1</show_in_store>
                     </top_static_footer_1_cols> 
 					<enabled_top_static_footer_2 translate="label comment">
-						<label>Enabled Top Footer Static 2</label>
+						<label>Enable Top Footer Static 2</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>16</sort_order>
@@ -1767,6 +1828,7 @@
 						<label>Top Footer Static 2: </label>
 						<comment></comment>
 						<frontend_type>textarea</frontend_type> 
+						<frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_Static</frontend_model>
 						<sort_order>17</sort_order>
 						<show_in_default>1</show_in_default>
 						<show_in_website>1</show_in_website>
@@ -1782,7 +1844,7 @@
                          <show_in_store>1</show_in_store>
                     </top_static_footer_2_cols> 					
 					<enabled_top_static_footer_3 translate="label comment">
-						<label>Enabled Top Footer Static 3</label>
+						<label>Enable Top Footer Static 3</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>19</sort_order>
@@ -1794,6 +1856,7 @@
 						<label>Top Footer Static 3: </label>
 						<comment></comment>
 						<frontend_type>textarea</frontend_type> 
+						<frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_Static</frontend_model>
 						<sort_order>20</sort_order>
 						<show_in_default>1</show_in_default>
 						<show_in_website>1</show_in_website>
@@ -1810,7 +1873,7 @@
                          <show_in_store>1</show_in_store>
                     </top_static_footer_3_cols>
 					<enabled_top_static_footer_4 translate="label comment">
-						<label>Enabled Top Footer Static 4</label>
+						<label>Enable Top Footer Static 4</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>22</sort_order>
@@ -1822,6 +1885,7 @@
 						<label>Top Footer Static 4: </label>
 						<comment></comment>
 						<frontend_type>textarea</frontend_type> 
+						<frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_Static</frontend_model>
 						<sort_order>23</sort_order>
 						<show_in_default>1</show_in_default>
 						<show_in_website>1</show_in_website>
@@ -1838,7 +1902,7 @@
                          <show_in_store>1</show_in_store>
                      </top_static_footer_4_cols> 
                      <enabled_bottom_static_footer_1 translate="label comment">
-						<label>Enabled Bottom Footer Static 1</label>
+						<label>Enable Bottom Footer Static 1</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>25</sort_order>
@@ -1850,6 +1914,7 @@
 						<label>Bottom Footer Static 1: </label>
 						<comment></comment>
 						<frontend_type>textarea</frontend_type> 
+						<frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_Static</frontend_model>
 						<sort_order>26</sort_order>
 						<show_in_default>1</show_in_default>
 						<show_in_website>1</show_in_website>
@@ -1867,7 +1932,7 @@
                     </bottom_static_footer_1_cols> 
                     
 					<enabled_bottom_static_footer_2 translate="label comment">
-						<label>Enabled Bottom Footer Static 2</label>
+						<label>Enable Bottom Footer Static 2</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>28</sort_order>
@@ -1880,6 +1945,7 @@
 						<label>Bottom Footer Static 2: </label>
 						<comment></comment>
 						<frontend_type>textarea</frontend_type> 
+						<frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_Static</frontend_model>
 						<sort_order>29</sort_order>
 						<show_in_default>1</show_in_default>
 						<show_in_website>1</show_in_website>
@@ -1893,8 +1959,8 @@
                          <show_in_default>1</show_in_default>
                          <show_in_website>1</show_in_website>
                          <show_in_store>1</show_in_store>
-                    </bottom_static_footer_2_cols> 		 
-                    
+                    </bottom_static_footer_2_cols> 	
+					
 					<static_product_tab_title translate="label">
 						<label>Static Product Tab Title: </label>
 						<frontend_type>text</frontend_type>
@@ -1907,17 +1973,28 @@
 						<label>Static Product Tab Description: </label>
 						<comment></comment>
 						<frontend_type>textarea</frontend_type> 
+						<frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_Static</frontend_model>
 						<sort_order>32</sort_order>
 						<show_in_default>1</show_in_default>
 						<show_in_website>1</show_in_website>
 						<show_in_store>1</show_in_store>
 					</static_product_tab_desc> 
 						
+					<enabled_product_view_static translate="label comment">
+						<label>Enable Product View Static</label>
+						<frontend_type>select</frontend_type>
+						<source_model>adminhtml/system_config_source_yesno</source_model>
+						<sort_order>33</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store> 
+					</enabled_product_view_static>	
 					<static_product_view_sidebar translate="label comment">
 						<label>Static Product View Content: </label>
 						<comment></comment>
 						<frontend_type>textarea</frontend_type> 
-						<sort_order>33</sort_order>
+						<frontend_model>mtcolinusadmin/adminhtml_system_config_form_field_Static</frontend_model>
+						<sort_order>34</sort_order>
 						<show_in_default>1</show_in_default>
 						<show_in_website>1</show_in_website>
 						<show_in_store>1</show_in_store>
@@ -1926,7 +2003,7 @@
                          <label>Static Product View Cols: </label>
                          <comment></comment>
                          <frontend_type>text</frontend_type>
-                         <sort_order>34</sort_order>
+                         <sort_order>35</sort_order>
                          <show_in_default>1</show_in_default>
                          <show_in_website>1</show_in_website>
                          <show_in_store>1</show_in_store>
@@ -1941,65 +2018,162 @@
 				<show_in_default>1</show_in_default>
 				<show_in_website>1</show_in_website>
 				<show_in_store>1</show_in_store>
-				<fields>  	
-					<twitter_account translate="label">
-                        <label>Twitter Account: </label>
-                        <frontend_type>text</frontend_type>   
+				<fields>
+                    <tw_widget translate="label">
+                        <label>Twitter widget enabled:</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                        <sort_order>0</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                    </tw_widget>
+                    <twitter_replace translate="label">
+                        <depends><tw_widget>0</tw_widget></depends>
+                        <label>Replace TW Widget by: </label>
+                        <comment>Enter block identifier to fill it to twitter widget</comment>
+                        <frontend_type>text</frontend_type>
                         <sort_order>1</sort_order>
                         <show_in_default>1</show_in_default>
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
-                    </twitter_account> 
-                    <twitter_numb translate="label">
-                        <label>Display Number Tweet: </label> 
+                    </twitter_replace>
+					<twitter_consumer_key translate="label">
+                        <depends><tw_widget>1</tw_widget></depends>
+                        <label>Consumer key app twitter: </label>
                         <frontend_type>text</frontend_type>
                         <sort_order>2</sort_order>
                         <show_in_default>1</show_in_default>
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
-                    </twitter_numb>
-                    <static_title_twitter translate="label">
-                        <label>Title Twitter Static block: </label>
+                    </twitter_consumer_key>
+                    <twitter_consumer_secret translate="label">
+                        <depends><tw_widget>1</tw_widget></depends>
+                        <label>Consumer secret app twitter: </label>
                         <frontend_type>text</frontend_type>
                         <sort_order>3</sort_order>
                         <show_in_default>1</show_in_default>
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
-                    </static_title_twitter>
-					<twitter_replace translate="label">
-                        <label>Replace Twitter with Static block: </label>
-                        <comment>Enter stactic block Identifier if you want to replace twitter block with your static block</comment>
+                    </twitter_consumer_secret>
+                    <twitter_access_token translate="label">
+                        <depends><tw_widget>1</tw_widget></depends>
+                        <label>Access token app twitter: </label>
                         <frontend_type>text</frontend_type>
                         <sort_order>4</sort_order>
                         <show_in_default>1</show_in_default>
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
-                    </twitter_replace>
-					<facebook_page translate="label">
-                        <label>Facebook Page URL</label>
-                        <frontend_type>text</frontend_type>   
+                    </twitter_access_token>
+                    <twitter_access_token_secret translate="label">
+                        <depends><tw_widget>1</tw_widget></depends>
+                        <label>Access token secret app twitter: </label>
+                        <frontend_type>text</frontend_type>
                         <sort_order>5</sort_order>
                         <show_in_default>1</show_in_default>
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
-                    </facebook_page>
-					<static_title_fb translate="label">
-                        <label>Title Facebook Static block: </label>
-                        <frontend_type>text</frontend_type>
+                    </twitter_access_token_secret>
+					<twitter_account translate="label">
+                        <depends><tw_widget>1</tw_widget></depends>
+                        <label>Twitter Account: </label>
+                        <frontend_type>text</frontend_type>   
                         <sort_order>6</sort_order>
                         <show_in_default>1</show_in_default>
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
-                    </static_title_fb>
-					<facebook_replace translate="label">
-                        <label>Replace Facebook with Static block</label>
-                        <comment>Enter stactic block Identifier if you want to replace facebook block with your static block</comment>
+                    </twitter_account> 
+                    <twitter_numb translate="label">
+                        <depends><tw_widget>1</tw_widget></depends>
+                        <label>Display Number Tweet: </label> 
                         <frontend_type>text</frontend_type>
                         <sort_order>7</sort_order>
                         <show_in_default>1</show_in_default>
                         <show_in_website>1</show_in_website>
                         <show_in_store>1</show_in_store>
+                    </twitter_numb>
+					<static_title_twitter translate="label">
+						<label>Title Twitter Static block: </label>
+						<frontend_type>text</frontend_type>
+						<sort_order>8</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store>
+					</static_title_twitter>
+                    <tw_float_widget translate="label">
+						<label>Show twitter float widget:</label>
+                        <frontend_type>select</frontend_type>
+						<source_model>adminhtml/system_config_source_yesno</source_model>
+						<sort_order>9</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store>
+					</tw_float_widget>
+                    <tw_widget_positions translate="label">
+                        <depends><tw_foat_widget>1</tw_foat_widget></depends>
+                        <label>Float Twitter widget positions:</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>mtcolinusadmin/config_widgetpositions</source_model>
+                        <sort_order>10</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                    </tw_widget_positions>
+					<fb_widget translate="label">
+						<label>Facebook widget enabled:</label>
+						<frontend_type>select</frontend_type>
+						<source_model>adminhtml/system_config_source_yesno</source_model>
+						<sort_order>11</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store>
+					</fb_widget>
+                    <facebook_replace translate="label">
+                        <depends><fb_widget>0</fb_widget></depends>
+                        <label>Replace FB Widget by: </label>
+                        <comment>Enter block identifier to fill it to facebook widget</comment>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>12</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
                     </facebook_replace>
+                    <facebook_page translate="label">
+                        <depends><fb_widget>1</fb_widget></depends>
+                        <label>Facebook Page URL: </label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>13</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                    </facebook_page>
+                    <static_title_fb translate="label">
+                        <label>Title Facebook Static block: </label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>14</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                    </static_title_fb>
+                    <fb_float_widget translate="label">
+                        <label>Show facebook float widget:</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                        <sort_order>16</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                    </fb_float_widget>
+                    <fb_widget_positions translate="label">
+                        <depends><fb_float_widget>1</fb_float_widget></depends>
+                        <label>Float Facebook widget positions:</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>mtcolinusadmin/config_widgetpositions</source_model>
+                        <sort_order>17</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                    </fb_widget_positions>
 				</fields>
 			</social_config>
 			<otherconfig translate="label">
@@ -2011,7 +2185,7 @@
 				<show_in_store>1</show_in_store>
 				<fields> 
 					<enabled_ajax translate="label comment">
-						<label>Enabled Ajax Cart</label>
+						<label>Enable Ajax Cart</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>0</sort_order>
@@ -2020,7 +2194,7 @@
 						<show_in_store>1</show_in_store> 
 					</enabled_ajax>
 					<enabled_priceslider translate="label comment">
-						<label>Enable Filter Price for layered navigation</label>
+						<label>Enable Price Filter for layered navigation</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>1</sort_order>
@@ -2029,7 +2203,7 @@
 						<show_in_store>1</show_in_store> 
 					</enabled_priceslider>
 					<enable_quicklook translate="label comment">
-						<label>Enabled Quicklook</label>
+						<label>Enable Quicklook</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>2</sort_order>
@@ -2038,7 +2212,7 @@
 						<show_in_store>1</show_in_store> 
 					</enable_quicklook>
 					<enabled_wisthlist translate="label comment">
-						<label>Enabled Ajax Wisthlist</label>
+						<label>Enable Ajax Wisthlist</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>3</sort_order>
@@ -2047,7 +2221,7 @@
 						<show_in_store>1</show_in_store> 
 					</enabled_wisthlist>
 					<enabled_compare translate="label comment">
-						<label>Enabled Ajax Compare</label>
+						<label>Enable Ajax Compare</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>4</sort_order>
@@ -2056,7 +2230,7 @@
 						<show_in_store>1</show_in_store> 
 					</enabled_compare>
 					<enabled_social_link translate="label comment">
-						<label>Enabled Social Link Product Details</label>
+						<label>Enable Social Link Product Details</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>5</sort_order>
@@ -2065,7 +2239,7 @@
 						<show_in_store>1</show_in_store> 
 					</enabled_social_link>
 					<enabled_social translate="label comment">
-						<label>Enabled Social Button</label>
+						<label>Enable Social Button</label>
 						<frontend_type>select</frontend_type>
 						<source_model>adminhtml/system_config_source_yesno</source_model>
 						<sort_order>6</sort_order>
@@ -2131,7 +2305,8 @@
                          <show_in_store>1</show_in_store>
                      </rss_link>
                      <hover_product translate="label">
-                        <label>Display hover product list</label>
+                        <label>Products list hover to image effect</label>
+                        <comment>Products list of magento (Category page)</comment>
                         <frontend_type>select</frontend_type>
                         <source_model>mtcolinusadmin/config_confighover</source_model>
                         <sort_order>14</sort_order>

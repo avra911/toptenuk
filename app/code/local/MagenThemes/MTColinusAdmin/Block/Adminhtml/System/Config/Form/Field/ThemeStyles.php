@@ -67,7 +67,11 @@ class MagenThemes_MTColinusAdmin_Block_Adminhtml_System_Config_Form_Field_ThemeS
 		$footer_static_link_color = isset($_COOKIE['footer_static_link_color']) ? $_COOKIE['footer_static_link_color'] :$config['footer_static_link_color'];
 		$footer_static_link_hover_color = isset($_COOKIE['footer_static_link_hover_color']) ? $_COOKIE['footer_static_link_hover_color'] :$config['footer_static_link_hover_color'];
 		$footer_static_link_active_color = isset($_COOKIE['footer_static_link_active_color']) ? $_COOKIE['footer_static_link_active_color'] :$config['footer_static_link_active_color'];	
-		
+			
+		$_storeBaseUrl = str_replace('index.php', '', Mage::getBaseUrl());
+		$html .= '
+				<script language="javascript" type="text/javascript" src="'.$_storeBaseUrl.'js/tiny_mce/tiny_mce.js"></script>
+				';	
 		
        	$html .='
        		<script type="text/javascript" src="'.$this->getJsUrl('magenthemes/mt_colinus/js/jquery-1.8.2.min.js').'"></script>
@@ -319,7 +323,7 @@ class MagenThemes_MTColinusAdmin_Block_Adminhtml_System_Config_Form_Field_ThemeS
     							$mtkb("#mtcolinusadmin_mtcolinusadmin_appearance_bg_color").attr("readonly","");
     							$mtkb(".valpt").attr("disabled","");
     							$mtkb(".valptheader").attr("disabled","");
-    							$mtkb(".valptfooter").attr("disabled",""); 
+    							$mtkb(".valptfooter").attr("disabled","");
        							$mtkb("#mtcolinusadmin_mtcolinusadmin_appearance_text_color").attr("readonly","");
        							$mtkb("#mtcolinusadmin_mtcolinusadmin_appearance_link_color").attr("readonly",""); 
        							$mtkb("#mtcolinusadmin_mtcolinusadmin_appearance_link_hover_color").attr("readonly",""); 
@@ -423,9 +427,13 @@ class MagenThemes_MTColinusAdmin_Block_Adminhtml_System_Config_Form_Field_ThemeS
        							$mtkb("#mtcolinusadmin_mtcolinusadmin_appearance_footer_static_link_color").removeAttr("readonly");
        							$mtkb("#mtcolinusadmin_mtcolinusadmin_appearance_footer_static_link_hover_color").removeAttr("readonly");
        							$mtkb("#mtcolinusadmin_mtcolinusadmin_appearance_footer_static_link_active_color").removeAttr("readonly");
-    						} 
+    						}
        						$mtkb.fn.mColorPicker.setInputColor("mtcolinusadmin_mtcolinusadmin_appearance_bg_color", styles[apper]["bg_color"]); 
-       						$mtkb("#mtcolinusadmin_mtcolinusadmin_appearance_pattern_body_select").val(styles[apper]["pattern_body_select"]);  
+       						$mtkb("#mtcolinusadmin_mtcolinusadmin_appearance_pattern_body_select").val(styles[apper]["pattern_body_select"]);
+       						$mtkb("#mtcolinusadmin_mtcolinusadmin_appearance_pattern_header_select").val(styles[apper]["pattern_header_select"]);
+       						$mtkb("#mtcolinusadmin_mtcolinusadmin_appearance_pattern_footer_select").val(styles[apper]["pattern_footer_select"]);
+       						$mtkb("#mtcolinusadmin_mtcolinusadmin_appearance_pattern_top_select").val(styles[apper]["pattern_top_select"]);
+       						$mtkb("#mtcolinusadmin_mtcolinusadmin_appearance_pattern_copyright_select").val(styles[apper]["pattern_copyright_select"]);
        						$mtkb.fn.mColorPicker.setInputColor("mtcolinusadmin_mtcolinusadmin_appearance_text_color", styles[apper]["text_color"]); 
        						$mtkb.fn.mColorPicker.setInputColor("mtcolinusadmin_mtcolinusadmin_appearance_link_color", styles[apper]["link_color"]);
        						$mtkb.fn.mColorPicker.setInputColor("mtcolinusadmin_mtcolinusadmin_appearance_link_hover_color", styles[apper]["link_hover_color"]);

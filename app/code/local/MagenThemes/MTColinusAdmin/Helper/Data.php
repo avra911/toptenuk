@@ -130,4 +130,9 @@ class MagenThemes_MTColinusAdmin_Helper_Data extends Mage_Core_Helper_Abstract
         } 
         return false;
     }
+	public function getProducstListContentHtml($index = null){
+        if ($block = Mage::app()->getLayout()->createBlock('mtcolinusadmin/request_products')){
+            return $block->setIndex($index)->toHtml();
+        }
+    }
 }

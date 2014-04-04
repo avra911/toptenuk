@@ -1,11 +1,11 @@
 <?php
 /*------------------------------------------------------------------------
-# APL Solutions and Vision Co., LTD
+# ArexMage
 # ------------------------------------------------------------------------
-# Copyright (C) 2008-2010 APL Solutions and Vision Co., LTD. All Rights Reserved.
+# Copyright (C) 2013 ArexMage. All Rights Reserved.
 # @license - Copyrighted Commercial Software
-# Author: APL Solutions and Vision Co., LTD
-# Websites: http://www.joomlavision.com/ - http://www.magentheme.com/
+# Author: ArexMage
+# Websites: http://www.arexmage.com
 -------------------------------------------------------------------------*/ 
 class MagenThemes_MTColinusAdmin_Model_Config_Confighover
 {
@@ -13,8 +13,8 @@ class MagenThemes_MTColinusAdmin_Model_Config_Confighover
     public function toOptionArray()
     {        
         return array(
-            array('value'=>'show_text', 'label'=>Mage::helper('adminhtml')->__('Hover Show Text')),
-            array('value'=>'show_image', 'label'=>Mage::helper('adminhtml')->__('Hover Show Change Images'))
+            array('value'=>'show_text', 'label'=>Mage::helper('adminhtml')->__('Show text on hover')),
+            array('value'=>'show_image', 'label'=>Mage::helper('adminhtml')->__('Change image on hover'))
         );
     }
 

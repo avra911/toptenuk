@@ -2,7 +2,7 @@
 <config>
     <modules>
         <MagenThemes_MTColinusAdmin>
-            <version>2.0.6</version>
+            <version>2.1.6</version>
         </MagenThemes_MTColinusAdmin>
     </modules>
     <frontend>
@@ -25,6 +25,15 @@
                 </observers>
             </controller_action_postdispatch>
         </events>
+		<controller_action_layout_render_before>
+			<observers>
+				<mtcolinusadmin>
+					<type>singleton</type>
+					<class>mtcolinusadmin/observer</class>
+					<method>beforeLayoutRender</method>
+				</mtcolinusadmin>
+			</observers>
+		</controller_action_layout_render_before>
         <layout>
             <updates>
                 <mtcolinusadmin>
@@ -102,7 +111,7 @@
 				<link_active_color>#89B9C5</link_active_color>
 				<pattern_body_select>none</pattern_body_select>
 				<pattern_header_select>none</pattern_header_select>   
-				<pattern_top_select>none</pattern_top_select>   
+				<pattern_top_select>none</pattern_top_select>
 				<pattern_copyright_select>none</pattern_copyright_select>   
 				<pattern_footer_select>none</pattern_footer_select> 
 				<header_bg_color>#FFFFFF</header_bg_color>
@@ -146,12 +155,12 @@
 				<footer_static_link_hover_color>#89B9C5</footer_static_link_hover_color>
 				<footer_static_link_active_color>#89B9C5</footer_static_link_active_color>
 				<b_font>Open Sans</b_font>
-				<header_font></header_font>
-				<maintop_font></maintop_font>
+				<header_font>Open Sans</header_font>
+				<maintop_font>Open Sans</maintop_font>
 				<m_font>Open Sans</m_font>
-				<footer_font></footer_font>
-				<copyright_font></copyright_font>
-				<color_panel>1</color_panel>
+				<footer_font>Open Sans</footer_font>
+				<copyright_font>Open Sans</copyright_font>
+				<color_panel>0</color_panel>
 				<back_top>1</back_top>
 				<favicon>favicon.ico</favicon>				
 		    </mtcolinusadmin_appearance>
@@ -180,6 +189,7 @@
 		    	<product_img_width>282</product_img_width>
 		    	<product_img_height>320</product_img_height>
 		    	<desc_striptags>0</desc_striptags>
+				<product_prev_next>1</product_prev_next>
 		    </product>
 		    <thumbnailscroller> 
 				<direction>horizontal</direction>
@@ -219,7 +229,9 @@
 				<width>282</width>
 				<height>320</height>
 				<detail>1</detail>
-				<desc_striptags>0</desc_striptags>
+				<desc_striptags>1</desc_striptags>
+				<us_layout>0</us_layout>
+				<hover_product>show_text</hover_product>
 		    </productslist>
             <productsscroller>
                 <enabled>1</enabled>
@@ -242,10 +254,12 @@
                 <animation>1000</animation>
                 <review>1</review>
                 <hoverpause>1</hoverpause>
-                <desc_striptags>0</desc_striptags>
+                <desc_striptags>1</desc_striptags>
+				<hover_product>show_images</hover_product>
             </productsscroller>
             <logoscroller>
                 <enabled>1</enabled>
+				<title>Logo Brand</title>
                 <main_width>1170</main_width>
                 <main_height>57</main_height>
                 <width_item>180</width_item>
@@ -253,13 +267,13 @@
                 <items_display>5</items_display>
                 <auto>5000</auto>
                 <animation>1000</animation>
-                <logo_path><![CDATA[<logo title="Magento Ecommerce" link="http://www.magentocommerce.com/">media/wysiwyg/logo/magento_logo.png</logo>
-<logo title="Magento Ecommerce" link="http://www.magentocommerce.com/">media/wysiwyg/logo/magento_logo.png</logo>
-<logo title="Magento Ecommerce" link="http://www.magentocommerce.com/">media/wysiwyg/logo/magento_logo.png</logo>
-<logo title="Magento Ecommerce" link="http://www.magentocommerce.com/">media/wysiwyg/logo/magento_logo.png</logo>
-<logo title="Magento Ecommerce" link="http://www.magentocommerce.com/">media/wysiwyg/logo/magento_logo.png</logo>
-<logo title="Magento Ecommerce" link="http://www.magentocommerce.com/">media/wysiwyg/logo/magento_logo.png</logo>
-<logo title="Magento Ecommerce" link="http://www.magentocommerce.com/">media/wysiwyg/logo/magento_logo.png</logo>]]></logo_path>
+                <logo_path><![CDATA[<logo title="Magento Themes" link="http://www.arexworks.com/" target="_blank">media/wysiwyg/logo/magento_logo.png</logo>
+<logo title="Magento Themes" link="http://www.arexworks.com/" target="_blank">media/wysiwyg/logo/magento_logo.png</logo>
+<logo title="Magento Themes" link="http://www.arexworks.com/" target="_blank">media/wysiwyg/logo/magento_logo.png</logo>
+<logo title="Magento Themes" link="http://www.arexworks.com/" target="_blank">media/wysiwyg/logo/magento_logo.png</logo>
+<logo title="Magento Themes" link="http://www.arexworks.com/" target="_blank">media/wysiwyg/logo/magento_logo.png</logo>
+<logo title="Magento Themes" link="http://www.arexworks.com/" target="_blank">media/wysiwyg/logo/magento_logo.png</logo>
+<logo title="Magento Themes" link="http://www.arexworks.com/" target="_blank">media/wysiwyg/logo/magento_logo.png</logo>]]></logo_path>
             </logoscroller>
 			<static_config>		
 				<static_header_1><![CDATA[<div class="support header-static">	
@@ -267,8 +281,8 @@
 	<span>Support</span>
 </p>
 <ul class="span10">
-	<li><?php echo $this->__('support:') ?> <small><?php echo $this->__('+49 89 8996160') ?></small></li>
-	<li><span><?php echo $this->__('Monday to Friday') ?>: 09:00am - 06:00pm </span></li>
+	<li>support: <small>(+84) 61234567</small></li>
+	<li><span>Monday to Friday: 10:00am - 05:00pm </span></li>
 </ul>	
 </div>]]></static_header_1>
 				<static_header_2><![CDATA[<div class="email header-static">
@@ -276,7 +290,7 @@
 	<span>Email</span>
 </p>
 <ul class="span10">
-	<li>email: <a href="mailto:d@support.com" title="d@support.com">d@support.com</a></li>
+	<li>email: <a href="mailto:colinus@arexworks.com" title="colinus@arexworks.com">colinus@arexworks.com</a></li>
 	<li><span>everyday (24/7)</span></li>
 </ul>	
 </div>]]></static_header_2> 
@@ -289,7 +303,7 @@
 				<static_slideshow_1_cols>6</static_slideshow_1_cols>
 				<static_slideshow_2_cols>6</static_slideshow_2_cols>
 				<top_static_footer_1><![CDATA[<div class="block subscribe">
-<form id="newsletter-validate-detail"  class="clearfix" method="post" action="newsletter/subscriber/new/">
+<form id="newsletter-validate-detail"  class="clearfix" method="post" action="{baseurl}index.php/newsletter/subscriber/new/">
 	<div class="block-content">
 		<div class="row-fluid show-grid">
 			<div class="form-subscribe-header span6">
@@ -324,10 +338,10 @@
 </div>]]></top_static_footer_1> 
 				<top_static_footer_2><![CDATA[<div class="mt-social">
 <div class="mt-social-inner row-fluid show-grid">
-	<h3 class="span6 hidden-tablet"><span class="pull-right">Follow Us</span></h3>
-	<div class="span6">
+	<h3 class="span6 hidden-tablet mt-title-social"><span class="pull-right">Follow Us</span></h3>
+	<div class="span6 mt-content-social">
 		<ul class="pull-right">
-			<li class="facebook item first pull-left"><a href="#" title="Join us on Facebook" data-placement="top" rel="tooltip" data-original-title="Join us on Facebook">Join us on Facebook</a></li>
+			<li class="facebook item first pull-left"><a href="http://fb.com/arexworks" title="Join us on Facebook" data-placement="top" rel="tooltip" data-original-title="Join us on Facebook">Join us on Facebook</a></li>
 			<li class="twitter item pull-left"><a href="#" title="Follow us on Twitter" data-placement="top" rel="tooltip" data-original-title="Follow us on Twitter">Follow us on Twitter</a></li>
 			<li class="google item pull-left"><a href="#" title="Join us on Google Plus" data-placement="top" rel="tooltip" data-original-title="Join us on Google Plus">Join us on Google Plus</a></li>
 			<li class="youtube item pull-left"><a href="#" title="Watch us on YouTube" data-placement="top" rel="tooltip" data-original-title="Watch us on YouTube">Watch us on YouTube</a></li>
@@ -342,7 +356,7 @@
 				<bottom_static_footer_1><![CDATA[<div class="about-us">
 <div class="footer-static-title">
 	<h3>
-		<img src="{baseurl}media/wysiwyg/logo.png" alt="MT Colinus Fashion Store" />
+		<a href="http://themeforest.net/item/responsive-magento-theme-mt-colinus/3814005" target="_blank" title="Colinus - Responsive Magento Theme"><img src="{baseurl}media/wysiwyg/logo.png" alt="MT Colinus Fashion Store" /></a>
 	</h3>
 </div>
 <div class="footer-static-content">
@@ -388,15 +402,6 @@
 				<static_product_view_sidebar><![CDATA[<div class="product-static">
 <div class="product-static-inner"><a title="" href="#"><img src="{baseurl}media/wysiwyg/product-static1.png" alt="Product Static 1" /></a></div>
 <div class="product-static-inner"><a title="" href="#"><img src="{baseurl}media/wysiwyg/product-static2.png" alt="Product Static 2" /></a></div>
-<div class="addthis_toolbox addthis_default_style">
-	<a class="addthis_button_preferred_1"></a>
-	<a class="addthis_button_preferred_2"></a>
-	<a class="addthis_button_preferred_3"></a>
-	<a class="addthis_button_preferred_4"></a>
-	<a class="addthis_button_compact"></a>
-	<a class="addthis_counter addthis_bubble_style"></a>
-</div>
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f6710784ab2800b"></script>	
 </div>]]></static_product_view_sidebar>	 
 				<static_header_cols_1>4</static_header_cols_1>
 				<static_header_cols_2>4</static_header_cols_2>
@@ -423,30 +428,44 @@
 				<enabled_top_static_footer_4>0</enabled_top_static_footer_4>
 				<enabled_bottom_static_footer_1>1</enabled_bottom_static_footer_1>
 				<enabled_bottom_static_footer_2>1</enabled_bottom_static_footer_2>
+				<enabled_product_view_static>1</enabled_product_view_static>
+				
 			</static_config>
 			<social_config>
+                <tw_widget>1</tw_widget>
+                <twitter_replace>twitter_replace</twitter_replace>
+				<twitter_consumer_key>Tp7lLa6iCfedYAwdbhPRuA</twitter_consumer_key>
+				<twitter_consumer_secret>lRXloCGtnyhntVPpT7kGGytGzzbNZeQZq0umaZDwSQ</twitter_consumer_secret>
+				<twitter_access_token>382461096-VkR94Ml0p9dwIKU3S6xdTxXYjFE2gIldIezrPYEw</twitter_access_token>
+				<twitter_access_token_secret>FRSoWEu8cMDeVvH2HGdYkNXbqtzYkK3xHNniXjzSmxfUf</twitter_access_token_secret>
 				<static_title_twitter>Form twitter</static_title_twitter>
-				<static_title_fb>Facebook</static_title_fb>
-				<twitter_account>9magentothemes</twitter_account>
+				<twitter_account>linharex</twitter_account>
 				<twitter_numb>3</twitter_numb>
-				<facebook_page>http://www.facebook.com/magentothemes</facebook_page>
+                <tw_float_widget>1</tw_float_widget>
+                <tw_widget_positions>right</tw_widget_positions>
+				<fb_widget>1</fb_widget>
+                <facebook_replace>facebook_replace</facebook_replace>
+                <static_title_fb>Facebook</static_title_fb>
+                <facebook_page>https://www.facebook.com/arexworks</facebook_page>
+				<fb_float_widget>1</fb_float_widget>
+				<fb_widget_positions>right</fb_widget_positions>
 			</social_config>
 			<otherconfig>	
-				<hover_product>show_images</hover_product>		
+				<hover_product>show_text</hover_product>
 		    	<enabled_ajax>1</enabled_ajax>
 		    	<enabled_priceslider>1</enabled_priceslider>
 		    	<enable_quicklook>1</enable_quicklook>
 		    	<enabled_compare>1</enabled_compare>
 		    	<enabled_wisthlist>1</enabled_wisthlist>
 		    	<enabled_social_link>1</enabled_social_link>
-		    	<enabled_social>0</enabled_social>
+		    	<enabled_social>1</enabled_social>
 		    	<social_position>right</social_position>
-		    	<fb_link>https://www.facebook.com/magentothemes</fb_link>
-		    	<twitter_link>https://twitter.com/9magentothemes</twitter_link>
-		    	<google_link>http://9magentothemes.com</google_link>
-		    	<rss_link>http://9magentothemes.com</rss_link>
-		    	<p_link>http://9magentothemes.com</p_link>
-		    	<y_link>http://9magentothemes.com</y_link>			
+		    	<fb_link>https://www.facebook.com/arexworks</fb_link>
+		    	<twitter_link>https://twitter.com/arexworks</twitter_link>
+		    	<google_link>http://www.arexmage.com</google_link>
+		    	<rss_link>http://www.arexmage.com</rss_link>
+		    	<p_link>http://www.arexmage.com</p_link>
+		    	<y_link>http://www.arexmage.com</y_link>
 		    </otherconfig>
 		</mtcolinusadmin>
     </default>

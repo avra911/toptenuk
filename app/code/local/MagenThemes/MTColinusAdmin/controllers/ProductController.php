@@ -1,11 +1,11 @@
 <?php
 /*------------------------------------------------------------------------
 
- # APL Solutions and Vision Co., LTD
+ # ArexMage
 
 # ------------------------------------------------------------------------
 
-# Copyright (C) 2008-2010 APL Solutions and Vision Co., LTD. All Rights
+# Copyright (C) 2013 ArexMage. All Rights
 
 
 
@@ -13,9 +13,9 @@ Reserved.
 
 # @license - Copyrighted Commercial Software
 
-# Author: APL Solutions and Vision Co., LTD
+# Author: ArexMage
 
-# Websites: http://www.joomlavision.com/ - http://www.magentheme.com/
+# Websites: http://www.arexmage.com
 
 -------------------------------------------------------------------------*/ 
 class MagenThemes_MTColinusAdmin_productController extends Mage_Core_Controller_Front_Action { 
@@ -290,5 +290,11 @@ class MagenThemes_MTColinusAdmin_productController extends Mage_Core_Controller_
 		$this->getResponse()->setBody( (string) $this->getRequest()->getParam('callback') . '(' . Mage::helper('core')->jsonEncode($response) . ')' );
 		return;
 	}
+	public function requestAction()
+    {
+        if ($index = $this->getRequest()->getParam('category')){
+            $this->getResponse()->setBody( Mage::helper('mtcolinusadmin')->getProducstListContentHtml($index) );
+        }
+    }
 }
 

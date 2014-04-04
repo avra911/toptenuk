@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!--
+/******************************************************
+ * @package MT Slideshow module for Magento 1.4.x.x, Magento 1.5.x.x and Magento 1.6.x.x
+ * @version 2.0.0
+ * @author http://www.magentheme.com
+ * @copyright (C) 2011- MagenTheme.Com
+ * @license PHP files are GNU/GPL
+*******************************************************/
+-->
+<config>
+    <menu>
+        <magenthemes translate="title" module="mtslideshow">
+            <title>MagenThemes</title>
+            <sort_order>71</sort_order>               
+            <children>
+                <mtslideshow translate="title" module="mtslideshow">
+                    <title>MT Slideshow</title>
+                    <sort_order>0</sort_order>
+                    <children>
+                        <items translate="title" module="mtslideshow">
+                            <title>Manage Slideshow</title>
+                            <sort_order>0</sort_order>
+                            <action>mtslideshow/adminhtml_mtslideshow</action>
+                        </items>
+                        <configuration>
+                            <title>Configuration</title>
+                            <sort_order>1</sort_order>
+                            <action>adminhtml/system_config/edit/section/mtslideshow</action>
+                        </configuration>
+                    </children>
+                </mtslideshow>
+            </children>
+        </magenthemes>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <mtslideshow>
+                                        <title>MT Slideshow</title>
+                                    </mtslideshow>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <magenthemes translate="title" module="mtslideshow">
+                        <title>MagenThemes</title>
+                        <sort_order>71</sort_order>
+                        <children>
+                            <mtslideshow translate="title">
+                                <title>MT Slideshow</title>
+                                <children>
+                                    <items translate="title">
+                                        <title>Manage Slideshow</title>
+                                        <sort_order>0</sort_order>
+                                    </items>
+                                    <configuration translate="title">
+                                        <title>Configuration</title>
+                                        <sort_order>1</sort_order>
+                                    </configuration>
+                                </children>
+                            </mtslideshow>
+                        </children>
+                    </magenthemes>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

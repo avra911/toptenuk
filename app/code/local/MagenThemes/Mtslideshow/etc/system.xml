@@ -1,0 +1,413 @@
+<?xml version="1.0"?>
+<!--
+/******************************************************
+ * @package MT Slideshow module for Magento 1.4.x.x, Magento 1.5.x.x and Magento 1.6.x.x
+ * @version 2.0.0
+ * @author http://www.magentheme.com
+ * @copyright (C) 2011- MagenTheme.Com
+ * @license PHP files are GNU/GPL
+*******************************************************/
+-->
+<config>
+    <tabs>
+	<magenthemes translate="label">
+	    <label>MagenThemes Extension</label>
+	    <sort_order>205</sort_order>
+	</magenthemes>
+    </tabs>
+    <sections>
+	<mtslideshow translate="label" module="mtslideshow">
+	    <label>MT Slideshow</label>
+	    <tab>magenthemes</tab>
+	    <sort_order>130</sort_order>
+	    <show_in_default>1</show_in_default>
+	    <show_in_website>1</show_in_website>
+	    <show_in_store>1</show_in_store>
+	    <groups>
+		<mtslideshow_config translate="label">
+		    <label>General Configuration</label>
+		    <frontend_type>text</frontend_type>
+		    <sort_order>1</sort_order>
+		    <show_in_default>1</show_in_default>
+		    <show_in_website>1</show_in_website>
+		    <show_in_store>1</show_in_store>
+		    <fields>
+			<enabled translate="label">
+			    <label>Enable</label>
+			    <frontend_type>select</frontend_type>
+			    <source_model>adminhtml/system_config_source_yesno</source_model>
+			    <sort_order>1</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>							
+			</enabled>
+		    </fields>
+		</mtslideshow_config>
+		<slider_settings translate="label">
+		    <label>Slider Settings</label>
+		    <frontend_type>text</frontend_type>
+		    <sort_order>2</sort_order>
+		    <show_in_default>1</show_in_default>
+		    <show_in_website>1</show_in_website>
+		    <show_in_store>1</show_in_store>
+		    <fields>
+				<theme translate="label">
+					<label>Theme</label>
+					<frontend_type>select</frontend_type>
+					<source_model>mtslideshow/config_mode</source_model>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+				</theme>
+                <flexslider_animation>
+                    <label>Animation: </label>
+                    <frontend_type>select</frontend_type>
+                    <comment>Select your animation type</comment>
+                    <source_model>mtslideshow/config_effect</source_model>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_store>1</show_in_store>
+                    <show_in_website>1</show_in_website>
+                    <depends><theme>mtflexslider</theme></depends>
+                </flexslider_animation>
+                <flexslider_auto>
+                    <label>Auto: </label>
+                    <frontend_type>select</frontend_type>
+                    <comment>Change slider height according to slide</comment>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>43</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_store>1</show_in_store>
+                    <show_in_website>1</show_in_website>
+                    <depends><theme>mtflexslider</theme></depends>
+                </flexslider_auto>
+                <flexslider_smoothheight>
+                    <label>Smooth Height change: </label>
+                    <frontend_type>select</frontend_type>
+                    <comment>Change slider height according to slide</comment>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>45</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_store>1</show_in_store>
+                    <show_in_website>1</show_in_website>
+                    <depends><theme>mtflexslider</theme></depends>
+                </flexslider_smoothheight>
+                <flexslider_animation_loop>
+                    <label>Animation loop: </label>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <comment>Should the animation loop?</comment>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_store>1</show_in_store>
+                    <show_in_website>1</show_in_website>
+                    <depends><theme>mtflexslider</theme></depends>
+                </flexslider_animation_loop>
+                <flexslider_mousewheel>
+                    <label>Mousewheel: </label>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <comment>Allows slider navigating via mousewheel</comment>
+                    <sort_order>60</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_store>1</show_in_store>
+                    <show_in_website>1</show_in_website>
+                    <depends><theme>mtflexslider</theme></depends>
+                </flexslider_mousewheel>
+                <flexslider_slideshow_speed>
+                    <label>Slideshow speed: </label>
+                    <frontend_type>text</frontend_type>
+                    <comment>Set the speed of the slideshow cycling, in milliseconds</comment>
+                    <sort_order>70</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_store>1</show_in_store>
+                    <show_in_website>1</show_in_website>
+                    <depends><theme>mtflexslider</theme></depends>
+                </flexslider_slideshow_speed>
+                <flexslider_animation_speed>
+                    <label>Animation speed: </label>
+                    <frontend_type>text</frontend_type>
+                    <comment>Set the speed of animations, in milliseconds</comment>
+                    <sort_order>80</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_store>1</show_in_store>
+                    <show_in_website>1</show_in_website>
+                    <depends><theme>mtflexslider</theme></depends>
+                </flexslider_animation_speed>
+                <flexslider_control_nav>
+                    <label>Show navigation: </label>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <comment>Show navigation for paging control of each slide?</comment>
+                    <sort_order>90</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_store>1</show_in_store>
+                    <show_in_website>1</show_in_website>
+                </flexslider_control_nav>
+                <flexslider_direction_nav>
+                    <label>Show  previous/next navigation: </label>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_store>1</show_in_store>
+                    <show_in_website>1</show_in_website>
+                    <depends><theme>mtflexslider</theme></depends>
+                </flexslider_direction_nav>
+				<cooslider_auto translate="label">
+					<label>Autoplay</label>
+					<frontend_type>select</frontend_type>
+					<source_model>adminhtml/system_config_source_yesno</source_model>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>			    
+					<depends><theme>mtcooslider</theme></depends>
+					<comment><![CDATA[Autoplay slideshow when page load.]]></comment>
+				</cooslider_auto>
+                <cooslider_anim_speed translate="label">
+                    <label>Anim Speed</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <validate>required-entry validate-not-negative-number</validate>
+                    <depends><theme>mtcooslider</theme></depends>
+                    <comment><![CDATA[Slide transition speed.]]></comment>
+                </cooslider_anim_speed>
+                <cooslider_interval translate="label">
+                    <label>Pause time</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <validate>required-entry validate-not-negative-number</validate>
+                    <depends><theme>mtcooslider</theme></depends>
+                    <comment><![CDATA[The number of milliseconds to show each slide.]]></comment>
+                </cooslider_interval>
+                <cooslider_delay translate="label">
+                    <label>Delay effect</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <validate>required-entry validate-not-negative-number</validate>
+                    <depends><theme>mtcooslider</theme></depends>
+                    <comment><![CDATA[The delay time (in ms) between two effects in the same slide.]]></comment>
+                </cooslider_delay>
+                <cooslider_pause_hover translate="label">
+                    <label>Enable Pause On Hover</label>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <depends><theme>mtcooslider</theme></depends>
+                    <comment><![CDATA[Pause the slider when hovering on current slide item]]></comment>
+                </cooslider_pause_hover>
+                <cooslider_same_random_text translate="label">
+                    <label>Same Random Effect For Text</label>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <depends><theme>mtcooslider</theme></depends>
+                    <comment><![CDATA[Same Random Effect For Text]]></comment>
+                </cooslider_same_random_text>
+                <cooslider_touch translate="label">
+                    <label>Enable touch devices</label>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <depends><theme>mtcooslider</theme></depends>
+                </cooslider_touch>
+                <cooslider_keyboard translate="label">
+                    <label>Enable keyboard</label>
+                    <comment><![CDATA[Use the shortcut keys (<-/->) to go to the previous/next slide]]></comment>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>60</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <depends><theme>mtcooslider</theme></depends>
+                </cooslider_keyboard>
+                <cooslider_mousewheel translate="label">
+                    <label>Enable mousewheel</label>
+                    <comment><![CDATA[Use mouse wheel to navigate the slider]]></comment>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>70</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <depends><theme>mtcooslider</theme></depends>
+                </cooslider_mousewheel>
+                <cooslider_responsive translate="label">
+                    <label>Enable responsive</label>
+                    <comment><![CDATA[Support responsive or not]]></comment>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>80</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <depends><theme>mtcooslider</theme></depends>
+                </cooslider_responsive>
+				<cooslider_pagenav translate="label">
+					<label>Enable Pagenave</label>
+					<frontend_type>select</frontend_type>
+					<source_model>adminhtml/system_config_source_yesno</source_model>
+					<sort_order>90</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>			    
+					<depends><theme>mtcooslider</theme></depends>
+					<comment><![CDATA[Display page nave for slide.]]></comment>
+				</cooslider_pagenav>
+				<cooslider_direction translate="label">
+					<label>Enable Direction</label>
+					<frontend_type>select</frontend_type>
+					<source_model>adminhtml/system_config_source_yesno</source_model>
+					<sort_order>100</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>			    
+					<depends><theme>mtcooslider</theme></depends>
+					<comment><![CDATA[Display Direction for slide.]]></comment>
+				</cooslider_direction>
+				<cooslider_title translate="label">
+					<label>Display Title</label>
+					<frontend_type>select</frontend_type>
+					<source_model>adminhtml/system_config_source_yesno</source_model>
+					<sort_order>110</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>			    
+					<depends><theme>mtcooslider</theme></depends>
+					<comment><![CDATA[Display Title for slide.]]></comment>
+				</cooslider_title>
+				<cooslider_desc translate="label">
+					<label>Display Description</label>
+					<frontend_type>select</frontend_type>
+					<source_model>adminhtml/system_config_source_yesno</source_model>
+					<sort_order>120</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>			    
+					<depends><theme>mtcooslider</theme></depends>
+					<comment><![CDATA[Display Description for slide.]]></comment>
+				</cooslider_desc>
+				<cooslider_more translate="label">
+					<label>Display More</label>
+					<frontend_type>select</frontend_type>
+					<source_model>adminhtml/system_config_source_yesno</source_model>
+					<sort_order>130</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>			    
+					<depends><theme>mtcooslider</theme></depends>
+					<comment><![CDATA[Display More for slide.]]></comment>
+				</cooslider_more>
+                <onebyone_auto translate="label">
+                    <label>Autoplay</label>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>11</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <depends><theme>mtonebyone</theme></depends>
+                    <comment><![CDATA[Autoplay slideshow when page load.]]></comment>
+                </onebyone_auto>
+                <onebyone_anim_speed translate="label">
+                    <label>Anim Pause Time</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <validate>required-entry validate-not-negative-number</validate>
+                    <depends><theme>mtonebyone</theme></depends>
+                    <comment><![CDATA[Slide transition speed.]]></comment>
+                </onebyone_anim_speed>
+                <onebyone_pagenav translate="label">
+                    <label>Enable Pagenave</label>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>11</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <depends><theme>mtonebyone</theme></depends>
+                    <comment><![CDATA[Display page nave for slide.]]></comment>
+                </onebyone_pagenav>
+                <onebyone_direction translate="label">
+                    <label>Enable Direction</label>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>11</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <depends><theme>mtonebyone</theme></depends>
+                    <comment><![CDATA[Display Direction for slide.]]></comment>
+                </onebyone_direction>
+                <onebyone_title translate="label">
+                    <label>Display Title</label>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>11</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <depends><theme>mtonebyone</theme></depends>
+                    <comment><![CDATA[Display Title for slide.]]></comment>
+                </onebyone_title>
+                <onebyone_desc translate="label">
+                    <label>Display Description</label>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>11</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <depends><theme>mtonebyone</theme></depends>
+                    <comment><![CDATA[Display Description for slide.]]></comment>
+                </onebyone_desc>
+                <onebyone_more translate="label">
+                    <label>Display More</label>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>11</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <depends><theme>mtonebyone</theme></depends>
+                    <comment><![CDATA[Display More for slide.]]></comment>
+                </onebyone_more>
+		    </fields>
+		</slider_settings>
+		<info translate="label">
+		    <label>Information</label>
+		    <frontend_type>text</frontend_type>
+		    <frontend_model>mtslideshow/info</frontend_model>
+		    <sort_order>150</sort_order>
+		    <show_in_default>1</show_in_default>
+		    <show_in_website>1</show_in_website>
+		    <show_in_store>1</show_in_store>                    
+		</info>				
+	    </groups>
+	</mtslideshow>
+    </sections>
+</config>
