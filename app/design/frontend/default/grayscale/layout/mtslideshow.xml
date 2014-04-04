@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!--
+/******************************************************
+ * @package MT Slideshow module for Magento 1.4.x.x, Magento 1.5.x.x and Magento 1.6.x.x
+ * @version 2.0.0
+ * @author http://www.magentheme.com
+ * @copyright (C) 2011- MagenTheme.Com
+ * @license PHP files are GNU/GPL
+*******************************************************/
+-->
+<layout version="0.1.0">
+    <default>
+    </default>
+    <cms_page>
+	<reference name="head">	    
+	    <!--<action method="addJs"><script>MagenThemes/mtslideshow/jquery/1.7.1/jquery.min.js</script></action>
+	    <action method="addJs"><script>MagenThemes/mtslideshow/noConflict.js</script></action>	    
+	    <action method="addCss"><stylesheet>magenthemes/css/mtslideshow/nivo-slider.css</stylesheet></action>
+	    <action method="addCss"><stylesheet>magenthemes/css/mtslideshow/themes/default/default.css</stylesheet></action>	    
+	    <action method="addJs"><script>MagenThemes/mtslideshow/nivo-slider/jquery.nivo.slider.js</script></action>-->
+	</reference>
+	<reference name="mtslideshow">
+	    <block type="mtslideshow/content_top" before="-" name="mtslideshow-content-top" template="magenthemes/mtslideshow/content.phtml" />
+	    <block type="mtslideshow/content_bottom" after="-" name="mtslideshow-content-bottom" template="magenthemes/mtslideshow/content.phtml" />
+	</reference>
+	<reference name="left">
+	    <block type="mtslideshow/left_top" before="-" name="mtslideshow-left-top" template="magenthemes/mtslideshow/left.phtml" />
+	    <block type="mtslideshow/left_bottom" after="-" name="mtslideshow-left-bottom" template="magenthemes/mtslideshow/left.phtml" />
+	</reference>
+	<reference name="right">
+	    <block type="mtslideshow/right_top" before="-" name="mtslideshow-right-top" template="magenthemes/mtslideshow/right.phtml" />
+	    <block type="mtslideshow/right_bottom" after="-" name="mtslideshow-right-bottom" template="magenthemes/mtslideshow/right.phtml" />
+	</reference>
+    </cms_page>
+    <catalog_category_default>
+	<reference name="head">	    
+	    <!--<action method="addJs"><script>MagenThemes/mtslideshow/jquery/1.7.1/jquery.min.js</script></action>
+	    <action method="addJs"><script>MagenThemes/mtslideshow/noConflict.js</script></action>	    
+	    <action method="addCss"><stylesheet>magenthemes/css/mtslideshow/nivo-slider.css</stylesheet></action>
+	    <action method="addCss"><stylesheet>magenthemes/css/mtslideshow/themes/default/default.css</stylesheet></action>	    
+	    <action method="addJs"><script>MagenThemes/mtslideshow/nivo-slider/jquery.nivo.slider.js</script></action>-->
+	</reference>
+	<reference name="slideshowcat">
+	    <block type="mtslideshow/content_top" before="-" name="mtslideshow-content-top" template="magenthemes/mtslideshow/content.phtml" />
+	    <block type="mtslideshow/content_bottom" after="-" name="mtslideshow-content-bottom" template="magenthemes/mtslideshow/content.phtml" />
+	</reference>
+	<reference name="left">
+	    <block type="mtslideshow/left_top" before="-" name="mtslideshow-left-top" template="magenthemes/mtslideshow/left.phtml" />
+	    <block type="mtslideshow/left_bottom" after="-" name="mtslideshow-left-bottom" template="magenthemes/mtslideshow/left.phtml" />
+	</reference>
+	<reference name="right">
+	    <block type="mtslideshow/right_top" before="-" name="mtslideshow-right-top" template="magenthemes/mtslideshow/right.phtml" />
+	    <block type="mtslideshow/right_bottom" after="-" name="mtslideshow-right-bottom" template="magenthemes/mtslideshow/right.phtml" />
+	</reference>
+    </catalog_category_default>
+    <catalog_category_layered>
+	<reference name="head">	    
+	    <!--<action method="addJs"><script>MagenThemes/mtslideshow/jquery/1.7.1/jquery.min.js</script></action>
+	    <action method="addJs"><script>MagenThemes/mtslideshow/noConflict.js</script></action>	    
+	    <action method="addCss"><stylesheet>magenthemes/css/mtslideshow/nivo-slider.css</stylesheet></action>
+	    <action method="addCss"><stylesheet>magenthemes/css/mtslideshow/themes/default/default.css</stylesheet></action>	    
+	    <action method="addJs"><script>MagenThemes/mtslideshow/nivo-slider/jquery.nivo.slider.js</script></action>-->
+	</reference>
+	<reference name="slideshowcat">
+	    <block type="mtslideshow/content_top" before="-" name="mtslideshow-content-top" template="magenthemes/mtslideshow/content.phtml" />
+	    <block type="mtslideshow/content_bottom" after="-" name="mtslideshow-content-bottom" template="magenthemes/mtslideshow/content.phtml" />
+	</reference>
+	<reference name="left">
+	    <block type="mtslideshow/left_top" before="-" name="mtslideshow-left-top" template="magenthemes/mtslideshow/left.phtml" />
+	    <block type="mtslideshow/left_bottom" after="-" name="mtslideshow-left-bottom" template="magenthemes/mtslideshow/left.phtml" />
+	</reference>
+	<reference name="right">
+	    <block type="mtslideshow/right_top" before="-" name="mtslideshow-right-top" template="magenthemes/mtslideshow/right.phtml" />
+	    <block type="mtslideshow/right_bottom" after="-" name="mtslideshow-right-bottom" template="magenthemes/mtslideshow/right.phtml" />
+	</reference>
+    </catalog_category_layered>
+</layout> 

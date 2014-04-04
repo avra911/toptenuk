@@ -33,8 +33,7 @@ Default layout, loads most of the pages
     <default> 
 		<reference name="header">
             <block type="page/html" name="header_static" template="magenthemes/header_static.phtml"/>
-        </reference>
-	
+        </reference> 
 		
         <reference name="topfooterstatic">
             <block type="page/html" name="social.static" template="magenthemes/top_footer_static.phtml"/>
