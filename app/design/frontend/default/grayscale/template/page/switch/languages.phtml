@@ -33,7 +33,7 @@
 ?>
 <?php if(count($this->getStores())>1): ?>
 <div class="form-language span6">
-	<div class="select pull-right">
+	<div class="select pull-recht">
 		<label for="select-language" id="mt_language" class="hidden-tablet"><?php echo $this->__('Language:') ?></label>
 		<select id="select-language" title="<?php echo $this->__('Language') ?>" onchange="window.location.href=this.value">
 		<?php foreach ($this->getStores() as $_lang): ?>
@@ -42,16 +42,13 @@
 		<?php endforeach; ?>
 		</select>
 		
-		<script type="text/javascript">
+		<script type="text/javascript"[]>
 			$mtkb(document).ready(function(){					
-				$mtkb("#select-language option").each(function(i,e){
-					var lang = $mtkb(e).html().toLowerCase();
-					$mtkb('.form-language .sbOptions li:eq('+i+') a').css({
-						"background-image":"url('<?php echo Mage::getBaseUrl();?>media/magenthemes/languages/"+lang+".png')",
-						"background-repeat":"no-repeat",
-						"background-position":"5px 8px"
-					});
-				}); 
+				$mtkb('.sbOptions li:eq(0) a').addClass('eng'); 
+				$mtkb('.sbOptions li:eq(1) a').addClass('frm'); 
+				$mtkb('.sbOptions li:eq(2) a').addClass('gre'); 
+				$mtkb('.sbOptions li:eq(3) a').addClass('it'); 
+				$mtkb('.sbOptions li:eq(4) a').addClass('es'); 
 				$mtkb('.sbHolder:eq(0)').addClass('lang');
 				$mtkb('.sbHolder:eq(1)').addClass('curs');
 			});

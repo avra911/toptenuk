@@ -23,9 +23,9 @@
 	    <reference name="right">
 			<block type="mtcolinusadmin/SmartMenu" name="smartmenu" before="-" template="magenthemes/navigation/smartmenu.phtml" />
 		</reference> 
-        <!-- <reference name="left">
+        <reference name="left">
             <block type="mtcolinusadmin/SmartMenu" name="smartmenu" before="-" template="magenthemes/navigation/smartmenu.phtml" />
-        </reference> --> 
+        </reference>
 		<!-- Ajax Cart --> 
 		<reference name="header"> 
             <block type="checkout/cart_sidebar" name="ajaxcart" template="magenthemes/ajaxcart/checkout/cart/header.phtml">
@@ -34,23 +34,12 @@
 	      	<block type="catalog/product_compare_sidebar" name="compareajax" template="magenthemes/ajaxcart/compare/header.phtml"></block>
         </reference> 
 	    <!-- End -->
-	    <reference name="right">
-            <block type="catalog/product_compare_sidebar" before="cart_sidebar" name="catalog.compare.sidebar" template="magenthemes/ajaxcart/compare/sidebar.phtml"/>
-        </reference>
         <!-- <reference name="left">
             <block type="catalog/product_compare_sidebar" before="cart_sidebar" name="catalog.compare.sidebar" template="magenthemes/ajaxcart/compare/sidebar.phtml"/>
         </reference> -->
-
-        <reference name="right">
-            <block type="wishlist/customer_sidebar" name="wishlist_sidebar" as="wishlist" after="cart_sidebar" template="magenthemes/wishlist/sidebar.phtml" />
-        </reference>
         <!-- <reference name="left">
             <block type="wishlist/customer_sidebar" name="wishlist_sidebar" as="wishlist" after="cart_sidebar" template="magenthemes/wishlist/sidebar.phtml" />
         </reference> -->
-        
-        <reference name="right">
-            <block type="mtcolinusadmin/bestseller" name="bestseller" after="smartmenu" template="magenthemes/bestseller/bestseller.phtml" />
-        </reference>
         <!-- <reference name="left">
             <block type="mtcolinusadmin/bestseller" name="bestseller" after="smartmenu" template="magenthemes/bestseller/bestseller.phtml" />
         </reference> -->
@@ -71,11 +60,15 @@
         <reference name='product_list'>
             <action method='setTemplate'><template>magenthemes/ajaxcart/list.phtml</template></action>
         </reference> 
+		<reference name="catalog.leftnav">
+            <block type="mtcolinusadmin/SmartMenu" name="smartmenu" before="-" template="magenthemes/navigation/smartmenu.phtml" />
+        </reference>
         <reference name="catalog.leftnav">
             <action method='setTemplate' ifconfig="mtcolinusadmin/otherconfig/enabled_priceslider"><template>magenthemes/filter/filter_layered_nav.phtml</template></action>
         </reference> 
     </catalog_category_layered> 
     <catalog_product_view> 
+	<remove name="smartmenu"/> 
     	<reference name='product.info'>
 	        	<action method='setTemplate'><template>magenthemes/ajaxcart/view.phtml</template></action>
 	    </reference>

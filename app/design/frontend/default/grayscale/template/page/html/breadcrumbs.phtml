@@ -26,8 +26,8 @@
 ?>
 <?php if($crumbs && is_array($crumbs)): ?>
 <div class="breadcrumbs row-fluid">
-	<div class="container">
-		<ul class="span8" style="text-align:left;">
+	<div class="container">	
+		<ul class="span6" style="text-align:left;">
 			<?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
 				<li class="<?php echo $_crumbName ?>">
 				<?php if($_crumbInfo['link']): ?>
@@ -45,11 +45,16 @@
 			<?php endforeach; ?>
 		</ul> 
 		<?php if(Mage::app()->getRequest()->getControllerName() == 'category'){?>
-		<div class ="mt-page-title hidden-phone span4"> 
+		<!-- <div class ="mt-page-title hidden-phone span4"> 
 			<?php $catInfo = Mage::registry('current_category'); ?>
 			<h2><?php echo $catInfo->getName(); ?></h2> 
-		</div> 
+		</div>  -->
+
 		<?php }?>
-	</div>	
+			<div class ="hidden-phone span6"> 
+	<?php echo $this->getChildHtml('topSearchCustom') ?>
+	</div> 
+	</div>
+	
 </div>
 <?php endif; ?>
