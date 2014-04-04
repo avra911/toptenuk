@@ -1,0 +1,190 @@
+
+
+.mt_productscroller {
+	clear: both;
+	display: block;
+	position: relative;
+	width: 100%; }
+
+.scroller-slider {
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0px 0;
+	position: relative;
+	width: 100%; }
+
+	.scroller-slider > ul {
+		display: block;
+		overflow: hidden; }
+
+		.scroller-slider > ul > li {
+			height: auto !important;
+			margin: 0 14px 0 0;
+			overflow: visible !important;
+			padding: 0;
+			position: relative; }
+
+			.scroller-slider > ul > li:hover a.bg-transparent {
+				transform: scale(1);
+				visibility: visible; }
+
+			.scroller-slider > ul > li a.bg-transparent {
+				background: url("../images/bg-transparent.png") repeat scroll 0 0px, url("../images/hover-link.png") no-repeat scroll center center transparent;
+				display: block;
+				left: 7px;
+				position: absolute;
+				text-align: center;
+				text-indent: -999em;
+				top: 6px;
+				transform: scale(0);
+				transition: all 300ms ease-in-out 0s;
+				visibility: hidden; }
+
+			.scroller-slider > ul > li a.bg-transparent {
+				height: 73%;
+				width: 95%; }
+
+			.scroller-slider > ul > li.loading { background: url("../images/loading.gif") no-repeat center; }
+
+	.scroller-slider div.catpanel {
+		display: block;
+		opacity: 0;
+		text-align: center;
+		visibility: hidden; }
+
+		.scroller-slider div.catpanel > div {
+			display: block;
+			margin: 0;
+			text-align: center; }
+
+			.scroller-slider div.catpanel > div > a { display: block; }
+
+				.scroller-slider div.catpanel > div > a.img {
+					border: 1px solid #ddd;
+					box-shadow: 0 0 5px #ccc;
+					display: table;
+					margin: auto;
+					padding: 5px; }
+
+		.scroller-slider div.catpanel a img {
+			transition: all 0.4s ease 0s; }
+
+		.scroller-slider div.catpanel > div > a img:hover {  }
+
+		.scroller-slider div.catpanel > div > span.img {
+			border: 1px solid #ddd;
+			box-shadow: 0 0 5px #ccc;
+			display: table;
+			margin: auto;
+			padding: 5px; }
+
+		.scroller-slider div.catpanel > div > a.img:hover {
+			border: 1px solid #b7b7b7;
+			opacity: 0.9; }
+
+		.scroller-slider div.catpanel > div > span.img:hover {
+			border: 1px solid #b7b7b7;
+			opacity: 0.9; }
+
+		.scroller-slider div.catpanel > div > .product-name { margin: 10px 0; }
+
+		.scroller-slider div.catpanel > div > .price-box {
+			float: left;
+			margin: 0;
+			text-align: center;
+			width: 50%; }
+
+		.scroller-slider div.catpanel > div > a.title {
+			font-family: Tahoma;
+			font-size: 120%;
+			margin: 10px 0; }
+
+		.scroller-slider div.catpanel > div.block p { margin: 0; }
+
+div.pagenave {
+	display: block;
+	width: 100%; }
+
+	div.pagenave > button {
+		background: url("../images/nav.png") no-repeat;
+		border: none;
+		cursor: pointer;
+		display: block;
+		height: 35px;
+		padding: 0;
+		width: 19px; }
+
+	div.pagenave > .next {
+		background-position: right 0;
+		float: right;
+		margin: 0 0 0 5px; }
+
+		div.pagenave > .next:hover { background-position: right -35px; }
+
+		div.pagenave > .next:active { background-position: right -100px; }
+
+	div.pagenave >.prev {
+		background-position: 0 0;
+		float: left;
+		margin-left: -28px; }
+
+	div.pagenave > .prev:hover { background-position: 0 -35px; }
+
+	div.pagenave > .prev:active { background-position: 0 -100px; }
+
+div.control {
+	bottom: 1px;
+	display: block;
+	float: left;
+	left: 1px;
+	position: absolute;
+	z-index: 9; }
+
+	div.control span {
+		border: #dfdfdf solid 1px;
+		cursor: pointer;
+		float: left;
+		font-size: 11px;
+		height: 10px;
+		margin-right: 3px;
+		padding: 0 0 3px 3px;
+		width: 10px; }
+
+/**
+ * Caption
+ */
+.ic_caption {
+	line-height: 30px;
+	overflow: hidden;
+	text-align: center; }
+
+	.ic_caption button.btn-cart {
+		background: url("../images/icon_cart.png") no-repeat 0 0 scroll transparent;
+		padding: 0 0 0 20px; }
+
+		.ic_caption button.btn-cart span {
+			background: 0 none;
+			border: 0 none;
+			color: #0c72ad;
+			padding: 0 8px 0 0; }
+
+	.ic_caption .price-box {
+		clear: both;
+		line-height: 30px;
+		margin: 0 0 0 10px;
+		width: 100%; }
+
+	.ic_caption .mt-slider-actions {
+		line-height: 30px;
+		margin: 0 10px 0 0; }
+
+.scroller-slider li a.zoom-image {
+	background: url("../images/search.png") no-repeat 0 0;
+	display: none !important;
+	height: 39px;
+	position: absolute;
+	width: 41px; }
+
+.scroller-slider li:hover a.zoom-image { display: block !important; }
+

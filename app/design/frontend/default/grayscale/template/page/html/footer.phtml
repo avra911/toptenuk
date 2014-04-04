@@ -1,133 +1,36 @@
 <?php
-$logo_alt = Mage::getStoreConfig('design/header/logo_alt');
-$logo_src = Mage::getStoreConfig('design/header/logo_src');
-$home_url = Mage::getBaseUrl();
-
-
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+$config = Mage::getStoreConfig('mtcolinusadmin/mtcolinusadmin_appearance');
 ?>
-
-<div class="mt-footer-static-container">
-            <div class="mt-footer-static-container-bottom">
-                <div class="mt-footer-static container">
-                    <div class="mt-footer-container">
-                        <div class="row-fluid show-grid">
-    						<div class="span6">
-    							<div class="row-fluid show-grid">
-    								<div class="span6">
-<div class="about-us">
-<div class="footer-static-title">
-	    <h3>
-       <img src="<?php echo  $this->getSkinUrl($logo_src); ?>" alt="<?php echo $logo_alt ?>" />
-      </h3>
-	
-</div>
-<div class="footer-static-content">
-	<p>
-		Top Ten provides depot repair and third party maintenance on all your data center hardware needs.
-		<br>			
-		
-	</p>
-</div>
-</div></div>
-
-<div class="span6"> 
-<div class="block_support">
-<div class="footer-static-title">
-	<h3>About Us</h3>
-	<div class="title-divider">
-		<span>&nbsp;</span>
-	</div>
-	<ul class="support_content clearfix">
-		<li class="item first"><a href="<?php echo $home_url.'company'.'-'.'overview'.'.'.'html'?>" title=""><?php echo $this->__('Company Overview') ?></a></li>
-		<li class="item"><a href="<?php echo $home_url.'repair.html' ?>" title=""><?php echo $this->__('Repairs') ?></a></li>
-		<li class="item"><a href="<?php echo $home_url.'service'.'-'.'support.html' ?>" title=""><?php echo $this->__('Service and Support') ?></a></li>
-		<li class="item"><a href="<?php echo $home_url.'contact'.'-'.'us.html' ?>" title=""><?php echo $this->__('Contact Us') ?></a></li>
-	</ul>
-</div>
-<div class="footer-static-content">
-	<h3>We do accept</h3>
-	<div class="title-divider">
-		<span>&nbsp;</span>
-	</div>
-	<ul class="card_visit clearfix">
-		<li style="margin:0 8px 0 0;"><img alt="" src="<?php echo $home_url.('media/wysiwyg/accept-1.png') ?>"></li>
-		<li style="margin:0 8px 0 0;"><img alt="" src="<?php echo $home_url.('media/wysiwyg/accept-2.png') ?>"></li>
-		<li style="margin:0 8px 0 0;"><img alt="" src="<?php echo $home_url.('media/wysiwyg/accept-3.png') ?>"></li>
-		<li style="margin:0 8px 0 0;"><img alt="" src="<?php echo $home_url.('media/wysiwyg/accept-4.png') ?>"></li>
-		<li style="margin:0 8px 0 0;"><img alt="" src="<?php echo $home_url.('media/wysiwyg/accept-5.png') ?>"></li>
-	</ul>
-</div>
-</div></div>
-     							</div>
-    						</div> 	
-    						<div class="span6"> 
-                        		 <div class="row-fluid show-grid"> 
-                        		 	<div class="span6"> 
-	<div class="facebook">
-	<div class="footer-static-title">
-			<h3>Tape Drives</h3>
-	<div class="title-divider">
-		<span>&nbsp;</span>
-	</div>
-	<ul class="support_content clearfix">
-		<li class="item first"><a href="<?php echo Mage::getModel("catalog/category")->load(29)->getUrl() ?>" title="">LTO</a></li>
-		<li class="item"><a href="<?php echo Mage::getModel("catalog/category")->load(25)->getUrl() ?>" title="">DAT</a></li>
-		<li class="item"><a href="<?php echo Mage::getModel("catalog/category")->load(26)->getUrl() ?>" title="">DLT</a></li>
-		<li class="item"><a href="<?php echo Mage::getModel("catalog/category")->load(27)->getUrl() ?>" title="">SDLT</a></li>
-		<li class="item"><a href="<?php echo Mage::getModel("catalog/category")->load(23)->getUrl() ?>" title="">AIT</a></li>
-		<li class="item"><a href="<?php echo Mage::getModel("catalog/category")->load(33)->getUrl() ?>" title="">SAIT</a></li>
-		<li class="item"><a href="<?php echo Mage::getModel("catalog/category")->load(31)->getUrl() ?>" title="">VXA</a></li>
-		<li class="item"><a href="<?php echo Mage::getModel("catalog/category")->load(24)->getUrl() ?>" title="">SLR</a></li>
-	</ul>
-	</div>
-
-	</div>
-</div>
-<div class="span6">
-	<div class="twitter">
-	<div class="footer-static-title">
-	<h3>Manufacturers</h3>
-	<div class="title-divider">
-		<span>&nbsp;</span>
-	</div>
-	<ul class="support_content clearfix">
-		<li class="item first"><a href="<?php echo $home_url.('catalogsearch/result/?q=IBM') ?>" title=""><?php echo $this->__('IBM') ?></a></li>
-		<li class="item"><a href="<?php echo $home_url.('catalogsearch/result/?q=HP') ?>" title=""><?php echo $this->__('HP') ?></a></li>
-		<li class="item"><a href="<?php echo $home_url.('catalogsearch/result/?q=Quantum') ?>" title=""><?php echo $this->__('Quantum') ?></a></li>
-		<li class="item"><a href="<?php echo $home_url.('catalogsearch/result/?q=StorageTek') ?>" title=""><?php echo $this->__('StorageTek') ?></a></li>
-		<li class="item"><a href="<?php echo $home_url.('catalogsearch/result/?q=Dell') ?>" title=""><?php echo $this->__('Dell') ?></a></li>
-		<li class="item"><a href="<?php echo $home_url.('catalogsearch/result/?q=Sony') ?>" title=""><?php echo $this->__('Sony') ?></a></li>
-		<li class="item"><a href="<?php echo $home_url.('catalogsearch/result/?q=Fuijitsu') ?>" title=""><?php echo $this->__('Fuijitsu') ?></a></li>
-		<li class="item"><a href="<?php echo $home_url.('catalogsearch/result/?q=Adic') ?>" title=""><?php echo $this->__('Adic') ?></a></li>
-	</ul>
-	</div>
-
-	</div>
-		</div>
-</div>                        		 </div>
-                        	</div>						
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-<!-- <div class="footer-container mt-copyright">
-    <div class="container">
-        <div class="footer row-fluid show-grid">
-            <address class="address">© 2013 Top Ten GmbH</address>
-                                </div>
-    </div>
-</div>
- -->
 <div class="footer-container mt-copyright">
     <div class="container">
         <div class="footer row-fluid show-grid">
-            <address class="address">© 2013 Top Ten GmbH 
-            <a href="<?php echo $home_url.'terms'.'-'.'of-use'.'.'.'html'?>" data-marker="Footer/AGB/start"><?php echo $this->__('Terms and Conditions') ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo $home_url.'imprint'.'.'.'html'?>" data-marker="Footer/Impressum/start"><?php echo $this->__('Legal') ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo $home_url.'privacy'.'-'.'policy'.'.'.'html'?>" data-marker="Footer/Datenschutz/start"><?php echo $this->__('Privacy Policy') ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-            </address>
-            <?php //echo $this->getC hildHtml() ?>
-            <?php if($config['back_top']){?>
+            <address class="address"><?php echo $this->getCopyright() ?></address>
+            <?php //echo $this->getChildHtml() ?>
+            <?php if($config['back_top'] > 0){?>
             <div id="back-top" class="hidden-phone">
 				<a href="#top">
 					<div class="sticker-wrapper">
@@ -137,13 +40,13 @@ $home_url = Mage::getBaseUrl();
 					</div>
 				</a>
 			</div>
-			<?php }?>
+			<?php } ?>
         </div>
     </div>
 </div>
-
-
-<script type="text/javascript"[]>
+<script type="text/javascript">
+	/*var tooltip = $mtkb('.mt-social ul li a,a.link-wishlist,a.link-compare, button.btn-detail, .mt-actions button.btn-cart, #mtcontainer button.button, #mtcontainer .add-to-links li a,#mtcontainer .out-of-stock .out,.mt-subscribe button,#mt_productscroller button.button, #options .order-fillter ul li a,#mt_productscroller .mt-actions .add-to-links li a, .products-grid .mt-actions button.button, .products-grid .mt-actions .add-to-links li a, .toolbar .pager .pages li a, .toolbar .pager .view-mode span strong, .toolbar .pager .view-mode span a, .toolbar .pages a, .pager .view-mode span a, .pager .view-mode span strong, ul.product-list button.btn-cart,table td a.btn-edit,table th a.btn-edit,table td a.btn-remove,table th a.btn-remove,.btn-remove2');
+	$mtkb(tooltip).tooltip(true);*/
 
 	$mtkb(".block-layered-nav .block-content p.block-subtitle,.addtolink .ratings, .addtolink .no-rating").hide();
 	$mtkb("#product-options-wrapper p.required").hide();	
@@ -202,6 +105,16 @@ $home_url = Mage::getBaseUrl();
 		$mtkb(".top-compare .block-top-compare").stop(true, true).delay(100).slideUp(200, "easeInCubic");
 		}
 	}); 
+	$mtkb(".top-link").hover(function() {
+		if(!msize) {
+			$mtkb(this).addClass('hover');
+			$mtkb(".top-link .mt-top-link").stop(true, true).delay(500).slideDown(500, "easeOutCubic");
+		}
+	}, function() {
+		if(!msize) {
+		$mtkb(".top-link .mt-top-link").stop(true, true).delay(100).slideUp(200, "easeInCubic");
+		}
+	});
     $mtkb(document).ready(function(){
         checksize();
 	}); 
@@ -210,8 +123,5 @@ $home_url = Mage::getBaseUrl();
     });	
 	
 	$mtkb("#back-top").hide();  
-
-</script>   
-  
-
+</script>    
 

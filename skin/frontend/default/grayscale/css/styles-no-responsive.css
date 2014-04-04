@@ -1,0 +1,203 @@
+
+
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+.wrapper { overflow: inherit; }
+.header-static h2 { height: 45px; }
+
+#nav li.nav-1 ul li { width: 170px; }
+
+	#nav li.nav-1 ul li.menu-static-blocks { width: 24%; }
+
+#nav ul.level0 li { width: 150px; }
+
+.menu-custom-item .video iframe { width: 280px; }
+
+.header-static p{ height: 45px }
+
+.hidden-desktop{ display: none }
+
+.mt-product-list div.mt-actions p,
+.mt-product-list div.mt-actions p.availability,
+.mt-product-list div.mt-actions button.button,
+div.mt-actions p, div.mt-actions p.availability,
+div.mt-actions button.button{
+    width: 56px
+}
+div.mt-actions button.btn-cart, div.mt-actions button.btn-cart-options, div.mt-actions p.availability { background-position: -9px 0 }
+div.mt-actions .wishlist p { background-position: -77px 0 }
+div.mt-actions .compare p {  background-position: -148px 0 }
+.products-grid div.mt-actions button.btn-detail,
+div.mt-actions button.btn-detail{ background-position: -219px 0 }
+div.mt-actions button.btn-cart:hover, div.mt-actions button.btn-cart-options:hover, div.mt-actions p.availability:hover { background-position: -8px 100%; }
+div.mt-actions .wishlist p:hover { background-position: -77px 100% }
+div.mt-actions .compare p:hover { background-position: -149px 100% }
+.products-grid div.mt-actions button.btn-detail:hover, div.mt-actions button.btn-detail:hover { background-position: -220px 100% }
+
+.content-static h1 { font-size: 145%; }
+
+.content-static p.info { width: 100%; }
+
+.content-static p.view a, .content-static p.view a:hover {
+	display: block;
+	font-size: 100%;
+	height: auto;
+	line-height: normal;
+	padding: 10px; }
+
+.isotope .isotope-item {  }
+
+#mtcontainer .content { margin-right: 12px; }
+
+.scroller-slider > ul > li { margin-right: 0; }
+
+.scroller-slider .catpanel { margin-right: 12px; }
+
+.isotope .isotope-item { margin-right: 0; }
+
+.form-subscribe-header label { font-size: 105%; }
+
+.mt-footer-static-container-top .mt-social-inner h3 span, .page .form-subscribe-header label { font-size: 16px; }
+
+.mt-social .span6 { width: 60%; }
+
+.mt-social .hidden-tablet { width: 35% !important; }
+
+.mt-subscribe .button { margin-left: 11px; }
+
+.toolbar p.mt-sort-arrows { padding-left: 5px; }
+
+.toolbar .sort-by .sbHolder { width: 55%; }
+
+.toolbar p.mt-toolbar-label { width: 30%; }
+
+.toolbar .limiter p.mt-toolbar-label { padding-left: 0; }
+
+.toolbar .mt-limiter p.mt-toolbar-label {
+	padding-left: 2px;
+	width: 33%; }
+
+.toolbar .view-mode p.mt-toolbar-label {
+	padding-right: 3px;
+	width: 33%; }
+
+#nav li.custom-block h1 { font-size: 140%; }
+
+.product-view .product-shop .add-to-links span.icon { height: 36px; }
+
+.toolbar .view-mode .mt-view { width: 100%; }
+
+#mtcontainer div.product-image:hover .mask, #mt_productscroller div.product-image:hover .mask, .products-grid div.product-image:hover .mask, .block-related div.product-image:hover .mask { height: 290px; }
+
+.catalog-category-view .page-title { right: -240px; }
+
+.product-view .product-shop .add-to-cart .addcart button span {
+	font-size: 107%;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 12px; }
+
+.product-view .product-shop .product-name h1 { font-size: 150%; }
+
+.product-static .addthis_toolbox { margin: 0 15%; }
+
+.product-view .product-img-box .mt-more-views { margin: 0; }
+
+.product-view .prev { left: -35px; }
+
+.product-view .next { right: -17px; }
+
+.product-view .add-to-links a:hover {
+	background-color: transparent;
+	background-image: none; }
+
+.product-view .product-shop .add-to-cart .qty-container .quantity-label { padding: 18px 0 0; }
+
+.product-view .product-options dd { width: 80%; }
+
+.product-view .product-options dt { width: 20%; }
+
+#shopping-cart-table .mt-hide { display: none; }
+
+#mt_productscroller div.product-image:hover .mask { height: 265px; }
+
+#mt_productscroller ul { overflow: hidden; }
+
+.product-view .product-shop .add-to-cart .qty {
+	font-size: 110%;
+	padding: 5px;
+	width: 30px; }
+
+.product-view .add-to-cart label { font-size: 110%; }
+
+.catalog-category-view .page-title h1 { font-size: 185%; }
+
+.product-view .product-shop .add-to-cart .qty-container .quantity-label { padding-top: 10px; }
+
+.product-view .product-shop .add-to-cart .qty-container .quantity-input { padding: 3px 0; }
+
+.product-view .product-shop .add-to-cart { height: 50px; }
+
+.product-view .product-shop .add-to-cart { margin: 10px 0; }
+
+.product-view .product-shop .add-to-links span.icon {
+	height: 44px;
+	width: 44px; }
+
+.product-tabs-content h2 { font-size: 110%; }
+
+.form-add input.input-text { width: 100%; }
+
+.products-grid div.product-image:hover .mask { height: 290px; }
+
+.block .block-title strong span { font-size: 170%; }
+
+.ajax-container .product-details a { font-size: 90%; }
+
+.product-view .product-shop .price-box .special-price .price, .product-view .product-shop .price-box .regular-price .price, .products-list .product-shop .price-box .special-price .price, .products-list .product-shop .price-box .regular-price .price { font-size: 300%; }
+
+.products-list .product-shop .old-price { padding: 15px 12px 0; }
+
+.products-list .minimal-price-link { padding: 17px 0 0 12px; }
+
+ul.links li { padding: 0 10px; }
+
+.product-tabs a {
+	font-size: 120%;
+	margin-right: 5px;
+	padding: 0 5px; }
+
+.product-view .viewquicklook { border: 0; }
+
+.block-related .block-title strong { padding: 0; }
+
+.block-related .block-subtitle { padding-left: 0; }
+
+#mtcontainer .mt-actions p, #mt_productscroller .mt-actions p, #block-related .mt-actions p { width: 55px; }
+
+#upsell-product-table .mt-actions p { width: 54px; }
+
+.col-main{ overflow: hidden }
+

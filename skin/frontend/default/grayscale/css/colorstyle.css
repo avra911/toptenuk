@@ -1,0 +1,217 @@
+
+
+/* Copyright by 9MagentoThemes */
+#panel {
+	background-color: #FFFFFF;
+	border: 1px solid #E1E1E1;
+	color: #6B6B6B;
+	left: -393px;
+	position: fixed;
+	top: 110px;
+	width: 391px;
+	z-index: 1000; }
+
+ul.listpanel {
+	float: left;
+	width: 100%; }
+
+	ul.listpanel li {
+		float: left;
+		padding: 2px 0;
+		width: 100%; }
+
+.mainheader {
+	background-color: #F5F5F5;
+	color: #1D1C1B;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 15px;
+	padding: 16px 0;
+	text-align: center;
+	text-transform: uppercase; }
+
+.btn-slide {
+	background: url("../images/bg_stoggle.png") no-repeat 0 0;
+	border: 1px solid #E1E1E1;
+	box-shadow: 3px 1px 2px 0 rgba(35, 35, 35, 0.05);
+	display: block;
+	float: right;
+	height: 178px;
+	margin: 20px -39px 0 0;
+	text-indent: -9999px;
+	width: 38px; }
+
+	.btn-slide.active { background-position: -38px 0; }
+
+#panel fieldset { padding: 23px 19px 19px; }
+
+#panel p.border { border-top: 1px solid #D8D8D8; }
+
+#panel p {
+	float: left;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+	width: 100%; }
+
+	#panel p.border span {
+		background: #FFFFFF;
+		float: left;
+		margin: -10px 0 0 -10px;
+		padding: 0 10px; }
+
+#panel span.mttitle {
+	border-top: 1px solid #D8D8D8;
+	cursor: pointer;
+	float: left;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+	padding: 6px 0 0;
+	text-align: left;
+	width: 100%; }
+	#panel span.mttitle span.arrows, #panel span.mttitle span.current{
+		float: right;
+		height: 13px;
+		width: 16px;
+	}
+	#panel span.mttitle span.arrows {
+		background: url(../images/collapse.png) no-repeat left top; }
+
+	#panel span.mttitle span.current {
+		background: url(../images/expand.png) no-repeat left top; }
+
+ul.scolors {
+	float: left;
+	list-style: none outside none;
+	margin: 11px 0 18px;
+	overflow: hidden;
+	padding: 0;
+	width: 100%; }
+
+	ul.scolors li {
+		float: left;
+		margin: 0 3px 3px 0; }
+
+		ul.scolors li a.red { background: #CD1507; }
+
+		ul.scolors li a.green { background: #4bb20c; }
+
+		ul.scolors li a.blue { background: #11bebc; }
+
+		ul.scolors li a {
+			cursor: pointer;
+			display: block;
+			height: 28px;
+			width: 37px; }
+
+.bakcolor, .textcolor, .linkcolor {
+	float: left;
+	padding: 0 10px 0 0;
+	text-align: left;
+	width: 100px; }
+
+#panel input {
+	border: #e1e1e1 solid 1px;
+	color: #333;
+	height: 20px; }
+
+#mColorPicker { z-index: 1030; }
+
+.btn-reset, .btn-apply {
+	float: left;
+	padding: 0 0 10px 0;
+	width: 50%; }
+
+.btn-reset button.btreset {
+	background: url("../images/reset.png") no-repeat 0 4px;
+	border: 0 none;
+	color: #211E1B;
+	cursor: pointer;
+	font-style: italic;
+	font-weight: 700;
+	padding-left: 15px;
+	width: 55px; }
+
+.btn-apply button.button span {
+	background: #CD1507;
+	color: #FFFFFF;
+	float: left;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 18px;
+	text-align: center;
+	text-transform: uppercase;
+	white-space: nowrap; }
+
+.mainbody {
+	float: left;
+	padding: 0px;
+	width: 100%; }
+
+.mainpattern {
+	display: none;
+	float: left;
+	text-align: left;
+	width: 100%; }
+
+.background {
+	display: inline-block;
+	padding-top: 5px;
+	text-align: left;
+	width: 100%; }
+
+.pattern-active {
+	border: 1px solid #D7D7D8;
+	cursor: pointer;
+	display: block;
+	height: 20px;
+	width: 70px; }
+
+.pattern_1 { background: url("../images/pattern/pattern_1.png") repeat left top; }
+
+.pattern_2 { background: url("../images/pattern/pattern_2.png") repeat left top; }
+
+.pattern_3 { background: url("../images/pattern/pattern_3.png") repeat left top; }
+
+.pattern_4 { background: url("../images/pattern/pattern_4.png") repeat left top; }
+
+.pattern_5 { background: url("../images/pattern/pattern_5.png") repeat left top; }
+
+.pattern_6 { background: url("../images/pattern/pattern_6.png") repeat left top; }
+
+.pattern_7 { background: url("../images/pattern/pattern_7.png") repeat left top; }
+
+.pattern_8 { background: url("../images/pattern/pattern_8.png") repeat left top; }
+
+.pattern_9 { background: url("../images/pattern/pattern_9.png") repeat left top; }
+
+.pattern_10 { background: url("../images/pattern/pattern_10.png") repeat left top; }
+
+.pattern_11 { background: url("../images/pattern/pattern_11.png") repeat left top; }
+
+.pattern_12 { background: url("../images/pattern/pattern_12.png") repeat left top; }
+
+.mt-pattern {
+	display: inline-block;
+	float: left;
+	padding: 3px 0; }
+
+.pattern-popup {
+	float: left;
+	height: 50px;
+	width: 100%; }
+
+	.pattern-popup .item {
+		border: 1px solid #E1E1E1;
+		cursor: pointer;
+		float: left;
+		height: 29px;
+		margin-right: 4px;
+		margin-top: 10px;
+		width: 38px; }
+
