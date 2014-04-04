@@ -1,0 +1,82 @@
+<?php
+/******************************************************
+ * @package MT SlideShow module for Magento 1.4.x.x and Magento 1.5.x.x
+ * @version 1.5.1.1
+ * @author http://www.magentheme.com
+ * @copyright (C) 2011- MagenTheme.Com
+ * @license PHP files are GNU/GPL
+*******************************************************/
+?>
+<?php if(Mage::helper('mtslideshow')->isActive()) : ?>
+<?php
+    $slide = $this->getDataSlide();
+    $path = Mage::getBaseUrl('media');
+    $w = $slide->getWidth();
+    $h = $slide->getHeight();
+    $auto = Mage::helper('mtslideshow')->isAutoFlexSlider();
+    $direction = Mage::helper('mtslideshow')->isDirectionNavFlexSlider();
+    $controlnav = Mage::helper('mtslideshow')->isControlNavFlexSlider();
+    $loop = Mage::helper('mtslideshow')->isLoopFlexSlider();
+    $mousewheel = Mage::helper('mtslideshow')->isMousewheelFlexSlider();
+    $animation = Mage::helper('mtslideshow')->isAnimationFlexSlider();
+    $anispeed = Mage::helper('mtslideshow')->isAnimationSpeedFlexSlider();
+    $slidespeed = Mage::helper('mtslideshow')->isSlideshowSpeedFlexSlider();
+    $smoothheight = Mage::helper('mtslideshow')->isSmoothHeightFlexSlider();
+
+    if($auto>0) $setauto = 'true';
+    else $setauto = 'false';
+    if($mousewheel>0) $setmousewheel = 'true';
+    else $setmousewheel = 'false';
+    if($direction>0) $setdirection = 'true';
+    else $setdirection = 'false';
+    if($controlnav>0) $setcontrolnav = 'true';
+    else $setcontrolnav = 'false';
+    if($loop>0) $setloop = 'true';
+    else $setloop = 'false';
+    if($smoothheight>0) $setsmoothheight = 'true';
+    else $setsmoothheight = 'false';
+?>
+<div class="flexslider">
+    <ul class="slides">
+        <?php
+        foreach($slide->getImageList() as $s):
+        ?>
+        <li class="slide">
+            <img src="<?php echo $this->helper('mtslideshow/image')->init($s['file'])->resize($w, $h); ?>" />
+            <div class="caption dark3 hidden-phone">
+                <?php if($s['title']!=''){?>
+                    <h2 class="heading permanent container"><span><?php echo $s['title'];?></span></h2>
+                <?php }?>
+                <?php if($s['description']!=''){?>
+                    <p class="description container"><span><?php echo $s['description'];?></span></p>
+                <?php }?>
+                <?php if($s['link']!=''){?>
+                    <p class="readmore container">
+                        <a href="<?php echo $s['link'];?>"><?php echo $this->__("Read More");?></a>
+                    </p>
+                <?php }?>
+            </div>
+        </li>
+        <?php endforeach;?>
+    </ul>
+</div>
+<script type="text/javascript">
+    $jq(window).load(function(){
+        $jq('.flexslider').flexslider({
+            animation: "<?php echo $animation;?>",
+            slideshow: <?php echo $setauto;?>,
+            useCSS: true,
+            animationLoop: <?php echo $setloop;?>,
+            mousewheel: <?php echo $setmousewheel;?>,
+            smoothHeight: <?php echo $setsmoothheight;?>,
+            slideshowSpeed: <?php echo $slidespeed;?>,
+            animationSpeed: <?php echo $anispeed;?>,
+            pauseOnAction: true,
+            pauseOnHover: true,
+            controlNav: <?php echo $setcontrolnav;?>,
+            directionNav: <?php echo $setdirection;?>,
+            height: "<?php echo $h;?>"
+        });
+    });
+</script>
+<?php endif; ?>

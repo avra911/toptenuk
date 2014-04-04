@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row-fluid show-grid">	
+		<div class="mt-static span12">
+			<?php 
+			$config = Mage::getStoreConfig('mtcolinusadmin/static_config');  
+			$url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+			?>
+			<?php if ($config['static_slideshow_1']!=="" && $config['enabled_static_slideshow_1']>0) : ?>
+			<div class="content-static clearfix item span<?php echo $config['static_slideshow_1_cols'];?>"> 
+			<?php echo str_replace('{baseurl}', $url, $config['static_slideshow_1']); ?>
+			</div>
+			<?php endif; ?>
+
+			<?php if ($config['static_slideshow_2']!=="" && $config['enabled_static_slideshow_2']>0) : ?>
+			<div class="content-static clearfix item span<?php echo $config['static_slideshow_2_cols'];?>"> 
+			<?php echo str_replace('{baseurl}', $url, $config['static_slideshow_2']); ?>
+			</div>
+			<?php endif; ?>	
+		</div>			
+	</div>
+</div>

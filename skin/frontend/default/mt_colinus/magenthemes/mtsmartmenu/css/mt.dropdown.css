@@ -1,0 +1,48 @@
+
+#mt-dropdown { padding:0; font-size:1.1em;}
+
+
+/************** ALL LEVELS  *************/ /* Style consistent throughout all nav levels */
+#mt-dropdown li { position:relative; text-align:left; width:100%;line-height:30px; height:30px; float:left;}
+#mt-dropdown li.over { z-index:999;}
+#mt-dropdown a{ display:block; line-height:30px; text-decoration:none; }
+#mt-dropdown a:hover { display:block; line-height:30px; color:#CD1507; }
+#mt-dropdown span { display:block; cursor:pointer; white-space:nowrap;
+text-transform:none; }
+#mt-dropdown li ul span {white-space:normal; }
+
+/************ 0 LEVEL  ***************/
+#mt-dropdown li { border-bottom:1px solid #d0cfcb; }
+#mt-dropdown li.active a { color:#F44246;  }
+#mt-dropdown li.active li a{text-decoration:none;}
+#mt-dropdown li.active li a:hover{color:#F44246;}
+#mt-dropdown a { padding:0 0 0px 15px; margin:0 5px; color:#F44246; font-weight:normal; background:url(../images/bg-li-content.png) 0 12px no-repeat; }
+#mt-dropdown li.over a{color:#F44246;}
+#mt-dropdown a:hover { color:#F44246; }
+
+/************ 1ST LEVEL ************/
+#mt-dropdown ul li,
+#mt-dropdown ul li.active { float:left; margin:0; }
+#mt-dropdown ul li.last { background:#fff; padding-bottom:0; }
+
+#mt-dropdown ul a,
+#mt-dropdown ul li a:hover { float:left; padding:0; color:#CD1507; }
+#mt-dropdown ul li a { font-weight:normal !important;}
+#mt-dropdown ul{background:#FFF !important;}
+
+/************ 2ND LEVEL ************/
+#mt-dropdown ul { position:absolute; width:208px; top:25px; left:-10000px; border:1px solid #d8d8d8;  }
+
+/* Show menu */
+#mt-dropdown li.over > ul { left:208px;top:-1px; }
+#mt-dropdown li.over > ul li.over > ul { left:208px; }
+#mt-dropdown li.over ul ul { left:-10000px; }
+
+#mt-dropdown ul li a {  }
+#mt-dropdown ul li a:hover { color:#CD1507 !important; }
+#mt-dropdown ul li a{ color:#0c48b8 !important; }
+#mt-dropdown ul span, #mt-dropdown ul li.last li span { padding:0px 15px 0px 15px;}
+#mt-dropdown li.last{border:none !important;}
+/************ 3RD+ LEVEL ************/
+#mt-dropdown ul ul { background:#fff; }
+#mt-dropdown ul li{}

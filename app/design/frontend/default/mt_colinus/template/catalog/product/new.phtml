@@ -1,0 +1,85 @@
+
+<?php
+    $_helper = $this->helper('catalog/output');
+
+	$storeCode    = Mage::app()->getStore()->getCode();
+
+?>
+<?php $_productCollection=$this->getLoadedProductCollection() ?>
+<?php if(!$_productCollection->count()): ?>
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+<div class="category-products">
+
+    <?php // Grid Mode ?>
+
+    <?php $_collectionSize = $_productCollection->count() ?>
+    <?php $_columnCount = 3 ?>
+    <?php $i=0; foreach ($_productCollection as $_product): ?>
+        <?php if ($i++%$_columnCount==0): ?>
+        <ul class="products-grid">
+        <?php endif ?>
+            <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(125,125); ?>" width="125" height="125" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" /></a>
+                <h2 class="product-name">
+				
+					<?php if(preg_match("/repair/i", $_product->getName())): ?>
+
+							<?php if ($storeCode == 'de'): ?>
+								<h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title=" Reparatur von <?php echo trim($this->htmlEscape($_product->getName()), "Repair of");?>">  Reparatur von <?php echo trim($this->htmlEscape($_product->getName()), "Repair of");    ?>  </a> </h2>
+							<?php elseif($storeCode  ==  'default'): ?>
+								<h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title=" Repair of <?php echo trim($this->htmlEscape($_product->getName()), "Repair of");?>"><?php echo $this->__('Repair of') ?> <?php echo trim($this->htmlEscape($_product->getName()), "Repair of ");    ?>  </a> </h2>
+							<?php elseif($storeCode  ==  'es'): ?>
+		
+								<h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title=" Reparación de <?php echo trim($this->htmlEscape($_product->getName()), "Repair of");?>">  Reparación de <?php echo trim($this->htmlEscape($_product->getName()), "Repair of");    ?>  </a> </h2>
+						
+							<?php elseif($storeCode  ==  'it'): ?>
+			
+								<h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title=" Riparazione del <?php echo trim($this->htmlEscape($_product->getName()), "Repair of");?>">  Riparazione del <?php echo trim($this->htmlEscape($_product->getName()), "Repair of");    ?>  </a> </h2>
+						
+							<?php elseif($storeCode  ==  'fr'): ?>
+								
+								<h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title=" Réparation des <?php echo trim($this->htmlEscape($_product->getName()), "Repair of");?>">  Réparation des  <?php echo trim($this->htmlEscape($_product->getName()), "Repair of");    ?>  </a> </h2>
+							<?php endif;?>   
+							
+						<?php else:?>
+						
+							<?php if ($storeCode == 'de'): ?>
+								 <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title=" Verkauf von <?php echo trim($this->htmlEscape($_product->getName()), "Sale of");?>">  Verkauf von <?php echo trim($this->htmlEscape($_product->getName()), "Sale of");    ?>  </a> </h2>
+							<?php elseif($storeCode  ==  'default'): ?>
+							 <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title=" Sale Of <?php echo trim($this->htmlEscape($_product->getName()), "Sale of");?>">  Sale of <?php echo trim($this->htmlEscape($_product->getName()), "Sale of");    ?>  </a> </h2>
+								<?php elseif($storeCode  ==  'es'): ?>
+								 <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title=" Venta de <?php echo trim($this->htmlEscape($_product->getName()), "Sale of");?>">  Venta de <?php echo trim($this->htmlEscape($_product->getName()), "Sale of");    ?>  </a> </h2>
+						
+							<?php elseif($storeCode  ==  'it'): ?>
+								 <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title=" Vendita di <?php echo trim($this->htmlEscape($_product->getName()), "Sale of");?>">  Vendita di <?php echo trim($this->htmlEscape($_product->getName()), "Sale of");    ?>  </a> </h2>
+						
+							<?php elseif($storeCode  ==  'fr'): ?>
+								 <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title=" Vente de <?php echo trim($this->htmlEscape($_product->getName()), "Sale of");?>">  Vente de <?php echo trim($this->htmlEscape($_product->getName()), "Sale of");    ?>  </a> </h2>
+							<?php endif;?>
+							
+						
+						
+						<?php endif; ?>
+				
+				
+				</a></h2>
+                <div class="shortDescription">
+	                <?php echo nl2br($_product->getShortDescription()); ?>
+                </div>
+                <?php if($_product->getRatingSummary()): ?>
+                <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                <?php endif; ?>
+                <?php echo $this->getPriceHtml($_product, true) ?>
+              
+            </li>
+        <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+        </ul>
+        <?php endif ?>
+        <?php endforeach ?>
+        <script type="text/javascript">decorateGeneric($$($$('ul.products-grid'), ['odd','even','first','last'])</script>
+</div>
+<?php endif; ?>
+
+
+

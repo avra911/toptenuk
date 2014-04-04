@@ -1,0 +1,73 @@
+<div class="mt-top-menu">
+    <div class="quick-access container">
+		<div class="row-fluid show-grid">
+			<div class="span6">
+				<?php /*
+				<p class="welcome-msg">
+					<?php echo $this->getWelcome() ?> <?php echo $this->getAdditionalHtml() ?>
+				</p>				
+				*/ ?>
+				<div class="top-link pull-left">
+					<?php echo $this->getChildHtml('topLinks') ?>
+				</div>				
+			</div>
+			<div class="span6">	
+				<div class="row-fluid show-grid">
+					<div class="grid-col clearfix">
+						<?php echo $this->getChildHtml('store_language') ?>
+						<?php echo $this->getChildHtml('currency_top') ?>													
+					</div>
+				</div>														
+			</div>			
+		</div>
+    </div>
+</div> 
+<div class="header-container">	
+	<div class="header">
+		<div class="container">
+			<div class="row-fluid show-grid">		   
+				<div class="span4">
+					<?php if ($this->getIsHomePage()):?>
+					<div class="logo pull-left"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></div>
+					<?php else:?>
+					<a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo pull-left"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+					<?php endif?>
+				</div>
+				<?php echo $this->getChildHtml('header_static') ?>				
+			</div>
+		</div>	
+	</div>		
+	<div class="naviga">        
+		<div class="container">
+			<div class="row-fluid show-grid mt-nav">
+				<div class="mt-main-menu">
+					<?php echo $this->getChildHtml('topContainer'); ?>
+					<?php echo $this->getChildHtml('topMenu') ?>
+				</div>
+				<div class="mt-show-right">	
+					<div class="mt-top-label">
+						<div class="top-search"><?php echo $this->getChildHtml('topSearch') ?></div>   
+						<div class="top-compare">
+							<?php $_helper = $this->helper('catalog/product_compare'); ?>
+							
+							<span class="mt-icon-compareajax hidden-phone hidden-tablet"></span>
+							
+							<a href="<?php echo $_helper->getListUrl() ?>" target="_blank" class="hidden-desktop clearfix">
+								<span class="mt-icon-compareajax"></span>
+								<span class="mt-compare-label"><?php echo $this->__('Compare') ?></span>
+							</a>
+						  
+							<div class="block-top-compare">                            
+								<?php echo $this->getChildHtml('compareajax') ?> 
+							</div>
+						</div>
+						<div class="top-cart"><?php echo $this->getChildHtml('ajaxcart') ?> </div>                                     
+                    </div>														
+				</div>
+			</div>
+		</div>	
+		<div class="mt-drill-menu">
+			<?php echo $this->getChildHtml('topMenuDrill') ?>
+		</div>		
+	</div>
+</div>

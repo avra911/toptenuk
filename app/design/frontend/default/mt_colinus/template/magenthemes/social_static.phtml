@@ -1,0 +1,83 @@
+<?php
+$url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+$config = Mage::getStoreConfig('mtcolinusadmin/social_config');
+?>
+<div class="span6"> 
+	<div class="facebook">
+	<div class="footer-static-title">
+		<h3><?php echo $config['static_title_fb'];?></h3>
+	</div>
+	<div class="title-divider">
+		<span>&nbsp;</span>
+	</div>
+	<?php if($config['fb_widget']){?>
+	<div class="fb-like-box" data-header="false" data-stream="false" data-border-color="#f4f4f4" data-show-faces="true" data-height="300" data-width="auto" data-href="<?php echo $config['facebook_page']?>"></div>
+    <?php
+    }elseif (!$config['fb_widget'] && $config['facebook_replace']!="") {
+	    echo $this->getLayout()->createBlock('cms/block')->setBlockId($config['facebook_replace'])->toHtml();
+    } ?>
+</div>
+</div>
+<div class="span6">
+	<div class="twitter">
+	<div class="footer-static-title">
+		<h3><?php echo $config['static_title_twitter'];?></h3>
+	</div>
+	<div class="title-divider">
+		<span>&nbsp;</span>
+	</div>
+	<?php if($config['tw_widget']){?>
+	<div id="mt-twitter"> 
+	</div>
+	<?php 
+}elseif (!$config['tw_widget'] && $config['twitter_replace']!=""){
+	echo $this->getLayout()->createBlock('cms/block')->setBlockId($config['twitter_replace'])->toHtml();
+}
+?>
+<?php if($config['tw_widget'] || $config['fb_widget']){?>
+<script>
+<?php if($config['tw_widget']){?>
+	$mtkb('#mt-twitter').twitterTimeline({ 
+		ajax: {
+			data: {
+				user: '<?php echo $config['twitter_account']?>',
+				count: <?php echo $config['twitter_numb']?>
+			}
+		},
+		count: <?php echo $config['twitter_numb']?>,
+		refresh: 300000,
+		tweetTemplate: function(item) {
+			var dateRegEx = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) ([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}) \+([0-9]{4}) ([0-9]{4})$/;
+			var date = dateRegEx.exec(item.created_at); 
+			var timeAgo = $mtkb.twitterTimeline.timeAgo(item.created_at);
+			var tweet = '<div id="mt-twitter">'+
+							'<p>' + $mtkb.twitterTimeline.parseTweet(item.text) + '</p>'+
+							'<div class="icontwitter clearfix">'+
+								'<span class="mt-icon pull-left"></span><span class="date pull-left">'+timeAgo+'</span>'+ 
+							'</div>'+
+						'</div>';
+			return tweet;
+		},
+		animateAdd: function(el, idx) {
+			return el.hide().delay(500*idx).slideDown(500);
+		},
+		animateRemove: function(el, idx) {
+			el.delay(300*idx).slideUp(300, function() {
+				el.remove();
+			});
+		}
+	});
+	<?php }?>
+	<?php if($config['fb_widget']){?>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=218624181552972";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		<?php }?>
+		</script>
+		<?php }?>
+	</div>
+</div>

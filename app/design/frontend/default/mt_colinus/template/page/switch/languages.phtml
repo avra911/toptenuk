@@ -1,0 +1,61 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Language switcher template
+ *
+ * @see Mage_Page_Block_Switch
+ */
+?>
+<?php if(count($this->getStores())>1): ?>
+<div class="form-language span6">
+	<div class="select pull-right">
+		<label for="select-language" id="mt_language" class="hidden-tablet"><?php echo $this->__('Language:') ?></label>
+		<select id="select-language" title="<?php echo $this->__('Language') ?>" onchange="window.location.href=this.value">
+		<?php foreach ($this->getStores() as $_lang): ?>
+			<?php $_selected = ($_lang->getId() == $this->getCurrentStoreId()) ? ' selected="selected"' : '' ?>
+			<option class="" value="<?php echo $_lang->getCurrentUrl() ?>"<?php echo $_selected ?>><?php echo $this->htmlEscape($_lang->getName()) ?></option>
+		<?php endforeach; ?>
+		</select>
+		
+		<script type="text/javascript">
+			$mtkb(document).ready(function(){					
+				$mtkb("#select-language option").each(function(i,e){
+					var lang = $mtkb(e).html().toLowerCase();
+					$mtkb('.form-language .sbOptions li:eq('+i+') a').css({
+						"background-image":"url('<?php echo Mage::getBaseUrl();?>media/magenthemes/languages/"+lang+".png')",
+						"background-repeat":"no-repeat",
+						"background-position":"5px 8px"
+					});
+				}); 
+				$mtkb('.sbHolder:eq(0)').addClass('lang');
+				$mtkb('.sbHolder:eq(1)').addClass('curs');
+			});
+		</script>		
+	</div>
+</div>
+<?php endif; ?>

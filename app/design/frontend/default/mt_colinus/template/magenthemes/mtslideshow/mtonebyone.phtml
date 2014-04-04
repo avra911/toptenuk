@@ -1,0 +1,146 @@
+<?php
+/******************************************************
+ * @package MT SlideShow module for Magento 1.4.x.x and Magento 1.5.x.x
+ * @version 1.5.1.1
+ * @author http://www.magentheme.com
+ * @copyright (C) 2011- MagenTheme.Com
+ * @license PHP files are GNU/GPL
+*******************************************************/
+?>
+<?php if(Mage::helper('mtslideshow')->isActive()) : ?>
+	<?php
+		$slide = $this->getDataSlide();
+		$path = Mage::getBaseUrl('media');
+		$w = $slide->getWidth();
+		$h = $slide->getHeight(); 
+		$mdw = $slide->getSlide_width();
+		$mdh = $slide->getSlide_height();
+		$bgmode = $slide->getBgmode(); 
+		$auto = Mage::helper('mtslideshow')->isAutoonebyone();
+		$direction = Mage::helper('mtslideshow')->isDirectiononebyone();
+		$pagenav = Mage::helper('mtslideshow')->isPagenaveonebyone();
+		$displaytitle = Mage::helper('mtslideshow')->isTitleonebyone();
+		$displaydesc = Mage::helper('mtslideshow')->isDesconebyone();
+		$displaymore = Mage::helper('mtslideshow')->isMoreonebyone();
+		$duration = Mage::helper('mtslideshow')->getSpeedShow();
+		if($auto>0) $setauto = 'true';
+		else $setauto = 'false';
+		if($direction>0) $setdirection = 'true';
+		else $setdirection = 'false';
+		if($pagenav>0) $setpage = 'true';
+		else $setpage = 'false';
+		if($bgmode=='bgimages'){
+			$pathimg = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'skin/frontend/default/default/magenthemes/css/mtslideshow/bgslide';
+			 
+			$bgimage = $this->getBackgroundImages(); 
+			$numbg = count($bgimage);
+			$bg = rand(0, $numbg); 
+			echo $style = '
+			<style>
+				.oneByOne1{ 
+					background: #ffffff url('.$pathimg.'/'.$bgimage[$bg].') repeat;   
+					/*width: '.$mdw.'px;*/
+					/*height: '.$mdh.'px;*/
+				}   	
+			</style>	
+			';
+		}else{
+			echo $style = '
+			<style>
+				.oneByOne1{
+					background: '.$slide->getBg_color().';
+					/*width: '.$mdw.'px;*/
+					/*height: '.$mdh.'px;*/
+				}
+			</style>
+			';
+		}
+	?> 
+	<div class="mtslide">
+		<div id="wrapper<?php echo $slide->getId(); ?>" class="wrapper">
+			<div id="mtonebyone<?php echo $slide->getId(); ?>" class="mtonebyone">
+				<div class="loading"></div>
+				<?php  
+				foreach($slide->getImageList() as $s):  
+				?>
+				<div class="oneByOne_item" style="display:none; width: <?php echo $mdw;?>px; height: <?php echo $mdh;?>px;"> 
+					<img class="bigImage" <?php if($s['file_animate']!='random'){?>data-animate="<?php echo $s['file_animate'];?>"<?php }?> data-src="<?php echo $this->helper('mtslideshow/image')->init($s['file'])->resize($w, $h); ?>" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'skin/frontend/default/default/magenthemes/css/mtslideshow/themes/mtonebyone/images/blank.gif'; ?>" />
+					<?php if($displaytitle && $s['title']!=''){?>					
+
+					<div class="slide2Txt1 container clearfix hidden-phone" <?php if($s['title_animate']!='random'){?>data-animate="<?php echo $s['title_animate'];?>"<?php }?>>
+						<div class="block-title mt-slide-item">
+							<h2><?php echo $s['title'];?></h2>
+						</div>
+					</div>		
+					<?php }?>		
+					<?php if($displaydesc && $s['description']!=''){?>			
+					<div class="slide2Txt2 container hidden-phone clearfix" <?php if($s['desc_animate']!='random'){?>data-animate="<?php echo $s['desc_animate'];?>"<?php }?>>
+						<div class="block-desc mt-slide-item">
+							<?php echo $s['description'];?>
+						</div>
+					</div>	
+					
+					<?php }?>	
+					<?php if($displaymore && $s['link']!=''){?>									
+					<div class="slide2Txt3 container hidden-phone clearfix" <?php if($s['link_animate']!='random'){?>data-animate="<?php echo $s['link_animate'];?>"<?php }?>>
+						<div class="block-detail mt-slide-item">
+							<a href="<?php echo $s['link'];?>"><?php echo $this->__("Read More");?></a>
+						</div>
+					</div>		
+					
+					<?php }?>		
+				</div>	 
+				<?php endforeach; ?> 
+			</div> 
+		</div>
+	<?php if(count($slide->getImageList()) > 1) :?>
+		<script type="text/javascript">  
+		$jq(document).ready(function() {
+			var w = $jq('#wrapper<?php echo $slide->getId(); ?>').width();
+			$jq('#mtonebyone<?php echo $slide->getId(); ?> .loading').css({'width':w});
+		});
+		$jq(window).load(function() {  
+			var $slider = $jq('#mtonebyone<?php echo $slide->getId(); ?>');
+			$jq('.oneByOne_item .bigImage').each(function(index){ 
+                $jq(this).attr('src', $jq(this).attr('data-src')); 
+            });
+			$jq('.loading', $slider).animate({opacity: 0}, 500, function(){
+				$jq('.loading', $slider).remove();  
+				$slider.find('.oneByOne_item').css('display', 'block'); 
+				$slider.oneByOne({
+					className: 'oneByOne1',	  
+					width: <?php echo $mdw;?>,
+					height: <?php echo $mdh;?>,
+					easeType: 'random',
+					pauseByHover: true, 
+					slideShowDelay: <?php echo $duration;?>, 
+					showButton: <?php echo $setpage;?>,
+					slideShow: <?php echo $setauto;?>,
+					responsive: true,
+					minWidth: 480,
+					autoHideButton: true,
+					showArrow: <?php echo $setdirection;?>
+				});   
+				resize(); 
+			});   
+			var wn = <?php echo $mdw;?>,
+			hn = <?php echo $mdh;?>;
+			var resize = function (){ 
+				var w = $jq('#wrapper<?php echo $slide->getId(); ?>').width(),
+					h = $jq('#wrapper<?php echo $slide->getId(); ?>').height();  
+				if(w <= wn){ 
+					$jq('#wrapper<?php echo $slide->getId(); ?> .oneByOne1').css({'width':w, 'height':h});
+					$jq('.oneByOne_item', $slider).css({'width':w, 'height':h}); 
+				}else{
+					$jq('.oneByOne1').css({'width':wn, 'height':hn});
+					$jq('.oneByOne_item', $slider).css({'width':wn, 'height':hn}); 
+				} 
+			} 
+			$jq(window).bind("resize", function () {
+				resize();
+			});  
+		});
+		</script>
+	<?php endif; ?>  
+	</div>
+<?php endif; ?>

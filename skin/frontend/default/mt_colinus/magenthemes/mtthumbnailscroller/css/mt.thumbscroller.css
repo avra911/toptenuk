@@ -1,0 +1,58 @@
+.mt-more-images
+    {
+        position:relative;
+    }
+/* horizontal slide*/
+.product-view .next, .product-view .prev
+    {
+        cursor: pointer;
+        position:absolute;
+        z-index:90;
+        background-image:url(../images/hor_ctr.png);
+        width:10px;
+        height:27px;
+        top:12px !important;
+    }
+.product-view .next
+    {
+        background-position:100% 0;
+        right:5px;
+    }
+.product-view .next:hover{
+        background-position:100% 100%;    
+    }
+.product-view .prev
+    {
+        left:5px;
+        background-position:0 0;
+    }
+.product-view .prev:hover{
+        background-position:0 100%;    
+    }
+/* vertical slide */
+.product-view .mt-vert-thumb .next, .product-view .mt-vert-thumb .prev
+    {
+        background-image:url(../images/vert_ctr.png);
+        width:40px;
+        height:14px;
+        /*left:11px;*/
+    }
+.product-view .mt-vert-thumb .next
+    {
+        background-position:0 100%;
+        /*top:296px;*/
+    }
+.product-view .mt-vert-thumb .prev
+    {
+        background-position:0 0;
+        top:-5px;       
+    }
+.product-view .product-img-box .more-views li
+    {
+        display:block !important;
+        float:left !important;
+    }
+.mt-image-zoom
+    {
+        
+    }

@@ -1,0 +1,24 @@
+<?php if($this->getCurrencyCount()>1): ?>
+<div class="box currency span6">
+	<div class="select pull-right">
+		<label for="select currency" id="mt_currency" class="hidden-tablet">Currency: </label>
+        <select id="select-currency" name="currency" onchange="changeCurrency(this)">
+        <?php foreach ($this->getCurrencies() as $_code => $_name): ?>
+            <option value="<?php echo $_code ?>"<?php if($_code==$this->getCurrentCurrencyCode()): ?> selected="selected"<?php endif; ?>>
+                <?php echo $_name ?> - <?php echo $_code ?>
+            </option>
+        <?php endforeach; ?>
+        </select>
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+function changeCurrency(sObject){
+    if(sObject.value){
+        setLocation('<?php echo $this->helper('directory/url')->getSwitchCurrencyUrl() ?>currency/'+sObject.value);
+    }
+}
+//]]>
+
+</script>
+<?php endif; ?>

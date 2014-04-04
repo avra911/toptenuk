@@ -1,0 +1,91 @@
+
+
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+.page label, .page input.input-text, 
+.page button, .page select, .page textarea { font-size: 100%; }
+
+.page table .a-right { text-align: right; }
+
+.page table .a-center { text-align: center; }
+
+.page table .a-left { text-align: left; }
+
+.page a:hover { text-decoration: none; }
+
+.page input, .page textarea, .page .uneditable-input { outline: none; }
+
+.page .mt-subscribe input.input-text:focus, .page .mt-subscribe textarea:focus {
+	-webkit-border-radius: 0;
+	-webkit-box-shadow: none;
+	border-radius: 0;
+	border: 0px;
+	box-shadow: none; }
+
+.page .label, .page .badge {
+	-webkit-border-radius: 0;
+	-webkit-text-shadow: none;
+	background-color: transparent;
+	border-radius: 0;
+	font-size: 100%;
+	text-shadow: none; }
+
+.page table th.label { display: block; }
+
+.container-custom { width: 105%; }
+
+table thead { background-color: #f2f0f0; }
+
+.page .main-container .table-bordered, .page .main-container select {
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	outline: none; }
+
+input.radio { outline: medium none !important; }
+
+.page .main-container input[type="text"], .page input[type="password"], .page .main-container textarea, .page input[type="text"]:focus, .page input[type="password"]:focus, .page textarea, .page textarea:focus {
+	-webkit-border-radius: 3px;
+	-wekit-box-shadow: 0 0 5px 0 #EAEAEA inset;
+	border-color: #DDDDDD;
+	border-radius: 3px;
+	box-shadow: 0 0 5px 0 #f2f0f0 inset;
+	outline: none; }
+
+.table tbody th, .table thead th { font-weight: normal; }
+
+.page select {
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	cursor: pointer;
+	outline: none; }
+
+.page .table th, 
+.page .table td {
+	outline: none;
+	padding: 12px;
+	vertical-align: middle; }
+
+.mt-nav-container .navbar .btn-navbar { float: left ; }
+

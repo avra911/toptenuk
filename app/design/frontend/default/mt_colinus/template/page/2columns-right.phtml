@@ -1,0 +1,198 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--[if IE 8 ]><html class="ie8"<![endif]-->
+<!--[if IE 9 ]><html class="ie9"<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<?php echo $this->getChildHtml('after_body_start') ?>
+<?php $config = Mage::getStoreConfig('mtcolinusadmin/logoscroller');?>
+<?php $config_static = Mage::getStoreConfig('mtcolinusadmin/static_config');?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+        <?php echo $this->getChildHtml('mtslideshow') ?>
+        <div class="main-container col2-right-layout">
+            <div class="main">
+                <div class="slideshow_static">
+                    <?php echo $this->getChildHtml('slideshowstatic') ?>
+                </div>
+                <div class="main-inner">				
+					<div id="category-image" class="category-image-top"></div>			
+                    <?php echo $this->getChildHtml('breadcrumbs') ?>					
+					<div class="container">
+						<div class="row-fluid show-grid">
+							<div class="col-main-wap span9">
+								<?php echo $this->getChildHtml('slideshowcat') ?>
+								<div class="col-main">
+									<div class="col-main-inner">
+										<?php echo $this->getChildHtml('global_messages') ?>
+										<?php echo $this->getChildHtml('content') ?>
+									</div>
+								</div>
+							</div>
+							<div class="col-right sidebar span3 hidden-phone"><?php echo $this->getChildHtml('right') ?></div>
+						</div>
+					</div>
+                </div>
+				
+				<!--Call logo scroller-->
+				<?php if($config['enabled']){?>
+					<div class="mt-footer-static-container-logoscroller">
+						<div class="mt-footer-static-logo container">
+							<div class="mt-logoscroller">								
+								
+								<div class="block-title">
+									<div class="row-fluid show-grid">
+										<?php if($config['title']): ?>
+										<h3 class="pull-left"><?php echo $config['title']; ?></h3>
+										<?php endif; ?>
+										<div class="logopagenave pull-right clearfix">
+											<button title="Previous" class="prev" id="logoprev"></button>
+											<button title="Next" class="next" id="logonext"></button>
+										</div>
+									</div>
+								</div>	
+								
+								<div class="list_logocarousel">
+                                    <div id="logoscrller" class="mt-logo-scroller" style="width: <?php echo $config['main_width'];?>px; height: <?php echo $config['main_height'];?>px;">
+                                        <ul style="margin: 0pt; padding: 0pt; position: relative; list-style-type: none; z-index: 1;">
+                                            <?php
+                                            $logo_array = explode("\n", $config['logo_path']);
+                                            foreach ($logo_array as $logo){
+                                                $regexpath = "#<logo(.*?)>(.*?)</logo>#s";
+                                                preg_match_all( $regexpath, $logo, $matchespath );
+                                                $path_logo = $matchespath[2][0];
+                                                $logo = html_entity_decode ($logo, ENT_QUOTES);
+                                                $regex = "/\s*([^=\s]+)\s*=\s*('([^']*)'|\"([^\"]*)\"|([^\s]*))/";
+                                                preg_match_all($regex, $logo, $matches);
+                                                $array_of_attributes = array();
+                                                for ($i=0;$i<count($matches[1]);$i++){
+                                                    $key = $matches[1][$i];
+                                                    $val = $matches[3][$i]?$matches[3][$i]:($matches[4][$i]?$matches[4][$i]:$matches[5][$i]);
+                                                    $array_of_attributes[$key] = $val;
+                                                }
+                                                ?>
+                                                <li class="items-slider loading" style="overflow: hidden; float: left; width: <?php echo $config['width_item'];?>px; height: <?php echo $config['main_height'];?>px;">
+                                                    <div class="catpanel">
+                                                        <a href="<?php echo $array_of_attributes['link'];?>"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);?><?php echo $path_logo;?>" title="<?php echo $array_of_attributes['title'];?>" max-width="<?php echo $config['width_item'];?>"/></a>
+                                                    </div>
+                                                </li>
+                                                <?php }?>
+                                        </ul>
+                                    </div>
+								</div>								
+							</div>
+						</div>
+						<script type="text/javascript">
+                            $mtkb(document).ready(function(){
+                                var low = $mtkb(".container").width();
+                                var lomainw = $mtkb(".mt-logo-scroller").width();
+                                var logoresize = function(){
+                                    low = $mtkb(".container").width();
+                                    if(low <= lomainw){
+                                        $mtkb(".mt-logo-scroller").css("width", low);
+                                    }else{
+                                        $mtkb(".mt-logo-scroller").css("width", lomainw);
+                                    }
+                                }
+                                logoresize();
+                                $mtkb(window).resize(function(){
+                                    logoresize();
+                                });
+                            });
+                            $mtkb(document).ready(function(){
+                                $mtkb(function() {
+                                    $mtkb("#logoscrller").jCarouselLite({
+                                        btnNext: "#logonext",
+                                        btnPrev: "#logoprev",
+                                        visible: <?php echo $config['items_display'];?>,
+                                        auto: <?php echo $config['auto'];?>,
+                                        scroll: <?php echo $config['items_scroll'];?>,
+                                        easing: "easeOutQuart",
+                                        speed: <?php echo $config['animation'];?>,
+                                        fancybox: 0,
+                                        caption_color	: 'black',
+                                        caption_bgcolor	: '#D6DEE2',
+                                        overlay_bgcolor 	: '',
+                                        hoverPause: true,
+                                        border		: '',
+                                        showcaption	: false,
+                                        countItem: <?php echo count($logo_array);?>
+                                    });
+                                });
+                            }); 
+						</script>
+					</div>
+				<?php }?>				
+            </div>
+        </div>
+        <div class="mt-footer-static-container">
+            <div class="mt-footer-static-container-top hidden-phone">
+                <div class="mt-footer-static container">
+                    <div class="row-fluid show-grid">
+                        <div class="mt-footer-static-inner">
+                            <?php echo $this->getChildHtml('topfooterstatic') ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-footer-static-container-bottom">
+                <div class="mt-footer-static container">
+                    <div class="mt-footer-container">
+                        <div class="row-fluid show-grid">
+    						<div class="span6"> 
+                        		 <div class="row-fluid show-grid"> 
+                        		 	<?php echo $this->getChildHtml('bottomfooterstatic') ?>
+                        		 </div>
+                        	</div>
+    						<div class="span6">
+    							<div class="row-fluid show-grid">
+    								 <?php echo $this->getChildHtml('socialstatic') ?>
+    							</div>
+    						</div> 							
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

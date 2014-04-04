@@ -1,0 +1,9 @@
+/* MagenThemes Products List*/
+.mt-products-list { float: left; width: 100%; margin: 20px 0 0; }
+.mt-prolist-title h2 { font-size: 150%; color: #fff; text-transform: uppercase; }
+.mt-products-grid { width: 100%; float: left; }
+.mt-products-grid div.item { text-align: center; margin-bottom: 15px; }
+.mt-products-grid div.item .product-image img { border: 1px solid #E5E5E5; margin: 0 0 10px; }
+.mt-products-grid div.item .price-box { float: left; margin: 0; text-align: center; width: 40%; }
+.mt-products-grid div.item .mt-actions { float: right; width: 60%; }
+.mt-products-grid .product-name { margin: 0 0 10px; }

@@ -1,0 +1,15 @@
+<?php 
+$config = Mage::getStoreConfig('mtcolinusadmin/static_config');  
+$url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+?>
+<?php if ($config['static_header_1']!=="" && $config['enabled_static_header_1']>0) : ?>
+<div class="hidden-phone span<?php echo $config['static_header_cols_1'];?>"> 
+<?php echo str_replace('{baseurl}', $url, $config['static_header_1']); ?>
+</div>
+<?php endif; ?>
+
+<?php if ($config['static_header_2']!=="" && $config['enabled_static_header_2']>0) : ?>
+<div class="hidden-phone span<?php echo $config['static_header_cols_2'];?>"> 
+<?php echo str_replace('{baseurl}', $url, $config['static_header_2']); ?>
+</div>
+<?php endif; ?>
