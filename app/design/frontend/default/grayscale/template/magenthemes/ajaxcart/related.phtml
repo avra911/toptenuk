@@ -52,6 +52,17 @@ if($config['theme_responsive']){ $itemWidth = '25.2%'; }else{ $itemWidth = '238p
     <div class="mini-products-list row-fluid show-grid" id="block-related">
 		<ul class="clearfix related-product-grid" style="left:0;">
 			<?php foreach($this->getItems() as $_item): ?>
+			<?php
+			$oType = false;
+			$product = Mage::getModel('catalog/product');
+			$product->load($_item->getId());
+			foreach ($product->getOptions() as $o) {
+				$optionType = $o->getType();
+				if ($optionType == 'file') {
+					$oType = true;
+				}
+			}
+			?>
 			<li style="width:<?php echo $itemWidth;?>; height:450px;">
 				<div class="item content products-list">
 					<div class="product-image">
@@ -101,6 +112,7 @@ if($config['theme_responsive']){ $itemWidth = '25.2%'; }else{ $itemWidth = '238p
 						
 						<div class="mt-actions clearfix">
 							<div class="addtocart pull-left br">
+								<?php if($otherconfig['enabled_ajax'] && $oType == false){?>
 								<?php if($_item->isSaleable()): ?>
 								<?php if ( !($_item->getTypeInstance(true)->hasRequiredOptions($_item) || $_item->isGrouped()) ) { ?>
 									<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart grid" onclick="ajaxaddcart('<?php echo $this->getAddToCartUrl($_item) ?>',<?php echo $_item->getId() ?>)">
@@ -121,6 +133,16 @@ if($config['theme_responsive']){ $itemWidth = '25.2%'; }else{ $itemWidth = '238p
 									<span class="out"><?php echo $this->__('Out of stock') ?></span>								
 								</p>
 								<?php endif; ?>
+								<?php }else{ ?>
+								<?php if($_item->isSaleable()): ?>
+									<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart-options grid" onclick="setLocation('<?php echo $this->getAddToCartUrl($_item) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+								<?php else: ?>
+									<p class="availability out-of-stock pull-left">
+										<span class="label" style="display:none;"><?php echo $this->__('Availability: ') ?></span>
+										<span class="out"><?php echo $this->__('Out of stock') ?></span>
+									</p>
+								<?php endif; ?>
+								<?php } ?>
 							</div>
 							
 							<div class="wishlist pull-left br">
@@ -155,9 +177,9 @@ if($config['theme_responsive']){ $itemWidth = '25.2%'; }else{ $itemWidth = '238p
 <script type="text/javascript">
     //<![CDATA[ 
     var w = $mtkb(".container").width();
-    var mainw = $mtkb(".mini-products-list").width(); 
+    var mainw = $mtkb("#block-related").width(); 
     $mtkb(function() {
-    	$mtkb(".mini-products-list").jCarouselLite({
+    	$mtkb("#block-related").jCarouselLite({
         btnPrev: ".rprev",
         btnNext: ".rnext",
         vertical: false,
@@ -172,9 +194,9 @@ if($config['theme_responsive']){ $itemWidth = '25.2%'; }else{ $itemWidth = '238p
 	var navresize = function(){
         w = $mtkb(".container").width();  
         if(w <= mainw){
-        	$mtkb(".mini-products-list").css("width", w);
+        	$mtkb("#block-related").css("width", w);
         }else{ 
-        	$mtkb(".mini-products-list").css("width", mainw); 
+        	$mtkb("#block-related").css("width", mainw); 
         }
     }
     $mtkb(window).load(function(){

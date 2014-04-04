@@ -10,13 +10,12 @@ $config = Mage::getStoreConfig('mtcolinusadmin/social_config');
 	<div class="title-divider">
 		<span>&nbsp;</span>
 	</div>
-	<?php if(!$config['facebook_replace']){?>
-    <iframe scrolling="no" frameborder="0" class="FB_SERVER_IFRAME" src="http://www.facebook.com/connect/connect.php?href=<?php echo $config['facebook_page']?>&amp;width=250&amp;locale=&amp;connections=12&amp;stream=0&amp;logobar=0&amp;css=<?php echo $this->getSkinUrl().'css/fb.css'; ?>" allowtransparency="true" name="fbfanIFrame_0" style="width: 100%; height: 340px; border: medium none;"></iframe>
-	<?php
-}else{ 
-	echo $this->getLayout()->createBlock('cms/block')->setBlockId($config['facebook_replace'])->toHtml();
-}
-?>
+	<?php if($config['fb_widget']){?>
+	<div class="fb-like-box" data-header="false" data-stream="false" data-border-color="#f4f4f4" data-show-faces="true" data-height="300" data-width="auto" data-href="<?php echo $config['facebook_page']?>"></div>
+    <?php
+    }elseif (!$config['fb_widget'] && $config['facebook_replace']!="") {
+	    echo $this->getLayout()->createBlock('cms/block')->setBlockId($config['facebook_replace'])->toHtml();
+    } ?>
 </div>
 </div>
 <div class="span6">
@@ -27,26 +26,22 @@ $config = Mage::getStoreConfig('mtcolinusadmin/social_config');
 	<div class="title-divider">
 		<span>&nbsp;</span>
 	</div>
-	<?php if(!$config['twitter_replace']){?>
-	<div id="mt-twitter">		
-		<div class="mt-twitter-icon">
-			<span><?php echo $this->__('1 minute ago');?></span>		   
-			<a href="#" title="<?php echo $this->__('Retweet');?>"><?php echo $this->__('Retweet');?></a>
-			<a href="#" title="<?php echo $this->__('Follow');?>"><?php echo $this->__('Follow');?></a>
-		</div>		 
+	<?php if($config['tw_widget']){?>
+	<div id="mt-twitter"> 
 	</div>
 	<?php 
-}else{ 
+}elseif (!$config['tw_widget'] && $config['twitter_replace']!=""){
 	echo $this->getLayout()->createBlock('cms/block')->setBlockId($config['twitter_replace'])->toHtml();
 }
 ?>
-<?php if(!$config['twitter_replace'] || !$config['facebook_replace']){?>
+<?php if($config['tw_widget'] || $config['fb_widget']){?>
 <script>
-<?php if(!$config['twitter_replace']){?>
+<?php if($config['tw_widget']){?>
 	$mtkb('#mt-twitter').twitterTimeline({ 
 		ajax: {
 			data: {
-				screen_name: '<?php echo $config['twitter_account']?>',
+				user: '<?php echo $config['twitter_account']?>',
+				count: <?php echo $config['twitter_numb']?>
 			}
 		},
 		count: <?php echo $config['twitter_numb']?>,
@@ -73,7 +68,7 @@ $config = Mage::getStoreConfig('mtcolinusadmin/social_config');
 		}
 	});
 	<?php }?>
-	<?php if(!$config['facebook_replace']){?>
+	<?php if($config['fb_widget']){?>
 		(function(d, s, id) {
 			var js, fjs = d.getElementsByTagName(s)[0];
 			if (d.getElementById(id)) return;
@@ -82,7 +77,7 @@ $config = Mage::getStoreConfig('mtcolinusadmin/social_config');
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 		<?php }?>
-		</script> 
+		</script>
 		<?php }?>
 	</div>
 </div>

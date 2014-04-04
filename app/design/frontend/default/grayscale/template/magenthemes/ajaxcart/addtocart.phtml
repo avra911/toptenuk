@@ -1,3 +1,7 @@
+<?php 
+	$otherconfig = Mage::getStoreConfig('mtcolinusadmin/otherconfig');
+	$config = Mage::getStoreConfig('mtcolinusadmin/static_config');
+?>
 <?php $_product = $this->getProduct(); ?>
 <?php $buttonTitle = $this->__('Add to Cart'); ?>
 <?php if($_product->isSaleable()): ?>
@@ -6,7 +10,7 @@
 			<button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span></span></button>
 		</div>
 			
-		<div class="qty-container span6">
+		<div class="qty-container <?php if ($config['static_product_view_sidebar']!=="" && $config['enabled_product_view_static']>0) : ?>span6<?php else: ?>span5 offset1<?php endif; ?>">
 			<?php if(!$_product->isGrouped()): ?>
 			<div class="quantity-label pull-left hidden-tablet">
 				<label for="qty"><?php echo $this->__('Quantity:') ?></label>

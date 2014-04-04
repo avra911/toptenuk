@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Magento
  *
@@ -33,26 +33,9 @@
 ?>
 <?php $_menu = $this->getHtml('level-top') ?>
 <?php if($_menu): ?>
-
 <div class="nav-container">
-<div class="search">
-					<?php echo $this->getChildHtml('topSearch') ?>
-					</div>
-				
-					
     <ul id="nav">
-	
-       <li><a href="<?php echo $this->getUrl('') ?>"><?php echo $this->__('Home') ?></a></li>
-	   <li><a href="/shop/<?php echo $this->__('repair.html') ?>"><?php echo $this->__('Repair') ?></a></li>
-	   <li><a href="/shop/<?php echo $this->__('service-support.html') ?>"><?php echo $this->__('Service and Support') ?></a></li>
-	   <li><a href="/shop/<?php echo $this->__('company-overview.html') ?>"><?php echo $this->__('About Us') ?></a></li>
-	   <li><a href="/shop/<?php echo $this->__('contact-us.html') ?>"><?php echo $this->__('Contact Us') ?></a></li>
-	   
-	     			
-			
-				</ul>
-				
-					
+        <?php echo $_menu ?>
+    </ul>
 </div>
-
 <?php endif ?>

@@ -3,15 +3,26 @@ $config = Mage::getStoreConfig('mtcolinusadmin/otherconfig');
 if($config['enabled_priceslider']){
 	$params = $this->getRequest()->getParams();
 	$category_id = $params['id'];
+	$currentCurrencyCode = Mage::app()->getStore()->getCurrentCurrencyCode();
 	$max = Mage::getModel('catalog/layer_filter_price');
 	$filter_max = $maxPrice = $max->getMaxPriceInt()+1;
 	$filter_min = 0;
-	if ( isset($_COOKIE['filterslider_min_'.$category_id]) && $_COOKIE['filterslider_min_'.$category_id] > $filter_min ) {
-		$filter_min = $_COOKIE['filterslider_min_'.$category_id];
+	if ( isset($_COOKIE['filterslider_min_'.$currentCurrencyCode.$category_id]) && $_COOKIE['filterslider_min_'.$currentCurrencyCode.$category_id] > $filter_min ) {
+		$filter_min = $_COOKIE['filterslider_min_'.$currentCurrencyCode.$category_id];
 	}
-	if ( isset($_COOKIE['filterslider_max_'.$category_id]) && $_COOKIE['filterslider_max_'.$category_id] > $filter_min && $_COOKIE['filterslider_max_'.$category_id] < $filter_max ) {
-		$filter_max = $_COOKIE['filterslider_max_'.$category_id];
+	if ( isset($_COOKIE['filterslider_max_'.$currentCurrencyCode.$category_id]) && $_COOKIE['filterslider_max_'.$currentCurrencyCode.$category_id] > $filter_min && $_COOKIE['filterslider_max_'.$currentCurrencyCode.$category_id] < $filter_max ) {
+		$filter_max = $_COOKIE['filterslider_max_'.$currentCurrencyCode.$category_id];
 	}
+	$baseCurrencyCode = Mage::app()->getStore()->getBaseCurrencyCode();
+    $currentCurrencyCode = Mage::app()->getStore()->getCurrentCurrencyCode();
+    if ( $baseCurrencyCode != $currentCurrencyCode ) {
+        $rate = Mage::helper('directory')->currencyConvert(1, $baseCurrencyCode, $currentCurrencyCode);
+        $max = $filter_max / $rate;
+        $min = $filter_min / $rate;
+    } else {
+        $max = $filter_max;
+        $min = $filter_min;
+    } 
 ?> 
 	<?php if($this->canShowBlock()): ?>
 	<div class="block block-layered-nav">
@@ -25,8 +36,8 @@ if($config['enabled_priceslider']){
 	            <dl id="narrow-by-list">  
 					<dd id="slider" style="height:11px; margin: 20px 0 20px 0;"></dd>
 					<dd> 
-					<span id="filter_min" class="filter_min"><?php $curr=Mage::helper('core')->currency('');$curr1=str_replace('.','',$curr); echo strip_tags(str_replace('0','',$curr1));?><?php echo $filter_min;?></span> 
-					<span id="filter_max" class="filter_max"><?php $curr=Mage::helper('core')->currency('');$curr1=str_replace('.','',$curr); echo strip_tags(str_replace('0','',$curr1));?><?php echo $filter_max;?></span>
+					<span id="filter_min" class="filter_min"><?php echo $this->helper('core')->currency($min, true, false) ; ?></span> 
+					<span id="filter_max" class="filter_max"><?php echo $this->helper('core')->currency($max, true, false) ; ?></span>
 					</dd> 
 				</dl>
 	            <script type="text/javascript">decorateDataList('narrow-by-list')</script>
@@ -37,16 +48,12 @@ if($config['enabled_priceslider']){
 			    params : '<?php unset($params['id']); echo http_build_query($params); ?>',
 			    currency : '<?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol(); ?>',
 			    category_id: <?php echo $category_id; ?>,
+			    currency_code : '<?php echo $currentCurrencyCode; ?>',
 			    filter_min: <?php echo $filter_min; ?>,
 			    filter_max: <?php echo $filter_max; ?>
 			}
 		</script>
-	</div>
-	<?php 	
-		$max=Mage::getModel('catalog/layer_filter_price');
-		$maxPrice=$max->getMaxPriceInt();
-		$maxPrice++;
-	?> 
+	</div> 
 	<input id="max-price" type="hidden" name="max-price" value="<?php echo $maxPrice; ?>">
 	<?php $url=Mage::getBaseUrl(); $pos=strpos($url,'index.php');  ?>
 	<input id="filter_url" type="hidden" name="filter_url" value="<?php echo $url;?>">  

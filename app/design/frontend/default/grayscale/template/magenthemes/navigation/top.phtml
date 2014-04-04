@@ -6,7 +6,6 @@ $routeName = Mage::app()->getRequest()->getRouteName();
 $identifier = Mage::getSingleton('cms/page')->getIdentifier(); 
  
 ?>
-<?php if($_menu): ?>
 <div class="mt-navigation visible-desktop">
 	<div class="mt-main-menu">
 		<ul id="nav" class="megamenu"> 
@@ -15,6 +14,7 @@ $identifier = Mage::getSingleton('cms/page')->getIdentifier();
 				<a href="<?php echo $this->getBaseUrl(); ?>" class="level-top"><span><?php echo $this->__('Home'); ?></span></a>
 			</li> 
 			<?php }?>
+            <?php if($_menu): ?>
 			<?php
 			echo $_menu;
 			if(Mage::getStoreConfig('mtcolinusadmin/custom_menu/enable_custom')){  
@@ -48,16 +48,16 @@ $identifier = Mage::getSingleton('cms/page')->getIdentifier();
 				}
 			}
 			?>
+                <script type="text/javascript">
+                    $mtkb(function(){
+                        $mtkb(".megamenu").megamenu({
+                            'animation':'<?php echo $megaeffect;?>',
+                            'mm_timeout': 150
+                        });
+                    });
+                </script>
+            <?php endif; ?>
 		</ul>
 	</div>
-</div> 
-<script type="text/javascript"> 
-$mtkb(function(){ 
-	$mtkb(".megamenu").megamenu({
-		'animation':'<?php echo $megaeffect;?>', 
-		'mm_timeout': 150
-	}); 
-});  
-</script>
-<?php endif ?>
+</div>
 <!-- navigation EOF -->

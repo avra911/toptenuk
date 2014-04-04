@@ -1,6 +1,9 @@
+<?php
+$product_config = Mage::getStoreConfig('mtcolinusadmin/product');
+if($product_config["product_prev_next"]):
+?>
 <?php $_prev = $this->getPreviousProduct(); ?>
-<?php $_next = $this->getNextProduct(); ?>
-
+<?php $_next = $this->getNextProduct(); ?> 
 <?php if($_prev || $_next): ?>
 <div class="block pager hidden-phone">
     <?php if($_prev): ?>
@@ -11,4 +14,5 @@
     <a rel="next" class="product-next right" title="<?php echo $this->escapeHtml($_next->getName()); ?>" href="<?php echo $_next->getProductUrl(); ?>"><?php echo Mage::helper('mtcolinusadmin')->__('Next') ?> &raquo;</a>
     <?php endif; ?>
 </div>
+<?php endif; ?>
 <?php endif; ?>

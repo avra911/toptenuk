@@ -68,21 +68,28 @@ $imgH = $productconfig['product_img_height'];
     <?php $_iterator = 0; ?>
     <ol class="products-list" id="products-list">
     <?php foreach ($_productCollection as $_product): ?>
+		<?php
+            $oType = false;
+            $product = Mage::getModel('catalog/product');
+            $product->load($_product->getId());
+            foreach ($product->getOptions() as $o) {
+                $optionType = $o->getType();
+                if ($optionType == 'file') {
+                    $oType = true;
+                }
+            }
+        ?>
         <li class="item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
             <div class="item-inner row-fluid show-grid content">
 				<div class="span4">
 					<div class="products-list-image">
 					<!--Product image-->
-					<?php if($otherconfig['enable_quicklook']){?>
-						<a href="javascript:void(0);" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image visible-desktop" id="product_<?php echo $_product->getId() ?>">
+						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image visible-desktop" id="product_<?php echo $_product->getId() ?>">
 							<?php echo $this->helper('mtcolinusadmin')->getLabel($_product);  ?>
 							<?php if($otherconfig['hover_product']=='show_image'){?>
 							<img class="mt-hover" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
 							<?php }?>
 							<img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
-							<div class="main-quicklook" style="display: none;">
-							<button type="button" title="<?php echo $this->__('Quickview') ?>" class="button btn-quicklook" onclick="quicklook('<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Quickview') ?></span></span></button>
-							</div>
 						</a>
 						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image hidden-desktop" id="product_<?php echo $_product->getId() ?>">
 							<?php echo $this->helper('mtcolinusadmin')->getLabel($_product);  ?>
@@ -91,16 +98,12 @@ $imgH = $productconfig['product_img_height'];
 							<?php }?>
 							<img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
 						</a>
-						<?php }else{?>
-						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image" id="product_<?php echo $_product->getId() ?>">
-							<?php echo $this->helper('mtcolinusadmin')->getLabel($_product);  ?>
-							<?php if($otherconfig['hover_product']=='show_image'){?>
-							<img class="mt-hover" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
-							<?php }?>
-							<img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
-						</a>
+						<?php if($otherconfig['enable_quicklook']){?>
+							<div class="main-quicklook" style="display: none;">
+								<button type="button" title="<?php echo $this->__('Quickview') ?>" class="button btn-quicklook" onclick="quicklook('<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Quickview') ?></span></span></button>
+							</div>
+							<a class="funcybox_quicklook quickllook" href="<?php echo $this->getUrl('mtcolinusadmin/index/quickview/product_id/' . $_product->getId()); ?>" id='quicklook<?php echo $_product->getId()?>' style='display:none'>Quick look</a>
 						<?php }?>
-						<a class="funcybox_quicklook quickllook" href="<?php echo $this->getUrl('mtcolinusadmin/index/quickview/product_id/' . $_product->getId()); ?>" id='quicklook<?php echo $_product->getId()?>' style='display:none'>Quick look</a>
 					</div>
 				</div>		
 				<?php // Product description ?>
@@ -138,7 +141,7 @@ $imgH = $productconfig['product_img_height'];
 						<div class="products-list-inner clearfix">
                             <span class="ajax-loading-list"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'/skin/frontend/default/mt_colinus/images/loading.gif';?>"/></span>
 							<div class="addtocart pull-left pad_right_1">
-								<?php if($otherconfig['enabled_ajax']){?>
+								<?php if($otherconfig['enabled_ajax'] && $oType == false){?>
 								<?php if($_product->isSaleable()): ?>
 									<?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) ) { ?>
 									<p class="add-to-cart clearfix"><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="ajaxaddcart('<?php echo $this->getAddToCartUrl($_product) ?>',<?php echo $_product->getId() ?>)"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
@@ -151,7 +154,7 @@ $imgH = $productconfig['product_img_height'];
 								<?php endif; ?>
 								<?php }else{?>
 									<?php if($_product->isSaleable()): ?>
-										<p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
+										<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart-options" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
 									<?php else: ?>
 										<p class="availability out-of-stock"><span><?php echo $this->__('Availability: ') ?></span><span><?php echo $this->__('Out of stock') ?></span></p>
 									<?php endif; ?>
@@ -201,7 +204,19 @@ $imgH = $productconfig['product_img_height'];
     }
     $span = 12/$_columnCount;
     ?>
+	
     <?php $i=0; foreach ($_productCollection as $_product): ?>
+		<?php
+        $oType = false;
+        $product = Mage::getModel('catalog/product');
+        $product->load($_product->getId());
+        foreach ($product->getOptions() as $o) {
+            $optionType = $o->getType();
+            if ($optionType == 'file') {
+                $oType = true;
+            }
+        }
+	?>
         <?php if ($i++%$_columnCount==0): ?>
         <div class="products-grid row-fluid show-grid">
         <?php endif ?>
@@ -209,16 +224,12 @@ $imgH = $productconfig['product_img_height'];
 				<div class="item-inner content">
 					<div class="product-image">
 						<div class="product-thumb">
-							<?php if($otherconfig['enable_quicklook']){?> 
-							<a href="javascript:void(0);" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image visible-desktop" id="product_<?php echo $_product->getId() ?>">
+							<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image visible-desktop" id="product_<?php echo $_product->getId() ?>">
 								<?php echo $this->helper('mtcolinusadmin')->getLabel($_product);  ?>
 								<?php if($otherconfig['hover_product']=='show_image'){?>
 									<img class="mt-hover" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
 								<?php }?>
 								<img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
-								<div class="main-quicklook" style="display: none;">
-									<button type="button" title="<?php echo $this->__('Quicklook') ?>" class="button btn-quicklook" onclick="quicklook('<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Quickview') ?></span></span></button>
-								</div>
 							</a>									
 							<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image hidden-desktop" id="product_<?php echo $_product->getId() ?>">
 								<?php echo $this->helper('mtcolinusadmin')->getLabel($_product);  ?>
@@ -227,16 +238,12 @@ $imgH = $productconfig['product_img_height'];
 								<?php }?>
 								<img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
 							</a>
-							<?php }else{?>
-							<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image" id="product_<?php echo $_product->getId() ?>">
-								<?php echo $this->helper('mtcolinusadmin')->getLabel($_product);  ?>
-								<?php if($otherconfig['hover_product']=='show_image'){?>
-									<img class="mt-hover" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
-								<?php }?>
-								<img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize($imgW, $imgH); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
-							</a>
-							<?php }?> 
-							<a class="funcybox_quicklook quickllook" href="<?php echo $this->getUrl('mtcolinusadmin/index/quickview/product_id/' . $_product->getId()); ?>" id='quicklook<?php echo $_product->getId()?>' style='display:none'>Quick look</a>
+							<?php if($otherconfig['enable_quicklook']){?> 
+								<div class="main-quicklook" style="display: none;">
+									<button type="button" title="<?php echo $this->__('Quickview') ?>" class="button btn-quicklook" onclick="quicklook('<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Quickview') ?></span></span></button>
+								</div>
+								<a class="funcybox_quicklook quickllook" href="<?php echo $this->getUrl('mtcolinusadmin/index/quickview/product_id/' . $_product->getId()); ?>" id='quicklook<?php echo $_product->getId()?>' style='display:none'>Quick look</a>
+							<?php }?>
 						</div>
 						<div class="mask" onclick="setLocation('<?php echo $_product->getProductUrl() ?>')">							
 							<h3 class="product-name">
@@ -268,7 +275,7 @@ $imgH = $productconfig['product_img_height'];
 						<div class="mt-actions clearfix">
                             <!--Add to cart-->
 							<div class="addtocart pull-left br">							
-								<?php if($otherconfig['enabled_ajax']){?>
+								<?php if($otherconfig['enabled_ajax'] && $oType == false){?>
 								<?php if($_product->isSaleable()): ?>
 									<?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) ) { ?>
 									<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="ajaxaddcart('<?php echo $this->getAddToCartUrl($_product) ?>',<?php echo $_product->getId() ?>)"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
@@ -284,7 +291,7 @@ $imgH = $productconfig['product_img_height'];
 								<?php endif; ?>
 								<?php }else{?>
 									<?php if($_product->isSaleable()): ?>
-										<p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
+										<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart-options" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
 									<?php else: ?>
 										<p class="availability out-of-stock pull-left">
 											<?php /* <span><?php echo $this->__('Availability: ') ?></span> */ ?>

@@ -10,7 +10,7 @@ $mtkb(function($){
 		var ids = $("#category").val(); 
 		var filtervalue = $("#slider").slider('values');
 		var baseurl= $('#filter_url').val(); 
-		var remainurl='mtcolinusadmin/filter/view?min='+ filtervalue[0] +'&max='+ filtervalue[1] +'&id='+ids ; 
+		var remainurl='mtcolinusadmin/filter/view?min='+ filtervalue[0] +'&max='+ filtervalue[1] +'&id='+ids ;
 		var correctbaseurl=baseurl + remainurl; 
 		if ( Magen_filterslider.params != '' ) {
             correctbaseurl += '&' + Magen_filterslider.params;
@@ -27,10 +27,10 @@ $mtkb(function($){
 		},
 		create: function(){
 			filterProduct(); 
-		},
-		stop: function(event, ui){
-			$.cookie("filterslider_min_"+Magen_filterslider.category_id, ui.values[0], { path: '/' });
-            $.cookie("filterslider_max_"+Magen_filterslider.category_id, ui.values[1], { path: '/' });
+		}, 
+		stop: function(event, ui){ 
+            $.cookie("filterslider_min_"+Magen_filterslider.currency_code+Magen_filterslider.category_id, ui.values[0], { path: '/' });
+            $.cookie("filterslider_max_"+Magen_filterslider.currency_code+Magen_filterslider.category_id, ui.values[1], { path: '/' });
 			filterProduct(); 
 		}
 	});

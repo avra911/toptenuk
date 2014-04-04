@@ -33,19 +33,28 @@
 ?>
 <?php $_helper = $this->helper('catalog/output'); ?>
 <?php $_product = $this->getProduct(); ?>
+<?php
+    foreach ($_product->getOptions() as $o) {
+        $optionType = $o->getType();
+        if ($optionType == 'file') {
+            $oType = true;
+        }
+    }
+    ?>
  
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
-<div class="product-view ">
+<div class="product-view quickview">
     <div class="product-essential row-fluid show-grid">
     <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
-		<div class="input-related" >		
+		
+        <div class="product-img-box-view span6">
+            <div class="input-related" >		
 				<input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
 				<input type="hidden" name="related_product" id="related-products-field" value="" />
-        </div>
-        <div class="product-img-box span6">
+            </div>
             <?php echo $this->getChildHtml('media') ?>
         </div>
         
@@ -93,15 +102,24 @@
 			
             <?php echo $this->getChildHtml('other');?>
 
-            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
-            <?php endif;?>
-            
-            
-            <div class="clearer"></div>
-            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-                <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
-            <?php endif;?>
+            <?php if($oType == false){?>
+				<?php if ($_product->isSaleable() && $this->hasOptions()):?>
+					<?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+				<?php endif;?>
+
+				<div class="clearer"></div>
+				<?php if ($_product->isSaleable() && $this->hasOptions()):?>
+					<?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+				<?php endif;?>
+			<?php }else{?>
+				<div class="product-options-bottom">
+					<div class="add-to-cart row-fluid show-grid">
+						<div class="addcart span6">
+							<button type="button" title="Add to Cart" class="button btn-cart" onclick="parent.productView('<?php echo $_product->getProductUrl();?>')"><span><span>Add to Cart</span></span></button>
+						</div>
+					</div>
+				</div>
+			<?php }?>
         </div> 
     </form>
     <script type="text/javascript">
@@ -120,7 +138,7 @@
     				url = $mtkb('#product_addtocart_form').attr('action');
     			}
  
-    			url = url.replace("checkout/cart","mtdendadmin/index"); // New Code
+    			url = url.replace("checkout/cart","mtcolinusadmin/index"); // New Code
     			var data = $mtkb('#product_addtocart_form').serialize(); 
     			data += '&isAjax=1';  
     			try {

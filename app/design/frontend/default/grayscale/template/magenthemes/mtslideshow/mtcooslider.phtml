@@ -87,7 +87,7 @@
             ?>
             <div class="slide_item">
                 <div class="image-slider" data-effect="<?php echo $s['file_animate'];?>">
-                    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'js/magenthemes/mtslideshow/timthumb/timthumb.php?src='.$this->helper('mtslideshow/image')->init($s['file']).'&amp;h='.$h.'&amp;w='.$w ?>" />
+                    <img src="<?php echo $this->helper('mtslideshow/image')->init($s['file'])->resize($w, $h); ?>" />
                 </div>
 				<div class="content">	
 					<?php if($displaytitle && $s['title']!=''){?>
@@ -97,7 +97,7 @@
 					<?php }?>
 					<?php if($displaydesc && $s['description']!=''){?>
 					<div class="slider-desc">
-					<p class="description"data-effect="<?php echo $s['desc_animate'];?>"><?php echo $s['description'];?></p>
+					<p class="description" data-effect="<?php echo $s['desc_animate'];?>"><?php echo $s['description'];?></p>
 					</div>
 					<?php }?>
 					<?php if($displaymore && $s['link']!=''){?>
