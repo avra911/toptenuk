@@ -1034,8 +1034,7 @@ a:active{
 {
 	color:#D9673B;
 }
-.page a:hover,
-a:hover,
+
 .ajax-container .product-details a:hover,
 .block-account .block-content li.current strong,
 .checkout-progress li.active,
@@ -1625,9 +1624,6 @@ mt-social ul li { padding: 0 0 0 5px !important; }
  padding:0 0 20px 0 }
 
 	.naviga{
-
-		margin-left: 4px;
-		margin-right: 4px;
 	}
 
 .naviga,

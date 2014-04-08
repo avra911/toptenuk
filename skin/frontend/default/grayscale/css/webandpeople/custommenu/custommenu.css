@@ -9,6 +9,13 @@
 *:first-child+html #custommenu {
 	z-index: 998;
 }
+div.menu.act {
+    background-color:#B33726;
+}
+div.menu.active {
+    background-color:#FFC0CB;
+}
+
 div.menu {
 	float: left;
 }

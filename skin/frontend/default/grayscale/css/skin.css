@@ -2814,7 +2814,6 @@ div.tabs_ul a:link, div.tabs_ul a:visited {
 
 #custommenu {
 	position: relative;
-	padding: 2px 0px 2px 0px;
 	width: 100%;
 	margin-left: 4px;
 
@@ -3389,7 +3388,6 @@ hr {
 }
 
 .home_page_header_block {
-    margin: 2px 0px 0 0px;
     clear: both;
 position: relative;
 width: 100%;
@@ -3911,7 +3909,6 @@ div.promo_sting {
 .breadcrumbs {
    background-color: rgb(246, 246, 246);
 line-height: 55px;
-margin: 0 5px 0 5px;
 height: 55px;
 outline: medium none;
 padding: 0px;
@@ -6057,8 +6054,7 @@ ul.flex li{
 }
 
 ul.flex li:hover,ul.flex a:hover, ul li li a:hover {
-background: #049af4;
-color: #fff;
+background: #929292;
 }
 
 ul.dividers li a{
