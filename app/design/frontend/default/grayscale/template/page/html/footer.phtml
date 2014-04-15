@@ -3,6 +3,50 @@ $logo_alt = Mage::getStoreConfig('design/header/logo_alt');
 $logo_src = Mage::getStoreConfig('design/header/logo_src');
 $home_url = Mage::getBaseUrl();
 
+class Amasty_Shopby_Block_Featured1 extends Mage_Core_Block_Template
+{
+    public function getItems1()
+    {
+        $items = array();
+        // get filter ID by attribute code 
+        $id = Mage::getResourceModel('amshopby/filter')
+            ->getIdByCode($this->getAttributeCode());
+         
+        if ($id){
+            $items = Mage::getResourceModel('amshopby/value_collection')
+                ->addFieldToFilter('is_featured', 1)
+                ->addFieldToFilter('filter_id', $id)
+                ->addValue();  
+                
+            if ($this->getRandom()){
+                $items->setOrder('rand()');
+            } 
+            else {
+                $items->setOrder('value', 'asc');    
+                $items->setOrder('title', 'asc');    
+            }  
+             
+            if ($this->getLimit()){
+                $items->setPageSize(intVal($this->getLimit()));
+            }   
+                
+            $hlp = Mage::helper('amshopby/url');
+            $base = Mage::getBaseUrl('media') . 'amshopby/';
+            foreach ($items as $item){
+                if ($item->getImgBig())
+                    $item->setImgBig($base . $item->getImgBig());   
+                
+                $attrCode = 'Format';
+                $optLabel = $item->getValue() ? $item->getValue() : $item->getTitle();
+                $optId    = $item->getOptionId();
+                $item->setUrl($hlp->getOptionUrl($attrCode, $optLabel, $optId));   
+            }
+        }
+        return $items;
+    }
+
+}
+
 
 ?>
 
@@ -63,6 +107,18 @@ $home_url = Mage::getBaseUrl();
     						<div class="span6"> 
                         		 <div class="row-fluid show-grid"> 
                         		 	<div class="span6"> 
+									
+<div class="amshopby-featured1-wrapper">
+<?php foreach ($this->getItems1() as $item):?>
+    <a href="<?php echo $item->getUrl()?>">
+    <?php if ($item->getImgBig()) : ?>
+        <img class="amshopby-featured1" title="<?php echo $this->htmlEscape($item->getTitle())?>" alt="<?php echo $this->htmlEscape($item->getTitle())?>" src="<?php echo $item->getImgBig()?>" />
+    <?php else: ?>
+    <?php echo $this->htmlEscape($item->getTitle())?>
+        <?php endif ?>
+    </a>
+<?php endforeach ?>
+</div>
 	<div class="facebook">
 	<div class="footer-static-title">
 			<h3>Tape Drives</h3>
