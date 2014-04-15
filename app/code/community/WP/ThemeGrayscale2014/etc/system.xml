@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <web_and_people translate="label" module="themegrayscale2014">
+            <label>Web-And-People</label>
+            <sort_order>150</sort_order>
+        </web_and_people>
+    </tabs>
+    <sections>
+        <theme_grayscale2014 translate="label" module="themegrayscale2014">
+            <label>Theme Grayscale Full-Width</label>
+            <tab>web_and_people</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>0</show_in_website>
+            <show_in_store>0</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <version translate="label">
+                            <label>Theme Release</label>
+                            <frontend_type>label</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </version>
+                    </fields>
+                </general>
+            </groups>
+        </theme_grayscale2014>
+    </sections>
+</config>

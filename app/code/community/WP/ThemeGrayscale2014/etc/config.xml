@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <WP_ThemeGrayscale2014>
+            <version>1.2.1</version>
+        </WP_ThemeGrayscale2014>
+    </modules>
+    <global>
+        <helpers>
+            <themegrayscale2014>
+                <class>WP_ThemeGrayscale2014_Helper</class>
+            </themegrayscale2014>
+        </helpers>
+    </global>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <theme_grayscale2014 translate="title" module="themegrayscale2014">
+                                            <title><![CDATA[Web & People: Theme Grayscale Full-Width]]></title>
+                                            <sort_order>1000</sort_order>
+                                        </theme_grayscale2014>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <default>
+        <theme_grayscale2014>
+            <general>
+                <version>1.2.1</version>
+            </general>
+        </theme_grayscale2014>
+    </default>
+</config>
