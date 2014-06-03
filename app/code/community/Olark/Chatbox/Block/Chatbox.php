@@ -46,20 +46,24 @@ class Olark_Chatbox_Block_Chatbox
     }
 
     /**
+     * @param $value
+     * @return mixed
+     */
+    protected function _formatPrice($value) {
+        return Mage::helper('core')->currency(
+            $value,
+            true, // Format the value for the localized currency.
+            false // Do not HTMLize the value.
+        );
+    }
+
+    /**
      * Produces Olark Chatbox html
      *
      * @return string
      */
     protected function _toHtml()
     {
-        function formatPrice($value) {
-            return Mage::helper('core')->currency(
-                $value,
-                true, // Format the value for the localized currency.
-                false // Do not HTMLize the value.
-            );
-        }
-
         $customer = array();
         $products = array();
         $totalValueOfItems = 0;
@@ -104,7 +108,7 @@ class Olark_Chatbox_Block_Chatbox
                 // more information in the future without updating
                 // our Magento app.
                 $magentoItem = $item->getData();
-                $magentoItem['formatted_price'] = formatPrice($item->getPrice());
+                $magentoItem['formatted_price'] = $this->_formatPrice($item->getPrice());
 
                 $product = array(
                     'name' => $item->getName(),
@@ -125,7 +129,7 @@ class Olark_Chatbox_Block_Chatbox
             $extraItems[] = array(
                 'name' => $name,
                 'price' => $total->getValue(),
-                'formatted_price' => formatPrice($total->getValue())
+                'formatted_price' => $this->_formatPrice($total->getValue())
             );
             if ('subtotal' == $name)  {
                 $totalValueOfItems = $total->getValue();
@@ -136,7 +140,7 @@ class Olark_Chatbox_Block_Chatbox
         $recentEvents = $this->_popRecentEvents();
         $magentoData = array(
             'total' => $totalValueOfItems,
-            'formatted_total' => formatPrice($totalValueOfItems),
+            'formatted_total' => $this->_formatPrice($totalValueOfItems),
             'extra_items' => $extraItems,
             'recent_events' => $recentEvents 
         );
@@ -145,13 +149,13 @@ class Olark_Chatbox_Block_Chatbox
         // CartSaver-specific configuration.
         $html = '
         <!-- begin olark code -->
-        <script type="text/javascript"[]>
+        <script type="text/javascript">
           window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){f[z]=function(){(a.s=a.s||[]).push(arguments)};var a=f[z]._={},q=c.methods.length;while(q--){(function(n){f[z][n]=function(){f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={0:+new Date};a.P=function(u){a.p[u]=new Date-a.p[0]};function s(){a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){hd="head";return["<",hd,"></",hd,"><",i,\' onl\' + \'oad="var d=\',g,";d.getElementsByTagName(\'head\')[0].",j,"(d.",h,"(\'script\')).",k,"=\'",l,"//",a.l,"\'",\'"\',"></",i,">"].join("")}var i="body",m=d[i];if(!m){return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{b.contentWindow[g].open()}catch(w){c[e]=d[e];o="javascript:var d="+g+".open();d.domain=\'"+d.domain+"\';";b[k]=o+"void(0);"}try{var t=b.contentWindow[g];t.write(p());t.close()}catch(x){b[k]=o+\'d.write("\'+p().replace(/"/g,String.fromCharCode(92)+\'"\')+\'");d.close();\'}a.P(2)};ld()};nt()})({
           loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]});
         </script>
         <noscript><a href="https://www.olark.com/site/'.$siteID.'/contact" title="Contact us" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a></noscript>
         <!-- olark magento cart saver -->
-        <script type="text/javascript"[]>
+        <script type="text/javascript">
           olark.extend("CartSaver");
           olark.configure("CartSaver.version", "Magento@'.$this->_getVersion().'");
           olark.configure("CartSaver.customer", '.json_encode($customer).');
@@ -160,7 +164,7 @@ class Olark_Chatbox_Block_Chatbox
         </script>
         <!-- custom olark config -->
         '.$this->getData('customConfig').'
-        <script type="text/javascript"[]>
+        <script>
           olark.identify("'.$siteID.'");
         </script>
         ';
